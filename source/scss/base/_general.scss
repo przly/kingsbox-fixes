@@ -15,6 +15,12 @@ body {
 	color: var(--color-white);
 }
 
+// Inverted on dark backgrounds, where the default would be black on black
+.bg-black,
+.bg-gray-950 {
+	@include dark-surface-selection;
+}
+
 // Modal window - prevent scrolling
 body {
 	@extend %page_text;

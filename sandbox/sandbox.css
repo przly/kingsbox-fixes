@@ -12,3 +12,8 @@
 	text-transform: uppercase;
 	text-align: center;
 }
+
+.sandbox-filler ::selection {
+	background-color: #fff;
+	color: #000;
+}

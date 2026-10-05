@@ -372,3 +372,12 @@
 		}
 	}
 }
+
+// Text selection on dark surfaces: the global ::selection is black with white text, which is invisible there
+@mixin dark-surface-selection {
+	&::selection,
+	::selection {
+		background-color: var(--color-white);
+		color: var(--color-black);
+	}
+}

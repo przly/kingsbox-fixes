@@ -52,6 +52,9 @@ $cookie_bar_easing: cubic-bezier(0.22, 1, 0.36, 1);
 			right: 6px;
 		}
 
+		// The bar is dark and sits outside any .bg-black section
+		@include dark-surface-selection;
+
 		// Brighter dots around the cursor, as on the cards (position set in card.js)
 		@include pointer-dots-highlight;
 

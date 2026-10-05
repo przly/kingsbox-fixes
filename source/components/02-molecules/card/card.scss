@@ -24,6 +24,10 @@
 	}
 
 	// ##################################################
+	// The card is dark on any background
+	@include dark-surface-selection;
+
+	// ##################################################
 	// Brighter dots around the cursor (position set in card.js)
 
 	position: relative;
