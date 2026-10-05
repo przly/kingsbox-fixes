@@ -1,56 +1,97 @@
-# Kingsbox homepage hero sandbox
+# Kingsbox fixes
 
-Standalone copy of the homepage hero (`hero-module`) from `kingsbox/165-1-kingsbox-prenova`, taken from `develop` at `d420e0fd` (2026-10-02).
+Changes made to the original components of `kingsbox/165-1-kingsbox-prenova`. Paths are relative to the repo's `source/` folder. Everything not listed here is unchanged.
 
-```bash
-pnpm install
-pnpm dev        # http://localhost:3020
-```
+## Hero module
 
-| Route | What it shows |
+`components/03-modules/hero-module/`
+
+Compared against `develop` at `1ff287de` (2026-10-01).
+
+**`hero-module.js`**
+
+| | Original | Now |
+| --- | --- | --- |
+| Intro duration per element | 0.4s | 0.5s |
+| Title word stagger | 0.1s | `min(0.025s, 0.3s / word count)`, so the whole title stays under 0.3s |
+| Button stagger | 0.1s | 0.05s |
+| Overlap between text, title and buttons | `-=0.2` | `-=0.45` (each group starts 0.05s after the previous one) |
+| Stagger on the single super-title paragraph | 0.1s | removed |
+
+- New background parallax: `.hero-module__bg` moves `yPercent: 20` while the hero scrolls out (`top top` to `bottom top`, scrubbed). Skipped with `prefers-reduced-motion: reduce`.
+
+**`hero-module.scss`**
+
+- `max-width` of the content block: 460px to 520px.
+- `will-change: transform` added on the background, for the parallax.
+
+## About module
+
+`components/03-modules/about-module/`
+
+**Title reveal on scroll** (`about-module.js`, `about-module.scss`)
+
+The title is split into words and each word slides up from behind its own mask when the title scrolls into view.
+
+| | Value |
 | --- | --- |
-| `/` | `hero-module` followed by `about-module` (both `default` variants) and a placeholder block, as one scrolling page |
-| `/about-module/` | `about-module`, `default` variant, on its own |
+| Movement | `translateY(220%)` to 0 |
+| Duration | 1s per word |
+| Easing | `cubic-bezier(0.16, 1, 0.3, 1)` |
+| Stagger | 0.015s |
+| Trigger | once, when 40% of the title is in the viewport (`start: '40% bottom'`) |
+| Word mask | `clip-path: inset(-0.4em -0.15em -0.4em 0)` |
 
-## What is where
+- The script splits the title itself with `Splitting`, so `about-module.twig` is unchanged.
+- The start state is in the SCSS, inside `prefers-reduced-motion: no-preference`. The title is hidden until the script has split it. With reduced motion there is no split and no animation.
+- Applies to the title in every variant.
 
-`source/` mirrors the repo's `source/` folder with the same paths and unmodified files, so anything changed here can be copied or diffed straight back.
+## Card
 
-| Path | What it is |
+`components/02-molecules/card/`
+
+**Cursor highlight on the dot pattern** (`card.scss`, new `card.js`)
+
+The dots brighten around the cursor.
+
+| | Value |
 | --- | --- |
-| `source/components/03-modules/hero-module/hero-module.js` | The GSAP intro timeline and the scroll-scrubbed overlay |
-| `source/components/03-modules/hero-module/hero-module.scss` | Hero styles, including the hidden start states of the animated elements |
-| `source/components/03-modules/hero-module/hero-module.twig` | Original template, for reference only (not rendered here) |
-| `source/components/01-atoms/` | The atoms the hero uses: button, icons, margin, section-margin, title |
-| `source/scss/` | The full global SCSS (variables, mixins, reset, utilities, `slowZoom` keyframes) |
-| `index.html` | `hero-module.twig` rendered by hand with the `default` context from `hero-module.config.json` |
-| `sandbox/` | Glue that is not in the repo (see below) |
+| Resting dots | `--color-gray-800` (unchanged) |
+| Peak dot colour | `#595959` (35% lightness) |
+| Radius | 200px |
+| Falloff | eased (cosine), nine stops |
+| Fade in / out | 150ms / 400ms, `ease-out` |
 
-## About module route
+- `card.scss`: `position: relative` and `@include pointer-dots-highlight` (see Mixins).
+- `card.js` is a new file. It sets `--card-pointer-x`, `--card-pointer-y` and the `is-pointer-near` class on every card within 200px of the cursor, so the highlight carries into neighbouring cards.
+- It keeps tracking while the page scrolls under a still cursor.
+- The last cursor position is kept in `sessionStorage`, so the highlight also works after a reload before the cursor has moved.
+- Only cards in the viewport are measured, at most once per frame.
+- Only on devices with `(hover: hover) and (pointer: fine)`.
 
-The about-module markup exists twice, in `index.html` and in `about-module/index.html`, so a markup change has to be made in both. `/about-module/` is the `default` variant of `about-module`, copied from the local clone's `develop` at `1ff287de` (2026-10-01), together with what it includes: `02-molecules/card`, `01-atoms/mod-counter` and `03-modules/editor-text`, plus the four card icons in `source/images/`.
+## Advance cookie banner
 
-| Path | What it is |
-| --- | --- |
-| `about-module/index.html` | `about-module.twig` rendered by hand with the `default` context from `about-module.config.json` |
-| `sandbox/about-module.js` | Entry for the route |
-| `sandbox/about-globals.js` | `countUp` (from `vendor.js`) and the `breakpointSm` / `setupResponsiveSliders` excerpt of `01_default.js` that `about-module.js` calls |
+`components/02-molecules/advance-cookie-banner/advance-cookie-banner.scss`
 
-## Cookie banner
+All changes are on `.advance-cookie-banner__bar`. The script and the twig are unchanged.
 
-Both routes end with `02-molecules/advance-cookie-banner`, placed after `</main>` as in the repo's `homepage.twig`, rendered by hand with the context from its config. It came with `01-atoms/toggle`, and `sandbox/cookie-globals.js` supplies `Cookies` (js-cookie, from `vendor.js`) and the `attachEvent` / `toggleBodyScrollLock` excerpt of `01_default.js`. The markup exists in both HTML files. The bar shows until `necessary_cookie` is set; delete that cookie for `localhost` to see it again.
+- **Border:** `1px solid rgba($cgp_white, 0.08)`, the same as the cards.
+- **Cursor highlight:** `@include pointer-dots-highlight`, the same effect as on the cards. `card.js` tracks the bar as well.
+- **Move in / move out**, replacing the 0.5s opacity fade:
 
-Swiper is not loaded, because the `default` variant has no steps slider. The `secondary` variant needs it, along with `02-molecules/step-card` and `02-molecules/section-header`.
+| | Move in | Move out |
+| --- | --- | --- |
+| Trigger | `.cookie-not-set` added | `.cookie-not-set` removed (accept, confirm choice, allow all) |
+| Duration | 500ms, after a 300ms delay | 300ms |
+| Easing | `cubic-bezier(0.22, 1, 0.36, 1)` | same |
+| Movement | from `translateY(100% + 20px)` to 0 | back to `translateY(100% + 20px)` |
+| Opacity | 0 to 1 | 1 to 0 |
 
-## Differences from the real site
+- Move in is a keyframe animation (`cookieBarIn`), move out is a transition.
+- With `prefers-reduced-motion: reduce` the bar only fades.
 
-- `index.html` is static HTML. If the markup changes, port the change to `hero-module.twig` by hand.
-- `sandbox/vendor-globals.js` replaces the gulp `vendor.js` bundle and exposes `gsap`, `ScrollTrigger`, `CustomEase`, `Lenis` and `Splitting` as globals.
-- `sandbox/default-excerpt.js` holds the two bits of `source/scripts/01_default.js` that affect the hero: the Lenis setup (desktop only, above 1023px) and the `Splitting()` call.
-- The site header, which sits on top of the hero on the real homepage, is not included.
-- A placeholder block below the about module stands in for the rest of the homepage so the page keeps scrolling.
-- Only the video variant is rendered. For the background-image variant (the one that uses `slowZoom`), swap the `hero-module__bg` block in `index.html` for the image markup from the twig file.
+## Mixins
 
-## CSS build
+`scss/mixins/_mixins.scss`
 
-`vite.config.js` compiles `source/scss/style.scss` and every `source/components/**/*.scss` separately and concatenates them into `source/css/bundle.css`, the same way `config/css.config.js` does in the repo. Sass is pinned to 1.58.3 to match the repo, so pnpm prints an unmet peer warning for Vite; it can be ignored because Vite's own Sass pipeline is not used.
+- New `pointer-dots-highlight` mixin, shared by the card and the cookie bar. It holds the highlight colour, the mask radius and falloff, and the fade timings. The 200px radius is repeated as `cardPointerRadius` in `card.js`.
