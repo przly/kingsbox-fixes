@@ -1,0 +1,31 @@
+<div data-component="at-mod-counter" class="mod-counter">
+	<div class="mod-counter__number : text--7xl">
+		{% if mod_counter.number__number %}
+			<span class="mod-counter__number-wrap : p-relative">
+				<span
+					data-decimal="{{ mod_counter.text__decimal }}"
+					data-separator="{{ mod_counter.text__separator }}"
+					data-counter="{{ mod_counter.number__number }}"
+					class="mod-counter__number-counting"
+				>
+					{{ mod_counter.number__number }}
+				</span>
+
+				<span
+					class="mod-counter__number-static"
+					data-static-counter="true"
+					data-decimal="{{ mod_counter.text__decimal }}"
+					data-separator="{{ mod_counter.text__separator }}"
+					data-counter="{{ mod_counter.number__number }}"
+					aria-hidden="true"
+				>
+					{{ mod_counter.number__number }}
+				</span>
+			</span>
+		{% endif %}
+
+		{% if mod_counter.text__label %}
+			<span>{{ mod_counter.text__label }}</span>
+		{% endif %}
+	</div>
+</div>

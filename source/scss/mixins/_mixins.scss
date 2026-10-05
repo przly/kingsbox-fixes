@@ -1,0 +1,374 @@
+// Full width element
+@use 'sass:math';
+
+@mixin absoluted-fullwidth {
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+@mixin user-select {
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+// Placeholder mixin
+@mixin placeholder($color, $opacity: 1) {
+	::-webkit-input-placeholder {
+		color: $color;
+		opacity: $opacity;
+	}
+
+	:-ms-input-placeholder {
+		color: $color;
+		opacity: $opacity;
+	}
+
+	::placeholder {
+		color: $color;
+		opacity: $opacity;
+	}
+}
+
+// Modern scrollbar mixin
+@mixin scrollbar($size: 4px, $thumb: #999, $track: transparent, $radius: 8px) {
+	// Firefox
+	scrollbar-width: thin;
+	scrollbar-color: $thumb $track;
+
+	// Chrome, Edge, Safari
+	&::-webkit-scrollbar {
+		width: $size;
+		height: $size;
+	}
+
+	&::-webkit-scrollbar-track {
+		background: $track;
+		border-radius: $radius;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background: $thumb;
+		border-radius: $radius;
+	}
+
+	&::-webkit-scrollbar-thumb:hover {
+		background: color-mix(in srgb, $thumb 80%, black);
+	}
+}
+
+@mixin columns($num, $gap) {
+	-moz-column-count: $num;
+	-webkit-column-count: $num;
+	column-count: $num;
+	-moz-column-gap: $gap;
+	-webkit-column-gap: $gap;
+	column-gap: $gap;
+}
+
+@mixin horizontal-vertical-align($position: relative) {
+	position: $position;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+// Filters
+@mixin filter-default($value) {
+	-webkit-filter: $value;
+	filter: $value;
+}
+
+@mixin filter-grayscale($percent: 100%) {
+	-webkit-filter: grayscale($percent);
+	filter: grayscale($percent);
+}
+
+//********************************************
+// X.X - BREAKPOINT MIXINS
+//********************************************
+
+// Media of at least the minimum breakpoint width. No query for the smallest breakpoint.
+// Makes the @content apply to the given breakpoint and wider.
+@mixin bp-up($name, $breakpoints: $grid-breakpoints) {
+	$min: breakpoint-min($name, $breakpoints);
+
+	@if $min {
+		@media (min-width: $min) {
+			@content;
+		}
+	} @else {
+		@content;
+	}
+}
+
+// Media of at most the maximum breakpoint width. No query for the largest breakpoint.
+// Makes the @content apply to the given breakpoint and narrower.
+@mixin bp-down($name, $breakpoints: $grid-breakpoints) {
+	$max: breakpoint-max($name, $breakpoints);
+
+	@if $max {
+		@media (max-width: $max) {
+			@content;
+		}
+	} @else {
+		@content;
+	}
+}
+
+// Media that spans multiple breakpoint widths.
+// Makes the @content apply between the min and max breakpoints
+@mixin bp-between($lower, $upper, $breakpoints: $grid-breakpoints) {
+	$min: breakpoint-min($lower, $breakpoints);
+	$max: breakpoint-max($upper, $breakpoints);
+
+	@if $min !=null and $max !=null {
+		@media (min-width: $min) and (max-width: $max) {
+			@content;
+		}
+	} @else if $max==null {
+		@include media-breakpoint-up($lower, $breakpoints) {
+			@content;
+		}
+	} @else if $min==null {
+		@include media-breakpoint-down($upper, $breakpoints) {
+			@content;
+		}
+	}
+}
+
+// Media between the breakpoint's minimum and maximum widths.
+// No minimum for the smallest breakpoint, and no maximum for the largest one.
+// Makes the @content apply only to the given breakpoint, not viewports any wider or narrower.
+@mixin bp-only($name, $breakpoints: $grid-breakpoints) {
+	$min: breakpoint-min($name, $breakpoints);
+	$max: breakpoint-max($name, $breakpoints);
+
+	@if $min !=null and $max !=null {
+		@media (min-width: $min) and (max-width: $max) {
+			@content;
+		}
+	} @else if $max==null {
+		@include media-breakpoint-up($name, $breakpoints) {
+			@content;
+		}
+	} @else if $min==null {
+		@include media-breakpoint-down($name, $breakpoints) {
+			@content;
+		}
+	}
+}
+
+//********************************************
+// X.X - Animations and Keyframes
+//********************************************
+
+// Prefixer
+@mixin prefixr($attr, $value, $prefixes) {
+	@each $prefix in $prefixes {
+		@if $prefix==webkit {
+			-webkit-#{$attr}: $value;
+			-moz-#{$attr}: $value;
+		} @else if $prefix==cstm {
+			#{$attr}: $value;
+		}
+	}
+}
+
+// Animations
+@mixin anim-cstm($name, $coords: 0 0 0) {
+	$duration: nth($coords, 1);
+	$delay: nth($coords, 2);
+	$iteration: nth($coords, 3);
+	@include prefixr(animation-name, $name, webkit cstm);
+	@include prefixr(animation-duration, $duration, webkit cstm);
+	@include prefixr(animation-delay, $delay, webkit cstm);
+
+	@if type-of($iteration) ==number and unitless($iteration) or type-of($iteration) !=number {
+		@include prefixr(animation-iteration-count, $iteration, webkit cstm);
+	} @else if type-of($iteration) ==number and not unitless($iteration) {
+		@include prefixr(animation-iteration-count, 1, webkit cstm);
+	}
+}
+
+// Keyframes
+// use always with anim-cstm() @mixin
+// name value need to be the same as anim-cstm() @mixin name value
+@mixin anim-kf($animation-name) {
+	@-webkit-keyframes #{$animation-name} {
+		@content;
+	}
+
+	//@-moz-keyframes #{$animation-name} { @content; }
+	//@-ms-keyframes #{$animation-name} { @content; }
+	//@-o-keyframes #{$animation-name} { @content; }
+	@keyframes #{$animation-name} {
+		@content;
+	}
+}
+
+//********************************************
+// X.X - Custom row and custom col ready
+//********************************************/
+
+// Custom col ready
+@mixin make-custom-row-ready() {
+	// Desktop XL
+	@include bp-only(xl) {
+		margin-left: -#{$gutter_xl * 0.5};
+		margin-right: -#{$gutter_xl * 0.5};
+	}
+
+	// Desktop
+	@include bp-only(lg) {
+		margin-left: -#{$gutter_lg * 0.5};
+		margin-right: -#{$gutter_lg * 0.5};
+	}
+
+	// Tablet L
+	@include bp-only(md) {
+		margin-left: -#{$gutter_md * 0.5};
+		margin-right: -#{$gutter_md * 0.5};
+	}
+
+	// Tablet P
+	@include bp-only(sm) {
+		margin-left: -#{$gutter_sm * 0.5};
+		margin-right: -#{$gutter_sm * 0.5};
+	}
+
+	// Mobile
+	@include bp-only(xs) {
+		margin-left: -#{$gutter_xs * 0.5};
+		margin-right: -#{$gutter_xs * 0.5};
+	}
+}
+
+// Custom col ready
+@mixin make-custom-col-ready() {
+	// Desktop XL
+	@include bp-only(xl) {
+		padding-left: $gutter_xl * 0.5;
+		padding-right: $gutter_xl * 0.5;
+	}
+
+	// Desktop
+	@include bp-only(lg) {
+		padding-left: $gutter_lg * 0.5;
+		padding-right: $gutter_lg * 0.5;
+	}
+
+	// Tablet L
+	@include bp-only(md) {
+		padding-left: $gutter_md * 0.5;
+		padding-right: $gutter_md * 0.5;
+	}
+
+	// Tablet P
+	@include bp-only(sm) {
+		padding-left: $gutter_sm * 0.5;
+		padding-right: $gutter_sm * 0.5;
+	}
+
+	// Mobile
+	@include bp-only(xs) {
+		padding-left: $gutter_xs * 0.5;
+		padding-right: $gutter_xs * 0.5;
+	}
+}
+
+// Calculate col width
+@mixin calc-col($num) {
+	$cont_cell: math.div($container_xl, 12) - ($gutter_xl - math.div($gutter_xl, 11));
+
+	width: floor(($cont_cell * $num) + (($num - 1) * $gutter_xl));
+}
+
+//********************************************
+// X.X - Remove hashtag from color code
+//********************************************/
+
+@function str-replace($string, $search, $replace: '') {
+	$index: str-index($string, $search);
+
+	@if $index {
+		// stylelint-disable-next-line
+		@return str-slice($string, 1, $index - 1) + $replace +
+			str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+	}
+
+	@return $string;
+}
+
+// Returns color withouth the hashtag in front
+@function color-without-hash($color) {
+	$stringed_color: quote('#{$color}');
+	$sliced_string: str-replace($stringed_color, '#', '');
+	@return $sliced_string;
+}
+
+// Mixin to generate the pulsing marker style and its animation
+@mixin pulsing-marker($color, $animation-name) {
+	background-color: $color;
+	box-shadow: 0 0 0 rgba($color, 0.4);
+	animation: #{$animation-name} 2s infinite;
+
+	@keyframes #{$animation-name} {
+		0% {
+			box-shadow: 0 0 0 0 rgba($color, 0.4);
+		}
+		70% {
+			box-shadow: 0 0 0 20px rgba($color, 0);
+		}
+		100% {
+			box-shadow: 0 0 0 0 rgba($color, 0);
+		}
+	}
+}
+
+// Cursor highlight for the dot pattern (cards, cookie banner): a brighter copy of the dots, revealed
+// only around the cursor. card.js sets --card-pointer-x/y and the is-pointer-near class.
+// The element needs to be positioned (relative, absolute or fixed).
+@mixin pointer-dots-highlight {
+	@media (hover: hover) and (pointer: fine) {
+		isolation: isolate;
+
+		&:before {
+			content: '';
+			position: absolute;
+			inset: 0;
+			z-index: -1;
+			border-radius: inherit;
+			// Peak colour, right under the cursor: 35% lightness, between --color-gray-600 and --color-gray-500
+			background-image: radial-gradient(circle, #595959 1px, transparent 1px);
+			background-size: 11px 11px;
+			// Eased (cosine) falloff, so the highlight has no visible peak or edge.
+			// Keep the radius in sync with cardPointerRadius in card.js
+			$mask: radial-gradient(
+				circle 200px at var(--card-pointer-x, 50%) var(--card-pointer-y, 50%),
+				rgba(#000, 1) 0%,
+				rgba(#000, 0.96) 12.5%,
+				rgba(#000, 0.85) 25%,
+				rgba(#000, 0.69) 37.5%,
+				rgba(#000, 0.5) 50%,
+				rgba(#000, 0.31) 62.5%,
+				rgba(#000, 0.15) 75%,
+				rgba(#000, 0.04) 87.5%,
+				rgba(#000, 0) 100%
+			);
+			-webkit-mask-image: $mask;
+			mask-image: $mask;
+			opacity: 0;
+			pointer-events: none;
+			transition: opacity 400ms ease-out;
+		}
+
+		// Set by card.js on every element within reach of the cursor, also while scrolling under a still cursor
+		&.is-pointer-near:before {
+			opacity: 1;
+			transition-duration: 150ms;
+		}
+	}
+}

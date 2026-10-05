@@ -1,0 +1,17 @@
+// General focus style
+
+:focus {
+	outline: none;
+}
+
+a,
+button,
+.btn,
+.focus-visible,
+.focus-within {
+	outline-offset: 6px;
+
+	&:focus-visible {
+		@extend %focus_style;
+	}
+}

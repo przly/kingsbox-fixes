@@ -1,0 +1,540 @@
+{
+	"title": "icons",
+	"status": "acceptance",
+	"default": "arrow-right",
+	"variants": [
+		{
+			"name": "arrow-right",
+			"notes": "Right arrow icon",
+			"context": {
+				"icon_modifier": "arrow-right"
+			}
+		},
+		{
+			"name": "arrow-left",
+			"notes": "Left arrow icon",
+			"context": {
+				"icon_modifier": "arrow-left"
+			}
+		},
+		{
+			"name": "chevron-down",
+			"notes": "Down chevron icon",
+			"context": {
+				"icon_modifier": "chevron-down"
+			}
+		},
+		{
+			"name": "chevron-up",
+			"notes": "Up chevron icon",
+			"context": {
+				"icon_modifier": "chevron-up"
+			}
+		},
+		{
+			"name": "chevron-left",
+			"notes": "Left chevron icon",
+			"context": {
+				"icon_modifier": "chevron-left"
+			}
+		},
+		{
+			"name": "chevron-right",
+			"notes": "Righ chevron icon",
+			"context": {
+				"icon_modifier": "chevron-right"
+			}
+		},
+		{
+			"name": "search",
+			"notes": "search icon",
+			"context": {
+				"icon_modifier": "search"
+			}
+		},
+		{
+			"name": "facebook",
+			"notes": "facebook icon",
+			"context": {
+				"icon_modifier": "facebook"
+			}
+		},
+		{
+			"name": "instagram",
+			"notes": "instagram icon",
+			"context": {
+				"icon_modifier": "instagram"
+			}
+		},
+		{
+			"name": "twitter",
+			"notes": "twitter icon",
+			"context": {
+				"icon_modifier": "twitter"
+			}
+		},
+		{
+			"name": "linkedin",
+			"notes": "linkedin icon",
+			"context": {
+				"icon_modifier": "linkedin"
+			}
+		},
+		{
+			"name": "plus",
+			"notes": "Plus icon",
+			"context": {
+				"icon_modifier": "plus"
+			}
+		},
+		{
+			"name": "minus",
+			"notes": "minus icon",
+			"context": {
+				"icon_modifier": "minus"
+			}
+		},
+		{
+			"name": "close",
+			"notes": "close icon",
+			"context": {
+				"icon_modifier": "close"
+			}
+		},
+		{
+			"name": "question",
+			"notes": "question icon",
+			"context": {
+				"icon_modifier": "question"
+			}
+		},
+		{
+			"name": "store",
+			"notes": "store icon",
+			"context": {
+				"icon_modifier": "store"
+			}
+		},
+		{
+			"name": "cart",
+			"notes": "cart icon",
+			"context": {
+				"icon_modifier": "cart"
+			}
+		},
+		{
+			"name": "cart-plus",
+			"notes": "cart-plus icon",
+			"context": {
+				"icon_modifier": "cart-plus"
+			}
+		},
+		{
+			"name": "doc",
+			"notes": "Doc icon",
+			"context": {
+				"icon_modifier": "doc"
+			}
+		},
+		{
+			"name": "doc-plus",
+			"notes": "doc-plus icon",
+			"context": {
+				"icon_modifier": "doc-plus"
+			}
+		},
+		{
+			"name": "user",
+			"notes": "user icon",
+			"context": {
+				"icon_modifier": "user"
+			}
+		},
+		{
+			"name": "heart",
+			"notes": "heart icon",
+			"context": {
+				"icon_modifier": "heart"
+			}
+		},
+		{
+			"name": "message",
+			"notes": "message icon",
+			"context": {
+				"icon_modifier": "message"
+			}
+		},
+		{
+			"name": "badge-check",
+			"notes": "badge-check icon",
+			"context": {
+				"icon_modifier": "badge-check"
+			}
+		},
+		{
+			"name": "sort",
+			"notes": "sort icon",
+			"context": {
+				"icon_modifier": "sort"
+			}
+		},
+		{
+			"name": "sort-down",
+			"notes": "sort-down icon",
+			"context": {
+				"icon_modifier": "sort-down"
+			}
+		},
+		{
+			"name": "sort-up",
+			"notes": "sort-up icon",
+			"context": {
+				"icon_modifier": "sort-up"
+			}
+		},
+
+		{
+			"name": "logo",
+			"notes": "logo icon",
+			"context": {
+				"icon_modifier": "logo"
+			}
+		},
+		{
+			"name": "sort-digit-down",
+			"notes": "sort-digit-down icon",
+			"context": {
+				"icon_modifier": "sort-digit-down"
+			}
+		},
+		{
+			"name": "sort-digit-up",
+			"notes": "sort-digit-up icon",
+			"context": {
+				"icon_modifier": "sort-digit-up"
+			}
+		},
+		{
+			"name": "sort-alpha-down",
+			"notes": "sort-alpha-down icon",
+			"context": {
+				"icon_modifier": "sort-alpha-down"
+			}
+		},
+		{
+			"name": "sort-alpha-up",
+			"notes": "sort-alpha-up icon",
+			"context": {
+				"icon_modifier": "sort-alpha-up"
+			}
+		},
+		{
+			"name": "trash",
+			"notes": "trash icon",
+			"context": {
+				"icon_modifier": "trash"
+			}
+		},
+		{
+			"name": "trash-secondary",
+			"notes": "trash-secondary icon",
+			"context": {
+				"icon_modifier": "trash-secondary"
+			}
+		},
+		{
+			"name": "party",
+			"notes": "party icon",
+			"context": {
+				"icon_modifier": "party"
+			}
+		},
+		{
+			"name": "speech-bubble",
+			"notes": "speech-bubble icon",
+			"context": {
+				"icon_modifier": "speech-bubble"
+			}
+		},
+		{
+			"name": "female",
+			"notes": "female icon",
+			"context": {
+				"icon_modifier": "female"
+			}
+		},
+		{
+			"name": "male",
+			"notes": "male icon",
+			"context": {
+				"icon_modifier": "male"
+			}
+		},
+		{
+			"name": "mail",
+			"notes": "mail icon",
+			"context": {
+				"icon_modifier": "mail"
+			}
+		},
+		{
+			"name": "triangle-shapes",
+			"notes": "triangle-shapes icon",
+			"context": {
+				"icon_modifier": "triangle-shapes"
+			}
+		},
+		{
+			"name": "user-plus",
+			"notes": "user-plus icon",
+			"context": {
+				"icon_modifier": "user-plus"
+			}
+		},
+		{
+			"name": "compare",
+			"notes": "Compare icon",
+			"context": {
+				"icon_modifier": "compare"
+			}
+		},
+		{
+			"name": "map",
+			"notes": "Map icon",
+			"context": {
+				"icon_modifier": "map"
+			}
+		},
+		{
+			"name": "map-pin",
+			"notes": "map-pin icon",
+			"context": {
+				"icon_modifier": "map-pin"
+			}
+		},
+		{
+			"name": "phone",
+			"notes": "phone icon",
+			"context": {
+				"icon_modifier": "phone"
+			}
+		},
+		{
+			"name": "phone call",
+			"notes": "phone call icon",
+			"context": {
+				"icon_modifier": "phone-call"
+			}
+		},
+		{
+			"name": "edit",
+			"notes": "edit icon",
+			"context": {
+				"icon_modifier": "edit"
+			}
+		},
+		{
+			"name": "info",
+			"notes": "info icon",
+			"context": {
+				"icon_modifier": "info"
+			}
+		},
+		{
+			"name": "copy",
+			"notes": "copy icon",
+			"context": {
+				"icon_modifier": "copy"
+			}
+		},
+		{
+			"name": "save",
+			"notes": "save icon",
+			"context": {
+				"icon_modifier": "save"
+			}
+		},
+		{
+			"name": "eye",
+			"notes": "eye icon",
+			"context": {
+				"icon_modifier": "eye"
+			}
+		},
+		{
+			"name": "download",
+			"notes": "Download icon",
+			"context": {
+				"icon_modifier": "download"
+			}
+		},
+		{
+			"name": "lock",
+			"notes": "lock icon",
+			"context": {
+				"icon_modifier": "lock"
+			}
+		},
+		{
+			"name": "flag",
+			"notes": "flag icon",
+			"context": {
+				"icon_modifier": "flag"
+			}
+		},
+		{
+			"name": "document-dollar",
+			"notes": "document-dollar icon",
+			"context": {
+				"icon_modifier": "document-dollar"
+			}
+		},
+		{
+			"name": "dumbbells",
+			"notes": "dumbbells icon",
+			"context": {
+				"icon_modifier": "dumbbells"
+			}
+		},
+		{
+			"name": "filter",
+			"notes": "filter icon",
+			"context": {
+				"icon_modifier": "filter"
+			}
+		},
+		{
+			"name": "filter-close",
+			"notes": "filter-close icon",
+			"context": {
+				"icon_modifier": "filter-close"
+			}
+		},
+		{
+			"name": "sort-default",
+			"notes": "sort-default icon",
+			"context": {
+				"icon_modifier": "sort-default"
+			}
+		},
+		{
+			"name": "video-link",
+			"notes": "video-link icon",
+			"context": {
+				"icon_modifier": "video-link"
+			}
+		},
+		{
+			"name": "target-blank",
+			"notes": "target-blank icon",
+			"context": {
+				"icon_modifier": "target-blank"
+			}
+		},
+		{
+			"name": "bell",
+			"notes": "Bell icon",
+			"context": {
+				"icon_modifier": "bell"
+			}
+		},
+		{
+			"name": "3d",
+			"notes": "3d icon",
+			"context": {
+				"icon_modifier": "3d"
+			}
+		},
+		{
+			"name": "history",
+			"notes": "history icon",
+			"context": {
+				"icon_modifier": "history"
+			}
+		},
+		{
+			"name": "party-star",
+			"notes": "Party Star icon",
+			"context": {
+				"icon_modifier": "party-star"
+			}
+		},
+		{
+			"name": "star",
+			"notes": "Star icon",
+			"context": {
+				"icon_modifier": "star"
+			}
+		},
+		{
+			"name": "chat",
+			"notes": "chat icon",
+			"context": {
+				"icon_modifier": "chat"
+			}
+		},
+		{
+			"name": "bin",
+			"notes": "bin icon",
+			"context": {
+				"icon_modifier": "bin"
+			}
+		},
+		{
+			"name": "hourglass",
+			"notes": "Hourglass icon",
+			"context": {
+				"icon_modifier": "hourglass"
+			}
+		},
+		{
+			"name": "delivery-truck",
+			"notes": "Delivery Truck icon",
+			"context": {
+				"icon_modifier": "delivery-truck"
+			}
+		},
+		{
+			"name": "hand-package",
+			"notes": "Hand Package icon",
+			"context": {
+				"icon_modifier": "hand-package"
+			}
+		},
+		{
+			"name": "home",
+			"notes": "Home icon",
+			"context": {
+				"icon_modifier": "home"
+			}
+		},
+		{
+			"name": "psychology",
+			"notes": "psychology icon",
+			"context": {
+				"icon_modifier": "psychology"
+			}
+		},
+		{
+			"name": "euro",
+			"notes": "euro icon",
+			"context": {
+				"icon_modifier": "euro"
+			}
+		},
+		{
+			"name": "m2",
+			"notes": "m2 icon",
+			"context": {
+				"icon_modifier": "m2"
+			}
+		},
+		{
+			"name": "clock",
+			"notes": "clock icon",
+			"context": {
+				"icon_modifier": "clock"
+			}
+		}
+	]
+}

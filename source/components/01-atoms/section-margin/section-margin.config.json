@@ -1,0 +1,9 @@
+{
+  "title": "Section Margin",
+  "status": "acceptance",
+  "notes": "Section Margin",
+  "context": {
+    "margin": true,
+    "spacing_size": "small"
+  }
+}

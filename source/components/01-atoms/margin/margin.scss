@@ -1,0 +1,453 @@
+// ##################################################
+// Margin
+// ##################################################
+
+@import '../../../scss/import';
+
+// Style
+.margin {
+	display: block;
+	width: 100%;
+
+	// ##################################################
+
+	&--300 {
+		height: 300px;
+
+		// Desktop Large and Down
+		@media #{$breakpoint-xl-down} {
+			height: 240px;
+		}
+
+		// Desktop
+		@media #{$breakpoint-lg-down} {
+			height: 180px;
+		}
+
+		// Tablet
+		@media #{$breakpoint-md-down} {
+			height: 140px;
+		}
+
+		// Tablet P
+		@media #{$breakpoint-sm-down} {
+			height: 90px;
+		}
+	}
+
+	// ##################################################
+
+	&--260 {
+		height: 260px;
+
+		// Desktop Large and Down
+		@media #{$breakpoint-xl-down} {
+			height: 200px;
+		}
+
+		// Desktop
+		@media #{$breakpoint-lg-down} {
+			height: 160px;
+		}
+
+		// Tablet
+		@media #{$breakpoint-md-down} {
+			height: 120px;
+		}
+
+		// Tablet P
+		@media #{$breakpoint-sm-down} {
+			height: 80px;
+		}
+	}
+
+	// ##################################################
+
+	&--200 {
+		height: 200px;
+
+		// Desktop Large and Down
+		@media #{$breakpoint-xl-down} {
+			height: 180px;
+		}
+
+		// Desktop
+		@media #{$breakpoint-lg-down} {
+			height: 150px;
+		}
+
+		// Tablet
+		@media #{$breakpoint-md-down} {
+			height: 120px;
+		}
+
+		// Tablet P
+		@media #{$breakpoint-sm-down} {
+			height: 80px;
+		}
+	}
+
+	// ##################################################
+
+	&--180 {
+		height: 180px;
+
+		// Desktop
+		@media #{$breakpoint-lg-down} {
+			height: 150px;
+		}
+
+		// Tablet
+		@media #{$breakpoint-md-down} {
+			height: 120px;
+		}
+
+		// Tablet P
+		@media #{$breakpoint-sm-down} {
+			height: 80px;
+		}
+	}
+
+	// ##################################################
+
+	&--168 {
+		height: 168px;
+
+		// Desktop Large and Down
+		@media #{$breakpoint-xl-down} {
+			height: 140px;
+		}
+
+		// Desktop
+		@media #{$breakpoint-lg-down} {
+			height: 120px;
+		}
+
+		// Tablet
+		@media #{$breakpoint-md-down} {
+			height: 80px;
+		}
+	}
+
+	// ##################################################
+
+	&--160 {
+		height: 160px;
+
+		// Desktop Large and Down
+		@media #{$breakpoint-xl-down} {
+			height: 140px;
+		}
+
+		// Desktop
+		@media #{$breakpoint-lg-down} {
+			height: 120px;
+		}
+
+		// Tablet
+		@media #{$breakpoint-md-down} {
+			height: 80px;
+		}
+	}
+
+	// ##################################################
+
+	&--150 {
+		height: 150px;
+
+		// Desktop Large and Down
+		@media #{$breakpoint-xl-down} {
+			height: 130px;
+		}
+
+		// Desktop
+		@media #{$breakpoint-lg-down} {
+			height: 110px;
+		}
+
+		// Tablet
+		@media #{$breakpoint-md-down} {
+			height: 80px;
+		}
+	}
+
+	// ##################################################
+
+	&--140 {
+		height: 140px;
+
+		// Desktop Large and Down
+		@media #{$breakpoint-xl-down} {
+			height: 120px;
+		}
+
+		// Desktop
+		@media #{$breakpoint-lg-down} {
+			height: 100px;
+		}
+
+		// Tablet
+		@media #{$breakpoint-md-down} {
+			height: 80px;
+		}
+	}
+
+	// ##################################################
+
+	&--130 {
+		height: 130px;
+
+		// Desktop
+		@media #{$breakpoint-lg-down} {
+			height: 100px;
+		}
+
+		// Tablet
+		@media #{$breakpoint-md-down} {
+			height: 80px;
+		}
+	}
+
+	// ##################################################
+
+	&--128 {
+		height: 128px;
+
+		// Desktop
+		@media #{$breakpoint-lg-down} {
+			height: 100px;
+		}
+
+		// Tablet
+		@media #{$breakpoint-md-down} {
+			height: 80px;
+		}
+	}
+
+	// ##################################################
+
+	&--120 {
+		height: 120px;
+
+		// Desktop
+		@media #{$breakpoint-lg-down} {
+			height: 100px;
+		}
+
+		// Tablet
+		@media #{$breakpoint-md-down} {
+			height: 80px;
+		}
+	}
+
+	// ##################################################
+
+	&--108 {
+		height: 108px;
+
+		// Desktop
+		@media #{$breakpoint-lg-down} {
+			height: 90px;
+		}
+
+		// Tablet
+		@media #{$breakpoint-md-down} {
+			height: 80px;
+		}
+	}
+
+	// ##################################################
+
+	&--104 {
+		height: 104px;
+
+		// Desktop
+		@media #{$breakpoint-lg-down} {
+			height: 90px;
+		}
+
+		// Tablet
+		@media #{$breakpoint-md-down} {
+			height: 80px;
+		}
+	}
+
+	// ##################################################
+
+	&--100 {
+		height: 100px;
+
+		// Tablet
+		@media #{$breakpoint-md-down} {
+			height: 80px;
+		}
+
+		// Tablet P
+		@media #{$breakpoint-sm-down} {
+			height: 60px;
+		}
+	}
+
+	// ##################################################
+
+	&--96 {
+		height: 96px;
+
+		// Tablet
+		@media #{$breakpoint-md-down} {
+			height: 80px;
+		}
+
+		// Tablet P
+		@media #{$breakpoint-sm-down} {
+			height: 60px;
+		}
+	}
+
+	// ##################################################
+
+	&--90 {
+		height: 90px;
+
+		// Desktop
+		@media #{$breakpoint-lg-down} {
+			height: 70px;
+		}
+
+		// Tablet
+		@media #{$breakpoint-md-down} {
+			height: 60px;
+		}
+
+		// Mobile
+		@media #{$breakpoint-xs-only} {
+			height: 50px;
+		}
+	}
+
+	// ##################################################
+
+	&--80 {
+		height: 80px;
+
+		// Desktop
+		@media #{$breakpoint-lg-down} {
+			height: 70px;
+		}
+
+		// Tablet
+		@media #{$breakpoint-md-down} {
+			height: 60px;
+		}
+	}
+
+	// ##################################################
+
+	&--70 {
+		height: 70px;
+
+		// Desktop
+		@media #{$breakpoint-lg-down} {
+			height: 60px;
+		}
+
+		// Tablet
+		@media #{$breakpoint-md-down} {
+			height: 50px;
+		}
+
+		// Mobile
+		@media #{$breakpoint-xs-only} {
+			height: 40px;
+		}
+	}
+
+	// ##################################################
+
+	&--64 {
+		height: 64px;
+
+		// Tablet
+		@media #{$breakpoint-md-down} {
+			height: 44px;
+		}
+
+		// Mobile
+		@media #{$breakpoint-xs-only} {
+			height: 36px;
+		}
+	}
+
+	// ##################################################
+
+	&--60 {
+		height: 60px;
+
+		// Tablet
+		@media #{$breakpoint-md-down} {
+			height: 40px;
+		}
+
+		// Mobile
+		@media #{$breakpoint-xs-only} {
+			height: 30px;
+		}
+	}
+
+	// ##################################################
+
+	&--50 {
+		height: 50px;
+
+		// Tablet
+		@media #{$breakpoint-md-down} {
+			height: 40px;
+		}
+
+		// Mobile
+		@media #{$breakpoint-xs-only} {
+			height: 30px;
+		}
+	}
+
+	// ##################################################
+
+	&--40 {
+		height: 40px;
+
+		// Tablet
+		@media #{$breakpoint-md-down} {
+			height: 30px;
+		}
+	}
+
+	// ##################################################
+
+	&--32 {
+		height: 32px;
+	}
+
+	// ##################################################
+
+	&--30 {
+		height: 30px;
+	}
+
+	// ##################################################
+
+	&--24 {
+		height: 24px;
+	}
+
+	// ##################################################
+
+	&--20 {
+		height: 20px;
+	}
+
+	// ##################################################
+
+	&--16 {
+		height: 16px;
+	}
+}

@@ -1,0 +1,318 @@
+//*******************************************************************************
+// GENERAL
+//*******************************************************************************
+
+html,
+body {
+	scroll-behavior: smooth;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+// Text selection styling
+::selection {
+	background-color: var(--color-black);
+	color: var(--color-white);
+}
+
+// Modal window - prevent scrolling
+body {
+	@extend %page_text;
+	color: var(--color-gray-900);
+	font-family: var(--font-primary);
+	position: relative;
+	height: auto;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	align-items: flex-start;
+
+	// background-color: #000000;
+
+	// stylelint-disable-next-line
+	&.#{$class_body_scroll_lock},
+	&.#{$class_open_menu},
+	&.#{$class_open_search},
+	&.#{$class_open_mega_menu},
+	&.noscroll {
+		overflow: hidden;
+		padding-right: var(--scroll-width, 0px);
+	}
+}
+
+// Prevents text selection styling
+.noselect,
+.noselect * {
+	@include user-select;
+}
+
+ul,
+ol {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+//*******************************************************************************
+// GENERAL : Text styles
+//*******************************************************************************
+
+// Everything inside will inherit text style from parent
+.text,
+.title,
+.title-main {
+	* {
+		@extend %inherit_textstyles;
+	}
+}
+
+// Paragraphs
+p {
+	margin: 0;
+}
+
+// Links
+a {
+	color: inherit;
+	text-decoration: none;
+	// transition: color 0.3s ease, border 0.3s ease;
+}
+
+// Italic text
+i,
+em {
+	font-style: italic;
+}
+
+// Headings
+@for $i from 1 through 6 {
+	// stylelint-disable-next-line
+	h#{$i} {
+		font-weight: inherit;
+		font-size: inherit;
+		margin: 0;
+	}
+}
+
+//*******************************************************************************
+// GENERAL : Images
+//*******************************************************************************
+
+img {
+	margin: 0;
+	max-height: 100%;
+	max-width: 100%;
+	height: auto;
+	width: auto;
+	object-fit: cover;
+}
+
+figure {
+	img {
+		margin: 0;
+	}
+}
+
+img.lazyload,
+img.lazyloaded {
+	transition: opacity 0.1s ease, transform 0.3s ease !important;
+}
+
+//*******************************************************************************
+// GENERAL : Section
+//*******************************************************************************
+
+.sc-general {
+	width: 100%;
+	position: relative;
+}
+
+//*******************************************************************************
+// GENERAL : Slider
+//*******************************************************************************
+
+// Hide all slides expect first one till slider loading
+.swiper:not(.swiper-initialized) {
+	.swiper-pagination,
+	.swiper-slide:not(:first-of-type) {
+		display: none !important;
+	}
+}
+
+// Reset the default arrows
+.swiper-button-prev:after,
+.swiper-button-next:after {
+	font-size: 0 !important;
+}
+
+//*******************************************************************************
+// GENERAL : Form
+//*******************************************************************************
+
+form select::-ms-expand {
+	display: none;
+}
+
+input,
+select,
+textarea {
+	box-shadow: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	appearance: none;
+}
+
+// Ipad and mobile devices
+input,
+textarea {
+	-webkit-appearance: none;
+	border-radius: 0;
+}
+
+// Remove default red border for HTML5 validation
+input:invalid:not(:focus) {
+	outline: none;
+}
+
+// Removes "clear field" X buttons in IE
+textarea::-ms-clear,
+input::-ms-clear {
+	display: none;
+}
+
+button {
+	@extend %reset_button;
+}
+
+main {
+	width: 100%;
+	flex: 1 0 auto;
+	padding-top: calc(var(--header-height, 91px) + 24px);
+	position: relative;
+
+	@media #{$breakpoint-sm-down} {
+		padding-top: calc(var(--header-height, 86px) + 24px);
+	}
+
+	&:has(.sc-search-banner:first-child),
+	&:has(.sc-hero-module:first-child),
+	&:has(.sc-project-flows:first-child),
+	&.remove-top-spacing {
+		padding-top: 0;
+	}
+
+	&.dark-page {
+		background-color: $cgp_black;
+	}
+}
+
+//**********************************************************
+// GENERAL : Environment badge
+//**********************************************************
+
+.sdt-env__badge {
+	position: fixed;
+	display: block;
+	right: 40px; // same as height
+	height: 40px;
+	line-height: 40px;
+	transform-origin: 100% 0;
+	background-color: #1a2e44;
+	padding: 0 35px;
+	border-radius: 15px 15px 0 0;
+	transform: rotate(270deg);
+	z-index: 99999;
+	font-weight: bold;
+	color: white;
+	font-size: 13px;
+	font-family: sans-serif;
+
+	.icon {
+		background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIGlkPSJhIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNDAuNjMiIGhlaWdodD0iMTU5LjQ0IiB2aWV3Qm94PSIwIDAgMTQwLjYzIDE1OS40NCI+PHBhdGggZD0iTTI1LjUxLDI5LjgzYy00LjMtMi40OC0yLjQ4LTMuNTMsMS4yNC01LjczUzY0LjQ1LDIuNjIsNjcuMjIsMS4xczQuMzktMS42Miw4LjU5LC43NiwzNy40MiwyMS4zOCw0MC4xOSwyMi44MiwyLjQ4LDMuMTUsMCw0LjU4LTguNzgsNS4xNS0xMC45OCw2LjExLTYuNzgsLjY3LTkuNjQtMS4wNS0xNC43LTguNS0xOC45LTExLjM2LTcuMzUtMi42Ny0xMi4zMSwuMTktMTcuMjgsMTAuMDItMjAuMDUsMTEuNDYtNi40OSwyLjM5LTEwLjEyLC40OC04LjUtNS4yNS04LjUtNS4yNVoiIHN0eWxlPSJmaWxsOiNmZmY7Ii8+PHBhdGggZD0iTTI0Ljk4LDY0LjQ5YzIuNzcsMS40MywzNS45OSwyMC40Myw0MC4xOSwyMi44MnM1LjgyLDIuMjksOC41OSwuNzYsMzYuNzUtMjAuODEsNDAuNDgtMjMuMDFsNy4wNS0zLjY3djQ3LjM1czExLjQ2LDYuMzYsMTQuNzYsOC41NCw0LjU4LS45LDQuNTgtNC4yMVY0Ni4xMmMwLTEwLjE4LTguNC0xMi4yMi0xNS4yNy04LjY2cy0yOC40OSwxNy4xLTI4LjQ5LDE3LjFjLTIuNzcsMS40My0xNS4wOCw4LjU5LTIwLjA1LDExLjQ2cy04LjExLDMuMDUtMTIuMzEsLjE5LTE2LjA0LTkuNjQtMTguOS0xMS4zNmMwLDAtMjAuOC0xMi41NS0yOC42OS0xNi42MlMuMTEsMzcuNDcsLjExLDQ1LjM2LS4xNCwxMDguNzUsLjExLDExMi41NnMyLjA1LDYuMDgsNi44NywzLjU2YzcuMjItMy43NiwxMi43My03LjM4LDEyLjczLTcuMzhsLjc2LTQ2LjU5LDQuNTEsMi4zM1oiIHN0eWxlPSJmaWxsOiMyMmQxNzI7Ii8+PHBhdGggZD0iTTEyNS40OCwxMjMuNjFjNC4zLDIuNDgsMi40OCwzLjUzLTEuMjQsNS43M3MtNDcuNzEsMjcuNDgtNTAuNDgsMjkuMDEtNC4zOSwxLjYyLTguNTktLjc2LTQ3LjQyLTI3LjM4LTUwLjE5LTI4LjgyLTIuNDgtMy4xNSwwLTQuNTgsOC43OC01LjE1LDEwLjk4LTYuMTEsNi43OC0uNjcsOS42NCwxLjA1LDI0LjcsMTQuNSwyOC45LDE3LjM2LDcuMzUsMi42NywxMi4zMS0uMTksMjcuMjgtMTYuMDIsMzAuMDUtMTcuNDYsNi40OS0yLjM5LDEwLjEyLS40OCw4LjUsNS4yNSw4LjUsNS4yNVoiIHN0eWxlPSJmaWxsOiNmZmY7Ii8+PC9zdmc+') !important;
+		background-position: center bottom;
+		background-repeat: no-repeat;
+		background-size: 20px 20px;
+		float: right;
+		width: 20px;
+		height: 30px;
+		margin-left: 10px;
+
+		&::before {
+			background-color: transparent;
+		}
+	}
+
+	.mailtrap-unread-email {
+		display: inline-block;
+		box-sizing: border-box;
+		margin: 12px 0 0 25px;
+		min-width: 18px;
+		height: 18px;
+		border-radius: 9px;
+		background-color: #d63638;
+		color: #fff;
+		font-size: 11px;
+		line-height: 1.6;
+		text-align: center;
+		z-index: 26;
+	}
+
+	&.local {
+		background-color: #fdb833;
+		color: #2b2b2b;
+	}
+
+	&.staging {
+		background-color: #ea3546;
+	}
+
+	&.production {
+		background-color: #1789fc;
+	}
+}
+
+// ##################################################
+// Hide captcha on front
+.grecaptcha-badge,
+.g-captcha,
+.g-recaptcha {
+	position: absolute !important;
+	right: 100vw !important;
+	top: -100vh !important;
+}
+
+// ##################################################
+// Query monitor errors
+div#qm-fatal,
+div#qm-fatal h2 {
+	background: #000000 !important;
+}
+
+iframe[src*='googletagmanager'] {
+	position: absolute;
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
+}
+
+html.lenis,
+html.lenis body {
+	height: auto;
+}
+
+.lenis.lenis-smooth {
+	scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+	overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+	overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+	pointer-events: none;
+}

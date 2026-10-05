@@ -1,0 +1,813 @@
+// ##################################################
+// 0.0 Icons
+// ##################################################
+
+@import '../../../scss/import';
+
+.icon {
+	width: 14px;
+	height: 14px;
+	display: block;
+	position: relative;
+
+	// Icons for hover effect
+	&::before {
+		background-color: currentColor;
+		-webkit-mask-size: contain;
+		mask-size: contain;
+		-webkit-mask-repeat: no-repeat;
+		mask-repeat: no-repeat;
+		-webkit-mask-position: center;
+		mask-position: center;
+		@extend %content;
+		transition: background-color 0.3s ease;
+	}
+
+	// ##################################################
+
+	&-chevron-up,
+	&-chevron-down {
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$chevron_down}');
+			mask-image: url('data:image/svg+xml,#{$chevron_down}');
+		}
+	}
+
+	// ##################################################
+
+	&-chevron-left,
+	&-chevron-right {
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$chevron_right}');
+			mask-image: url('data:image/svg+xml,#{$chevron_right}');
+		}
+	}
+
+	// ##################################################
+
+	&-arrow-right,
+	&-arrow-left {
+		width: 20px;
+		height: 20px;
+
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$arrow_right}');
+			mask-image: url('data:image/svg+xml,#{$arrow_right}');
+		}
+	}
+
+	// ##################################################
+
+	&-arrow-up,
+	&-arrow-down {
+		width: 20px;
+		height: 25px;
+
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$arrow_down}');
+			mask-image: url('data:image/svg+xml,#{$arrow_down}');
+		}
+	}
+
+	// ##################################################
+
+	&-chevron-left,
+	&-arrow-up,
+	&-chevron-up,
+	&-arrow-left {
+		&:before {
+			transform: scale(-1);
+		}
+	}
+
+	// ##################################################
+
+	&-check {
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$icon_check}');
+			mask-image: url('data:image/svg+xml,#{$icon_check}');
+		}
+	}
+
+	// ##################################################
+
+	&-close {
+		width: 20px;
+		height: 20px;
+
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$icon_close}');
+			mask-image: url('data:image/svg+xml,#{$icon_close}');
+		}
+	}
+
+	// ##################################################
+
+	&-search {
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$icon_search}');
+			mask-image: url('data:image/svg+xml,#{$icon_search}');
+		}
+	}
+
+	// ##################################################
+
+	&-facebook {
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$icon_facebook}');
+			mask-image: url('data:image/svg+xml,#{$icon_facebook}');
+		}
+	}
+
+	// ##################################################
+
+	&-instagram {
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$icon_instagram}');
+			mask-image: url('data:image/svg+xml,#{$icon_instagram}');
+		}
+	}
+
+	// ##################################################
+
+	&-youtube {
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$icon_youtube}');
+			mask-image: url('data:image/svg+xml,#{$icon_youtube}');
+		}
+	}
+
+	// ##################################################
+
+	&-linkedin {
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$icon_linkedin}');
+			mask-image: url('data:image/svg+xml,#{$icon_linkedin}');
+		}
+	}
+
+	// ##################################################
+
+	&-twitter {
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$icon_twitter}');
+			mask-image: url('data:image/svg+xml,#{$icon_twitter}');
+		}
+	}
+
+	// ##################################################
+
+	&-play {
+		width: 32px;
+		height: 32px;
+
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$icon_play}');
+			mask-image: url('data:image/svg+xml,#{$icon_play}');
+		}
+	}
+
+	// ##################################################
+
+	&-plus {
+		width: 24px;
+		height: 24px;
+
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$icon_plus}');
+			mask-image: url('data:image/svg+xml,#{$icon_plus}');
+		}
+	}
+
+	// ##################################################
+
+	&-minus {
+		width: 24px;
+		height: 3px;
+
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$icon_minus}');
+			mask-image: url('data:image/svg+xml,#{$icon_minus}');
+		}
+	}
+
+	// ##################################################
+
+	&-question {
+		width: 12px;
+		height: 12px;
+
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$icon_question}');
+			mask-image: url('data:image/svg+xml,#{$icon_question}');
+		}
+	}
+
+	// ##################################################
+
+	&-store {
+		width: 12px;
+		height: 12px;
+
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$icon_store}');
+			mask-image: url('data:image/svg+xml,#{$icon_store}');
+		}
+	}
+
+	&-cart {
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$icon_cart}');
+			mask-image: url('data:image/svg+xml,#{$icon_cart}');
+		}
+	}
+
+	// ##################################################
+
+	&-user {
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$icon_user}');
+			mask-image: url('data:image/svg+xml,#{$icon_user}');
+		}
+	}
+
+	&-heart {
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$icon_heart}');
+			mask-image: url('data:image/svg+xml,#{$icon_heart}');
+		}
+	}
+
+	// ##################################################
+
+	&-message {
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$icon_message}');
+			mask-image: url('data:image/svg+xml,#{$icon_message}');
+		}
+	}
+
+	// ##################################################
+
+	&-badge-check {
+		background: url('data:image/svg+xml,#{$icon_badge_check}') no-repeat center / contain;
+
+		&:before {
+			display: none;
+		}
+	}
+
+	// ##################################################
+
+	&-logo {
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$icon_logo}');
+			mask-image: url('data:image/svg+xml,#{$icon_logo}');
+		}
+	}
+
+	// ##################################################
+
+	&-sort {
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$icon_sort}');
+			mask-image: url('data:image/svg+xml,#{$icon_sort}');
+		}
+	}
+
+	// ##################################################
+
+	&-sort-down {
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$icon_sort_down}');
+			mask-image: url('data:image/svg+xml,#{$icon_sort_down}');
+		}
+	}
+
+	// ##################################################
+
+	&-sort-up {
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$icon_sort_up}');
+			mask-image: url('data:image/svg+xml,#{$icon_sort_up}');
+		}
+	}
+
+	// ##################################################
+
+	&-sort-digit-down {
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$icon_sort_digit_down}');
+			mask-image: url('data:image/svg+xml,#{$icon_sort_digit_down}');
+		}
+	}
+
+	// ##################################################
+
+	&-sort-digit-up {
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$icon_sort_digit_up}');
+			mask-image: url('data:image/svg+xml,#{$icon_sort_digit_up}');
+		}
+	}
+
+	// ##################################################
+
+	&-sort-alpha-down {
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$icon_sort_alpha_down}');
+			mask-image: url('data:image/svg+xml,#{$icon_sort_alpha_down}');
+		}
+	}
+
+	// ##################################################
+
+	&-sort-alpha-up {
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$icon_sort_alpha_up}');
+			mask-image: url('data:image/svg+xml,#{$icon_sort_alpha_up}');
+		}
+	}
+
+	// ##################################################
+
+	&-trash {
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$icon_trash}');
+			mask-image: url('data:image/svg+xml,#{$icon_trash}');
+		}
+	}
+
+	// ##################################################
+
+	&-trash-secondary {
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$icon_trash_secondary}');
+			mask-image: url('data:image/svg+xml,#{$icon_trash_secondary}');
+		}
+	}
+
+	// ##################################################
+
+	&-party {
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$icon_party}');
+			mask-image: url('data:image/svg+xml,#{$icon_party}');
+		}
+	}
+
+	// ##################################################
+
+	&-speech-bubble {
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$speech_bubble}');
+			mask-image: url('data:image/svg+xml,#{$speech_bubble}');
+		}
+	}
+
+	// ##################################################
+
+	&-female {
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$female}');
+			mask-image: url('data:image/svg+xml,#{$female}');
+		}
+	}
+
+	// ##################################################
+
+	&-male {
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$male}');
+			mask-image: url('data:image/svg+xml,#{$male}');
+		}
+	}
+
+	// ##################################################
+
+	&-mail {
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$mail}');
+			mask-image: url('data:image/svg+xml,#{$mail}');
+		}
+	}
+
+	// ##################################################
+
+	&-triangle-shapes {
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$triangle_shapes}');
+			mask-image: url('data:image/svg+xml,#{$triangle_shapes}');
+		}
+	}
+
+	// ##################################################
+
+	&-user-plus {
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$icon_user_plus}');
+			mask-image: url('data:image/svg+xml,#{$icon_user_plus}');
+		}
+	}
+
+	// ##################################################
+
+	&-compare {
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$icon_compare}');
+			mask-image: url('data:image/svg+xml,#{$icon_compare}');
+		}
+	}
+
+	// ##################################################
+
+	&-map {
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$icon_map}');
+			mask-image: url('data:image/svg+xml,#{$icon_map}');
+		}
+	}
+
+	// ##################################################
+
+	&-phone {
+		width: 16px;
+		height: 16px;
+
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$icon_phone}');
+			mask-image: url('data:image/svg+xml,#{$icon_phone}');
+		}
+	}
+
+	// ##################################################
+
+	&-phone-call {
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$phone_call}');
+			mask-image: url('data:image/svg+xml,#{$phone_call}');
+		}
+	}
+
+	// ##################################################
+
+	&-edit {
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$icon_edit}');
+			mask-image: url('data:image/svg+xml,#{$icon_edit}');
+		}
+	}
+
+	// ##################################################
+
+	&-info {
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$icon_info}');
+			mask-image: url('data:image/svg+xml,#{$icon_info}');
+		}
+	}
+
+	// ##################################################
+
+	&-copy {
+		width: 14px;
+		height: 14px;
+
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$icon_copy}');
+			mask-image: url('data:image/svg+xml,#{$icon_copy}');
+		}
+	}
+
+	// ##################################################
+
+	&-eye {
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$icon_eye}');
+			mask-image: url('data:image/svg+xml,#{$icon_eye}');
+		}
+	}
+
+	// ##################################################
+
+	&-save {
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$icon_save}');
+			mask-image: url('data:image/svg+xml,#{$icon_save}');
+		}
+	}
+
+	// ##################################################
+
+	&-download {
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$icon_download}');
+			mask-image: url('data:image/svg+xml,#{$icon_download}');
+		}
+	}
+
+	// ##################################################
+
+	&-lock {
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$icon_lock}');
+			mask-image: url('data:image/svg+xml,#{$icon_lock}');
+		}
+	}
+
+	// ##################################################
+
+	&-flag {
+		width: 18px;
+		height: 12px;
+		background: url('data:image/svg+xml,#{$icon_flag}') no-repeat center/ contain;
+
+		&:before {
+			display: none;
+		}
+	}
+
+	// ##################################################
+
+	&-document-dollar {
+		width: 10px;
+		height: 13px;
+
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$icon_document_dollar}');
+			mask-image: url('data:image/svg+xml,#{$icon_document_dollar}');
+		}
+	}
+
+	// ##################################################
+
+	&-dumbbells {
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$icon_dumbbells}');
+			mask-image: url('data:image/svg+xml,#{$icon_dumbbells}');
+		}
+	}
+
+	// ##################################################
+
+	&-filter {
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$icon_filter}');
+			mask-image: url('data:image/svg+xml,#{$icon_filter}');
+		}
+	}
+
+	// ##################################################
+
+	&-filter-close {
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$icon_filter_close}');
+			mask-image: url('data:image/svg+xml,#{$icon_filter_close}');
+		}
+	}
+
+	&-sort-default {
+		width: 14px;
+		height: 14px;
+
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$icon_sort_default}');
+			mask-image: url('data:image/svg+xml,#{$icon_sort_default}');
+		}
+	}
+
+	&-target-blank {
+		width: 8px;
+		height: 8px;
+
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$target_blank}');
+			mask-image: url('data:image/svg+xml,#{$target_blank}');
+		}
+	}
+
+	&-video-link {
+		width: 16px;
+		height: 16px;
+
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$video_link}');
+			mask-image: url('data:image/svg+xml,#{$video_link}');
+		}
+	}
+
+	// ##################################################
+
+	&-bell {
+		width: 10px;
+		height: 12px;
+
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$icon_bell}');
+			mask-image: url('data:image/svg+xml,#{$icon_bell}');
+		}
+	}
+
+	// ##################################################
+
+	&-cart-plus {
+		width: 16px;
+		height: 16px;
+
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$icon_cart_plus}');
+			mask-image: url('data:image/svg+xml,#{$icon_cart_plus}');
+		}
+	}
+
+	// ##################################################
+
+	&-doc-plus {
+		width: 16px;
+		height: 16px;
+
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$icon_doc_plus}');
+			mask-image: url('data:image/svg+xml,#{$icon_doc_plus}');
+		}
+	}
+
+	// ##################################################
+
+	&-doc {
+		width: 16px;
+		height: 16px;
+
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$icon_doc}');
+			mask-image: url('data:image/svg+xml,#{$icon_doc}');
+		}
+	}
+
+	// ##################################################
+
+	&-3d {
+		width: 16px;
+		height: 16px;
+
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$icon_3d}');
+			mask-image: url('data:image/svg+xml,#{$icon_3d}');
+		}
+	}
+
+	// ##################################################
+
+	&-history {
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$icon_history}');
+			mask-image: url('data:image/svg+xml,#{$icon_history}');
+		}
+	}
+
+	// ##################################################
+
+	&-star {
+		width: 18px;
+		height: 18px;
+
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$icon_star}');
+			mask-image: url('data:image/svg+xml,#{$icon_star}');
+		}
+	}
+
+	// ##################################################
+
+	&-party-star {
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$icon_party_star}');
+			mask-image: url('data:image/svg+xml,#{$icon_party_star}');
+		}
+	}
+	// ##################################################
+
+	&-chat {
+		width: 16px;
+		height: 16px;
+
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$icon_chat}');
+			mask-image: url('data:image/svg+xml,#{$icon_chat}');
+		}
+	}
+
+	// ##################################################
+
+	&-bin {
+		width: 14px;
+		height: 14px;
+
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$icon_bin}');
+			mask-image: url('data:image/svg+xml,#{$icon_bin}');
+		}
+	}
+
+	// ##################################################
+
+	&-hourglass {
+		width: 14px;
+		height: 14px;
+
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$icon_hourglass}');
+			mask-image: url('data:image/svg+xml,#{$icon_hourglass}');
+		}
+	}
+
+	// ##################################################
+
+	&-delivery-truck {
+		width: 14px;
+		height: 14px;
+
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$icon_delivery_truck}');
+			mask-image: url('data:image/svg+xml,#{$icon_delivery_truck}');
+		}
+	}
+
+	// ##################################################
+
+	&-hand-package {
+		width: 14px;
+		height: 14px;
+
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$icon_hand_package}');
+			mask-image: url('data:image/svg+xml,#{$icon_hand_package}');
+		}
+	}
+
+	// ##################################################
+
+	&-home {
+		width: 16px;
+		height: 16px;
+
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$icon_home}');
+			mask-image: url('data:image/svg+xml,#{$icon_home}');
+		}
+	}
+
+	// ##################################################
+
+	&-psychology {
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$icon_psychology}');
+			mask-image: url('data:image/svg+xml,#{$icon_psychology}');
+		}
+	}
+
+	// ##################################################
+
+	&-euro {
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$icon_euro}');
+			mask-image: url('data:image/svg+xml,#{$icon_euro}');
+		}
+	}
+
+	// ##################################################
+
+	&-m2 {
+		width: 16px;
+		height: 10px;
+
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$icon_m2}');
+			mask-image: url('data:image/svg+xml,#{$icon_m2}');
+		}
+	}
+
+	// ##################################################
+
+	&-map-pin {
+		width: 11px;
+		height: 13px;
+
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$icon_map_pin}');
+			mask-image: url('data:image/svg+xml,#{$icon_map_pin}');
+		}
+	}
+
+	// ##################################################
+
+	&-clock {
+		width: 16px;
+		height: 16px;
+
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$icon_clock}');
+			mask-image: url('data:image/svg+xml,#{$icon_clock}');
+		}
+	}
+}

@@ -1,0 +1,355 @@
+// ##################################################
+// Cookie banner
+// ##################################################
+
+@import '../../../scss/import';
+
+$cookie_bar_easing: cubic-bezier(0.22, 1, 0.36, 1);
+
+@keyframes cookieBarIn {
+	from {
+		opacity: 0;
+		transform: translate(0, calc(100% + 20px));
+	}
+}
+
+.advance-cookie-banner {
+	font-size: 16px;
+	line-height: 1.5;
+
+	// ##################################################
+
+	&__bar {
+		position: fixed;
+		right: 20px;
+		width: calc(100% - 40px);
+		bottom: 20px;
+		z-index: $zindex_cookie_notice;
+		max-height: 100vh;
+		// Move out: runs when .cookie-not-set is removed (accept / confirm / allow all)
+		transition: transform 300ms $cookie_bar_easing, opacity 300ms $cookie_bar_easing;
+		padding: 20px;
+		opacity: 0;
+		// Parked just below the viewport edge
+		transform: translate(0, calc(100% + 20px));
+		pointer-events: none;
+		border: 1px solid rgba($cgp_white, 0.08);
+		background-color: var(--color-gray-950);
+		color: var(--color-gray-100);
+		background-image: radial-gradient(circle, var(--color-gray-800) 1px, transparent 1px);
+		background-size: 11px 11px;
+		max-width: 538px;
+		border-radius: 10px;
+		font-size: 12px;
+		line-height: 1.5;
+		letter-spacing: 0.02em;
+		box-shadow: var(--shadow-xs);
+
+		// Mobile
+		@media #{$breakpoint-xs-only} {
+			width: calc(100% - 12px);
+			bottom: 6px;
+			right: 6px;
+		}
+
+		// Brighter dots around the cursor, as on the cards (position set in card.js)
+		@include pointer-dots-highlight;
+
+		// If Cookie is not set
+		// stylelint-disable-next-line
+		.#{$class_cookie_not_set} & {
+			opacity: 1;
+			transform: none;
+			pointer-events: all;
+			// Move in: a keyframe animation, so it also plays when the class is already there on first paint
+			animation: cookieBarIn 500ms $cookie_bar_easing 300ms backwards;
+		}
+
+		@media (prefers-reduced-motion: reduce) {
+			transform: none;
+			transition: opacity 300ms ease;
+
+			// stylelint-disable-next-line
+			.#{$class_cookie_not_set} & {
+				animation: none;
+			}
+		}
+	}
+
+	// ##################################################
+
+	&__inner {
+		position: relative;
+		z-index: 3;
+		display: grid;
+		grid-template-columns: 1fr auto;
+		grid-gap: 24px;
+		align-items: center;
+
+		// Tablet P and down
+		@media #{$breakpoint-sm-down} {
+			grid-template-columns: 1fr;
+			grid-gap: 20px;
+		}
+	}
+
+	// ##################################################
+
+	a {
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
+	// ##################################################
+
+	&__button {
+		display: flex;
+		align-items: center;
+
+		// Mobile
+		@media #{$breakpoint-xs-only} {
+			flex-wrap: wrap;
+			gap: 15px;
+		}
+	}
+
+	// ##################################################
+
+	.btn {
+		// ##################################################
+
+		&--cookie-setting {
+			white-space: nowrap;
+			letter-spacing: 0.02em;
+		}
+
+		// ##################################################
+
+		&--accept-cookie {
+			margin-left: 30px;
+			min-height: 34px;
+			padding: 4px 14px;
+
+			// Mobile
+			@media #{$breakpoint-xs-only} {
+				margin-left: 0;
+			}
+		}
+
+		// ##################################################
+
+		&[disabled] {
+			pointer-events: none;
+			opacity: 0.4;
+
+			&::after {
+				width: 100%;
+				height: 100%;
+			}
+		}
+	}
+
+	// ##################################################
+
+	&__modal {
+		position: fixed;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		z-index: $zindex_modal;
+		opacity: 0;
+		pointer-events: none;
+		overflow: auto;
+		transition: opacity 0.4s ease;
+		padding: 28px;
+
+		// Mobile
+		@media #{$breakpoint-xs-only} {
+			padding: 18px 10px;
+			font-size: 14px;
+		}
+
+		// stylelint-disable-next-line
+		&.#{$class_open_modal} {
+			opacity: 1;
+			pointer-events: all;
+		}
+
+		// ##################################################
+
+		&-close {
+			flex-shrink: 0;
+			width: 34px;
+			height: 34px;
+
+			.icon {
+				pointer-events: none;
+				width: 20px;
+				height: 20px;
+			}
+		}
+
+		// ##################################################
+
+		&-overlay {
+			position: fixed;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			background: rgba($cgp_black, 0.8);
+			z-index: #{$zindex_cookie_notice + 1};
+		}
+
+		// ##################################################
+
+		&-header {
+			border-bottom: 0.5px solid var(--color-gray-200);
+			padding-bottom: 20px;
+			margin-bottom: 30px;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 16px;
+		}
+
+		// ##################################################
+
+		&-body {
+			position: relative;
+			margin: 0 auto;
+			width: 100%;
+			max-width: 830px;
+			border-radius: 10px;
+			background-color: var(--color-white);
+			z-index: #{$zindex_cookie_notice + 2};
+			box-shadow: var(--shadow-xs);
+			padding: 24px;
+
+			// Mobile
+			@media #{$breakpoint-xs-only} {
+				padding: 20px;
+				padding-top: 24px;
+			}
+		}
+
+		// ##################################################
+
+		&-content {
+			// ##################################################
+
+			.editor-text {
+				margin-bottom: 30px;
+
+				// ##################################################
+
+				p {
+					margin-top: 16px;
+					margin-bottom: 16px;
+
+					// ##################################################
+
+					&:first-child {
+						margin-top: 0;
+					}
+
+					// ##################################################
+
+					a {
+						text-decoration: underline;
+
+						&:hover {
+							text-decoration: none;
+						}
+					}
+				}
+			}
+		}
+
+		// ##################################################
+
+		&-item {
+			margin-bottom: 30px;
+			position: relative;
+
+			&.is-necessary {
+				.mod-toggle {
+					pointer-events: none;
+					opacity: 0;
+				}
+			}
+		}
+
+		// ##################################################
+
+		&-cookie-title {
+			margin-bottom: 16px;
+			padding-right: 140px;
+
+			// Mobile
+			@media #{$breakpoint-xs-only} {
+				padding-right: 80px;
+				margin-bottom: 8px;
+			}
+		}
+
+		// ##################################################
+
+		&-active-label {
+			position: absolute;
+			right: 12px;
+			top: 0;
+			font-weight: 600;
+
+			// Mobile
+			@media #{$breakpoint-xs-only} {
+				font-size: 12px;
+				top: 4px;
+			}
+		}
+
+		// ##################################################
+
+		&-footer {
+			display: flex;
+			justify-content: space-between;
+			gap: 8px;
+			margin-top: 30px;
+			border-top: 0.5px solid var(--color-gray-200);
+			padding-top: 20px;
+
+			// Mobile
+			@media #{$breakpoint-xs-only} {
+				flex-direction: column;
+			}
+
+			// ##################################################
+
+			.btn {
+				&__text {
+					// Tablet P and Up
+					@media #{$breakpoint-sm-up} {
+						flex-shrink: 0;
+					}
+				}
+			}
+		}
+
+		// ##################################################
+
+		.mod-toggle {
+			position: absolute;
+			right: 14px;
+			top: 0;
+
+			// Mobile
+			@media #{$breakpoint-xs-only} {
+				right: 0;
+			}
+		}
+	}
+}

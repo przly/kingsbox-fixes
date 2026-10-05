@@ -1,0 +1,12 @@
+{% macro moduleContent(editor_content) %}
+	{{ editor_content }}
+{% endmacro %}
+{% import _self as macros %}
+
+<div data-component="mod-editor-text" class="editor-text {{ text_modifier }}">
+	{% if editor_container %}
+		<div class="container">{{ macros.moduleContent(editor_content) }}</div>
+	{% else %}
+		{{ macros.moduleContent(editor_content) }}
+	{% endif %}
+</div>

@@ -1,0 +1,55 @@
+//*******************************************************************************
+// FADE IN / FADE OUT ANIMATION
+//*******************************************************************************
+
+.animate-fade {
+	// stylelint-disable-next-line plugin/stylelint-bem-namics
+	&.#{$class_visible} {
+		opacity: 1;
+		transition: opacity $transition_duration $transition_easing;
+	}
+
+	// ##################################################
+
+	// stylelint-disable-next-line plugin/stylelint-bem-namics
+	&.#{$class_hidden} {
+		opacity: 0;
+		transition: opacity $transition_duration $transition_easing;
+		pointer-events: none;
+	}
+}
+
+@keyframes slowZoom {
+	from {
+		transform: scale(1);
+	}
+	to {
+		transform: scale(1.2);
+	}
+}
+
+@keyframes pulse-effect {
+	0% {
+		box-shadow: 0 0 0 0 rgba($cgp_red_500, 0.4);
+	}
+	70% {
+		box-shadow: 0 0 0 20px rgba($cgp_red_500, 0);
+	}
+	100% {
+		box-shadow: 0 0 0 0 rgba($cgp_red_500, 0);
+	}
+}
+
+@keyframes newCartItem {
+	0% {
+		transform: scale(1);
+	}
+
+	50% {
+		transform: scale(1.06);
+	}
+
+	100% {
+		transform: scale(1);
+	}
+}

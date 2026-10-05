@@ -1,0 +1,109 @@
+<section
+	data-component="mod-hero-module"
+	class="sc-hero-module : sc-general : bg-black"
+	tabindex="-1"
+	role="contentinfo"
+	{{ hero_module.text__id ? 'id="' ~ hero_module.text__id ~ '"' }}
+>
+	{% include '@atoms/section-margin/section-margin.twig' with {
+		default_zero_spacing: true,
+		spacing_size: hero_module.select__top_spacing_size
+	} %}
+
+	<div class="hero-module : overflow-h">
+		{% if hero_module.image__image %}
+			<div class="hero-module__bg : covered : bg-image">
+				<img src="{{ hero_module.image__image }}" alt="{{ hero_module.image_alt }}" width="1440" height="740" />
+			</div>
+		{% endif %}
+
+		{% if hero_module.file__video_webm or hero_module.file__video_mov or hero_module.file__video_mp4 %}
+			<div class="hero-module__bg : bg-video : covered : overflow-backface">
+				<video
+					class="covered"
+					width="1440"
+					height="892"
+					muted
+					playsinline
+					preload="auto"
+					autoplay
+					loop
+					{{ hero_module.image__video_poster ? 'poster="' ~ hero_module.image__video_poster ~ '"' }}
+				>
+					{% if hero_module.file__video_webm %}
+						<source src="{{ hero_module.file__video_webm }}" type="video/webm" />
+					{% endif %}
+
+					{% if hero_module.file__video_mov %}
+						<source src="{{ hero_module.file__video_mov }}" type="video/quicktime" />
+					{% endif %}
+
+					{% if hero_module.file__video_mp4 %}
+						<source src="{{ hero_module.file__video_mp4 }}" type="video/mp4" />
+					{% endif %}
+				</video>
+			</div>
+		{% endif %}
+
+		{% if
+			hero_module.textarea__title
+				or hero_module.text__super_title
+				or hero_module.link__primary_button
+				or hero_module.link__secondary_button %}
+			<div class="hero-module__content-wrapper">
+				<div class="container">
+					<div class="hero-module__content">
+						{% if hero_module.text__super_title %}
+							<div class="hero-module__text : text--12 : font-secondary : text--uppercase">
+								<p>{{ hero_module.text__super_title }}</p>
+							</div>
+						{% endif %}
+
+						{% if hero_module.textarea__title %}
+							<div class="hero-module__title : title : title--h1">
+								<h1 data-splitting="words">{{ hero_module.textarea__title }}</h1>
+							</div>
+						{% endif %}
+
+						{% if hero_module.link__primary_button or hero_module.link__secondary_button %}
+							<div class="hero-module__button-group">
+								{% if hero_module.link__primary_button %}
+									{% include '@atoms/button/button.twig' with {
+										modifier: 'white',
+										mono_font: true,
+										size: 'small',
+										href: hero_module.link__primary_button,
+										text: hero_module.primary_button_text,
+										target: hero_module.primary_button_target,
+										rel: hero_module.primary_button_rel,
+										icon: 'dumbbells'
+									} %}
+								{% endif %}
+
+								{% if hero_module.link__secondary_button %}
+									{% include '@atoms/button/button.twig' with {
+										modifier: 'transparent-white',
+										mono_font: true,
+										size: 'small',
+										href: hero_module.link__secondary_button,
+										text: hero_module.secondary_button_text,
+										target: hero_module.secondary_button_target,
+										rel: hero_module.secondary_button_rel,
+										icon: 'chevron-right'
+									} %}
+								{% endif %}
+							</div>
+						{% endif %}
+					</div>
+				</div>
+			</div>
+		{% endif %}
+
+		<div class="hero-module__overlay : covered"></div>
+	</div>
+
+	{% include '@atoms/section-margin/section-margin.twig' with {
+		default_80_spacing: true,
+		spacing_size: hero_module.select__bottom_spacing_size
+	} %}
+</section>

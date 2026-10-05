@@ -1,0 +1,28 @@
+{% if disabled %}
+	{% set disabled_class = ': is-disabled' %}
+{% endif %}
+
+<div data-component="at-toggle" class="mod-toggle {{ disabled_class }}">
+	{% if text %}
+		<div class="mod-toggle__text">{{ text }}</div>
+	{% endif %}
+	<input
+		type="checkbox"
+		name="{{ name }}"
+		data-fv-name="{{ name }}"
+		id="{{ id }}"
+		class="mod-toggle__input"
+		{{ cookie_name ? 'data-cookie="' ~ cookie_name ~ '"' }}
+		{{ disabled ? 'disabled' }}
+		{{ checked ? 'checked' }}
+		{{ yes_label ? 'data-yes-text="' ~ yes_label ~ '"' }}
+		{{ no_label ? 'data-no-text="' ~ no_label ~ '"' }}
+		{{ data_checked_disabled_items ? 'data-checked-disabled="' ~ data_checked_disabled_items ~ '"' }}
+		{{ data_unchecked_disabled_items ? 'data-unchecked-disabled="' ~ data_unchecked_disabled_items ~ '"' }}
+	/>
+
+	<label class="mod-toggle__label" for="{{ id }}">
+		<span class="sr-only">{{ name }}</span>
+		<span class="mod-toggle__switch"></span>
+	</label>
+</div>

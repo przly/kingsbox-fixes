@@ -1,0 +1,30 @@
+{% if modifier %}
+	{% set title_modifier = ' : title--' ~ modifier %}
+{% endif %}
+
+<div
+	data-component="at-title"
+	class="title{{ title_modifier }}{{ secondary ? ' : title--secondary' }} {{ title_class }}"
+	{{ data_attr }}
+>
+	{% if tag %}
+		{% set custom_title = '<' ~ tag ~ '>' ~ title ~ '</' ~ tag ~ '>' %}
+		{{ custom_title }}
+	{% else %}
+		{% if modifier == 'h1' %}
+			<h1>{{ title }}</h1>
+		{% elseif modifier == 'h2' %}
+			<h2>{{ title }}</h2>
+		{% elseif modifier == 'h3' %}
+			<h3>{{ title }}</h3>
+		{% elseif modifier == 'h4' %}
+			<h4>{{ title }}</h4>
+		{% elseif modifier == 'h5' %}
+			<h5>{{ title }}</h5>
+		{% elseif modifier == 'h6' %}
+			<h6>{{ title }}</h6>
+		{% else %}
+			<h3>{{ title }}</h3>
+		{% endif %}
+	{% endif %}
+</div>

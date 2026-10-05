@@ -1,0 +1,232 @@
+//**********************************************************
+// EDITOR TEXT
+//**********************************************************
+
+@import '../../../scss/import';
+
+.editor-text {
+	.container {
+		.container & {
+			max-width: 100%;
+			padding: 0;
+		}
+	}
+
+	// ##################################################
+	// Headings
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		margin-bottom: 24px;
+
+		// Margin above the headings
+		* + & {
+			margin-top: 32px;
+		}
+
+		// If heading is first child, then no top margin!
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+
+	// ##################################################
+
+	// H1 Title
+	h1 {
+		@extend %title_h1;
+	}
+
+	// ##################################################
+
+	// H2 Title
+	h2 {
+		@extend %title_h2;
+	}
+
+	// ##################################################
+
+	// H3 Title
+	h3 {
+		@extend %title_h3;
+	}
+
+	// ##################################################
+
+	// H4 Title
+	h4 {
+		@extend %title_h4;
+	}
+
+	// ##################################################
+
+	// H5 Title
+	h5 {
+		@extend %title_h5;
+	}
+
+	// ##################################################
+
+	// H6 Title
+	h6 {
+		@extend %title_h6;
+	}
+
+	// ##################################################
+	// General text elements
+
+	p,
+	ul,
+	ol,
+	img,
+	figure,
+	table {
+		margin-top: 20px;
+		margin-bottom: 20px;
+
+		&:first-child {
+			margin-top: 0;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		a {
+			font-weight: 700;
+			color: var(--color-gray-900);
+			text-decoration: underline;
+		}
+	}
+
+	// ##################################################
+
+	strong,
+	b {
+		font-weight: 700;
+		color: var(--color-gray-900);
+	}
+
+	// ##################################################
+	// Images
+
+	img {
+		// Wordpress classes for aligning
+		&.aligncenter,
+		&.alignright,
+		&.aligleft,
+		&.alignnone {
+			display: block;
+		}
+
+		&.aligncenter {
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		&.alignright {
+			margin-left: auto;
+		}
+
+		&.aligleft {
+			margin-right: auto;
+		}
+	}
+
+	// Figure (nested image for caption)
+	figure {
+		img {
+			margin: 0;
+		}
+	}
+
+	// Figure caption (caption for nested image)
+	// figcaption,
+	// .wp-caption { }
+
+	// ##################################################
+	// List styles
+
+	ul,
+	ol {
+		list-style: none;
+
+		li {
+			position: relative;
+			padding-left: 1.75em;
+		}
+	}
+
+	ul {
+		li:before {
+			border-radius: 100%;
+			width: 6px;
+			height: 6px;
+			background-color: currentColor;
+			color: inherit;
+			top: calc(0.5em + 4px);
+			@extend %content;
+		}
+	}
+
+	ol {
+		counter-reset: ol_text_counter;
+
+		li {
+			counter-increment: ol_text_counter;
+
+			&:before {
+				content: counter(ol_text_counter) '.';
+				font-size: inherit;
+				position: absolute;
+				left: 0;
+				@extend %inherit_textstyles;
+			}
+		}
+	}
+
+	// ##################################################
+	// Tables
+
+	table {
+		border: 1px solid;
+		width: 100%;
+
+		tr {
+			border-bottom: 1px solid;
+		}
+
+		th,
+		td {
+			padding: 0.5em;
+			height: auto !important; // Prevents users from setting custom height and breaking things
+
+			&:not(:first-child) {
+				border-left: 1px solid;
+			}
+		}
+	}
+
+	// ##################################################
+	// Blockquote
+
+	blockquote {
+		p {
+			margin: 0 !important;
+		}
+	}
+
+	// ##################################################
+
+	iframe {
+		width: 100%;
+		aspect-ratio: 16 / 9;
+		height: auto;
+		border-radius: 8px;
+		display: block;
+	}
+}

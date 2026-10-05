@@ -1,0 +1,60 @@
+{% set default_val = null %}
+{% if default_zero_spacing %}
+	{% set default_val = '0' %}
+{% elseif default_spacing %}
+	{% set default_val = '200' %}
+{% elseif default_300_spacing %}
+	{% set default_val = '300' %}
+{% elseif default_260_spacing %}
+	{% set default_val = '260' %}
+{% elseif default_200_spacing %}
+	{% set default_val = '200' %}
+{% elseif default_180_spacing %}
+	{% set default_val = '180' %}
+{% elseif default_160_spacing %}
+	{% set default_val = '160' %}
+{% elseif default_140_spacing %}
+	{% set default_val = '140' %}
+{% elseif default_128_spacing %}
+	{% set default_val = '128' %}
+{% elseif default_120_spacing %}
+	{% set default_val = '120' %}
+{% elseif default_100_spacing %}
+	{% set default_val = '100' %}
+{% elseif default_80_spacing %}
+	{% set default_val = '80' %}
+{% elseif default_96_spacing %}
+	{% set default_val = '96' %}
+{% elseif default_64_spacing %}
+	{% set default_val = '64' %}
+{% elseif default_60_spacing %}
+	{% set default_val = '60' %}
+{% elseif default_40_spacing %}
+	{% set default_val = '40' %}
+{% elseif default_24_spacing %}
+	{% set default_val = '24' %}
+{% endif %}
+
+<div data-component="at-section-margin" class="section-margin {{ margin_extra_class }}">
+	{% if default_val is not null %}
+		{% set size = '0' %}
+		{% if spacing_size is empty or spacing_size == 'default' %}
+			{% set size = default_val %}
+		{% elseif spacing_size == 'small' %}
+			{% set size = '96' %}
+		{% elseif spacing_size == 'medium' %}
+			{% set size = '128' %}
+		{% elseif spacing_size == 'large' %}
+			{% set size = '160' %}
+		{% elseif spacing_size == 'xl' %}
+			{% set size = '240' %}
+		{% endif %}
+		{% include '@atoms/margin/margin.twig' with {
+			size: size
+		} %}
+	{% else %}
+		{% include '@atoms/margin/margin.twig' with {
+			size: spacing_size
+		} %}
+	{% endif %}
+</div>

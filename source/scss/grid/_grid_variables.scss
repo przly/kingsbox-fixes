@@ -1,0 +1,63 @@
+// ##################################################
+// Grid variables
+// ##################################################
+
+// GRID GUTTERS
+$gutter_xl: 10px; // Desktop HD
+$gutter_lg: 10px; // Desktop - large
+$gutter_md: 10px; // Desktop - regular / Tablet landscape
+$gutter_sm: 20px; // Tablet portrait
+$gutter_xs: 20px; // Mobile
+
+// Cols in grid
+$grid_cols: 12;
+
+// CONTAINER WIDTHS
+$container_xl: 1410px; // Desktop HD
+$container_lg: 1240px; // Desktop - large / Tablet landscape
+$container_md: 990px; // Desktop - regular
+$container_sm: calc(100% - #{$gutter_sm * 2}); // Tablet - portrait
+$container_xs: calc(100% - #{$gutter_xs * 2}); // Mobile
+
+// Grid
+$xs-max: 767px !default; // Set xs breakpoint's max width
+$sm-max: 1022px !default; // Set sm breakpoint's max width
+$md-max: 1200px !default; // Set md breakpoint's max width
+$lg-max: 1439px !default; // Set lg breakpoint's max width
+$xl-max: 1919px !default; // Set xl breakpoint's max width
+
+// Media query start end points
+$sm-start: ($xs-max + 1);
+$md-start: ($sm-max + 1);
+$lg-start: ($md-max + 1);
+$xl-start: ($lg-max + 1);
+
+$sm-end: $sm-max;
+$md-end: $md-max;
+$lg-end: $lg-max;
+$xl-end: $xl-max;
+
+// ##################################################
+// Breakpoints
+// ##################################################
+
+// Create breakpoint range statements to be used in media queries
+$breakpoint-xs-only: 'only screen and (max-width: #{$xs-max})';
+
+$breakpoint-sm-down: 'only screen and (max-width: #{$sm-end})';
+$breakpoint-sm-up: 'only screen and (min-width: #{$sm-start})';
+$breakpoint-sm-only: 'only screen and (min-width: #{$sm-start}) and (max-width: #{$sm-end})';
+
+$breakpoint-md-down: 'only screen and (max-width: #{$md-end})';
+$breakpoint-md-up: 'only screen and (min-width: #{$md-start})';
+$breakpoint-md-only: 'only screen and (min-width: #{$md-start}) and (max-width: #{$md-end})';
+
+$breakpoint-sm-md-only: 'only screen and (min-width: #{$sm-start}) and (max-width: #{$md-end})';
+
+$breakpoint-lg-down: 'only screen and (max-width: #{$lg-end})';
+$breakpoint-lg-up: 'only screen and (min-width: #{$lg-start})';
+$breakpoint-lg-only: 'only screen and (min-width: #{$lg-start}) and (max-width: #{$lg-end})';
+
+$breakpoint-xl-down: 'only screen and (max-width: #{$xl-end})';
+$breakpoint-xl-up: 'only screen and (min-width: #{$xl-start})';
+$breakpoint-xl-only: 'only screen and (min-width: #{$xl-start}) and (max-width: #{$xl-end})';

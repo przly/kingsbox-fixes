@@ -1,0 +1,103 @@
+{
+	"title": "Button",
+	"status": "acceptance",
+	"default": "primary",
+	"variants": [
+		{
+			"name": "primary",
+			"context": {
+				"href": "#link",
+				"text": "Button",
+				"size": "regular"
+			}
+		},
+		{
+			"name": "primary-large",
+			"context": {
+				"href": "#link",
+				"text": "Button",
+				"size": "large"
+			}
+		},
+		{
+			"name": "primary-small",
+			"context": {
+				"href": "#link",
+				"text": "Button",
+				"size": "small"
+			}
+		},
+		{
+			"name": "mono-font",
+			"context": {
+				"mono_font": true,
+				"href": "#link",
+				"text": "Button",
+				"size": "regular"
+			}
+		},
+		{
+			"name": "transparent-dark",
+			"context": {
+				"modifier": "transparent-dark",
+				"href": "#link",
+				"text": "Button",
+				"size": "regular"
+			}
+		},
+		{
+			"name": "transparent-light",
+			"context": {
+				"modifier": "transparent-light",
+				"href": "#link",
+				"text": "Button",
+				"size": "regular"
+			}
+		},
+		{
+			"name": "transparent-white",
+			"context": {
+				"modifier": "transparent-white",
+				"href": "#link",
+				"text": "Button",
+				"size": "regular"
+			}
+		},
+		{
+			"name": "white",
+			"context": {
+				"modifier": "white",
+				"href": "#link",
+				"text": "Button",
+				"size": "regular"
+			}
+		},
+		{
+			"name": "gray",
+			"context": {
+				"modifier": "gray",
+				"href": "#link",
+				"text": "Button",
+				"size": "regular"
+			}
+		},
+		{
+			"name": "plain",
+			"context": {
+				"is_plain": true,
+				"href": "#link",
+				"text": "Button",
+				"size": "regular"
+			}
+		},
+		{
+			"name": "disabled",
+			"context": {
+				"disabled": true,
+				"href": "#link",
+				"text": "Disabled Button",
+				"target": ""
+			}
+		}
+	]
+}

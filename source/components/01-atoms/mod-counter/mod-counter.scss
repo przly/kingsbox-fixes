@@ -1,0 +1,36 @@
+// **************************************************
+// Mod Counter
+// **************************************************
+
+@import '../../../scss/import';
+
+.mod-counter {
+	width: 100%;
+
+	// ##################################################
+
+	&__number {
+		display: flex;
+		align-items: center;
+
+		// ##################################################
+
+		&-counting {
+			position: absolute;
+			left: 0;
+			top: 50%;
+			transform: translate(0, -50%);
+		}
+
+		// ##################################################
+
+		&-static {
+			opacity: 0;
+			visibility: hidden;
+		}
+	}
+
+	[data-counter] {
+		display: inline-flex;
+	}
+}

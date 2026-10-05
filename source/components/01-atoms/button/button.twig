@@ -1,0 +1,225 @@
+{% if modifier %}
+	{% set button_modifier = ' : btn--' ~ modifier %}
+{% else %}
+	{% set button_modifier = ' : btn--default' %}
+{% endif %}
+
+{% if disabled %}
+	{% set button_disabled = ' : btn--disabled' %}
+{% endif %}
+
+{% if mono_font %}
+	{% set button_mono = ' : btn--mono-font' %}
+{% endif %}
+
+{% if size %}
+	{% set button_size = ' : btn--' ~ size %}
+{% endif %}
+
+{% if is_plain %}
+	{% set plain_class = ' : btn--plain' %}
+{% endif %}
+
+{% if class_name %}
+	{% set button_extra_class = ' : ' ~ class_name %}
+{% endif %}
+
+{% if not icon and remove_icon %}
+	{% set icon_class = ' : btn--without-icon ' %}
+{% else %}
+	{% set icon_class = ' : btn--with-icon ' %}
+{% endif %}
+
+{% if href %}
+	{% set button_tag_name = 'a' %}
+{% elseif type == 'button' %}
+	{% set button_tag_name = 'button' %}
+{% else %}
+	{% set button_tag_name = 'span' %}
+{% endif %}
+
+{% if not text and icon %}
+	{% set icon_class = ' : btn--only-icon ' %}
+{% endif %}
+
+{% if left_icon %}
+	{% set left_icon_class = ' : btn--left-icon ' %}
+{% endif %}
+
+{% set button_class = 'btn' ~ button_modifier ~ button_size ~ icon_class ~ button_extra_class ~ left_icon_class
+	~ button_disabled
+	~ button_mono
+	~ plain_class
+%}
+
+{% if href %}
+	<a
+		data-component="at-button"
+		class="{{ button_class }}"
+		{{ href ? 'href="' ~ href ~ '"' }}
+		{{ target ? 'target="' ~ target ~ '"' }}
+		{{ rel ? 'rel="' ~ rel ~ '"' }}
+		{{ download ? 'download' }}
+		{{ data_page ? 'data-page="' ~ data_page ~ '"' }}
+		{{ description ? 'data-description="' ~ description ~ '"' }}
+		{{ aria_label ? 'aria-label="' ~ aria_label ~ '"' }}
+		{{ title ? 'title="' ~ title ~ '"' }}
+		{{ data_attr }}
+	>
+		{% if has_loader %}
+			<span class="btn__loader : covered"></span>
+		{% endif %}
+		{% if left_side_icon %}
+			<span class="btn__icon : d-flex-cc">
+				<i class="icon : icon-{{ left_side_icon }}" aria-hidden="true"></i>
+			</span>
+		{% endif %}
+		{% if text %}
+			<span class="btn__text">{{ text }}</span>
+		{% endif %}
+		{% if info_text %}
+			<span class="btn__info-text : text--gray-400 : font-mono">{{ info_text }}</span>
+		{% endif %}
+		{% if icon %}
+			<span class="btn__icon : d-flex-cc"><i class="icon : icon-{{ icon }}" aria-hidden="true"></i></span>
+		{% elseif image_src %}
+			<span class="btn__icon : d-flex-cc">
+				<img src="{{ image_src }}" alt="{{ image_alt }}" aria-hidden="true" width="14" height="14" />
+			</span>
+		{% elseif remove_icon %}
+
+		{% else %}
+			<span class="btn__icon : btn__icon--default : d-flex-cc">
+				{% include '@atoms/icons/icons.twig' with {
+					icon_modifier: 'chevron-right'
+				} %}
+			</span>
+		{% endif %}
+	</a>
+{% elseif type == 'button' %}
+	<button
+		data-component="at-button"
+		class="{{ button_class }}"
+		{{ action ? 'action="' ~ action ~ '"' }}
+		{{ rel ? 'rel="' ~ rel ~ '"' }}
+		{{ download ? 'download' }}
+		{{ description ? 'data-description="' ~ description ~ '"' }}
+		{{ aria_label ? 'aria-label="' ~ aria_label ~ '"' }}
+		{{ title ? 'title="' ~ title ~ '"' }}
+		type="button"
+		{{ data_attr }}
+	>
+		{% if has_loader %}
+			<span class="btn__loader : covered"></span>
+		{% endif %}
+
+		{% if left_side_icon %}
+			<span class="btn__icon : d-flex-cc">
+				<i class="icon : icon-{{ left_side_icon }}" aria-hidden="true"></i>
+			</span>
+		{% endif %}
+		{% if text %}
+			<span class="btn__text">{{ text }}</span>
+		{% endif %}
+		{% if info_text %}
+			<span class="btn__info-text : text--gray-400 : font-mono">{{ info_text }}</span>
+		{% endif %}
+		{% if icon %}
+			<span class="btn__icon : d-flex-cc"><i class="icon : icon-{{ icon }}" aria-hidden="true"></i></span>
+		{% elseif image_src %}
+			<span class="btn__icon : d-flex-cc">
+				<img src="{{ image_src }}" alt="{{ image_alt }}" aria-hidden="true" width="14" height="14" />
+			</span>
+		{% elseif remove_icon %}
+
+		{% else %}
+			<span class="btn__icon : btn__icon--default : d-flex-cc">
+				{% include '@atoms/icons/icons.twig' with {
+					icon_modifier: 'chevron-right'
+				} %}
+			</span>
+		{% endif %}
+	</button>
+{% elseif type == 'submit' %}
+	<button
+		data-component="at-button"
+		class="{{ button_class }}"
+		{{ action ? 'action="' ~ action ~ '"' }}
+		{{ rel ? 'rel="' ~ rel ~ '"' }}
+		{{ download ? 'download' }}
+		{{ description ? 'data-description="' ~ description ~ '"' }}
+		{{ aria_label ? 'aria-label="' ~ aria_label ~ '"' }}
+		{{ title ? 'title="' ~ title ~ '"' }}
+		type="submit"
+		{{ data_attr }}
+	>
+		{% if has_loader %}
+			<span class="btn__loader : covered"></span>
+		{% endif %}
+		{% if left_side_icon %}
+			<span class="btn__icon : d-flex-cc">
+				<i class="icon : icon-{{ left_side_icon }}" aria-hidden="true"></i>
+			</span>
+		{% endif %}
+		{% if text %}
+			<span class="btn__text">{{ text }}</span>
+		{% endif %}
+		{% if info_text %}
+			<span class="btn__info-text : text--gray-400 : font-mono">{{ info_text }}</span>
+		{% endif %}
+		{% if icon %}
+			<span class="btn__icon : d-flex-cc"><i class="icon : icon-{{ icon }}" aria-hidden="true"></i></span>
+		{% elseif image_src %}
+			<span class="btn__icon : d-flex-cc">
+				<img src="{{ image_src }}" alt="{{ image_alt }}" aria-hidden="true" width="14" height="14" />
+			</span>
+		{% elseif remove_icon %}
+
+		{% else %}
+			<span class="btn__icon : btn__icon--default : d-flex-cc">
+				{% include '@atoms/icons/icons.twig' with {
+					icon_modifier: 'chevron-right'
+				} %}
+			</span>
+		{% endif %}
+	</button>
+{% else %}
+	<span
+		data-component="at-button"
+		class="{{ button_class }}"
+		{{ rel ? 'rel="' ~ rel ~ '"' }}
+		{{ download ? 'download' }}
+		{{ description ? 'data-description="' ~ description ~ '"' }}
+		{{ aria_label ? 'aria-label="' ~ aria_label ~ '"' }}
+		{{ title ? 'title="' ~ title ~ '"' }}
+		{{ data_attr }}
+	>
+		{% if has_loader %}
+			<span class="btn__loader : covered"></span>
+		{% endif %}
+		{% if left_side_icon %}
+			<span class="btn__icon : d-flex-cc">
+				<i class="icon : icon-{{ left_side_icon }}" aria-hidden="true"></i>
+			</span>
+		{% endif %}
+		{% if text %}
+			<span class="btn__text">{{ text }}</span>
+		{% endif %}
+		{% if info_text %}
+			<span class="btn__info-text : text--gray-400 : font-mono">{{ info_text }}</span>
+		{% endif %}
+		{% if icon %}
+			<span class="btn__icon : d-flex-cc"><i class="icon : icon-{{ icon }}" aria-hidden="true"></i></span>
+		{% elseif image_src %}
+			<span class="btn__icon : d-flex-cc">
+				<img src="{{ image_src }}" alt="{{ image_alt }}" aria-hidden="true" width="14" height="14" />
+			</span>
+		{% elseif not remove_icon %}
+			<span class="btn__icon : btn__icon--default : d-flex-cc">
+				{% include '@atoms/icons/icons.twig' with {
+					icon_modifier: 'chevron-right'
+				} %}
+			</span>
+		{% endif %}
+	</span>
+{% endif %}

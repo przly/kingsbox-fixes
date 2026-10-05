@@ -1,0 +1,146 @@
+// **************************************************
+// About Module
+// **************************************************
+
+@import '../../../scss/import';
+
+.about-module {
+	.section-header {
+		&--default {
+			max-width: 1048px;
+			width: 100%;
+
+			// Tablet L and down
+			@media #{$breakpoint-md-down} {
+				max-width: 850px;
+			}
+		}
+	}
+
+	// ##################################################
+
+	&__inner {
+		display: grid;
+		grid-gap: 96px;
+
+		// Tablet
+		@media #{$breakpoint-md-down} {
+			grid-gap: 80px;
+		}
+
+		// Tablet P
+		@media #{$breakpoint-sm-down} {
+			grid-gap: 60px;
+		}
+
+		// ##################################################
+
+		&:has(.section-header) {
+			grid-gap: 80px;
+
+			// Desktop
+			@media #{$breakpoint-lg-down} {
+				grid-gap: 70px;
+			}
+
+			// Tablet
+			@media #{$breakpoint-md-down} {
+				grid-gap: 60px;
+			}
+		}
+	}
+
+	// ##################################################
+
+	&__title {
+		.title {
+			letter-spacing: -0.04em;
+			text-align: left;
+		}
+
+		// ##################################################
+		// Start state of the word reveal (animated in about-module.js)
+
+		@media (prefers-reduced-motion: no-preference) {
+			// Hidden until the script has split the title into words
+			.title > :not(.splitting) {
+				visibility: hidden;
+			}
+
+			// Mask: reaches past the word so ascenders, descenders and the tight tracking are not cut off
+			.word {
+				clip-path: inset(-0.4em -0.15em -0.4em 0);
+			}
+
+			.word__inner {
+				display: inline-block;
+				transform: translate(0, 220%);
+				will-change: transform;
+			}
+		}
+	}
+
+	// ##################################################
+
+	&__card-list {
+		display: grid;
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+		grid-gap: 10px;
+
+		// Tablet P and down
+		@media #{$breakpoint-sm-down} {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+
+		// Mobile
+		@media #{$breakpoint-xs-only} {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	// ##################################################
+
+	&__text {
+		display: grid;
+		grid-gap: 20px 10px;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		letter-spacing: -0.54px;
+		line-height: 1.25;
+
+		// Mobile
+		@media #{$breakpoint-xs-only} {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	// ##################################################
+
+	&__step-list {
+		min-width: 1px;
+	}
+
+	// ##################################################
+
+	.step-card {
+		&__image {
+			padding-bottom: 76%;
+		}
+	}
+
+	// ##################################################
+
+	&--right-title {
+		.section-header--default {
+			margin-left: auto;
+		}
+	}
+
+	// ##################################################
+
+	&--last-card-list {
+		.about-module__card-list,
+		.about-module__step-list {
+			order: 1;
+		}
+	}
+}

@@ -1,0 +1,37 @@
+{
+	"title": "card",
+	"notes": "card",
+	"status": "acceptance",
+	"default": "default",
+	"variants": [
+		{
+			"name": "default",
+			"notes": "Default Card",
+			"context": {
+				"card": {
+					"image__icon": "../../images/hammer.svg",
+					"image_icon_alt": "hammer",
+					"textarea__title": "Catalog",
+					"text__text": "Find the right products for your gym, studio, or home setup.",
+					"link__link": "#",
+					"link_text": "Download catalog"
+				}
+			}
+		},
+		{
+			"name": "with-counter",
+			"notes": "Card With Counter",
+			"context": {
+				"card": {
+					"image__icon": "../../images/weight-icon.svg",
+					"image_icon_alt": "weight",
+					"mod_counter": {
+						"number__number": "500",
+						"text__label": "+"
+					},
+					"textarea__title": "Gyms Build"
+				}
+			}
+		}
+	]
+}

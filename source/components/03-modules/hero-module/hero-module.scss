@@ -1,0 +1,126 @@
+// **************************************************
+// Hero Module
+// **************************************************
+
+@import '../../../scss/import';
+
+.hero-module {
+	position: relative;
+	min-height: 100vh;
+	display: flex;
+	align-items: flex-end;
+	padding-top: 120px;
+
+	// Tablet P and down
+	@media #{$breakpoint-sm-down} {
+		min-height: 100svh;
+	}
+
+	// ##################################################
+
+	&__text {
+		letter-spacing: normal;
+		margin-bottom: 6px;
+
+		p {
+			opacity: 0;
+			transform: translate(0, 40px);
+			will-change: opacity, transform;
+		}
+	}
+
+	// ##################################################
+
+	&__content {
+		max-width: 520px;
+		width: 100%;
+		color: var(--color-gray-100);
+
+		// Tablet P and down
+		@media #{$breakpoint-sm-down} {
+			max-width: 100%;
+		}
+
+		// ##################################################
+
+		&-wrapper {
+			position: relative;
+			z-index: 4;
+			padding: 20px 0 80px;
+			width: 100%;
+			background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.5) 55%, rgba(0, 0, 0, 0) 100%);
+		}
+	}
+
+	// ##################################################
+
+	.title {
+		@extend %title_7xl;
+		color: var(--color-gray-100);
+
+		// ##################################################
+
+		h1 {
+			overflow: hidden;
+			position: relative;
+		}
+
+		// ##################################################
+
+		.word {
+			opacity: 0;
+			will-change: opacity, transform;
+			transform: translate(0, 100%);
+		}
+	}
+
+	// ##################################################
+
+	&__button-group {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		flex-wrap: wrap;
+		margin-top: 28px;
+
+		// Tablet P and down
+		@media #{$breakpoint-sm-down} {
+			margin-top: 20px;
+		}
+
+		// ##################################################
+
+		.btn {
+			opacity: 0;
+			will-change: opacity, transform;
+			transform: translate(0, 100%);
+
+			// Tablet L and up
+			@media #{$breakpoint-md-up} {
+				min-height: 34px;
+				grid-gap: 10px;
+				padding: 4px 12px;
+			}
+		}
+	}
+
+	// ##################################################
+
+	&__bg {
+		will-change: transform;
+
+		img {
+			will-change: transform;
+			animation: slowZoom 30s linear infinite alternate;
+		}
+	}
+
+	// ##################################################
+
+	&__overlay {
+		opacity: 0;
+		will-change: opacity;
+		z-index: 3;
+		background-color: rgba($cgp_black, 0.8);
+	}
+}

@@ -1,0 +1,44 @@
+<div data-component="mol-card" class="card : rounded-10">
+	{% if card.text__index %}
+		<div class="card__index : text--12 : text--md : font-secondary">{{ card.text__index }}</div>
+	{% endif %}
+
+	{% if card.image__icon %}
+		<div class="card__icon : d-flex-cc : p-relative">
+			<img src="{{ card.image__icon }}" alt="{{ card.image_icon_alt }}" width="32" height="32" />
+		</div>
+	{% endif %}
+
+	{% if card.mod_counter %}
+		{% include '@atoms/mod-counter/mod-counter.twig' with {
+			mod_counter: card.mod_counter
+		} %}
+	{% endif %}
+
+	{% if card.textarea__title %}
+		{% include '@atoms/title/title.twig' with {
+			tag: 'p',
+			modifier: 'h3',
+			title: card.textarea__title
+		} %}
+	{% endif %}
+
+	{% if card.text__text %}
+		<div class="card__text : text--14">{{ card.text__text }}</div>
+	{% endif %}
+
+	{% if card.link__link %}
+		<div class="card__button">
+			{% include '@atoms/button/button.twig' with {
+				href: card.link__link,
+				text: card.link_text,
+				icon: 'chevron-right',
+				rel: card.link_rel,
+				target: card.link_target,
+				modifier: 'white',
+				size: 'small',
+				data_attr: card.boolean__download_modal_trigger ? 'data-modal-trigger' : ''
+			} %}
+		</div>
+	{% endif %}
+</div>

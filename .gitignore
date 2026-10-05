@@ -1,0 +1,5 @@
+node_modules
+dist
+.DS_Store
+# generated from the scss by vite.config.js
+source/css

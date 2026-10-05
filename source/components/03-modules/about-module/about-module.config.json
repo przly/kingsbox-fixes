@@ -1,0 +1,163 @@
+{
+	"title": "About Module",
+	"notes": "About Module",
+	"status": "acceptance",
+	"acf_function": "getAboutModuleFields",
+	"default": "default",
+	"variants": [
+		{
+			"name": "default",
+			"notes": "Default About Module",
+			"context": {
+				"about_module": {
+					"textarea__title": "We are Kingsbox. One of the largest providers of sports equipment in Europe.",
+					"repeater__cards": [
+						{
+							"image__icon": "../../images/weight-icon.svg",
+							"image_icon_alt": "Weight",
+							"mod_counter": {
+								"number__number": "500",
+								"text__label": "+"
+							},
+							"textarea__title": "Gyms Build"
+						},
+						{
+							"image__icon": "../../images/globe-icon.svg",
+							"image_icon_alt": "Globe",
+							"mod_counter": {
+								"number__number": "25",
+								"text__label": "+"
+							},
+							"textarea__title": "Countries"
+						},
+						{
+							"image__icon": "../../images/upcoming-event-icon.svg",
+							"image_icon_alt": "Upcoming Event",
+							"mod_counter": {
+								"number__number": "10",
+								"text__label": "+"
+							},
+							"textarea__title": "Years of Experiance"
+						},
+						{
+							"image__icon": "../../images/europe-star-icon.svg",
+							"image_icon_alt": "Europe Star",
+							"mod_counter": {
+								"number__number": "100",
+								"text__label": "%"
+							},
+							"textarea__title": "Made in Europe"
+						}
+					],
+					"wysiwyg__left_col_text": "<p>We are a Slovenian manufacturer of strength and conditioning equipment for gyms, studios, home gyms, and outdoor spaces. We create durable, modular solutions built for real training.</p>",
+					"wysiwyg__right_col_text": "<p>We are more than an equipment supplier. We help build practical training spaces that perform better and make the most of every square meter.</p>"
+				}
+			}
+		},
+		{
+			"name": "secondary",
+			"notes": "Secondary About Module",
+			"context": {
+				"about_module": {
+					"text__super_title": "building better humans",
+					"select__section_title_tag": "h1",
+					"textarea__section_title": "about kingsbox",
+					"textarea__title": "Giving people a playground to develop into the best version of themselves.",
+					"repeater__steps": [
+						{
+							"text__step_label": "STEP",
+							"text__step": "Misija",
+							"image__image": "../../images/step-card-5.webp",
+							"image_alt": "Image"
+						},
+						{
+							"text__step_label": "STEP",
+							"text__step": "Vizija",
+							"image__image": "../../images/step-card-6.webp",
+							"image_alt": "Image"
+						},
+						{
+							"text__step_label": "STEP",
+							"text__step": "kdo smo?",
+							"image__image": "../../images/step-card-7.webp",
+							"image_alt": "Image"
+						},
+						{
+							"text__step_label": "STEP",
+							"text__step": "Vrednote",
+							"image__image": "../../images/step-card-8.webp",
+							"image_alt": "Image"
+						}
+					],
+					"text__left_col_title": "naša misija",
+					"wysiwyg__left_col_text": "<p>Ljudem dajemo igrišče z željo, da se razvijejo v najboljšo različico sebe. Trgu predstavljamo izdelke, ki navdušujejo množice v fitnes industriji.</p>",
+					"text__right_col_title": "naša vizija",
+					"wysiwyg__right_col_text": "<p>Svet, v katerem lahko vsakdo doseže svoj potencial.</p>"
+				}
+			}
+		},
+		{
+			"name": "white-bg",
+			"notes": "About Module With White Background",
+			"context": {
+				"about_module": {
+					"boolean__white_bg": true,
+					"textarea__title": "We are Kingsbox. One of the largest providers of sports equipment in Europe.",
+					"wysiwyg__left_col_text": "<p>We are a Slovenian manufacturer of strength and conditioning equipment for gyms, studios, home gyms, and outdoor spaces. We create durable, modular solutions built for real training.</p>",
+					"wysiwyg__right_col_text": "<p>We are more than an equipment supplier. We help build practical training spaces that perform better and make the most of every square meter.</p>"
+				}
+			}
+		},
+		{
+			"name": "right-title",
+			"notes": "About Module With Right Title",
+			"context": {
+				"about_module": {
+					"boolean__white_bg": true,
+					"select__variation": "right-title",
+					"textarea__title": "We are Kingsbox. One of the largest providers of sports equipment in Europe.",
+					"wysiwyg__left_col_text": "<p>We are a Slovenian manufacturer of strength and conditioning equipment for gyms, studios, home gyms, and outdoor spaces. We create durable, modular solutions built for real training.</p>",
+					"wysiwyg__right_col_text": "<p>We are more than an equipment supplier. We help build practical training spaces that perform better and make the most of every square meter.</p>"
+				}
+			}
+		},
+		{
+			"name": "cards-at-last",
+			"notes": "Card List At Bottom In About Module",
+			"context": {
+				"about_module": {
+					"select__variation": "last-card-list",
+					"textarea__title": "We are Kingsbox. One of the largest providers of sports equipment in Europe.",
+					"repeater__cards": [
+						{
+							"text__index": "01",
+							"image__icon": "../../images/exercise-icon.svg",
+							"image_icon_alt": "Weight",
+							"textarea__title": "Preizkusite opremo v trgovini"
+						},
+						{
+							"text__index": "02",
+							"image__icon": "../../images/star-icon.svg",
+							"image_icon_alt": "Globe",
+							"textarea__title": "Testirajte še neizdano opremo"
+						},
+						{
+							"text__index": "03",
+							"image__icon": "../../images/percentage-icon.svg",
+							"image_icon_alt": "Upcoming Event",
+							"textarea__title": "10% lokalni popust"
+						},
+						{
+							"text__index": "04",
+							"image__icon": "../../images/questionmark-icon.svg",
+							"image_icon_alt": "Europe Star",
+							"textarea__title": "Aks KingsBox strokovnjaki"
+						}
+					],
+					"wysiwyg__left_col_text": "<p>We are a Slovenian manufacturer of strength and conditioning equipment for gyms, studios, home gyms, and outdoor spaces. We create durable, modular solutions built for real training.</p>",
+					"wysiwyg__right_col_text": "<p>We are more than an equipment supplier. We help build practical training spaces that perform better and make the most of every square meter.</p>"
+				}
+			}
+		}
+	]
+}

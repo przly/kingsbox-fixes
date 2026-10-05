@@ -1,0 +1,11 @@
+{
+	"title": "Mod Counter",
+	"notes": "Mod Counter",
+	"status": "acceptance",
+	"context": {
+		"mod_counter": {
+			"number__number": "500",
+			"text__label": "+"
+		}
+	}
+}

@@ -1,0 +1,55 @@
+{
+	"title": "Title",
+	"status": "acceptance",
+	"default": "h1",
+	"variants": [
+		{
+			"name": "h1",
+			"notes": "H1 Title",
+			"context": {
+				"modifier": "h1",
+				"title": "H1 title"
+			}
+		},
+		{
+			"name": "h2",
+			"notes": "H2 Title",
+			"context": {
+				"modifier": "h2",
+				"title": "H2 title"
+			}
+		},
+		{
+			"name": "h3",
+			"notes": "H3 Title",
+			"context": {
+				"modifier": "h3",
+				"title": "H3 title"
+			}
+		},
+		{
+			"name": "h4",
+			"notes": "H4 Title",
+			"context": {
+				"modifier": "h4",
+				"title": "H4 title"
+			}
+		},
+		{
+			"name": "h5",
+			"notes": "H5 Title",
+			"context": {
+				"modifier": "h5",
+				"title": "H5 title"
+			}
+		},
+		{
+			"name": "h6",
+			"notes": "H6 Title",
+			"context": {
+				"modifier": "h6",
+				"title": "H6 title"
+			}
+		}
+	]
+}

@@ -1,0 +1,28 @@
+//*******************************************************************************
+// INCLUDES: Website
+//*******************************************************************************
+
+// Helper styles
+@import 'import';
+@import './base/root';
+@import './base/reset';
+@import './grid/display';
+@import './grid/grid_main';
+@import './wcag/general';
+@import './base/animations';
+@import './base/spacing';
+
+@import './vendor/swiper-bundle';
+@import './vendor/nouislider';
+@import './vendor/flatpickr';
+@import './vendor/fancybox';
+@import './vendor/image-compare-viewer';
+@import './vendor/splitting';
+
+// Base styles
+@import './base/webfonts';
+@import './base/utility_class';
+@import './base/general';
+
+@import './cms/wp_cms';
+@import './dev/dev';

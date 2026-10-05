@@ -1,0 +1,9 @@
+{% if icon_modifier %}
+	{% set modifier = ': icon-' ~ icon_modifier %}
+{% endif %}
+
+{% if icon_color %}
+	{% set color_attr = "style='--icon-color:" ~ icon_color ~ ";'" %}
+{% endif %}
+
+<i data-component="at-icon" class="icon {{ modifier }} {{ extra_class }}" {{ color_attr }}></i>

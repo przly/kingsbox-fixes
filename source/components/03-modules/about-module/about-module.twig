@@ -1,0 +1,133 @@
+<section
+	data-component="mod-about-module"
+	class="sc-general : sc-about-module : {{ not about_module.boolean__white_bg ? 'bg-black' }}"
+	tabindex="-1"
+	role="contentinfo"
+	{{ about_module.text__id ? 'id="' ~ about_module.text__id ~ '"' }}
+>
+	{% if about_module.boolean__white_bg %}
+		{% include '@atoms/section-margin/section-margin.twig' with {
+			default_zero_spacing: true,
+			spacing_size: about_module.select__top_spacing_size
+		} %}
+	{% else %}
+		{% include '@atoms/section-margin/section-margin.twig' with {
+			default_100_spacing: true,
+			spacing_size: about_module.select__top_spacing_size
+		} %}
+	{% endif %}
+
+	<div class="about-module : about-module--{{ about_module.select__variation }}">
+		<div class="container">
+			<div class="about-module__inner">
+				{% if about_module.text__super_title or about_module.textarea__section_title %}
+					{% include '@molecules/section-header/section-header.twig' with {
+						center_aligned: true,
+						title_modifier: 'h1',
+						title_tag: about_module.select__section_title_tag,
+						section_header: {
+							text__super_title: about_module.text__super_title,
+							textarea__title: about_module.textarea__section_title
+						}
+					} %}
+				{% endif %}
+
+				{% if about_module.textarea__title %}
+					<div class="about-module__title">
+						<div class="row : {{ about_module.select__variation == 'right-title' ? 'end-md' : '' }}">
+							<div class="col-md-9 : col-xs-12">
+								{% include '@atoms/title/title.twig' with {
+									tag: 'h2',
+									modifier: 'h1',
+									title: about_module.textarea__title
+								} %}
+							</div>
+						</div>
+					</div>
+				{% endif %}
+
+				{% if about_module.repeater__cards %}
+					<div class="about-module__card-list">
+						{% for item in about_module.repeater__cards %}
+							{% include '@molecules/card/card.twig' with {
+								card: item
+							} %}
+						{% endfor %}
+					</div>
+				{% endif %}
+
+				{% if about_module.repeater__steps %}
+					<div class="about-module__step-list" data-slider-parent>
+						<div class="swiper" data-slider="about-steps-slider">
+							<div class="swiper-wrapper">
+								{% for item in about_module.repeater__steps %}
+									<div class="swiper-slide">
+										{% include '@molecules/step-card/step-card.twig' with {
+											step_card: item
+										} %}
+									</div>
+								{% endfor %}
+							</div>
+						</div>
+					</div>
+				{% endif %}
+
+				{% if about_module.wysiwyg__left_col_text or about_module.wysiwyg__right_col_text %}
+					<div class="row : {{ about_module.select__variation == 'right-title' ? '' : 'end-md' }}">
+						<div class="col-md-6 : col-xs-12">
+							<div class="about-module__text : text--18 : text--bd : text-left">
+								{% if about_module.wysiwyg__left_col_text %}
+									<div class="about-module__text-col : p-0">
+										{% if about_module.text__left_col_title %}
+											<div
+												class="about-module__text-col-title : p-0 : mb-12 : text--12 : font-secondary : text--md : text--uppercase"
+											>
+												{{ about_module.text__left_col_title }}
+											</div>
+										{% endif %}
+
+										{% include '@modules/editor-text/editor-text.twig' with {
+											editor_content: about_module.wysiwyg__left_col_text
+										} %}
+									</div>
+								{% endif %}
+
+								{% if about_module.wysiwyg__right_col_text %}
+									<div class="about-module__text-col : p-0">
+										{% if about_module.text__right_col_title %}
+											<div
+												class="about-module__text-col-title : p-0 : mb-12 : text--12 : font-secondary : text--md : text--uppercase"
+											>
+												{{ about_module.text__right_col_title }}
+											</div>
+										{% endif %}
+										{% include '@modules/editor-text/editor-text.twig' with {
+											editor_content: about_module.wysiwyg__right_col_text
+										} %}
+									</div>
+								{% endif %}
+							</div>
+						</div>
+					</div>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+
+	{% if about_module.boolean__white_bg %}
+		{% include '@atoms/section-margin/section-margin.twig' with {
+			default_160_spacing: true,
+			spacing_size: about_module.select__bottom_spacing_size
+		} %}
+	{% elseif about_module.select__variation == 'last-card-list' %}
+		{% include '@atoms/section-margin/section-margin.twig' with {
+			default_80_spacing: true,
+			spacing_size: about_module.select__bottom_spacing_size
+		} %}
+	{% else %}
+		{% include '@atoms/section-margin/section-margin.twig' with {
+			default_100_spacing: true,
+			spacing_size: about_module.select__bottom_spacing_size
+		} %}
+	{% endif %}
+</section>

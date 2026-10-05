@@ -1,0 +1,112 @@
+@import '../../../scss/import';
+
+.card {
+	color: var(--color-gray-100);
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	border: 1px solid rgba($cgp_white, 0.08);
+	background-color: var(--color-gray-950);
+	background-image: radial-gradient(circle, var(--color-gray-800) 1px, transparent 1px);
+	background-size: 11px 11px;
+	min-height: 240px;
+	max-width: 342px;
+	width: 100%;
+
+	// Tablet P and down
+	@media #{$breakpoint-sm-down} {
+		min-height: 200px;
+	}
+
+	[data-component^='mod-'] & {
+		max-width: 100%;
+	}
+
+	// ##################################################
+	// Brighter dots around the cursor (position set in card.js)
+
+	position: relative;
+	@include pointer-dots-highlight;
+
+	// ##################################################
+
+	&__icon {
+		position: relative;
+		height: 32px;
+		width: 32px;
+		margin-bottom: 8px;
+
+		// ##################################################
+
+		img {
+			width: auto;
+			height: auto;
+			object-fit: contain;
+		}
+	}
+
+	// ##################################################
+
+	&__text {
+		color: var(--color-gray-400);
+	}
+
+	// ##################################################
+
+	.title {
+		color: var(--color-gray-100);
+		@extend %fontsize18;
+	}
+
+	// ##################################################
+
+	&__button {
+		padding-top: 28px;
+		margin-top: auto;
+	}
+
+	// ##################################################
+
+	.mod-counter {
+		margin-top: auto;
+	}
+
+	// ##################################################
+
+	&__index {
+		font-feature-settings: 'ss01' on, 'ss09' on;
+	}
+
+	// ##################################################
+
+	&:has(.card__index),
+	&:has(.mod-counter) {
+		.title {
+			font-size: 16px;
+			font-weight: 400;
+			letter-spacing: 0.32px;
+		}
+	}
+
+	// ##################################################
+
+	&:has(.card__index) {
+		gap: 8px;
+
+		// ##################################################
+
+		.card__icon {
+			margin-top: auto;
+			width: 72px;
+			height: 72px;
+			justify-content: flex-start;
+
+			// Tablet P and down
+			@media #{$breakpoint-sm-down} {
+				width: 40px;
+				height: 40px;
+			}
+		}
+	}
+}

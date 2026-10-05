@@ -1,0 +1,176 @@
+{
+	"title": "Margin",
+	"status": "acceptance",
+	"default": "260-px",
+	"variants": [
+		{
+			"name": "300-px",
+			"notes": "300-px",
+			"context": {
+				"size": "300"
+			}
+		},
+		{
+			"name": "260-px",
+			"notes": "260-px",
+			"context": {
+				"size": "260"
+			}
+		},
+		{
+			"name": "200-px",
+			"notes": "200-px",
+			"context": {
+				"size": "200"
+			}
+		},
+		{
+			"name": "180-px",
+			"notes": "180-px",
+			"context": {
+				"size": "180"
+			}
+		},
+
+		{
+			"name": "160-px",
+			"notes": "160-px",
+			"context": {
+				"size": "160"
+			}
+		},
+		{
+			"name": "150-px",
+			"notes": "150-px",
+			"context": {
+				"size": "150"
+			}
+		},
+		{
+			"name": "140-px",
+			"notes": "140-px",
+			"context": {
+				"size": "140"
+			}
+		},
+		{
+			"name": "128-px",
+			"notes": "128-px",
+			"context": {
+				"size": "128"
+			}
+		},
+		{
+			"name": "120-px",
+			"notes": "120-px",
+			"context": {
+				"size": "120"
+			}
+		},
+		{
+			"name": "108-px",
+			"notes": "108-px",
+			"context": {
+				"size": "108"
+			}
+		},
+		{
+			"name": "100-px",
+			"notes": "100-px",
+			"context": {
+				"size": "100"
+			}
+		},
+		{
+			"name": "96-px",
+			"notes": "96-px",
+			"context": {
+				"size": "96"
+			}
+		},
+		{
+			"name": "90-px",
+			"notes": "90-px",
+			"context": {
+				"size": "90"
+			}
+		},
+		{
+			"name": "80-px",
+			"notes": "80-px",
+			"context": {
+				"size": "80"
+			}
+		},
+		{
+			"name": "70-px",
+			"notes": "70-px",
+			"context": {
+				"size": "70"
+			}
+		},
+		{
+			"name": "64-px",
+			"notes": "64-px",
+			"context": {
+				"size": "64"
+			}
+		},
+		{
+			"name": "60-px",
+			"notes": "60-px",
+			"context": {
+				"size": "60"
+			}
+		},
+		{
+			"name": "50-px",
+			"notes": "50-px",
+			"context": {
+				"size": "50"
+			}
+		},
+		{
+			"name": "40-px",
+			"notes": "40-px",
+			"context": {
+				"size": "40"
+			}
+		},
+		{
+			"name": "32-px",
+			"notes": "32-px",
+			"context": {
+				"size": "32"
+			}
+		},
+		{
+			"name": "30-px",
+			"notes": "30-px",
+			"context": {
+				"size": "30"
+			}
+		},
+		{
+			"name": "24-px",
+			"notes": "24-px",
+			"context": {
+				"size": "24"
+			}
+		},
+		{
+			"name": "20-px",
+			"notes": "20-px",
+			"context": {
+				"size": "20"
+			}
+		},
+		{
+			"name": "16-px",
+			"notes": "16-px",
+			"context": {
+				"size": "16"
+			}
+		}
+	]
+}

@@ -1,0 +1,49 @@
+{
+	"title": "Hero Module",
+	"status": "acceptance",
+	"notes": "Hero Module",
+	"acf_function": "getHeroModuleFields",
+	"default": "default",
+	"variants": [
+		{
+			"name": "default",
+			"notes": "Default Hero Module",
+			"context": {
+				"hero_module": {
+					"text__super_title": "WELCOME TO KINGSBOX",
+					"textarea__title": "from vision <br> to opening day",
+					"link__primary_button": "#",
+					"primary_button_target": "",
+					"primary_button_rel": "",
+					"primary_button_text": "Start your project",
+					"link__secondary_button": "#",
+					"secondary_button_target": "",
+					"secondary_button_rel": "",
+					"secondary_button_text": "view case studies",
+					"image__video_poster": "../../images/hero-bg.webp",
+					"file__video_mp4": "../../videos/hero-video.mp4"
+				}
+			}
+		},
+		{
+			"name": "background-image",
+			"notes": "Hero Module With Background Image",
+			"context": {
+				"hero_module": {
+					"text__super_title": "WELCOME TO KINGSBOX",
+					"textarea__title": "from vision <br> to opening day",
+					"link__primary_button": "#",
+					"primary_button_target": "",
+					"primary_button_rel": "",
+					"primary_button_text": "Start your project",
+					"link__secondary_button": "#",
+					"secondary_button_target": "",
+					"secondary_button_rel": "",
+					"secondary_button_text": "view case studies",
+					"image__image": "../../images/hero-bg.webp",
+					"image_alt": "Image"
+				}
+			}
+		}
+	]
+}

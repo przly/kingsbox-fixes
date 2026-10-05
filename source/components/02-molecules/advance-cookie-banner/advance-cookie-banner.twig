@@ -1,0 +1,92 @@
+<div class="advance-cookie-banner" data-cookie-active-for="{{ cookie_active_for }}">
+	<div class="advance-cookie-banner__bar">
+		<div class="advance-cookie-banner__inner">
+			<div class="advance-cookie-banner__left">
+				{% if cookie_text %}
+					{{ cookie_text }}
+				{% endif %}
+			</div>
+
+			<div class="advance-cookie-banner__button">
+				<button class="btn--cookie-setting : text--12 : text--md : text--gray-100">
+					{{ cookie_setting_button_text }}
+				</button>
+				<button class="btn--accept-cookie : btn : btn--small : btn--transparent-white">
+					<span class="btn__text">{{ agree_button_text }}</span>
+					<span class="btn__icon">
+						{% include '@atoms/icons/icons.twig' with {
+							icon_modifier: 'check'
+						} %}
+					</span>
+				</button>
+			</div>
+		</div>
+	</div>
+
+	{# START : Advance-cookie-modal #}
+	<div class="advance-cookie-banner__modal" data-lenis-prevent>
+		<div class="advance-cookie-banner__modal-body">
+			<div class="advance-cookie-banner__modal-header : text--24 : text--bd">
+				<h2>{{ cookie_modal_title }}</h2>
+
+				<button
+					type="button"
+					class="advance-cookie-banner__modal-close : d-flex-cc"
+					aria-label="{{ cookie_modal_close }}"
+				>
+					{% include '@atoms/icons/icons.twig' with {
+						icon_modifier: 'close'
+					} %}
+				</button>
+			</div>
+			<div class="advance-cookie-banner__modal-content">
+				{% if cookie_modal_text %}
+					{% include '@modules/editor-text/editor-text.twig' with {
+						editor_content: cookie_modal_text
+					} %}
+				{% endif %}
+
+				{% for item in cookie_items %}
+					<div class="advance-cookie-banner__modal-item {{ item.is_necessary ? 'is-necessary' }}">
+						{% if item.title %}
+							<div class="advance-cookie-banner__modal-cookie-title">
+								<strong>{{ item.title }}</strong>
+							</div>
+						{% endif %}
+						{% if item.text %}
+							<div class="advance-cookie-banner__modal-cookie-text">{{ item.text }}</div>
+						{% endif %}
+						{% if item.is_necessary %}
+							<div class="advance-cookie-banner__modal-active-label">{{ always_active_label }}</div>
+						{% endif %}
+						{% include '@atoms/toggle/toggle.twig' with {
+							id: item.id,
+							cookie_name: item.cookie_name,
+							name: item.name
+						} %}
+					</div>
+				{% endfor %}
+			</div>
+			<div class="advance-cookie-banner__modal-footer">
+				<button class="btn : btn--mono-font : btn--confirm-choice">
+					<span class="btn__text">{{ confirm_button_text }}</span>
+					<span class="btn__icon : btn__icon--default : d-flex-cc">
+						{% include '@atoms/icons/icons.twig' with {
+							icon_modifier: 'chevron-right'
+						} %}
+					</span>
+				</button>
+				<button class="btn : btn--mono-font : btn--accept-all">
+					<span class="btn__text">{{ accept_all_button_text }}</span>
+					<span class="btn__icon : btn__icon--default : d-flex-cc">
+						{% include '@atoms/icons/icons.twig' with {
+							icon_modifier: 'chevron-right'
+						} %}
+					</span>
+				</button>
+			</div>
+		</div>
+		<div class="advance-cookie-banner__modal-overlay"></div>
+	</div>
+	{# END : Advance-cookie-modal #}
+</div>

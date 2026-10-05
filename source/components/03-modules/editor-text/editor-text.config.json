@@ -1,0 +1,63 @@
+{
+	"title": "",
+	"status": "acceptance",
+	"notes": " Module",
+	"context": {
+		"editor_container": true,
+		"placeholder_image": "../../images/placeholders/1x1_placeholder.png",
+		"editor_content": "<h1>H1 - Lorem ipsum dolor sit amet?</h1> <p>Lorem ipsum dolor sit amet, <a href='#link'>consectetur adipiscing</a> elit, <strong>sed do eiusmod</strong> tempor incididunt ut labore et dolore <i>magna aliqua</i>. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu.</p> <p>Unordered list item:</p> <ul> <li>Lorem ipsum dolor sit amet with regular text</li> <li>Lorem ipsum dolor sit amet with <a href='#link'>link text</a></li> <li>Lorem ipsum dolor sit amet with <strong>bold text</strong></li> <li>Lorem ipsum dolor sit amet with <i>italics text</i></li> <li>Lorem ipsum dolor sit amet with <u>underlined text</u></li> <li>Lorem ipsum dolor sit amet with <em>emphasized text</em></li> <li>Lorem ipsum dolor sit amet with <small>small text</small></li> </ul> <p>Ordered list item:</p> <ol> <li>Lorem ipsum dolor sit amet with regular text</li> <li>Lorem ipsum dolor sit amet with <a href='#link'>link text</a></li> <li>Lorem ipsum dolor sit amet with <strong>bold text</strong></li> <li>Lorem ipsum dolor sit amet with <i>italics text</i></li> <li>Lorem ipsum dolor sit amet with <u>underlined text</u></li> <li>Lorem ipsum dolor sit amet with <em>emphasized text</em></li> <li>Lorem ipsum dolor sit amet with <small>small text</small></li> </ol> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu.</p> <blockquote> <p>Quotation praesent eget dignissim sapien. Etiam gravida libero in dolor tempor convallis. Mauris molestie velit diam, fringilla tristique tellus volutpat nec. Donec nibh risus, tristique non blandit a, tincidunt in erat.</p> </blockquote> <h2>H2 - Lorem ipsum dolor sit amet</h2> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu.</p> <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu.</p> <h3>H3 - Lorem ipsum dolor sit amet</h3> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu.</p> <table> <tr> <th>Head cell 1</th> <th>Head cell 2</th> <th>Head cell 3</th> <th>Head cell 4</th> <th>Head cell 5</th> </tr> <tr> <td>Lorem ipsum dolor sit amet</td> <td>Sample data</td> <td>Sample data</td> <td>Lorem ipsum dolor sit amet</td> <td>Sample data</td> </tr> <tr> <td>Lorem ipsum dolor sit amet</td> <td>Sample data</td> <td>Sample data</td> <td>Lorem ipsum dolor sit amet</td> <td>Sample data</td> </tr> </table> <h4>H4 - Lorem ipsum dolor sit amet</h4> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu.</p> <figure> <img loading='lazy' src='../../images/sample_gallery/sample_04.jpg' alt='Sample image with caption'> <figcaption>Picture figure caption</figcaption> </figure> <h5>H5 - Lorem ipsum dolor sit amet</h5> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu.</p> <h6>H6 - Lorem ipsum dolor sit amet</h6> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu.</p>",
+		"image_gallery": {
+			"gallery_items": [
+				{
+					"image_src": "../../images/sample_gallery/sample_01.jpg",
+					"image_alt": "Gallery Image",
+					"modal_image_src": "../../images/sample_gallery/sample_01.jpg",
+					"modal_image_alt": "Gallery Image",
+					"caption": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
+				},
+				{
+					"image_src": "../../images/sample_gallery/sample_02.jpg",
+					"image_alt": "Gallery Image",
+					"modal_image_src": "../../images/sample_gallery/sample_02.jpg",
+					"modal_image_alt": "Gallery Image",
+					"caption": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
+				},
+				{
+					"image_src": "../../images/sample_gallery/sample_03.jpg",
+					"image_alt": "Gallery Image",
+					"modal_image_src": "../../images/sample_gallery/sample_03.jpg",
+					"modal_image_alt": "Gallery Image",
+					"caption": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
+				},
+				{
+					"image_src": "../../images/sample_gallery/sample_04.jpg",
+					"image_alt": "Gallery Image",
+					"modal_image_src": "../../images/sample_gallery/sample_04.jpg",
+					"modal_image_alt": "Gallery Image",
+					"caption": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
+				},
+				{
+					"image_src": "../../images/sample_gallery/sample_05.jpg",
+					"image_alt": "Gallery Image",
+					"modal_image_src": "../../images/sample_gallery/sample_05.jpg",
+					"modal_image_alt": "Gallery Image",
+					"caption": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
+				},
+				{
+					"image_src": "../../images/header_slider_01.jpg",
+					"image_alt": "Gallery Image",
+					"modal_image_src": "../../images/header_slider_01.jpg",
+					"modal_image_alt": "Gallery Image",
+					"caption": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
+				},
+				{
+					"image_src": "../../images/header_slider_02.jpg",
+					"image_alt": "Gallery Image",
+					"modal_image_src": "../../images/header_slider_02.jpg",
+					"modal_image_alt": "Gallery Image",
+					"modalon": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
+				}
+			]
+		}
+	}
+}

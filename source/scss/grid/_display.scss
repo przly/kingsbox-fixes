@@ -1,0 +1,41 @@
+// Utilities
+$displays: none, inline-block, block, flex, inline-flex !default;
+$screen_viewport_xs: 320px;
+$screen_viewport_sm: $sm-start;
+$screen_viewport_md: $md-start;
+$screen_viewport_lg: $lg-start;
+$screen_viewport_xl: $lg-max;
+$cols: $grid_cols;
+
+// Grid array (used for generating the grid)
+$grid_arr: (
+	(xs, $screen_viewport_xs, $container_xs, $gutter_xs),
+	(sm, $screen_viewport_sm, $container_sm, $gutter_sm),
+	(md, $screen_viewport_md, $container_md, $gutter_md),
+	(lg, $screen_viewport_lg, $container_lg, $gutter_lg),
+	(xl, $screen_viewport_xl, $container_xl, $gutter_xl)
+);
+
+@each $label, $breakpoint, $container_width, $gutter in $grid_arr {
+	@media (min-width: #{$breakpoint}) {
+		// stylelint-disable-next-line plugin/stylelint-bem-namics
+		.text-#{$label}-center {
+			text-align: center;
+		}
+		// stylelint-disable-next-line plugin/stylelint-bem-namics
+		.text-#{$label}-left {
+			text-align: left;
+		}
+		// stylelint-disable-next-line plugin/stylelint-bem-namics
+		.text-#{$label}-right {
+			text-align: right;
+		}
+
+		@each $value in $displays {
+			// stylelint-disable-next-line plugin/stylelint-bem-namics
+			.d-#{$label}-#{$value} {
+				display: $value !important;
+			}
+		}
+	}
+}
