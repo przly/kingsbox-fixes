@@ -114,25 +114,8 @@ All changes are on `.advance-cookie-banner__bar`. The script and the twig are un
 - Move in is a keyframe animation (`cookieBarIn`), move out is a transition.
 - With `prefers-reduced-motion: reduce` the bar only fades.
 
-## Smooth scrolling
-
-`scripts/01_default.js`
-
-- Lenis smooth scrolling is removed, so the page scrolls with the browser's default behaviour. In the repo this is the `initSmoothScrolling()` block (desktop only, above 1023px) in the "Lenis" section.
-- `checkout-map.js` looks up the Lenis instance to pause it over the map, so check it still behaves when the block is removed there.
-
-## Text selection on dark backgrounds
-
-`scss/base/_general.scss`, `scss/mixins/_mixins.scss`, `card.scss`, `advance-cookie-banner.scss`
-
-The global `::selection` is black with white text, so selected text was invisible on dark backgrounds. It is now inverted there, to a white highlight with black text:
-
-- `.bg-black` and `.bg-gray-950` sections, in `_general.scss`.
-- `.card` and `.advance-cookie-banner__bar`, which are dark regardless of the section they sit in.
-
 ## Mixins
 
 `scss/mixins/_mixins.scss`
 
 - New `pointer-dots-highlight` mixin, shared by the card and the cookie bar. It holds the highlight colour, the mask radius and falloff, and the fade timings. The 200px radius is repeated as `cardPointerRadius` in `card.js`.
-- New `dark-surface-selection` mixin, which holds the inverted selection colours.
