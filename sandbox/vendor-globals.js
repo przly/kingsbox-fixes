@@ -3,9 +3,8 @@
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { CustomEase } from 'gsap/CustomEase';
-import Lenis from 'lenis';
 import Splitting from 'splitting';
 
 gsap.registerPlugin(ScrollTrigger, CustomEase);
 
-Object.assign(window, { gsap, ScrollTrigger, CustomEase, Lenis, Splitting });
+Object.assign(window, { gsap, ScrollTrigger, CustomEase, Splitting });

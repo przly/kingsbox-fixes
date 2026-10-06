@@ -1,0 +1,34 @@
+{
+	"title": "Section Header",
+	"status": "acceptance",
+	"notes": "Section Header",
+	"default": "default",
+	"variants": [
+		{
+			"name": "default",
+			"context": {
+				"section_header": {
+					"textarea__title": "Best sellers",
+					"link__button": "#",
+					"button_target": "",
+					"button_rel": "",
+					"button_text": "See all"
+				}
+			}
+		},
+		{
+			"name": "center-aligned",
+			"context": {
+				"center_aligned": true,
+				"section_header": {
+					"text__super_title": "KINGSBOX’S MISSION",
+					"textarea__title": "from vision <br>to opening day",
+					"link__button": "#",
+					"button_target": "",
+					"button_rel": "",
+					"button_text": "Request a Quote"
+				}
+			}
+		}
+	]
+}

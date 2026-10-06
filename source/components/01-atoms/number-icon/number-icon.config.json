@@ -1,0 +1,36 @@
+{
+	"title": "Number Icon",
+	"notes": "Number Icon",
+	"status": "acceptance",
+	"default": "number-05",
+	"variants": [
+		{
+			"name": "number-05",
+			"notes": "Number Icon 05",
+			"context": {
+				"number_icon": "05"
+			}
+		},
+		{
+			"name": "number-05-reverse",
+			"notes": "Number Icon 05 Reverse",
+			"context": {
+				"number_icon": "05-reverse"
+			}
+		},
+		{
+			"name": "number-20",
+			"notes": "Number Icon 20",
+			"context": {
+				"number_icon": "20"
+			}
+		},
+		{
+			"name": "number-20-reverse",
+			"notes": "Number Icon 20 Reverse",
+			"context": {
+				"number_icon": "20-reverse"
+			}
+		}
+	]
+}

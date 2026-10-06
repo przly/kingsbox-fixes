@@ -1,0 +1,235 @@
+//*******************************************************************************
+// Section Header
+//*******************************************************************************
+
+@import '../../../scss/import';
+
+.section-header {
+	width: 100%;
+
+	// ##################################################
+
+	&__content {
+		display: grid;
+		grid-gap: 12px;
+	}
+
+	// ##################################################
+
+	&__title {
+		display: flex;
+		align-items: center;
+		gap: 16px 24px;
+		flex-wrap: wrap;
+	}
+
+	// ##################################################
+
+	&__super-title {
+		letter-spacing: normal;
+	}
+
+	// ##################################################
+
+	.title {
+		text-transform: uppercase;
+	}
+
+	// ##################################################
+
+	&__inner {
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+		gap: 24px;
+
+		// Tablet P and down
+		@media #{$breakpoint-sm-down} {
+			flex-wrap: wrap;
+		}
+
+		// Mobile
+		@media #{$breakpoint-xs-only} {
+			flex-direction: column;
+			justify-content: flex-start;
+		}
+	}
+
+	// ##################################################
+
+	.slider-nav {
+		margin-left: auto;
+		flex-shrink: 0;
+	}
+
+	// ##################################################
+
+	.number-icon {
+		&--20,
+		&--05,
+		&--20-reverse,
+		&--05-reverse {
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+
+		// ##################################################
+
+		&--05-reverse,
+		&--05 {
+			left: initial;
+			right: 0;
+		}
+
+		// ##################################################
+
+		&--05-reverse,
+		&--20-reverse {
+			top: initial;
+			bottom: 0;
+		}
+
+		// ##################################################
+		// Start state of the corner marks (animated in section-header.js)
+
+		svg {
+			overflow: visible;
+		}
+
+		&__dot,
+		&__number {
+			opacity: 0;
+		}
+	}
+
+	// ##################################################
+
+	&__button-group {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 10px;
+	}
+
+	// ##################################################
+
+	&--default {
+		.title {
+			// ##################################################
+
+			&--h1 {
+				text-transform: none;
+				font-family: var(--font-primary);
+				letter-spacing: -0.04em;
+			}
+		}
+	}
+
+	// ##################################################
+
+	&--centered {
+		text-align: center;
+		padding: 48px 0;
+		position: relative;
+
+		// Mobile
+		@media #{$breakpoint-xs-only} {
+			padding: 40px 0;
+		}
+
+		// ##################################################
+
+		.section-header__inner {
+			justify-content: center;
+			flex-direction: column;
+			align-items: center;
+			max-width: 900px;
+			width: 100%;
+			margin: 0 auto;
+		}
+
+		// ##################################################
+
+		.section-header__content {
+			grid-gap: 4px;
+		}
+
+		// ##################################################
+
+		.section-header__title {
+			flex-direction: column;
+			gap: 36px;
+
+			// Mobile
+			@media #{$breakpoint-xs-only} {
+				gap: 24px;
+			}
+		}
+
+		// ##################################################
+
+		.section-header__button-group {
+			justify-content: center;
+		}
+
+		// ##################################################
+
+		.title {
+			@extend %title_7xl;
+			text-transform: uppercase;
+
+			// Tablet P and down
+			@media #{$breakpoint-sm-down} {
+				font-size: 44px;
+			}
+
+			// Mobile
+			@media #{$breakpoint-xs-only} {
+				font-size: 38px;
+			}
+		}
+	}
+
+	// ##################################################
+
+	&--only-button {
+		.section-header__content {
+			// Tablet P and down
+			@media #{$breakpoint-sm-down} {
+				grid-gap: 0;
+			}
+		}
+	}
+}
+
+// ##################################################
+
+.sc-general:has(.section-footer) {
+	.section-header--default {
+		&.section-header--only-button .section-header__inner {
+			// Tablet P and down
+			@media #{$breakpoint-sm-down} {
+				gap: 0;
+			}
+		}
+
+		// ##################################################
+
+		.section-header__title:not(:has(> .title)) {
+			// Tablet P and down
+			@media #{$breakpoint-sm-down} {
+				display: none;
+			}
+		}
+
+		// ##################################################
+
+		.section-header__button-group {
+			// Tablet P and down
+			@media #{$breakpoint-sm-down} {
+				display: none;
+			}
+		}
+	}
+}

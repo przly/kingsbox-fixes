@@ -54,6 +54,7 @@ export default defineConfig({
       input: {
         main: resolve(root, 'index.html'),
         'about-module': resolve(root, 'about-module/index.html'),
+        'section-header': resolve(root, 'section-header/index.html'),
       },
     },
   },

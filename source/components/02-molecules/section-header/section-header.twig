@@ -1,0 +1,113 @@
+{% if title_tag %}
+	{% set titleTag = title_tag %}
+{% elseif section_header.select__title_tag %}
+	{% set titleTag = section_header.select__title_tag %}
+{% else %}
+	{% set titleTag = 'h2' %}
+{% endif %}
+
+{% if title_modifier %}
+	{% set titleModifier = title_modifier %}
+{% elseif section_header.select__title_modifier %}
+	{% set titleModifier = section_header.select__title_modifier %}
+{% else %}
+	{% set titleModifier = 'h3' %}
+{% endif %}
+
+<div
+	data-component="mol-section-header"
+	class="section-header{{ center_aligned ? ' : section-header--centered' : ' : section-header--default' }} {{
+	not section_header.textarea__title and not section_header.text__super_title
+		? 'section-header--only-button'
+	}}"
+>
+	<div class="section-header__inner">
+		{% if
+			section_header.textarea__title
+				or section_header.link__button
+				or section_header.link__secondary_button
+				or section_header.text__super_title %}
+			<div class="section-header__content">
+				{% if section_header.text__super_title %}
+					<div class="section-header__super-title : text--12 : font-secondary : text--uppercase">
+						{{ section_header.text__super_title }}
+					</div>
+				{% endif %}
+
+				<div class="section-header__title">
+					{% if section_header.textarea__title %}
+						{% include '@atoms/title/title.twig' with {
+							secondary: true,
+							tag: titleTag,
+							modifier: titleModifier,
+							title: section_header.textarea__title
+						} %}
+					{% endif %}
+
+					{% if
+						section_header.link__button
+							or section_header.button_text
+							or section_header.link__secondary_button
+							or section_header.secondary_button_text %}
+						<div class="section-header__button-group">
+							{% if section_header.link__button or section_header.button_text %}
+								{% include '@atoms/button/button.twig' with {
+									mono_font: center_aligned,
+									modifier: button_modifier,
+									type: button_type,
+									href: section_header.link__button,
+									text: section_header.button_text,
+									target: section_header.button_target,
+									rel: section_header.button_rel,
+									icon: button_icon,
+									remove_icon: button_remove_icon,
+									data_attr: button_data_attr,
+									left_side_icon: left_button_icon
+								} %}
+							{% endif %}
+
+							{% if section_header.link__secondary_button %}
+								{% include '@atoms/button/button.twig' with {
+									mono_font: center_aligned,
+									type: secondary_button_type,
+									modifier: secondary_button_modifier,
+									href: section_header.link__secondary_button,
+									text: section_header.secondary_button_text,
+									target: section_header.secondary_button_target,
+									rel: section_header.secondary_button_rel,
+									icon: secondary_button_icon,
+									remove_icon: secondary_button_remove_icon,
+									data_attr: secondary_button_data_attr,
+									left_side_icon: left_secondary_button_icon
+								} %}
+							{% endif %}
+						</div>
+					{% endif %}
+				</div>
+			</div>
+		{% endif %}
+
+		{% if slider_nav %}
+			{% include '@molecules/slider-nav/slider-nav.twig' with {
+				text__from: text__from,
+				text__to: text__to,
+				remove_progress_bar: remove_progress_bar
+			} %}
+		{% endif %}
+	</div>
+
+	{% if center_aligned or corner_numbers %}
+		{% include '@atoms/number-icon/number-icon.twig' with {
+			number_icon: '05'
+		} %}
+		{% include '@atoms/number-icon/number-icon.twig' with {
+			number_icon: '05-reverse'
+		} %}
+		{% include '@atoms/number-icon/number-icon.twig' with {
+			number_icon: '20'
+		} %}
+		{% include '@atoms/number-icon/number-icon.twig' with {
+			number_icon: '20-reverse'
+		} %}
+	{% endif %}
+</div>

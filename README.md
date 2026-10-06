@@ -69,6 +69,29 @@ The dots brighten around the cursor.
 - Only cards in the viewport are measured, at most once per frame.
 - Only on devices with `(hover: hover) and (pointer: fine)`.
 
+## Section header
+
+`components/02-molecules/section-header/`, `components/01-atoms/number-icon/`
+
+**Corner marks animation** (new `section-header.js`, `section-header.scss`, `number-icon.twig`)
+
+The four corner marks start empty. On each side the two dots scale up together in the vertical middle of the header, so they read as one dot. Then they split: one travels up to the top corner and one down to the bottom corner. The dots never grow past their normal size. Each number fades in behind its dot as it arrives.
+
+| | Value |
+| --- | --- |
+| Dots appear | at the vertical middle of the header: scale from 0 to 1× in 0.3s, ease-out expo (GSAP `expo.out`, about `cubic-bezier(0.16, 1, 0.3, 1)`), with no fade |
+| Hold | none; the move starts together with the scale-up |
+| Dot move | 0.8s, strong ease-in-out, `cubic-bezier(0.77, 0, 0.175, 1)`; most of the distance is covered in the middle 0.3s |
+| Number | starts at 0.6s, as the dot visibly arrives: opacity 0 to 1 over 0.1s, linear, and a 6px slide along the dot's path, 0.25s on the hero curve, `cubic-bezier(0.25, 0.49, 0.31, 1)` (`showNumber` in `section-header.js` hides the numbers) |
+| Stagger | none, all four move together |
+| Trigger | once, when the whole header is on screen (its bottom edge reaches 95% of the viewport height) |
+
+- `number-icon.twig`: each icon's single SVG is split into two SVGs laid over each other, `.number-icon__number` and `.number-icon__dot`, so the dot moves with a CSS transform and the number is not redrawn. The drawing is unchanged.
+- `number-icon.scss`: the dot SVG is positioned over the number SVG.
+- `section-header.scss`: hidden start state for both.
+- With `prefers-reduced-motion: reduce` there is no movement; the marks fade in over 0.2s.
+- Applies wherever a section header has corner marks (`center_aligned` or `corner_numbers`).
+
 ## Advance cookie banner
 
 `components/02-molecules/advance-cookie-banner/advance-cookie-banner.scss`
@@ -82,13 +105,21 @@ All changes are on `.advance-cookie-banner__bar`. The script and the twig are un
 | | Move in | Move out |
 | --- | --- | --- |
 | Trigger | `.cookie-not-set` added | `.cookie-not-set` removed (accept, confirm choice, allow all) |
-| Duration | 500ms, after a 300ms delay | 300ms |
-| Easing | `cubic-bezier(0.22, 1, 0.36, 1)` | same |
-| Movement | from `translateY(100% + 20px)` to 0 | back to `translateY(100% + 20px)` |
+| Duration | 500ms, after a 300ms delay | 500ms |
+| Easing | `cubic-bezier(0.25, 0.49, 0.31, 1)` | same |
+| Movement | up by 30px (34px from tablet L up) | back down by the same distance |
 | Opacity | 0 to 1 | 1 to 0 |
 
+- Duration, easing and distance match the hero buttons: 0.5s, the hero's custom ease, and one button height.
 - Move in is a keyframe animation (`cookieBarIn`), move out is a transition.
 - With `prefers-reduced-motion: reduce` the bar only fades.
+
+## Smooth scrolling
+
+`scripts/01_default.js`
+
+- Lenis smooth scrolling is removed, so the page scrolls with the browser's default behaviour. In the repo this is the `initSmoothScrolling()` block (desktop only, above 1023px) in the "Lenis" section.
+- `checkout-map.js` looks up the Lenis instance to pause it over the map, so check it still behaves when the block is removed there.
 
 ## Text selection on dark backgrounds
 
