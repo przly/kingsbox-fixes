@@ -1,0 +1,44 @@
+{% if checkbox.text__error_message %}
+	{% set errorMessageAttr = 'data-fv-not-empty___message="' ~ checkbox.text__error_message ~ '"' %}
+{% endif %}
+
+<div
+	data-component="at-checkbox"
+	class="checkbox {{ select__type }}"
+	{{ checkbox.data_group_input ? 'data-input-group-item' }}
+>
+	<input
+		type="checkbox"
+		name="{{ checkbox.text__name }}"
+		id="{{ checkbox.text__id }}"
+		data-fv-name="{{ checkbox.text__name }}"
+		{{ checkbox.text__value ? 'value="' ~ checkbox.text__value ~ '"' }}
+		{{ checkbox.boolean__required ? 'required' }}
+		{{ errorMessageAttr }}
+		{{ checkbox.boolean__checked or checkbox.boolean__active ? 'checked' }}
+		{{ checkbox.data_group_input ? 'data-input-group-field' }}
+		{{ checkbox.text__data_filter ? 'data_filter="' ~ checkbox.text__data_filter ~ '"' }}
+		{{ checkbox.data_attr }}
+	/>
+	{% if checkbox.text__color_code %}
+		{% set color_style = 'style="--bg-color:' ~ checkbox.text__color_code ~ '"' %}
+	{% endif %}
+
+	<label
+		class="checkbox__label {{ checkbox.text__color_code ? 'has-bg-color' }} : check-mark--{{
+		checkbox.select__check_mark
+		}}"
+		for="{{ checkbox.text__id }}"
+		{{ color_style }}
+	>
+		{% if checkbox.select__icon %}
+			{% include '@atoms/icons/icons.twig' with {
+				icon_modifier: checkbox.select__icon
+			} %}
+		{% endif %}
+		<span class="checkbox__label-text">{{ checkbox.text__text }}</span>
+		{% if checkbox.text__info_text %}
+			<span class="text--gray-400 : text--12 : font-secondary : text--md">{{ checkbox.text__info_text }}</span>
+		{% endif %}
+	</label>
+</div>

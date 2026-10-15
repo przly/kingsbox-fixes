@@ -1,0 +1,85 @@
+{
+	"title": "Categories Module",
+	"status": "acceptance",
+	"notes": "Categories Module",
+	"acf_function": "getCategoriesModuleFields",
+	"context": {
+		"categories_module": {
+			"text__title": "Categories",
+			"repeater__items": [
+				{
+					"link__link": "#",
+					"link_target": "",
+					"link_rel": "",
+					"text__title": "Strength",
+					"image__image": "../../images/categories-module-1.webp",
+					"image_alt": "Image"
+				},
+				{
+					"link__link": "#",
+					"link_target": "",
+					"link_rel": "",
+					"text__title": "rigs & racks",
+					"image__image": "../../images/categories-module-1.webp",
+					"image_alt": "Image"
+				},
+				{
+					"link__link": "#",
+					"link_target": "",
+					"link_rel": "",
+					"text__title": "Stength Machines",
+					"image__image": "../../images/categories-module-1.webp",
+					"image_alt": "Image"
+				},
+				{
+					"link__link": "#",
+					"link_target": "",
+					"link_rel": "",
+					"text__title": "Conditioning",
+					"image__image": "../../images/categories-module-1.webp",
+					"image_alt": "Image"
+				},
+				{
+					"link__link": "#",
+					"link_target": "",
+					"link_rel": "",
+					"text__title": "Body Weight",
+					"image__image": "../../images/categories-module-1.webp",
+					"image_alt": "Image"
+				},
+				{
+					"link__link": "#",
+					"link_target": "",
+					"link_rel": "",
+					"text__title": "Gym Essentials",
+					"image__image": "../../images/categories-module-1.webp",
+					"image_alt": "Image"
+				},
+				{
+					"link__link": "#",
+					"link_target": "",
+					"link_rel": "",
+					"text__title": "Apparel & Accesories",
+					"image__image": "../../images/categories-module-1.webp",
+					"image_alt": "Image"
+				},
+				{
+					"link__link": "#",
+					"link_target": "",
+					"link_rel": "",
+					"text__title": "Sets",
+					"image__image": "../../images/categories-module-1.webp",
+					"image_alt": "Image"
+				},
+				{
+					"link__link": "#",
+					"link_target": "",
+					"link_rel": "",
+					"text__title": "Training Accessories",
+					"image__image": "../../images/categories-module-1.webp",
+					"image_alt": "Image"
+				}
+			]
+		}
+	}
+}

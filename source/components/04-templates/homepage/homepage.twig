@@ -1,0 +1,42 @@
+{% render '@site-header' %}
+
+<main class="main">
+	{% include '@modules/hero-module/hero-module.twig' with {
+		hero_module: hero_module
+	} %}
+
+	{% include '@modules/about-module/about-module.twig' with {
+		about_module: about_module
+	} %}
+
+	{% include '@modules/mission-module/mission-module.twig' with {
+		mission_module: mission_module
+	} %}
+
+	{% include '@modules/case-study-video/case-study-video.twig' with {
+		case_study_video: case_study_video
+	} %}
+
+	{% include '@modules/logo-slider/logo-slider.twig' with {
+		logo_slider: logo_slider
+	} %}
+
+	{% include '@modules/case-study-slider/case-study-slider.twig' with {
+		case_study_slider: case_study_slider
+	} %}
+
+	{% include '@modules/main-products/main-products.twig' with {
+		main_products: main_products
+	} %}
+
+	{% include '@modules/categories-module/categories-module.twig' with {
+		categories_module: categories_module
+	} %}
+
+	{% include '@modules/product-card-slider/product-card-slider.twig' with {
+		product_card_slider: product_card_slider
+	} %}
+</main>
+
+{% render '@footer' %}
+{% render '@advance-cookie-banner' %}

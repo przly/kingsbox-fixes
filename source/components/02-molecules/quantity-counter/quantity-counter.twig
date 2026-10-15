@@ -1,0 +1,38 @@
+{% set minValue = quantity_counter.text__min_value is defined ? quantity_counter.text__min_value : 1 %}
+
+{% set id = random(100, 999) %}
+
+<div data-component="mol-quantity-counter" class="quantity-counter" data-min-value="{{ minValue }}">
+	<button
+		type="button"
+		class="quantity-counter__button : d-flex-cc : quantity-counter__button--remove {{
+		quantity_counter.text__value == (minValue|default(0))
+			? ': is-disabled'
+			: ''
+		}}"
+		aria-label="{{ quantity_counter.text__remove_button_text }}"
+	>
+		{% include '@atoms/icons/icons.twig' with {
+			icon_modifier: 'minus'
+		} %}
+	</button>
+	<input
+		class="quantity-counter__input"
+		type="text"
+		value="{{ quantity_counter.text__value|default(0) }}"
+		{{ quantity_counter.text__max_value ? 'max="' ~ quantity_counter.text__max_value ~ '"' }}
+		{{ quantity_counter.text__input_id ? 'id="' ~ quantity_counter.text__input_id ~ id ~ '"' }}
+		name="{{ quantity_counter.text__input_name }}"
+		aria-label="{{ quantity_counter.text__input_name }}"
+		readonly
+	/>
+	<button
+		type="button"
+		class="quantity-counter__button : d-flex-cc : quantity-counter__button--add"
+		aria-label="{{ quantity_counter.text__add_button_text }}"
+	>
+		{% include '@atoms/icons/icons.twig' with {
+			icon_modifier: 'plus'
+		} %}
+	</button>
+</div>

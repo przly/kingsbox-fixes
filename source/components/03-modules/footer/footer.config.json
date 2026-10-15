@@ -1,0 +1,880 @@
+{
+	"title": "Footer",
+	"status": "acceptance",
+	"notes": "Footer",
+	"context": {
+		"footer": {
+			"card_list": {
+				"repeater__cards": [
+					{
+						"image__icon": "../../images/catalog-icon.svg",
+						"image_icon_alt": "catalog",
+						"textarea__title": "Catalog",
+						"text__text": "Find the right products for your gym, studio, or home setup.",
+						"link__link": "#",
+						"link_text": "Download catalog",
+						"boolean__download_modal_trigger": true
+					},
+					{
+						"image__icon": "../../images/showroom-icon.svg",
+						"image_icon_alt": "showroom",
+						"textarea__title": "Visit Our Showroom",
+						"text__text": "Explore the details, test the products, and get expert advice in person.",
+						"link__link": "#",
+						"link_text": "Find nearest Showroom"
+					},
+					{
+						"image__icon": "../../images/weight-icon.svg",
+						"image_icon_alt": "weight",
+						"textarea__title": "Ready to Build Your Home Gym?",
+						"text__text": "We will help you create a setup that fits your routine and makes the most of every square meter.",
+						"link__link": "#",
+						"link_text": "Request a Quote"
+					}
+				],
+				"download_modal": {
+					"text__close_button": "Close Download Modal",
+					"text__title": "download catalog",
+					"textarea__text": "Preprosto izpolnite svoje podatke spodaj in takoj boste imeli dostop do KingsBox kataloga 2026!",
+					"form_component": {
+						"action": "saveDownloadFormData",
+						"form_id": "download_form",
+						"reCAPTCHA_site_key": "6LcdqjwoAAAAAIQaRS8LL9_5XiKc1JTTcwmEFK-9",
+						"form_title": "Basic Information",
+						"input_fields": [
+							{
+								"select__width": "half",
+								"input_field": {
+									"text__id": "download_catelog_name",
+									"text__name": "download_catelog_name",
+									"text__label": "Name",
+									"boolean__required": false,
+									"text__placeholder": "Name",
+									"text__error_message": "This field is required"
+								}
+							},
+							{
+								"select__width": "half",
+								"input_field": {
+									"text__id": "download_catelog_surname",
+									"text__name": "download_catelog_surname",
+									"text__label": "Surname",
+									"boolean__required": false,
+									"text__placeholder": "Surname",
+									"text__error_message": "This field is required"
+								}
+							},
+							{
+								"select__width": "half",
+								"input_field": {
+									"text__id": "download_catelog_email",
+									"text__name": "download_catelog_email",
+									"select__input_type": "email",
+									"text__label": "E-mail",
+									"boolean__required": false,
+									"text__placeholder": "E-mail",
+									"text__error_message": "This field is required",
+									"text__invalid_email_message": "Please enter valid email"
+								}
+							},
+							{
+								"select__width": "half",
+								"input_field": {
+									"text__id": "download_catelog_phone",
+									"text__name": "download_catelog_phone",
+									"text__label": "Phone number",
+									"boolean__required": false,
+									"boolean__numbers_only": true,
+									"text__placeholder": "Phone number",
+									"text__error_message": "This field is required"
+								}
+							},
+							{
+								"select__width": "full",
+								"dropdown": {
+									"text__label": "Country",
+									"boolean__required": false,
+									"text__placeholder": "Country",
+									"repeater__items": [
+										{
+											"text": "Item 1",
+											"name": "download_catelog_countrycode",
+											"id": "download_catelog_countrycode-1"
+										},
+										{
+											"text": "Item 2",
+											"name": "download_catelog_countrycode",
+											"id": "download_catelog_countrycode_2"
+										},
+										{
+											"text": "Item 3",
+											"name": "download_catelog_countrycode",
+											"id": "download_catelog_countrycode_3"
+										},
+										{
+											"text": "Item 4",
+											"name": "download_catelog_countrycode",
+											"id": "download_catelog_countrycode_4"
+										},
+										{
+											"text": "Item 5",
+											"name": "download_catelog_countrycode",
+											"id": "download_catelog_countrycode_5"
+										},
+										{
+											"text": "Item 6",
+											"name": "download_catelog_countrycode",
+											"id": "download_catelog_countrycode_6"
+										}
+									]
+								}
+							}
+						],
+						"checkbox": {
+							"text__id": "download-catelog-check-policy",
+							"text__name": "download-catelog-check-policy",
+							"text__text": "I agree to general terms & conditions",
+							"boolean__required": false,
+							"text__error_message": "This field is required"
+						},
+						"form_error_message": "Lorem ipsum dolor sit amet consectetur.",
+						"form_success_message": "Lorem ipsum dolor sit amet consectetur.",
+						"submit_button_text": "Download",
+						"success": {
+							"super_title": "catalog ready!",
+							"title": "Thank you <br> for your interest",
+							"text": "Your download is complete. <br> Enjoy exploring the KingsBox 2026 Catalog.",
+							"button_href": "#,",
+							"button_text": "Back home",
+							"button_target": "",
+							"button_rel": "",
+							"button_icon": "home"
+						}
+					}
+				}
+			},
+			"select__type": "icon-bottom",
+			"text__newsletter_title": "KEEP UP WITH US",
+			"repeater__cols": [
+				{
+					"text__title": "Shop",
+					"repeater__links": [
+						{ "link_text": "Strength", "link__link": "#" },
+						{ "link_text": "Rigs & Racks", "link__link": "#" },
+						{ "link_text": "Strength Machines", "link__link": "#" },
+						{ "link_text": "Conditioning", "link__link": "#" },
+						{ "link_text": "Body Weight", "link__link": "#" },
+						{ "link_text": "Gym Essentials", "link__link": "#" },
+						{ "link_text": "Apparel & Accessories", "link__link": "#" }
+					]
+				},
+				{
+					"text__title": "Customer Care",
+					"repeater__links": [
+						{ "link_text": "Kontakt", "link__link": "#" },
+						{ "link_text": "Dostava in plačila", "link__link": "#" },
+						{ "link_text": "Vračila in menjava", "link__link": "#" },
+						{ "link_text": "Reklamacije", "link__link": "#" },
+						{ "link_text": "FAQ", "link__link": "#" },
+						{ "link_text": "Sledenje naročilu", "link__link": "#" },
+						{ "link_text": "Requets Assembly", "link__link": "#" }
+					]
+				},
+				{
+					"text__title": "KingsBox",
+					"repeater__links": [
+						{ "link_text": "O nas", "link__link": "#" },
+						{ "link_text": "Novice", "link__link": "#" },
+						{ "link_text": "Zgodbe", "link__link": "#" },
+						{ "link_text": "Zaposlitev", "link__link": "#" },
+						{ "link_text": "Store locator", "link__link": "#" },
+						{ "link_text": "Postani partner", "link__link": "#" },
+						{ "link_text": "B2B login", "link__link": "#" },
+						{ "link_text": "Become a Distributor", "link__link": "#" }
+					]
+				}
+			],
+			"image__logo": "../../images/logo-white.svg",
+			"logo_alt": "KingsBox",
+			"text__copyright": "© KingsBox 2026 All rights reserved.",
+			"link__signature_link": "#",
+			"signature_link_text": "Designed & Developed by Specto",
+			"repeater__extra_links": [
+				{ "link__link": "#", "link_text": "SLO/SL [€]" },
+				{ "link__link": "#", "link_text": "B2B Login" },
+				{ "link__link": "#", "link_text": "Privacy Policy" },
+				{ "link__link": "#", "link_text": "Cookie Policy" }
+			],
+			"repeater__socials": [
+				{ "link__link": "#", "select__icon": "instagram" },
+				{ "link__link": "#", "select__icon": "facebook" },
+				{ "link__link": "#", "select__icon": "youtube" }
+			],
+			"repeater__cards": [
+				{
+					"image__card": "../../images/card-1.svg",
+					"card_alt": "Visa"
+				},
+				{
+					"image__card": "../../images/card-2.svg",
+					"card_alt": "Mastercard"
+				},
+				{
+					"image__card": "../../images/card-3.svg",
+					"card_alt": "Amex"
+				},
+				{
+					"image__card": "../../images/card-4.svg",
+					"card_alt": "JCB"
+				},
+				{
+					"image__card": "../../images/card-5.svg",
+					"card_alt": "diners club"
+				},
+				{
+					"image__card": "../../images/card-6.svg",
+					"card_alt": "Paypal"
+				},
+				{
+					"image__card": "../../images/card-7.svg",
+					"card_alt": "discover"
+				}
+			],
+			"form_component": {
+				"action": "saveNewsletterFormData",
+				"form_id": "newsletter_form",
+				"reCAPTCHA_site_key": "6LcdqjwoAAAAAIQaRS8LL9_5XiKc1JTTcwmEFK-9",
+				"input_fields": [
+					{
+						"select__width": "full",
+						"input_field": {
+							"text__id": "email",
+							"text__name": "email",
+							"select__input_type": "email",
+							"text__label": "Enter your email",
+							"boolean__required": true,
+							"text__placeholder": "Enter your email",
+							"text__error_message": "This field is required",
+							"text__invalid_email_message": "Please enter valid email"
+						}
+					}
+				],
+				"form_error_message": "Lorem ipsum dolor sit amet consectetur.",
+				"form_success_message": "Lorem ipsum dolor sit amet consectetur.",
+				"submit_button_text": "Subscribe ",
+				"success": {
+					"title": "Thank you",
+					"text": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi possimus excepturi quidem veniam perspiciatis nesciunt deleniti odio voluptatum quam ad fugiat hic obcaecati ipsa quas autem, recusandae."
+				}
+			},
+			"cart_popup": {
+				"text__title": "Your bag",
+				"text__number": "4",
+				"text__copy_button": "Copy Cart link",
+				"text__copy_text": "https://www.google.com",
+				"free_shipping_indicator": {
+					"wysiwyg__text": "Add <strong>900 €</strong> more to earn free shipping!",
+					"wysiwyg__free_text": "Your order ships for <strong>FRee!</strong>",
+					"text__text": "Earn free shipping above 2.999 €",
+					"text__progress_width": "61"
+				},
+				"cart_view": {
+					"repeater__items": [
+						{
+							"link__link": "#",
+							"image__image": "../../images/cart-view-1.webp",
+							"image__alt": "Image",
+							"text__title": "Mighty Power Rack CX-30",
+							"repeater__info": [
+								{
+									"text__text": "1260 x 1260"
+								},
+								{
+									"text__text": "Black"
+								},
+								{
+									"text__text": "Aluminium"
+								}
+							],
+							"quantity_counter": {
+								"text__title": "Količina",
+								"text__remove_button_text": "Remove Button",
+								"text__add_button_text": "Add Button",
+								"text__input_name": "counter-input",
+								"text__input_id": "counter-input-1",
+								"text__value": 1
+							},
+							"text__price": "2.990,99 €",
+							"text__old_price": "3.990,99 €",
+							"text__tag": "Code: BLACKFRIDAY",
+							"text__discount": "-15 %"
+						},
+						{
+							"link__link": "#",
+							"image__image": "../../images/cart-view-2.webp",
+							"image__alt": "Image",
+							"text__title": "Mighty Power Rack CX-30",
+							"repeater__info": [
+								{
+									"text__text": "1260 x 1260"
+								},
+								{
+									"text__text": "Black"
+								},
+								{
+									"text__text": "Aluminium"
+								}
+							],
+							"quantity_counter": {
+								"text__title": "Količina",
+								"text__remove_button_text": "Remove Button",
+								"text__add_button_text": "Add Button",
+								"text__input_name": "counter-input",
+								"text__input_id": "counter-input-1",
+								"text__value": 1
+							},
+							"text__price": "2.990,99 €",
+							"text__old_price": "3.990,99 €",
+							"text__tag": "Code: BLACKFRIDAY",
+							"text__discount": "-15 %"
+						},
+						{
+							"link__link": "#",
+							"image__image": "../../images/cart-view-3.webp",
+							"image__alt": "Image",
+							"text__title": "Mighty Power Rack CX-30",
+							"repeater__info": [
+								{
+									"text__text": "1260 x 1260"
+								},
+								{
+									"text__text": "Black"
+								},
+								{
+									"text__text": "Aluminium"
+								}
+							],
+							"quantity_counter": {
+								"text__title": "Količina",
+								"text__remove_button_text": "Remove Button",
+								"text__add_button_text": "Add Button",
+								"text__input_name": "counter-input",
+								"text__input_id": "counter-input-1",
+								"text__value": 1
+							},
+							"text__price": "2.990,99 €"
+						},
+						{
+							"link__link": "#",
+							"image__image": "../../images/cart-view-4.webp",
+							"image__alt": "Image",
+							"text__title": "Mighty Power Rack CX-30",
+							"repeater__info": [
+								{
+									"text__text": "1260 x 1260"
+								},
+								{
+									"text__text": "Black"
+								},
+								{
+									"text__text": "Aluminium"
+								}
+							],
+							"quantity_counter": {
+								"text__title": "Količina",
+								"text__remove_button_text": "Remove Button",
+								"text__add_button_text": "Add Button",
+								"text__input_name": "counter-input",
+								"text__input_id": "counter-input-1",
+								"text__value": 1
+							},
+							"text__price": "2.990,99 €"
+						}
+					]
+				},
+				"text__total_amount_label": "Subtotal",
+				"text__total_amount": "2.600,00 €",
+				"link__payment_link": "#",
+				"payment_link_text": "proceed to checkout",
+				"link__view_cart_link": "#",
+				"view_cart_link_text": "GO TO cart",
+				"link__quote_button": "#",
+				"quote_button_text": "Request a quote with those products",
+				"product_list": {
+					"text__title": "Complete your products with...",
+					"repeater__items": [
+						{
+							"link__link": "#",
+							"repeater__images": [
+								{
+									"image__image": "../../images/product-card.webp",
+									"image_alt": "product image"
+								}
+							],
+							"image__hover_image": "../../images/product-card-hover.webp",
+							"hover_image_alt": "product image",
+							"top_tag": {
+								"text__text": "PREORDER",
+								"select__color": "blue"
+							},
+							"variations_tag": {
+								"text__text": "More variations",
+								"image__image": "../../images/variations.webp",
+								"image_alt": "colors"
+							},
+							"text__title": "Mighty Power Rack CX-30",
+							"text__price": "1.482,94 €"
+						},
+						{
+							"link__link": "#",
+							"repeater__images": [
+								{
+									"image__image": "../../images/product-card.webp",
+									"image_alt": "product image"
+								}
+							],
+							"image__hover_image": "../../images/product-card-hover.webp",
+							"hover_image_alt": "product image",
+							"variations_tag": {
+								"text__text": "More variations",
+								"image__image": "../../images/variations.webp",
+								"image_alt": "colors"
+							},
+							"text__title": "Mighty Power Rack CX-30",
+							"text__price": "1.482,94 €"
+						},
+						{
+							"link__link": "#",
+							"repeater__images": [
+								{
+									"image__image": "../../images/product-card.webp",
+									"image_alt": "product image"
+								}
+							],
+							"image__hover_image": "../../images/product-card-hover.webp",
+							"hover_image_alt": "product image",
+							"variations_tag": {
+								"text__text": "More variations",
+								"image__image": "../../images/variations.webp",
+								"image_alt": "colors"
+							},
+							"text__title": "Mighty Power Rack CX-30",
+							"text__price": "1.482,94 €"
+						},
+						{
+							"link__link": "#",
+							"repeater__images": [
+								{
+									"image__image": "../../images/product-card.webp",
+									"image_alt": "product image"
+								}
+							],
+							"image__hover_image": "../../images/product-card-hover.webp",
+							"hover_image_alt": "product image",
+							"variations_tag": {
+								"text__text": "More variations",
+								"image__image": "../../images/variations.webp",
+								"image_alt": "colors"
+							},
+							"text__title": "Mighty Power Rack CX-30",
+							"text__price": "1.482,94 €"
+						},
+						{
+							"link__link": "#",
+							"repeater__images": [
+								{
+									"image__image": "../../images/product-card.webp",
+									"image_alt": "product image"
+								}
+							],
+							"image__hover_image": "../../images/product-card-hover.webp",
+							"hover_image_alt": "product image",
+							"variations_tag": {
+								"text__text": "More variations",
+								"image__image": "../../images/variations.webp",
+								"image_alt": "colors"
+							},
+							"text__title": "Mighty Power Rack CX-30",
+							"text__price": "1.482,94 €"
+						},
+						{
+							"link__link": "#",
+							"repeater__images": [
+								{
+									"image__image": "../../images/product-card.webp",
+									"image_alt": "product image"
+								}
+							],
+							"image__hover_image": "../../images/product-card-hover.webp",
+							"hover_image_alt": "product image",
+							"variations_tag": {
+								"text__text": "More variations",
+								"image__image": "../../images/variations.webp",
+								"image_alt": "colors"
+							},
+							"text__title": "Mighty Power Rack CX-30",
+							"text__price": "1.482,94 €"
+						}
+					]
+				},
+				"empty": {
+					"image__image": "../../images/empty-cart.svg",
+					"image_alt": "empty",
+					"text__title": "Your bag is currently empty.",
+					"text__text": "Find something you like and add it to the cart.",
+					"link__link": "#",
+					"link_text": "Shop"
+				}
+			},
+			"quote_popup": {
+				"text__title": "Your quote",
+				"text__number": "4",
+				"text__copy_button": "Copy quote link",
+				"text__copy_text": "https://www.google.com",
+				"cart_view": {
+					"repeater__items": [
+						{
+							"link__link": "#",
+							"image__image": "../../images/cart-view-1.webp",
+							"image__alt": "Image",
+							"text__title": "Mighty Power Rack CX-30",
+							"repeater__info": [
+								{
+									"text__text": "1260 x 1260"
+								},
+								{
+									"text__text": "Black"
+								},
+								{
+									"text__text": "Aluminium"
+								}
+							],
+							"quantity_counter": {
+								"text__title": "Količina",
+								"text__remove_button_text": "Remove Button",
+								"text__add_button_text": "Add Button",
+								"text__input_name": "counter-input",
+								"text__input_id": "counter-input-1",
+								"text__value": 1
+							},
+							"text__price": "2.990,99 €",
+							"text__old_price": "3.990,99 €",
+							"text__tag": "Code: BLACKFRIDAY",
+							"text__discount": "-15 %"
+						},
+						{
+							"link__link": "#",
+							"image__image": "../../images/cart-view-2.webp",
+							"image__alt": "Image",
+							"text__title": "Mighty Power Rack CX-30",
+							"repeater__info": [
+								{
+									"text__text": "1260 x 1260"
+								},
+								{
+									"text__text": "Black"
+								},
+								{
+									"text__text": "Aluminium"
+								}
+							],
+							"quantity_counter": {
+								"text__title": "Količina",
+								"text__remove_button_text": "Remove Button",
+								"text__add_button_text": "Add Button",
+								"text__input_name": "counter-input",
+								"text__input_id": "counter-input-1",
+								"text__value": 1
+							},
+							"text__price": "2.990,99 €",
+							"text__old_price": "3.990,99 €",
+							"text__tag": "Code: BLACKFRIDAY",
+							"text__discount": "-15 %"
+						},
+						{
+							"link__link": "#",
+							"image__image": "../../images/cart-view-3.webp",
+							"image__alt": "Image",
+							"text__title": "Mighty Power Rack CX-30",
+							"repeater__info": [
+								{
+									"text__text": "1260 x 1260"
+								},
+								{
+									"text__text": "Black"
+								},
+								{
+									"text__text": "Aluminium"
+								}
+							],
+							"quantity_counter": {
+								"text__title": "Količina",
+								"text__remove_button_text": "Remove Button",
+								"text__add_button_text": "Add Button",
+								"text__input_name": "counter-input",
+								"text__input_id": "counter-input-1",
+								"text__value": 1
+							},
+							"text__price": "2.990,99 €"
+						},
+						{
+							"link__link": "#",
+							"image__image": "../../images/cart-view-4.webp",
+							"image__alt": "Image",
+							"text__title": "Mighty Power Rack CX-30",
+							"repeater__info": [
+								{
+									"text__text": "1260 x 1260"
+								},
+								{
+									"text__text": "Black"
+								},
+								{
+									"text__text": "Aluminium"
+								}
+							],
+							"quantity_counter": {
+								"text__title": "Količina",
+								"text__remove_button_text": "Remove Button",
+								"text__add_button_text": "Add Button",
+								"text__input_name": "counter-input",
+								"text__input_id": "counter-input-1",
+								"text__value": 1
+							},
+							"text__price": "2.990,99 €"
+						}
+					]
+				},
+				"text__total_amount_label": "Subtotal",
+				"text__total_amount": "2.600,00 €",
+				"link__quote_button": "#",
+				"quote_button_text": "Request a quote",
+				"product_list": {
+					"text__title": "Complete your quote with...",
+					"repeater__items": [
+						{
+							"link__link": "#",
+							"repeater__images": [
+								{
+									"image__image": "../../images/product-card.webp",
+									"image_alt": "product image"
+								}
+							],
+							"image__hover_image": "../../images/product-card-hover.webp",
+							"hover_image_alt": "product image",
+							"top_tag": {
+								"text__text": "PREORDER",
+								"select__color": "blue"
+							},
+							"variations_tag": {
+								"text__text": "More variations",
+								"image__image": "../../images/variations.webp",
+								"image_alt": "colors"
+							},
+							"text__title": "Mighty Power Rack CX-30",
+							"text__price": "1.482,94 €"
+						},
+						{
+							"link__link": "#",
+							"repeater__images": [
+								{
+									"image__image": "../../images/product-card.webp",
+									"image_alt": "product image"
+								}
+							],
+							"image__hover_image": "../../images/product-card-hover.webp",
+							"hover_image_alt": "product image",
+							"variations_tag": {
+								"text__text": "More variations",
+								"image__image": "../../images/variations.webp",
+								"image_alt": "colors"
+							},
+							"text__title": "Mighty Power Rack CX-30",
+							"text__price": "1.482,94 €"
+						},
+						{
+							"link__link": "#",
+							"repeater__images": [
+								{
+									"image__image": "../../images/product-card.webp",
+									"image_alt": "product image"
+								}
+							],
+							"image__hover_image": "../../images/product-card-hover.webp",
+							"hover_image_alt": "product image",
+							"variations_tag": {
+								"text__text": "More variations",
+								"image__image": "../../images/variations.webp",
+								"image_alt": "colors"
+							},
+							"text__title": "Mighty Power Rack CX-30",
+							"text__price": "1.482,94 €"
+						},
+						{
+							"link__link": "#",
+							"repeater__images": [
+								{
+									"image__image": "../../images/product-card.webp",
+									"image_alt": "product image"
+								}
+							],
+							"image__hover_image": "../../images/product-card-hover.webp",
+							"hover_image_alt": "product image",
+							"variations_tag": {
+								"text__text": "More variations",
+								"image__image": "../../images/variations.webp",
+								"image_alt": "colors"
+							},
+							"text__title": "Mighty Power Rack CX-30",
+							"text__price": "1.482,94 €"
+						},
+						{
+							"link__link": "#",
+							"repeater__images": [
+								{
+									"image__image": "../../images/product-card.webp",
+									"image_alt": "product image"
+								}
+							],
+							"image__hover_image": "../../images/product-card-hover.webp",
+							"hover_image_alt": "product image",
+							"variations_tag": {
+								"text__text": "More variations",
+								"image__image": "../../images/variations.webp",
+								"image_alt": "colors"
+							},
+							"text__title": "Mighty Power Rack CX-30",
+							"text__price": "1.482,94 €"
+						},
+						{
+							"link__link": "#",
+							"repeater__images": [
+								{
+									"image__image": "../../images/product-card.webp",
+									"image_alt": "product image"
+								}
+							],
+							"image__hover_image": "../../images/product-card-hover.webp",
+							"hover_image_alt": "product image",
+							"variations_tag": {
+								"text__text": "More variations",
+								"image__image": "../../images/variations.webp",
+								"image_alt": "colors"
+							},
+							"text__title": "Mighty Power Rack CX-30",
+							"text__price": "1.482,94 €"
+						}
+					]
+				},
+				"empty": {
+					"image__image": "../../images/empty-cart.svg",
+					"image_alt": "empty",
+					"text__title": "Your cart is currently empty.",
+					"text__text": "Find something you like and add it to the cart.",
+					"link__link": "#",
+					"link_text": "Shop"
+				}
+			},
+			"language_switch_modal": {
+				"text__close_button": "Close Download Modal",
+				"text__title": "Select your region and language",
+				"language_form": {
+					"region_dropdown": {
+						"text__label": "Region",
+						"text__placeholder": "Select your region",
+						"repeater__items": [
+							{
+								"image__image": "../../images/flag-italy.svg",
+								"image__alt": "Italy",
+								"text__text": "Italy ",
+								"text__name": "select_region",
+								"text__id": "select_region_1",
+								"text__currency": "[ € ]"
+							},
+							{
+								"image__image": "../../images/flag-croatia.svg",
+								"image__alt": "Croatia",
+								"text__text": "Croatia",
+								"text__name": "select_region",
+								"text__id": "select_region_2",
+								"text__currency": "[ € ]"
+							},
+							{
+								"image__image": "../../images/flag-switzerland.svg",
+								"image__alt": "Switzerland",
+								"text__text": "Switzerland",
+								"text__name": "select_region",
+								"text__id": "select_region_3",
+								"text__currency": "[ CHF ]"
+							},
+							{
+								"image__image": "../../images/flag-austira.svg",
+								"image__alt": "Austria",
+								"text__text": "Austria",
+								"text__name": "select_region",
+								"text__id": "select_region_4",
+								"text__currency": "[ € ]"
+							},
+							{
+								"image__image": "../../images/flag-slovenia.svg",
+								"image__alt": "Slovenia",
+								"text__text": "Slovenia",
+								"text__name": "select_region",
+								"text__id": "select_region_5",
+								"text__currency": "[ € ]"
+							}
+						]
+					},
+					"language_dropdown": {
+						"boolean__disabled": true,
+						"text__label": "Language",
+						"text__placeholder": "Select your country",
+						"repeater__items": [
+							{
+								"text__text": "Slovenia",
+								"text__name": "select_language",
+								"text__id": "select_language_1"
+							},
+							{
+								"text__text": "Slovenia",
+								"text__name": "select_language",
+								"text__id": "select_language_2"
+							},
+							{
+								"text__text": "Slovenia",
+								"text__name": "select_language",
+								"text__id": "select_language_3"
+							},
+							{
+								"text__text": "Slovenia",
+								"text__name": "select_language",
+								"text__id": "select_language_4"
+							},
+							{
+								"text__text": "Slovenia",
+								"text__name": "select_language",
+								"text__id": "select_language_5"
+							},
+							{
+								"text__text": "Slovenia",
+								"text__name": "select_language",
+								"text__id": "select_language_6"
+							},
+							{
+								"text__text": "Slovenia",
+								"text__name": "select_language",
+								"text__id": "select_language_7"
+							},
+							{
+								"text__text": "Slovenia",
+								"text__name": "select_language",
+								"text__id": "select_language_8"
+							}
+						]
+					},
+					"text__submit_button": "Submit"
+				}
+			}
+		}
+	}
+}

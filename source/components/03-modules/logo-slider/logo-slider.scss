@@ -1,0 +1,84 @@
+// **************************************************
+// Logo Slider
+// **************************************************
+
+@import '../../../scss/import';
+
+.logo-slider {
+	// ##################################################
+
+	&__inner {
+		overflow: hidden;
+		position: relative;
+		width: 100%;
+		touch-action: pan-y;
+		cursor: grab;
+		-webkit-user-select: none;
+		user-select: none;
+
+		&:hover .logo-slider__track {
+			animation-play-state: paused;
+		}
+	}
+
+	// ##################################################
+
+	&__track {
+		display: flex;
+		width: max-content;
+		gap: 150px;
+		--offset: 0px;
+		transform: translateX(var(--offset));
+		animation: scroll linear infinite;
+		will-change: transform;
+
+		// Tablet L and down
+		@media #{$breakpoint-md-down} {
+			gap: 100px;
+		}
+
+		// Tablet P and down
+		@media #{$breakpoint-sm-down} {
+			gap: 60px;
+		}
+	}
+
+	// ##################################################
+
+	&__slide {
+		height: 32px;
+		user-select: none;
+		flex-shrink: 0;
+
+		// Tablet P and down
+		@media #{$breakpoint-sm-down} {
+			height: 24px;
+		}
+
+		// ##################################################
+
+		img {
+			max-width: 100%;
+			max-height: 100%;
+			transform: scale(1.0000001);
+			transition: transform 0.3s ease;
+		}
+
+		// ##################################################
+
+		&:hover {
+			img {
+				transform: scale(0.95);
+			}
+		}
+	}
+}
+
+@keyframes scroll {
+	from {
+		transform: translateX(var(--offset));
+	}
+	to {
+		transform: translateX(calc(var(--offset) - 50%));
+	}
+}

@@ -1,0 +1,48 @@
+{
+	"title": "Accordion List",
+	"notes": "Accordion List",
+	"status": "acceptance",
+	"context": {
+		"accordion_list": {
+			"repeater__items": [
+				{
+					"text__title": "Lorem ipsum?",
+					"wysiwyg__text": "<p>Ea consectetur Lorem ipsum. Nulla aute consequat consectetur nostrud ex excepteur consequat aute ea quis laboris commodo ad. Irure voluptate excepteur dolore ipsum proident dolor consequat eu Lorem. Occaecat incididunt anim in minim consectetur consequat minim anim amet do in. In Lorem culpa voluptate enim nostrud id est irure incididunt nostrud pariatur mollit culpa labore fugiat. Culpa id tempor labore eiusmod reprehenderit eiusmod ipsum incididunt mollit id culpa. Sunt cupidatat pariatur laboris ut quis reprehenderit. Id Lorem exercitation eu cillum velit incididunt enim anim ad elit sit et et voluptate sit.</p>"
+				},
+				{
+					"text__title": "Technical specifications",
+					"repeater__items": [
+						{
+							"text__left": "Option 1",
+							"text__right": "Dunajska cesta 49"
+						},
+						{
+							"text__left": "Option 1",
+							"text__right": "Dunajska cesta 49"
+						},
+						{
+							"text__left": "Option 1",
+							"text__right": "Dunajska cesta 49"
+						},
+						{
+							"text__left": "Option 1",
+							"text__right": "Dunajska cesta 49"
+						},
+						{
+							"text__left": "Option 1",
+							"text__right": "Dunajska cesta 49"
+						}
+					]
+				},
+				{
+					"text__title": "Lorem ipsum dolor sit amet",
+					"wysiwyg__text": "<p>Ea consectetur Lorem ipsum. Nulla aute consequat consectetur nostrud ex excepteur consequat aute ea quis laboris commodo ad. Irure voluptate excepteur dolore ipsum proident dolor consequat eu Lorem. Occaecat incididunt anim in minim consectetur consequat minim anim amet do in. In Lorem culpa voluptate enim nostrud id est irure incididunt nostrud pariatur mollit culpa labore fugiat. Culpa id tempor labore eiusmod reprehenderit eiusmod ipsum incididunt mollit id culpa. Sunt cupidatat pariatur laboris ut quis reprehenderit. Id Lorem exercitation eu cillum velit incididunt enim anim ad elit sit et et voluptate sit.</p>"
+				},
+				{
+					"text__title": "Quis nostrud exercitation ullamco?",
+					"wysiwyg__text": "<p>Ea consectetur Lorem ipsum. Nulla aute consequat consectetur nostrud ex excepteur consequat aute ea quis laboris commodo ad. Irure voluptate excepteur dolore ipsum proident dolor consequat eu Lorem. Occaecat incididunt anim in minim consectetur consequat minim anim amet do in. In Lorem culpa voluptate enim nostrud id est irure incididunt nostrud pariatur mollit culpa labore fugiat. Culpa id tempor labore eiusmod reprehenderit eiusmod ipsum incididunt mollit id culpa. Sunt cupidatat pariatur laboris ut quis reprehenderit. Id Lorem exercitation eu cillum velit incididunt enim anim ad elit sit et et voluptate sit.</p>"
+				}
+			]
+		}
+	}
+}

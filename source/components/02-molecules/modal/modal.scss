@@ -1,0 +1,255 @@
+// **************************************************
+// Modal
+// **************************************************
+
+@import '../../../scss/import';
+
+.modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	padding: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: #{$zindex_modal};
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
+	will-change: opacity, visibility;
+	transition: opacity 0.3s ease, visibility 0.3s ease;
+	overscroll-behavior: contain;
+
+	// Tablet L and up
+	@media #{$breakpoint-md-up} {
+		@include scrollbar(4px, rgba($cgp_gray_400, 0.5), transparent, 8px);
+	}
+
+	// ###########################################################
+
+	// stylelint-disable-next-line
+	&.#{$class_open_modal} {
+		opacity: 1;
+		visibility: visible;
+		pointer-events: all;
+	}
+
+	// ##################################################
+
+	&__overlay {
+		position: fixed;
+		pointer-events: all;
+		background-color: rgba($cgp_black, 0.5);
+	}
+
+	// ##################################################
+
+	&__inner {
+		max-width: 792px;
+		width: 100%;
+		margin: auto;
+		border-radius: 8px;
+		background-color: var(--color-white);
+		color: var(--color-gray-900);
+		position: relative;
+		z-index: 4;
+		transform: scale(0.95);
+		will-change: transform;
+		padding: 48px;
+		display: flex;
+		flex-direction: column;
+		transition: transform 0.3s var(--easing-expressive-in-out);
+
+		// Mobile
+		@media #{$breakpoint-xs-only} {
+			padding: 48px 24px;
+		}
+
+		// ###########################################################
+		// stylelint-disable-next-line
+		.#{$class_open_modal} & {
+			transform: scale(1);
+		}
+	}
+
+	// ##################################################
+
+	.number-icon {
+		&--20,
+		&--05,
+		&--20-reverse,
+		&--05-reverse {
+			position: absolute;
+			top: 30px;
+			left: 30px;
+
+			// Mobile
+			@media #{$breakpoint-xs-only} {
+				top: 15px;
+				left: 15px;
+			}
+		}
+
+		// ##################################################
+
+		&--05-reverse,
+		&--05 {
+			left: initial;
+			right: 30px;
+
+			// Mobile
+			@media #{$breakpoint-xs-only} {
+				right: 15px;
+			}
+		}
+
+		// ##################################################
+
+		&--05-reverse,
+		&--20-reverse {
+			top: initial;
+			bottom: 30px;
+
+			// Mobile
+			@media #{$breakpoint-xs-only} {
+				bottom: 15px;
+			}
+		}
+	}
+
+	// ##################################################
+
+	&__header {
+		display: grid;
+		grid-gap: 10px;
+		margin-bottom: 24px;
+
+		.title {
+			line-height: 1;
+		}
+	}
+
+	// ##################################################
+
+	.title {
+		color: var(--color-gray-900);
+	}
+
+	// ##################################################
+
+	&__close,
+	&__close.btn {
+		position: relative;
+		margin-left: auto;
+		flex-shrink: 0;
+	}
+
+	// ##################################################
+
+	.form-component {
+		&__body {
+			grid-gap: 20px 10px;
+		}
+
+		// ##################################################
+
+		&__success {
+			text-align: center;
+			align-items: center;
+			gap: 8px;
+
+			// ##################################################
+
+			&-text {
+				max-width: 100%;
+				font-size: 14px;
+				color: var(--color-gray-500);
+			}
+
+			// ##################################################
+
+			.title {
+				@extend %title_h3;
+				font-family: var(--font-primary-condensed);
+				text-transform: uppercase;
+			}
+
+			// ##################################################
+
+			&-button {
+				margin-top: 24px;
+				text-align: center;
+
+				// ##################################################
+
+				.btn {
+					text-transform: uppercase;
+					font-family: var(--font-secondary);
+				}
+			}
+		}
+
+		// ##################################################
+
+		.dropdown__list-inner {
+			max-height: 124px;
+		}
+	}
+
+	// ##################################################
+
+	&:has(.form-component.show-thankyou) {
+		.modal__header {
+			display: none;
+		}
+	}
+
+	// ##################################################
+
+	.language-form {
+		margin: 0;
+		max-width: 100%;
+	}
+
+	// ##################################################
+
+	&.language-switch-modal {
+		.modal__inner {
+			max-width: 685px;
+
+			// Mobile
+			@media #{$breakpoint-xs-only} {
+				padding-bottom: 30px;
+			}
+		}
+
+		// ##################################################
+
+		.modal__close,
+		.modal__close.btn {
+			position: absolute;
+			top: 16px;
+			right: 16px;
+
+			// Mobile
+			@media #{$breakpoint-xs-only} {
+				top: 8px;
+				right: 8px;
+			}
+		}
+
+		// ##################################################
+
+		.modal__header {
+			margin-bottom: 48px;
+
+			// Mobile
+			@media #{$breakpoint-xs-only} {
+				margin-bottom: 32px;
+			}
+		}
+	}
+}

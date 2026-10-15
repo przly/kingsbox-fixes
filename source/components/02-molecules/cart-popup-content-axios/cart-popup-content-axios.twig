@@ -1,0 +1,94 @@
+{% if cart_popup.free_shipping_indicator %}
+	{% include '@molecules/free-shipping-indicator/free-shipping-indicator.twig' with {
+		free_shipping_indicator: cart_popup.free_shipping_indicator
+	} %}
+{% endif %}
+
+{% if cart_popup.cart_view %}
+	{% include '@molecules/cart-view/cart-view.twig' with {
+		smaller: true,
+		cart_view: cart_popup.cart_view
+	} %}
+{% endif %}
+
+{% if cart_popup.text__total_amount %}
+	<div class="cart-popup__total : text--bd : text--20 : lt-0">
+		<div class="cart-popup__total-row" data-animated-price-parent>
+			<input
+				type="text"
+				id="{{ random() }}"
+				hidden
+				data-animated-price-input
+				value="{{ cart_popup.text__total_amount }}"
+			/>
+			<div class="cart-popup__total-left">{{ cart_popup.text__total_amount_label }}</div>
+			<div class="cart-popup__total-right : font-secondary : text--md" data-animated-price>
+				{{ cart_popup.text__total_amount }}
+			</div>
+		</div>
+	</div>
+{% endif %}
+
+{% if cart_popup.link__payment_link or cart_popup.link__view_cart_link %}
+	<div class="cart-popup__button-group">
+		{% if cart_popup.link__view_cart_link %}
+			{% include '@atoms/button/button.twig' with {
+				has_loader: true,
+				modifier: 'gray',
+				icon: 'cart',
+				href: cart_popup.link__view_cart_link,
+				text: cart_popup.view_cart_link_text,
+				target: cart_popup.view_cart_link_target,
+				rel: cart_popup.view_cart_link_rel,
+				size: 'large',
+				mono_font: true
+			} %}
+		{% endif %}
+
+		{% if cart_popup.link__payment_link %}
+			{% include '@atoms/button/button.twig' with {
+				has_loader: true,
+				size: 'large',
+				href: cart_popup.link__payment_link,
+				text: cart_popup.payment_link_text,
+				target: cart_popup.payment_link_target,
+				rel: cart_popup.payment_link_rel,
+				mono_font: true
+			} %}
+		{% endif %}
+	</div>
+{% endif %}
+
+{% if cart_popup.link__quote_button %}
+	<div class="cart-popup__quote">
+		{% include '@atoms/button/button.twig' with {
+			href: cart_popup.link__quote_button,
+			text: cart_popup.quote_button_text,
+			target: cart_popup.quote_button_target,
+			rel: cart_popup.quote_button_rel,
+			modifier: 'gray',
+			icon: 'history',
+			mono_font: true
+		} %}
+	</div>
+{% endif %}
+{# 
+{% if cart_popup.text__info_text or cart_popup.text__delivery_date_label or cart_popup.date__delivery_date_end %}
+	<div class="cart-popup__info-text : text--14">
+		{% if cart_popup.text__info_text %}
+			<p>{{ cart_popup.text__info_text }}</p>
+		{% endif %}
+
+		{% if cart_popup.text__delivery_date_label or cart_popup.date__delivery_date_end %}
+			<p>
+				{{ cart_popup.text__delivery_date_label }}: <strong>
+					{{ cart_popup.date__delivery_date_start }}
+					{% if cart_popup.date__delivery_date_end %}
+						- {{ cart_popup.date__delivery_date_end }}
+					{% endif %}
+				</strong>
+			</p>
+		{% endif %}
+	</div>
+{% endif %} 
+ #}

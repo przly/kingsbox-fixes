@@ -1,0 +1,335 @@
+//**********************************************************
+// Cart Popup
+//**********************************************************
+
+@import '../../../scss/import';
+
+.cart-popup {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 9999991;
+	pointer-events: none;
+
+	// ##################################################
+
+	&__overlay {
+		background: rgba(0, 0, 0, 0.5);
+		opacity: 0;
+		visibility: hidden;
+		transition: opacity 0.3s ease, visibility 0.3s ease;
+
+		// Tablet L and Up
+		@media #{$breakpoint-md-up} {
+			position: fixed;
+			opacity: 0;
+			visibility: hidden;
+			transition: opacity 0.3s ease, visibility 0.3s ease;
+		}
+	}
+
+	// ##################################################
+
+	&__inner {
+		max-width: 716px;
+		width: 100%;
+		position: fixed;
+		right: 0;
+		top: 0;
+		background-color: var(--color-white);
+		padding: 28px 24px;
+		overflow: auto;
+		height: 100%;
+		transition: transform 0.4s ease, visibility 0.4s ease, opacity 0.4s ease, border-radius 0.4s ease,
+			height 0.4s ease;
+
+		// Tablet L and up
+		@media #{$breakpoint-md-up} {
+			@include scrollbar(4px, rgba($cgp_gray_400, 0.5), transparent, 8px);
+			transform: translateX(100%);
+		}
+
+		// Tablet P and down
+		@media #{$breakpoint-sm-down} {
+			max-width: 100%;
+			padding: 64px 30px 40px;
+			top: initial;
+			bottom: 0;
+			height: calc(100% + 32px);
+			transform: translateY(70%);
+			border-radius: 32px 32px 0 0;
+			visibility: hidden;
+			opacity: 0;
+		}
+
+		// Mobile
+		@media #{$breakpoint-xs-only} {
+			padding: 64px 16px 40px;
+		}
+	}
+
+	// ##################################################
+
+	// stylelint-disable-next-line
+	&.is-cart-open {
+		pointer-events: all;
+
+		// stylelint-disable-next-line
+		.cart-popup__overlay {
+			opacity: 1;
+			pointer-events: all;
+			visibility: visible;
+		}
+
+		// stylelint-disable-next-line
+		.cart-popup__inner {
+			transform: translate(0, 0);
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+
+	// ##################################################
+
+	&__title {
+		display: flex;
+		align-items: flex-start;
+		gap: 8px;
+
+		.title {
+			line-height: 1;
+		}
+	}
+
+	// ##################################################
+
+	&__header {
+		margin-bottom: 26px;
+		display: flex;
+		gap: 16px;
+		align-items: center;
+		justify-content: space-between;
+
+		&-right {
+			display: flex;
+			gap: 24px;
+
+			// Mobile
+			@media #{$breakpoint-xs-only} {
+				gap: 16px;
+			}
+		}
+	}
+
+	// ##################################################
+
+	.promotion-card,
+	.cart-view {
+		max-width: 100%;
+	}
+
+	// ##################################################
+
+	.promotion-card {
+		margin: 8px 0 20px;
+	}
+
+	// ##################################################
+
+	.free-shipping-indicator {
+		margin-bottom: 16px;
+		max-width: 100%;
+
+		// Tablet P and Down
+		@media #{$breakpoint-sm-down} {
+			margin-bottom: 16px;
+		}
+
+		strong {
+			font-weight: 600;
+		}
+	}
+
+	// ##################################################
+
+	.cart-view__item {
+		border-top: 0;
+		border-bottom: 0.5px solid var(--color-gray-100);
+	}
+
+	// ##################################################
+
+	&__total {
+		padding: 18px 0;
+		display: grid;
+		grid-gap: 4px;
+		border-top: 0.5px solid var(--color-gray-200);
+		border-bottom: 0.5px solid var(--color-gray-200);
+		margin-top: 8px;
+
+		// ##################################################
+
+		&-row {
+			display: grid;
+			grid-template-columns: 1fr auto;
+			grid-gap: 20px;
+			align-items: center;
+
+			// ##################################################
+
+			&--saving {
+				color: var(--color-gray-300);
+			}
+
+			// ##################################################
+
+			[data-animated-price] {
+				display: flex;
+			}
+		}
+	}
+
+	// ##################################################
+
+	&__button-group {
+		margin-top: 24px;
+		display: flex;
+		gap: 12px;
+
+		@media (max-width: 480px) {
+			flex-direction: column;
+			gap: 16px;
+		}
+
+		.btn--default {
+			flex: auto;
+		}
+	}
+
+	// ##################################################
+
+	&__quote {
+		margin-top: 12px;
+
+		.btn {
+			width: 100%;
+			text-align: center;
+		}
+	}
+
+	// ##################################################
+
+	&__info-text {
+		text-align: center;
+		margin-top: 32px;
+
+		// Mobile
+		@media #{$breakpoint-xs-only} {
+			font-size: 10px;
+			margin-top: 16px;
+		}
+
+		// ##################################################
+
+		p + p {
+			margin-top: 2px;
+		}
+
+		// ##################################################
+
+		strong {
+			font-weight: 500;
+		}
+	}
+
+	// ##################################################
+
+	&__empty {
+		display: none;
+		flex-direction: column;
+
+		// ##################################################
+
+		&-body {
+			flex-direction: column;
+			max-width: 400px;
+			padding: 78px 0;
+			gap: 8px;
+			margin: 0 auto;
+		}
+
+		// ##################################################
+
+		&-image {
+			margin-bottom: 8px;
+
+			img {
+				width: auto;
+				object-fit: contain;
+			}
+		}
+
+		// ##################################################
+
+		.btn {
+			margin-top: 12px;
+		}
+	}
+
+	// ##################################################
+
+	&--empty {
+		.cart-popup__copy-btn,
+		.cart-popup__content {
+			display: none;
+		}
+
+		// ##################################################
+
+		.cart-popup__empty {
+			display: flex;
+		}
+	}
+
+	// ##################################################
+
+	&__product {
+		// ##################################################
+
+		&-list {
+			margin-top: 56px;
+			padding-top: 52px;
+			border-top: 0.5px solid var(--color-gray-200);
+		}
+
+		// ##################################################
+
+		&-row {
+			display: grid;
+			grid-gap: 20px;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+
+			@media (max-width: 480px) {
+				grid-template-columns: 1fr;
+			}
+		}
+	}
+
+	// ##################################################
+
+	&__copy-btn {
+		.btn__text {
+			@media (max-width: 480px) {
+				display: none;
+			}
+		}
+	}
+
+	// ##################################################
+
+	.product-card {
+		max-width: 100%;
+	}
+}

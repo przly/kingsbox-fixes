@@ -1,0 +1,411 @@
+// **************************************************
+// Megamenu
+// **************************************************
+
+@import '../../../scss/import';
+
+.megamenu {
+	position: fixed;
+	left: 0;
+	width: 100%;
+	top: var(--header-height, 91px);
+	height: calc(100% - var(--header-height, 91px));
+	display: flex;
+	overflow: hidden;
+	padding: 0 6px 6px;
+	gap: 6px;
+	letter-spacing: -0.03em;
+	line-height: 1.25;
+	visibility: hidden;
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+
+	// Tablet P and down
+	@media #{$breakpoint-sm-down} {
+		z-index: 3;
+		font-size: 18px;
+		opacity: 1;
+		visibility: visible;
+		pointer-events: all;
+		transform: translateX(100%);
+	}
+
+	// Mobile
+	@media #{$breakpoint-xs-only} {
+		font-size: 16px;
+	}
+
+	// ##################################################
+
+	&__col {
+		overflow: auto;
+		background-color: var(--color-white);
+		border-radius: 8px;
+		padding: 20px;
+		display: flex;
+		flex-direction: column;
+		position: relative;
+		z-index: 3;
+
+		// Tablet L and up
+		@media #{$breakpoint-md-up} {
+			@include scrollbar(4px, rgba($cgp_gray_400, 0.5), transparent, 8px);
+			overscroll-behavior: contain;
+		}
+
+		// Tablet P and down
+		@media #{$breakpoint-sm-down} {
+			padding: 12px;
+			scrollbar-width: none;
+			-ms-overflow-style: none;
+
+			&::-webkit-scrollbar {
+				display: none;
+			}
+		}
+	}
+
+	// ##################################################
+
+	&__left {
+		width: 482px;
+		flex-shrink: 0;
+		gap: 60px;
+
+		// Tablet L and down
+		@media #{$breakpoint-md-down} {
+			gap: 30px;
+		}
+
+		// Tablet P and down
+		@media #{$breakpoint-sm-down} {
+			width: 100%;
+		}
+
+		// Mobile
+		@media #{$breakpoint-xs-only} {
+			gap: 20px;
+		}
+	}
+
+	// ##################################################
+
+	.title--h2 {
+		letter-spacing: -0.05em;
+
+		// Tablet L and down
+		@media #{$breakpoint-md-down} {
+			font-size: 35px;
+		}
+
+		// Tablet P and down
+		@media #{$breakpoint-sm-down} {
+			font-size: 30px;
+		}
+
+		// Mobile
+		@media #{$breakpoint-xs-only} {
+			font-size: 26px;
+		}
+	}
+
+	// ##################################################
+
+	&__main-title {
+		// Tablet P and down
+		@media #{$breakpoint-sm-down} {
+			display: flex;
+			align-items: center;
+			gap: 6px;
+		}
+
+		.icon {
+			pointer-events: none;
+			width: 18px;
+			height: 18px;
+		}
+	}
+
+	// ##################################################
+
+	&__right {
+		flex: auto;
+		display: none;
+
+		// Tablet P and down
+		@media #{$breakpoint-sm-down} {
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 6px;
+			width: calc(100% - 12px);
+			height: calc(100% - 6px);
+			transform: translateX(110%);
+			transition: transform 0.3s ease;
+		}
+
+		// stylelint-disable-next-line
+		&.#{$class_open} {
+			// Tablet L and up
+			@media #{$breakpoint-md-up} {
+				display: block;
+			}
+
+			// Tablet P and down
+			@media #{$breakpoint-sm-down} {
+				transform: translateX(0);
+			}
+		}
+	}
+
+	// ##################################################
+
+	&__discount {
+		display: flex;
+		gap: 12px;
+		align-items: center;
+
+		&-title {
+			transition: color 0.3s ease;
+		}
+	}
+
+	// ##################################################
+
+	&__nav {
+		&-list {
+			display: grid;
+			grid-gap: 6px;
+		}
+
+		// ##################################################
+
+		&-item {
+			// stylelint-disable-next-line
+			&.#{$class_open} .megamenu__nav-link {
+				color: var(--color-gray-900) !important;
+			}
+		}
+
+		// ##################################################
+
+		&-link {
+			// Tablet P and down
+			@media #{$breakpoint-sm-down} {
+				width: 100%;
+				text-align: left;
+				padding: 4px 0;
+				display: flex;
+				align-items: center;
+				gap: 6px;
+			}
+
+			&:hover {
+				// Tablet L and up
+				@media #{$breakpoint-md-up} {
+					color: var(--color-gray-400);
+				}
+			}
+
+			&:focus,
+			&:active {
+				// Tablet L and up
+				@media #{$breakpoint-md-up} {
+					color: var(--color-gray-900);
+				}
+			}
+
+			// ##################################################
+
+			.icon {
+				pointer-events: none;
+
+				// Tablet P and down
+				@media #{$breakpoint-sm-down} {
+					width: 16px;
+					height: 16px;
+					margin-top: 4px;
+				}
+			}
+		}
+	}
+
+	// ##################################################
+
+	&__footer {
+		margin-top: auto;
+	}
+
+	// ##################################################
+
+	&__buttons {
+		display: flex;
+		gap: 10px;
+
+		// Tablet P and down
+		@media #{$breakpoint-sm-down} {
+			flex-wrap: wrap;
+			gap: 6px;
+		}
+	}
+
+	// ##################################################
+
+	&__submenu {
+		display: grid;
+		grid-gap: 60px;
+
+		// Tablet L and down
+		@media #{$breakpoint-md-down} {
+			gap: 30px;
+		}
+
+		// Tablet P and down
+		@media #{$breakpoint-sm-down} {
+			position: relative;
+			gap: 20px;
+		}
+
+		// ##################################################
+
+		&-header {
+			display: flex;
+			justify-content: space-between;
+			gap: 16px;
+			align-items: center;
+
+			// Mobile
+			@media #{$breakpoint-xs-only} {
+				justify-content: flex-start;
+				gap: 6px;
+			}
+
+			// ##################################################
+
+			.btn {
+				flex-shrink: 0;
+
+				// Mobile
+				@media #{$breakpoint-xs-only} {
+					margin-left: auto;
+					position: absolute;
+					bottom: 0;
+					left: 50%;
+					transform: translateX(-50%);
+				}
+			}
+		}
+
+		// ##################################################
+
+		&-main-title {
+			// Tablet P and down
+			@media #{$breakpoint-sm-down} {
+				display: flex;
+				align-items: center;
+				gap: 6px;
+			}
+
+			// ##################################################
+
+			.icon {
+				pointer-events: none;
+				width: 18px;
+				height: 18px;
+			}
+		}
+
+		// ##################################################
+
+		.case-study-card .title {
+			// Tablet L and up
+			@media #{$breakpoint-md-up} {
+				max-width: 220px;
+			}
+		}
+
+		// ##################################################
+
+		&:has(.megamenu__submenu-header .btn) {
+			// Mobile
+			@media #{$breakpoint-xs-only} {
+				padding-bottom: 50px;
+			}
+		}
+	}
+
+	// ##################################################
+
+	&__products {
+		display: grid;
+		grid-gap: 10px;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+
+		// Tablet L and down
+		@media #{$breakpoint-md-down} {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+
+		// Tablet P and down
+		@media #{$breakpoint-sm-down} {
+			grid-template-columns: 1fr;
+			gap: 6px;
+		}
+	}
+
+	// ##################################################
+
+	&__overlay {
+		position: fixed;
+		left: 0;
+		top: var(--header-height, 91px);
+		height: calc(100% - var(--header-height, 91px));
+		width: 100%;
+		z-index: 1;
+	}
+
+	// ##################################################
+
+	&:has(.has-submenu.is-open) {
+		.megamenu__discount-title,
+		.megamenu__nav-link {
+			// Tablet L and up
+			@media #{$breakpoint-md-up} {
+				color: var(--color-gray-400);
+			}
+		}
+
+		// ##################################################
+
+		.megamenu__nav-link:hover {
+			// Tablet L and up
+			@media #{$breakpoint-md-up} {
+				color: var(--color-gray-900);
+			}
+		}
+	}
+
+	// ##################################################
+
+	.case-study-card {
+		max-width: 100%;
+
+		// Tablet P and down
+		@media #{$breakpoint-sm-down} {
+			aspect-ratio: unset;
+			min-height: 120px;
+		}
+
+		// ##################################################
+
+		&--medium {
+			// Tablet P and down
+			@media #{$breakpoint-sm-down} {
+				height: auto;
+				padding-top: 30px;
+				min-height: 200px;
+			}
+		}
+	}
+}

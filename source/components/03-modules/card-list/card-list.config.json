@@ -1,0 +1,153 @@
+{
+	"title": "card list",
+	"status": "acceptance",
+	"notes": "card list",
+	"acf_function": "getCardListFields",
+	"context": {
+		"card_list": {
+			"select__top_spacing_size": "default",
+			"select__bottom_spacing_size": "default",
+			"repeater__cards": [
+				{
+					"image__icon": "../../images/catalog-icon.svg",
+					"image_icon_alt": "catalog",
+					"textarea__title": "Catalog",
+					"text__text": "Find the right products for your gym, studio, or home setup.",
+					"link__link": "#",
+					"link_text": "Download catalog",
+					"boolean__download_modal_trigger": true
+				},
+				{
+					"image__icon": "../../images/showroom-icon.svg",
+					"image_icon_alt": "showroom",
+					"textarea__title": "Visit Our Showroom",
+					"text__text": "Explore the details, test the products, and get expert advice in person.",
+					"link__link": "#",
+					"link_text": "Find nearest Showroom"
+				},
+				{
+					"image__icon": "../../images/weight-icon.svg",
+					"image_icon_alt": "weight",
+					"textarea__title": "Ready to Build Your Home Gym?",
+					"text__text": "We will help you create a setup that fits your routine and makes the most of every square meter.",
+					"link__link": "#",
+					"link_text": "Request a Quote"
+				}
+			],
+			"download_modal": {
+				"text__close_button": "Close Download Modal",
+				"text__title": "download catalog",
+				"textarea__text": "Preprosto izpolnite svoje podatke spodaj in takoj boste imeli dostop do KingsBox kataloga 2026!",
+				"form_component": {
+					"action": "saveDownloadFormData",
+					"form_id": "download_form",
+					"reCAPTCHA_site_key": "6LcdqjwoAAAAAIQaRS8LL9_5XiKc1JTTcwmEFK-9",
+					"form_title": "Basic Information",
+					"input_fields": [
+						{
+							"select__width": "half",
+							"input_field": {
+								"text__id": "download_catelog_name",
+								"text__name": "download_catelog_name",
+								"text__label": "Name",
+								"boolean__required": false,
+								"text__placeholder": "Name",
+								"text__error_message": "This field is required"
+							}
+						},
+						{
+							"select__width": "half",
+							"input_field": {
+								"text__id": "download_catelog_surname",
+								"text__name": "download_catelog_surname",
+								"text__label": "Surname",
+								"boolean__required": false,
+								"text__placeholder": "Surname",
+								"text__error_message": "This field is required"
+							}
+						},
+						{
+							"select__width": "half",
+							"input_field": {
+								"text__id": "download_catelog_email",
+								"text__name": "download_catelog_email",
+								"select__input_type": "email",
+								"text__label": "E-mail",
+								"boolean__required": false,
+								"text__placeholder": "E-mail",
+								"text__error_message": "This field is required",
+								"text__invalid_email_message": "Please enter valid email"
+							}
+						},
+						{
+							"select__width": "half",
+							"input_field": {
+								"text__id": "download_catelog_phone",
+								"text__name": "download_catelog_phone",
+								"text__label": "Phone number",
+								"boolean__required": false,
+								"boolean__numbers_only": true,
+								"text__placeholder": "Phone number",
+								"text__error_message": "This field is required"
+							}
+						},
+						{
+							"select__width": "full",
+							"dropdown": {
+								"text__label": "Country",
+								"boolean__required": false,
+								"text__placeholder": "Country",
+								"repeater__items": [
+									{
+										"text": "Item 1",
+										"name": "download_catelog_countrycode",
+										"id": "download_catelog_countrycode-1"
+									},
+									{
+										"text": "Item 2",
+										"name": "download_catelog_countrycode",
+										"id": "download_catelog_countrycode_2"
+									},
+									{
+										"text": "Item 3",
+										"name": "download_catelog_countrycode",
+										"id": "download_catelog_countrycode_3"
+									},
+									{
+										"text": "Item 4",
+										"name": "download_catelog_countrycode",
+										"id": "download_catelog_countrycode_4"
+									},
+									{
+										"text": "Item 5",
+										"name": "download_catelog_countrycode",
+										"id": "download_catelog_countrycode_5"
+									},
+									{
+										"text": "Item 6",
+										"name": "download_catelog_countrycode",
+										"id": "download_catelog_countrycode_6"
+									}
+								]
+							}
+						}
+					],
+					"checkbox": {
+						"text__id": "download-catelog-check-policy",
+						"text__name": "download-catelog-check-policy",
+						"text__text": "I agree to general terms & conditions",
+						"boolean__required": false,
+						"text__error_message": "This field is required"
+					},
+					"form_error_message": "Lorem ipsum dolor sit amet consectetur.",
+					"form_success_message": "Lorem ipsum dolor sit amet consectetur.",
+					"submit_button_text": "Download",
+					"success": {
+						"title": "Thank you",
+						"text": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi possimus excepturi quidem veniam perspiciatis nesciunt deleniti odio voluptatum quam ad fugiat hic obcaecati ipsa quas autem, recusandae."
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,40 @@
+{% if quote_popup.cart_view %}
+	{% include '@molecules/cart-view/cart-view.twig' with {
+		smaller: true,
+		cart_view: quote_popup.cart_view
+	} %}
+{% endif %}
+
+{% if quote_popup.text__total_amount %}
+	<div class="quote-popup__total : text--bd : text--20 : lt-0">
+		<div class="quote-popup__total-row" data-animated-price-parent>
+			<input
+				type="text"
+				id="{{ random() }}"
+				hidden
+				data-animated-price-input
+				value="{{ quote_popup.text__total_amount }}"
+			/>
+			<div class="quote-popup__total-left">{{ quote_popup.text__total_amount_label }}</div>
+			<div class="quote-popup__total-right : font-secondary : text--md" data-animated-price>
+				{{ quote_popup.text__total_amount }}
+			</div>
+		</div>
+	</div>
+{% endif %}
+
+{% if quote_popup.link__quote_button %}
+	<div class="quote-popup__button-group">
+		{% if quote_popup.link__quote_button %}
+			{% include '@atoms/button/button.twig' with {
+				has_loader: true,
+				size: 'large',
+				href: quote_popup.link__quote_button,
+				text: quote_popup.quote_button_text,
+				target: quote_popup.quote_button_target,
+				rel: quote_popup.quote_button_rel,
+				mono_font: true
+			} %}
+		{% endif %}
+	</div>
+{% endif %}

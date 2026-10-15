@@ -1,0 +1,80 @@
+{
+	"title": "Main products",
+	"notes": "Main products",
+	"status": "acceptance",
+	"acf_function": "getMainProductsFields",
+	"default": "default",
+	"context": {
+		"main_products": {
+			"text__super_title": "Kingsbox’s mission",
+			"textarea__main_title": "Build your own <br> home gym",
+			"link__view_all_button": "#",
+			"view_all_button_target": "",
+			"view_all_button_rel": "",
+			"view_all_button_text": "Shop all products",
+			"text__title": "Best sellers",
+			"link__link": "#",
+			"link_text": "See all",
+			"repeater__cards": [
+				{
+					"link__link": "#",
+					"repeater__images": [
+						{
+							"image__image": "../../images/product-card.webp",
+							"image_alt": "product image"
+						}
+					],
+					"image__hover_image": "../../images/product-card-hover.webp",
+					"hover_image_alt": "product image",
+					"top_tag": {
+						"text__text": "PREORDER",
+						"select__color": "blue"
+					},
+					"variations_tag": {
+						"text__text": "More variations",
+						"image__image": "../../images/variations.webp",
+						"image_alt": "colors"
+					},
+					"text__title": "Mighty Power Rack CX-30",
+					"text__price": "1.482,94 €"
+				},
+				{
+					"link__link": "#",
+					"repeater__images": [
+						{
+							"image__image": "../../images/product-card.webp",
+							"image_alt": "product image"
+						}
+					],
+					"text__title": "Mighty Power Rack CX-30",
+					"text__price": "1.482,94 €"
+				},
+				{
+					"link__link": "#",
+					"repeater__images": [
+						{
+							"image__image": "../../images/product-card.webp",
+							"image_alt": "product image"
+						}
+					],
+					"image__hover_image": "../../images/product-card-hover.webp",
+					"hover_image_alt": "product image",
+					"bottom_tag": {
+						"text__text": "Koda:BLACKFRIDAY",
+						"select__color": "dark-transparent"
+					},
+					"variations_tag": {
+						"text__text": "More variations",
+						"image__image": "../../images/variations.webp",
+						"image_alt": "colors"
+					},
+					"text__title": "Mighty Power Rack CX-30",
+					"text__price_slashed": "1.482,94 €",
+					"text__price": "1.482,94 €",
+					"text__discount": "-15 %",
+					"text__lowest_price": "Najnižja cena zadnjih 30 dni: 1.482,94 €"
+				}
+			]
+		}
+	}
+}

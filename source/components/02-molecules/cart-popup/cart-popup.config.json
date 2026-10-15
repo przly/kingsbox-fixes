@@ -1,0 +1,413 @@
+{
+	"title": "Cart Popup",
+	"notes": "Cart Popup",
+	"status": "acceptance",
+	"default": "default",
+	"variants": [
+		{
+			"name": "default",
+			"notes": "Default Cart Popup",
+			"context": {
+				"extra_class": "is-cart-open",
+				"cart_popup": {
+					"text__title": "Your bag",
+					"text__number": "4",
+					"text__copy_button": "Copy Cart link",
+					"text__copy_text": "https://www.google.com",
+					"free_shipping_indicator": {
+						"wysiwyg__text": "Add <strong>900 €</strong> more to earn free shipping!",
+						"wysiwyg__free_text": "Your order ships for <strong>FRee!</strong>",
+						"text__text": "Earn free shipping above 2.999 €",
+						"text__progress_width": "61"
+					},
+					"cart_view": {
+						"repeater__items": [
+							{
+								"link__link": "#",
+								"image__image": "../../images/cart-view-1.webp",
+								"image__alt": "Image",
+								"text__title": "Mighty Power Rack CX-30",
+								"repeater__info": [
+									{
+										"text__text": "1260 x 1260"
+									},
+									{
+										"text__text": "Black"
+									},
+									{
+										"text__text": "Aluminium"
+									}
+								],
+								"quantity_counter": {
+									"text__title": "Količina",
+									"text__remove_button_text": "Remove Button",
+									"text__add_button_text": "Add Button",
+									"text__input_name": "counter-input",
+									"text__input_id": "counter-input-1",
+									"text__value": 1
+								},
+								"text__price": "2.990,99 €",
+								"text__old_price": "3.990,99 €",
+								"text__tag": "Code: BLACKFRIDAY",
+								"text__discount": "-15 %"
+							},
+							{
+								"link__link": "#",
+								"image__image": "../../images/cart-view-2.webp",
+								"image__alt": "Image",
+								"text__title": "Mighty Power Rack CX-30",
+								"repeater__info": [
+									{
+										"text__text": "1260 x 1260"
+									},
+									{
+										"text__text": "Black"
+									},
+									{
+										"text__text": "Aluminium"
+									}
+								],
+								"quantity_counter": {
+									"text__title": "Količina",
+									"text__remove_button_text": "Remove Button",
+									"text__add_button_text": "Add Button",
+									"text__input_name": "counter-input",
+									"text__input_id": "counter-input-1",
+									"text__value": 1
+								},
+								"text__price": "2.990,99 €",
+								"text__old_price": "3.990,99 €",
+								"text__tag": "Code: BLACKFRIDAY",
+								"text__discount": "-15 %"
+							},
+							{
+								"link__link": "#",
+								"image__image": "../../images/cart-view-3.webp",
+								"image__alt": "Image",
+								"text__title": "Mighty Power Rack CX-30",
+								"repeater__info": [
+									{
+										"text__text": "1260 x 1260"
+									},
+									{
+										"text__text": "Black"
+									},
+									{
+										"text__text": "Aluminium"
+									}
+								],
+								"quantity_counter": {
+									"text__title": "Količina",
+									"text__remove_button_text": "Remove Button",
+									"text__add_button_text": "Add Button",
+									"text__input_name": "counter-input",
+									"text__input_id": "counter-input-1",
+									"text__value": 1
+								},
+								"text__price": "2.990,99 €"
+							},
+							{
+								"link__link": "#",
+								"image__image": "../../images/cart-view-4.webp",
+								"image__alt": "Image",
+								"text__title": "Mighty Power Rack CX-30",
+								"repeater__info": [
+									{
+										"text__text": "1260 x 1260"
+									},
+									{
+										"text__text": "Black"
+									},
+									{
+										"text__text": "Aluminium"
+									}
+								],
+								"quantity_counter": {
+									"text__title": "Količina",
+									"text__remove_button_text": "Remove Button",
+									"text__add_button_text": "Add Button",
+									"text__input_name": "counter-input",
+									"text__input_id": "counter-input-1",
+									"text__value": 1
+								},
+								"text__price": "2.990,99 €"
+							}
+						]
+					},
+					"text__total_amount_label": "Subtotal",
+					"text__total_amount": "2.600,00 €",
+					"link__payment_link": "#",
+					"payment_link_text": "proceed to checkout",
+					"link__view_cart_link": "#",
+					"view_cart_link_text": "GO TO cart",
+					"link__quote_button": "#",
+					"quote_button_text": "Request a quote with those products",
+					"product_list": {
+						"text__title": "Complete your products with...",
+						"repeater__items": [
+							{
+								"link__link": "#",
+								"repeater__images": [
+									{
+										"image__image": "../../images/product-card.webp",
+										"image_alt": "product image"
+									}
+								],
+								"image__hover_image": "../../images/product-card-hover.webp",
+								"hover_image_alt": "product image",
+								"top_tag": {
+									"text__text": "PREORDER",
+									"select__color": "blue"
+								},
+								"variations_tag": {
+									"text__text": "More variations",
+									"image__image": "../../images/variations.webp",
+									"image_alt": "colors"
+								},
+								"text__title": "Mighty Power Rack CX-30",
+								"text__price": "1.482,94 €"
+							},
+							{
+								"link__link": "#",
+								"repeater__images": [
+									{
+										"image__image": "../../images/product-card.webp",
+										"image_alt": "product image"
+									}
+								],
+								"image__hover_image": "../../images/product-card-hover.webp",
+								"hover_image_alt": "product image",
+								"variations_tag": {
+									"text__text": "More variations",
+									"image__image": "../../images/variations.webp",
+									"image_alt": "colors"
+								},
+								"text__title": "Mighty Power Rack CX-30",
+								"text__price": "1.482,94 €"
+							},
+							{
+								"link__link": "#",
+								"repeater__images": [
+									{
+										"image__image": "../../images/product-card.webp",
+										"image_alt": "product image"
+									}
+								],
+								"image__hover_image": "../../images/product-card-hover.webp",
+								"hover_image_alt": "product image",
+								"variations_tag": {
+									"text__text": "More variations",
+									"image__image": "../../images/variations.webp",
+									"image_alt": "colors"
+								},
+								"text__title": "Mighty Power Rack CX-30",
+								"text__price": "1.482,94 €"
+							},
+							{
+								"link__link": "#",
+								"repeater__images": [
+									{
+										"image__image": "../../images/product-card.webp",
+										"image_alt": "product image"
+									}
+								],
+								"image__hover_image": "../../images/product-card-hover.webp",
+								"hover_image_alt": "product image",
+								"variations_tag": {
+									"text__text": "More variations",
+									"image__image": "../../images/variations.webp",
+									"image_alt": "colors"
+								},
+								"text__title": "Mighty Power Rack CX-30",
+								"text__price": "1.482,94 €"
+							},
+							{
+								"link__link": "#",
+								"repeater__images": [
+									{
+										"image__image": "../../images/product-card.webp",
+										"image_alt": "product image"
+									}
+								],
+								"image__hover_image": "../../images/product-card-hover.webp",
+								"hover_image_alt": "product image",
+								"variations_tag": {
+									"text__text": "More variations",
+									"image__image": "../../images/variations.webp",
+									"image_alt": "colors"
+								},
+								"text__title": "Mighty Power Rack CX-30",
+								"text__price": "1.482,94 €"
+							},
+							{
+								"link__link": "#",
+								"repeater__images": [
+									{
+										"image__image": "../../images/product-card.webp",
+										"image_alt": "product image"
+									}
+								],
+								"image__hover_image": "../../images/product-card-hover.webp",
+								"hover_image_alt": "product image",
+								"variations_tag": {
+									"text__text": "More variations",
+									"image__image": "../../images/variations.webp",
+									"image_alt": "colors"
+								},
+								"text__title": "Mighty Power Rack CX-30",
+								"text__price": "1.482,94 €"
+							}
+						]
+					},
+					"empty": {
+						"image__image": "../../images/empty-cart.svg",
+						"image_alt": "empty",
+						"text__title": "Your bag is currently empty.",
+						"text__text": "Find something you like and add it to the cart.",
+						"link__link": "#",
+						"link_text": "Shop"
+					}
+				}
+			}
+		},
+		{
+			"name": "empty",
+			"notes": "Empty Cart Popup",
+			"context": {
+				"extra_class": "is-cart-open",
+				"cart_popup": {
+					"boolean__is_empty": true,
+					"text__title": "Your bag",
+					"text__number": "0",
+					"text__copy_button": "Copy Cart link",
+					"text__copy_text": "https://www.google.com",
+					"product_list": {
+						"text__title": "Complete your products with...",
+						"repeater__items": [
+							{
+								"link__link": "#",
+								"repeater__images": [
+									{
+										"image__image": "../../images/product-card.webp",
+										"image_alt": "product image"
+									}
+								],
+								"image__hover_image": "../../images/product-card-hover.webp",
+								"hover_image_alt": "product image",
+								"top_tag": {
+									"text__text": "PREORDER",
+									"select__color": "blue"
+								},
+								"variations_tag": {
+									"text__text": "More variations",
+									"image__image": "../../images/variations.webp",
+									"image_alt": "colors"
+								},
+								"text__title": "Mighty Power Rack CX-30",
+								"text__price": "1.482,94 €"
+							},
+							{
+								"link__link": "#",
+								"repeater__images": [
+									{
+										"image__image": "../../images/product-card.webp",
+										"image_alt": "product image"
+									}
+								],
+								"image__hover_image": "../../images/product-card-hover.webp",
+								"hover_image_alt": "product image",
+								"variations_tag": {
+									"text__text": "More variations",
+									"image__image": "../../images/variations.webp",
+									"image_alt": "colors"
+								},
+								"text__title": "Mighty Power Rack CX-30",
+								"text__price": "1.482,94 €"
+							},
+							{
+								"link__link": "#",
+								"repeater__images": [
+									{
+										"image__image": "../../images/product-card.webp",
+										"image_alt": "product image"
+									}
+								],
+								"image__hover_image": "../../images/product-card-hover.webp",
+								"hover_image_alt": "product image",
+								"variations_tag": {
+									"text__text": "More variations",
+									"image__image": "../../images/variations.webp",
+									"image_alt": "colors"
+								},
+								"text__title": "Mighty Power Rack CX-30",
+								"text__price": "1.482,94 €"
+							},
+							{
+								"link__link": "#",
+								"repeater__images": [
+									{
+										"image__image": "../../images/product-card.webp",
+										"image_alt": "product image"
+									}
+								],
+								"image__hover_image": "../../images/product-card-hover.webp",
+								"hover_image_alt": "product image",
+								"variations_tag": {
+									"text__text": "More variations",
+									"image__image": "../../images/variations.webp",
+									"image_alt": "colors"
+								},
+								"text__title": "Mighty Power Rack CX-30",
+								"text__price": "1.482,94 €"
+							},
+							{
+								"link__link": "#",
+								"repeater__images": [
+									{
+										"image__image": "../../images/product-card.webp",
+										"image_alt": "product image"
+									}
+								],
+								"image__hover_image": "../../images/product-card-hover.webp",
+								"hover_image_alt": "product image",
+								"variations_tag": {
+									"text__text": "More variations",
+									"image__image": "../../images/variations.webp",
+									"image_alt": "colors"
+								},
+								"text__title": "Mighty Power Rack CX-30",
+								"text__price": "1.482,94 €"
+							},
+							{
+								"link__link": "#",
+								"repeater__images": [
+									{
+										"image__image": "../../images/product-card.webp",
+										"image_alt": "product image"
+									}
+								],
+								"image__hover_image": "../../images/product-card-hover.webp",
+								"hover_image_alt": "product image",
+								"variations_tag": {
+									"text__text": "More variations",
+									"image__image": "../../images/variations.webp",
+									"image_alt": "colors"
+								},
+								"text__title": "Mighty Power Rack CX-30",
+								"text__price": "1.482,94 €"
+							}
+						]
+					},
+					"empty": {
+						"image__image": "../../images/empty-cart.svg",
+						"image_alt": "empty",
+						"text__title": "Your bag is currently empty.",
+						"text__text": "Find something you like and add it to the cart.",
+						"link__link": "#",
+						"link_text": "Shop"
+					}
+				}
+			}
+		}
+	]
+}

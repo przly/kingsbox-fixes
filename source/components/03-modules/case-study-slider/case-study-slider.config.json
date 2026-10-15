@@ -1,0 +1,187 @@
+{
+	"title": "Case Study Slider",
+	"notes": "Case Study Slider",
+	"status": "acceptance",
+	"acf_function": "getCaseStudySliderFields",
+	"variants": [
+		{
+			"name": "default",
+			"context": {
+				"case_study_slider": {
+					"link__button": "#",
+					"button_target": "",
+					"button_rel": "",
+					"button_text": "See all Case Studies",
+					"repeater__slides": [
+						{
+							"image__image": "../../images/case-study-card-large.webp",
+							"image_alt": "images",
+							"textarea__title": "Crossfit Lift Like a Viking",
+							"repeater__info": [
+								{
+									"text__text": "Wernberg, Austria"
+								},
+								{
+									"text__text": "Commercial Gym"
+								}
+							],
+							"link__link": "#",
+							"link_text": "read more"
+						},
+						{
+							"image__image": "../../images/case-study-card-large.webp",
+							"image_alt": "images",
+							"textarea__title": "Crossfit Lift Like a Viking",
+							"repeater__info": [
+								{
+									"text__text": "Wernberg, Austria"
+								},
+								{
+									"text__text": "Commercial Gym"
+								}
+							],
+							"link__link": "#",
+							"link_text": "read more"
+						}
+					]
+				}
+			}
+		},
+		{
+			"name": "small",
+			"context": {
+				"case_study_slider": {
+					"boolean__small_cards": true,
+					"textarea__title": "Case studies",
+					"select__title_tag": "h1",
+					"link__button": "#",
+					"button_target": "",
+					"button_rel": "",
+					"button_text": "See all Case Studies",
+					"repeater__slides": [
+						{
+							"image__image": "../../images/case-study-card-large.webp",
+							"image_alt": "images",
+							"textarea__title": "Crossfit Lift Like a Viking",
+							"repeater__info": [
+								{
+									"text__text": "Wernberg, Austria"
+								},
+								{
+									"text__text": "Commercial Gym"
+								}
+							],
+							"link__link": "#",
+							"link_text": "read more"
+						},
+						{
+							"image__image": "../../images/case-study-card-large.webp",
+							"image_alt": "images",
+							"textarea__title": "Crossfit Lift Like a Viking",
+							"repeater__info": [
+								{
+									"text__text": "Wernberg, Austria"
+								},
+								{
+									"text__text": "Commercial Gym"
+								}
+							],
+							"link__link": "#",
+							"link_text": "read more"
+						},
+						{
+							"image__image": "../../images/case-study-card-large.webp",
+							"image_alt": "images",
+							"textarea__title": "Crossfit Lift Like a Viking",
+							"repeater__info": [
+								{
+									"text__text": "Wernberg, Austria"
+								},
+								{
+									"text__text": "Commercial Gym"
+								}
+							],
+							"link__link": "#",
+							"link_text": "read more"
+						},
+						{
+							"image__image": "../../images/case-study-card-large.webp",
+							"image_alt": "images",
+							"textarea__title": "Crossfit Lift Like a Viking",
+							"repeater__info": [
+								{
+									"text__text": "Wernberg, Austria"
+								},
+								{
+									"text__text": "Commercial Gym"
+								}
+							],
+							"link__link": "#",
+							"link_text": "read more"
+						},
+						{
+							"image__image": "../../images/case-study-card-large.webp",
+							"image_alt": "images",
+							"textarea__title": "Crossfit Lift Like a Viking",
+							"repeater__info": [
+								{
+									"text__text": "Wernberg, Austria"
+								},
+								{
+									"text__text": "Commercial Gym"
+								}
+							],
+							"link__link": "#",
+							"link_text": "read more"
+						},
+						{
+							"image__image": "../../images/case-study-card-large.webp",
+							"image_alt": "images",
+							"textarea__title": "Crossfit Lift Like a Viking",
+							"repeater__info": [
+								{
+									"text__text": "Wernberg, Austria"
+								},
+								{
+									"text__text": "Commercial Gym"
+								}
+							],
+							"link__link": "#",
+							"link_text": "read more"
+						},
+						{
+							"image__image": "../../images/case-study-card-large.webp",
+							"image_alt": "images",
+							"textarea__title": "Crossfit Lift Like a Viking",
+							"repeater__info": [
+								{
+									"text__text": "Wernberg, Austria"
+								},
+								{
+									"text__text": "Commercial Gym"
+								}
+							],
+							"link__link": "#",
+							"link_text": "read more"
+						},
+						{
+							"image__image": "../../images/case-study-card-large.webp",
+							"image_alt": "images",
+							"textarea__title": "Crossfit Lift Like a Viking",
+							"repeater__info": [
+								{
+									"text__text": "Wernberg, Austria"
+								},
+								{
+									"text__text": "Commercial Gym"
+								}
+							],
+							"link__link": "#",
+							"link_text": "read more"
+						}
+					]
+				}
+			}
+		}
+	]
+}

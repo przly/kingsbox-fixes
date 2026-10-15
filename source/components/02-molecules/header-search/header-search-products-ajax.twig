@@ -1,0 +1,59 @@
+<div class="header-search__products">
+	<div class="header-search__products-inner">
+		{% for item in products.repeater__products %}
+			{% set image = item.repeater__images[0]|default({}) %}
+			<div class="header-search__product-wrapper">
+				<div class="header-search__product">
+					<div class="header-search__product-img : d-flex-cc">
+						{% if image.image__image %}
+							<img src="{{ image.image__image }}" alt="{{ image.image_alt }}" width="96" height="96" />
+						{% endif %}
+
+						{% if item.text__discount %}
+							{% include '@atoms/tag/tag.twig' with {
+								tag: {
+									text__text: item.text__discount,
+									select__color: 'red'
+								}
+							} %}
+						{% endif %}
+					</div>
+
+					<div class="header-search__product-content">
+						{% if item.text__text %}
+							<div class="header-search__product-category : text--12 : text--gray-400">
+								{{ item.text__text }}
+							</div>
+						{% endif %}
+
+						<div class="header-search__product-title : text--gray-900 : text--bd : lt-0">
+							{{ item.text__title }}
+						</div>
+
+						{% if item.text__price or item.text__price_slashed %}
+							<div class="header-search__product-price : font-secondary : lt-0">
+								<span class="text--gray-900">{{ item.text__price }}</span>
+
+								{% if item.text__price_slashed %}
+									<div class="header-search__product-price__slashed : text--gray-400 : text--12">
+										<s>{{ item.text__price_slashed }}</s>
+									</div>
+								{% endif %}
+							</div>
+						{% endif %}
+					</div>
+
+					{% if item.link__link %}
+						<a
+							href="{{ item.link__link }}"
+							{{ item.link_rel ? 'rel="' ~ item.link_rel ~ '"' }}
+							{{ item.link_target ? 'target="' ~ item.link_target ~ '"' }}
+							aria-label="{{ item.text__title }}"
+							class="stretched-link : covered-pointer"
+						></a>
+					{% endif %}
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+</div>

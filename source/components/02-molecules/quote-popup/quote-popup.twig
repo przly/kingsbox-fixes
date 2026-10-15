@@ -1,0 +1,114 @@
+<div
+	data-component="mol-quote-popup"
+	class="quote-popup {{ quote_popup.boolean__is_empty ? 'quote-popup--empty' }} {{ extra_class }}"
+>
+	<div class="quote-popup__overlay : covered"></div>
+	<div class="quote-popup__inner" data-lenis-prevent>
+		{% if quote_popup.text__title %}
+			<div class="quote-popup__header">
+				<div class="quote-popup__title">
+					{% include '@atoms/title/title.twig' with {
+						modifier: 'h4',
+						tag: 'h2',
+						secondary: true,
+						title: quote_popup.text__title
+					} %}
+
+					<div class="quote-popup__number : text--md : text--gray-400 : text--12 : font-secondary">
+						[{{ quote_popup.text__number }}]
+					</div>
+				</div>
+
+				<div class="quote-popup__header-right">
+					{% include '@atoms/button/button.twig' with {
+						class_name: 'quote-popup__copy-btn',
+						modifier: 'white',
+						mono_font: true,
+						text: quote_popup.text__copy_button,
+						data_attr: "data-copy-button data-copy-text='" ~ quote_popup.text__copy_text ~ "'",
+						icon: 'copy'
+					} %}
+
+					{% include '@atoms/button/button.twig' with {
+						class_name: 'quote-popup__close',
+						modifier: 'gray',
+						aria_label: 'Close Popup',
+						icon: 'close',
+						type: 'button'
+					} %}
+				</div>
+			</div>
+		{% endif %}
+
+		<div class="quote-popup__content">
+			{% include '@molecules/quote-popup-content-axios/quote-popup-content-axios.twig' with {
+				quote_popup: quote_popup
+			} %}
+		</div>
+
+		{% if quote_popup.empty.text__title or quote_popup.empty.text__text or quote_popup.empty.link__link %}
+			<div class="quote-popup__empty">
+				<div class="quote-popup__empty-body : text-center : d-flex-cc">
+					{% if quote_popup.empty.image__image %}
+						<div class="quote-popup__empty-image">
+							<img
+								src="{{ quote_popup.empty.image__image }}"
+								alt="{{ quote_popup.empty.image_alt }}"
+								width="282"
+								height="138"
+							/>
+						</div>
+					{% endif %}
+					{% if quote_popup.empty.text__title %}
+						<div class="quote-popup__empty-title">
+							{% include '@atoms/title/title.twig' with {
+								modifier: 'h5',
+								tag: 'h2',
+								title: quote_popup.empty.text__title
+							} %}
+						</div>
+					{% endif %}
+					{% if quote_popup.empty.text__text %}
+						<div class="quote-popup__empty-text : text--14 : text--md : text--gray-400">
+							{{ quote_popup.empty.text__text }}
+						</div>
+					{% endif %}
+					{% if quote_popup.empty.link__link %}
+						{% include '@atoms/button/button.twig' with {
+							has_loader: true,
+							href: quote_popup.empty.link__link,
+							text: quote_popup.empty.link_text,
+							target: quote_popup.empty.link_target,
+							rel: quote_popup.empty.link_rel
+						} %}
+					{% endif %}
+				</div>
+			</div>
+		{% endif %}
+
+		{% if quote_popup.product_list.text__title or quote_popup.product_list.repeater__items %}
+			<div class="quote-popup__product-list">
+				{% if quote_popup.product_list.text__title %}
+					<div class="quote-popup__product-list-title : mb-24">
+						{% include '@atoms/title/title.twig' with {
+							modifier: 'h5',
+							tag: 'h2',
+							secondary: true,
+							title: quote_popup.product_list.text__title
+						} %}
+					</div>
+				{% endif %}
+
+				{% if quote_popup.product_list.repeater__items %}
+					<div class="quote-popup__product-row">
+						{% for item in quote_popup.product_list.repeater__items %}
+							{% include '@molecules/product-card/product-card.twig' with {
+								product_card: item
+							} %}
+						{% endfor %}
+					</div>
+				{% endif %}
+			</div>
+		{% endif %}
+	</div>
+</div>

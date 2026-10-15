@@ -1,0 +1,63 @@
+{
+	"title": "Case Study Video",
+	"notes": "Case Study Video",
+	"status": "acceptance",
+	"acf_function": "getCaseStudyVideoFields",
+	"context": {
+		"case_study_video": {
+			"section_header": {
+				"text__super_title": "CASE STUDIES",
+				"textarea__title": "custom gym <br> solutions"
+			},
+			"image__video_poster": "../../images/globe-video-poster.webp",
+			"file__video_mp4": "../../videos/globe-video.mp4",
+			"repeater__cards": [
+				{
+					"image__icon": "../../images/weight-icon.svg",
+					"image_icon_alt": "Weight",
+					"mod_counter": {
+						"number__number": "500",
+						"text__label": "+"
+					},
+					"textarea__title": "Gyms Build"
+				},
+				{
+					"image__icon": "../../images/globe-icon.svg",
+					"image_icon_alt": "Globe",
+					"mod_counter": {
+						"number__number": "25",
+						"text__label": "+"
+					},
+					"textarea__title": "Countries"
+				},
+				{
+					"image__icon": "../../images/upcoming-event-icon.svg",
+					"image_icon_alt": "Upcoming Event",
+					"mod_counter": {
+						"number__number": "10",
+						"text__label": "+"
+					},
+					"textarea__title": "Years of Experiance"
+				},
+				{
+					"image__icon": "../../images/europe-star-icon.svg",
+					"image_icon_alt": "Europe Star",
+					"mod_counter": {
+						"number__number": "100",
+						"text__label": "%"
+					},
+					"textarea__title": "Made in Europe"
+				}
+			],
+			"textarea__bottom_title": "We design custom training spaces that fit the way your members train and the way your business operates. The result is a gym that looks better and makes smarter use of every square meter.",
+			"repeater__extra_texts": [
+				{
+					"textarea__text": "We are a Slovenian manufacturer of strength and conditioning equipment for gyms, studios, home gyms, and outdoor spaces. We create durable, modular solutions built for real training."
+				},
+				{
+					"textarea__text": "We are more than an equipment supplier. We help build practical training spaces that perform better and make the most of every square meter."
+				}
+			]
+		}
+	}
+}

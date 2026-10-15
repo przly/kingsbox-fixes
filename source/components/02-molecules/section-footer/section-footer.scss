@@ -1,0 +1,17 @@
+//*******************************************************************************
+// Section Footer
+//*******************************************************************************
+
+@import '../../../scss/import';
+
+.section-footer {
+	width: 100%;
+
+	&__inner {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-wrap: wrap;
+		gap: 16px;
+	}
+}

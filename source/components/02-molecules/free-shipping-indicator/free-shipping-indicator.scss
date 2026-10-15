@@ -1,0 +1,140 @@
+// **************************************************
+// Free Shipping Indicator
+// **************************************************
+
+@import '../../../scss/import';
+
+.free-shipping-indicator {
+	width: 100%;
+	margin: 0 auto;
+	text-align: center;
+	padding: 20px;
+	max-width: 550px;
+	position: relative;
+	display: block;
+
+	// Mobile
+	@media #{$breakpoint-xs-only} {
+		padding: 24px;
+	}
+
+	[data-component^='mod-'] & {
+		max-width: 100%;
+	}
+
+	// ##################################################
+
+	&__texts {
+		display: flex;
+		justify-content: flex-end;
+	}
+
+	// ##################################################
+
+	&__text {
+		margin-bottom: 16px;
+		text-transform: uppercase;
+		line-height: 1;
+		font-family: var(--font-primary-condensed);
+		letter-spacing: -0.03em;
+
+		strong {
+			font-weight: 500 !important;
+			font-size: 18px;
+			font-family: var(--font-secondary);
+			display: inline-flex;
+			align-items: center;
+			background-color: var(--color-white);
+			border: 0.5px solid var(--color-gray-200);
+			border-radius: 4px;
+			box-shadow: var(--shadow-soft);
+			margin: 0 10px;
+			min-height: 32px;
+			padding: 2px 10px;
+			font-feature-settings: 'zero' 1;
+			position: relative;
+			top: -2px;
+
+			// Mobile
+			@media #{$breakpoint-xs-only} {
+				margin: 0 4px;
+			}
+		}
+
+		.is-free & {
+			display: none;
+		}
+	}
+
+	// ##################################################
+
+	&__free {
+		display: none;
+
+		strong {
+			background-color: var(--color-green-50);
+			border-color: var(--color-green-500);
+			color: var(--color-green-500);
+		}
+
+		.is-free & {
+			display: block;
+		}
+	}
+
+	// ##################################################
+
+	&__inner {
+		position: relative;
+
+		// ##################################################
+
+		&::after {
+			content: '';
+			position: absolute;
+			bottom: -4px;
+			width: 1px;
+			border-left: 1px dashed var(--color-gray-400);
+			height: 24px;
+			z-index: 2;
+			right: 16px;
+		}
+	}
+
+	// ##################################################
+
+	&__progress-bar {
+		width: 100%;
+		white-space: nowrap;
+		display: flex;
+		gap: 4px;
+		height: 16px;
+		margin-top: 6px;
+		position: relative;
+		overflow: hidden;
+
+		// ##################################################
+
+		&-inner {
+			position: relative;
+			transition: width 300ms var(--easing-slow);
+			flex-shrink: 0;
+			border-radius: 4px;
+			background-color: var(--color-gray-900);
+		}
+
+		&-extra {
+			flex: auto;
+			border-radius: 4px;
+			// background-color: var(--color-gray-300);
+			border: 2px solid var(--color-gray-300);
+			background: repeating-linear-gradient(
+				-45deg,
+				$cgp_gray_300 0px,
+				$cgp_gray_300 2px,
+				$cgp_gray_200 2px,
+				$cgp_gray_200 4px
+			);
+		}
+	}
+}

@@ -1,0 +1,34 @@
+{% if tag.has_close_button %}
+	<button
+		type="button"
+		data-component="at-tag"
+		class="tag {{ tag.select__color }}{{ tag.image__image ? ' : has-image' }}"
+	>
+		<span class="tag__close">
+			{% include '@atoms/icons/icons.twig' with {
+				icon_modifier: 'close'
+			} %}
+		</span>
+		{% if tag.image__image %}
+			<img class="tag__image" src="{{ tag.image__image }}" alt="{{ tag.image_alt }}" width="12" height="12" />
+		{% endif %}
+		{% if tag.select__icon %}
+			{% include '@atoms/icons/icons.twig' with {
+				icon_modifier: tag.select__icon
+			} %}
+		{% endif %}
+		<span>{{ tag.text__text }}</span>
+	</button>
+{% else %}
+	<div data-component="at-tag" class="tag {{ tag.select__color }}{{ tag.image__image ? ' : has-image' }}">
+		{% if tag.image__image %}
+			<img class="tag__image" src="{{ tag.image__image }}" alt="{{ tag.image_alt }}" width="12" height="12" />
+		{% endif %}
+		{% if tag.select__icon %}
+			{% include '@atoms/icons/icons.twig' with {
+				icon_modifier: tag.select__icon
+			} %}
+		{% endif %}
+		<span>{{ tag.text__text }}</span>
+	</div>
+{% endif %}

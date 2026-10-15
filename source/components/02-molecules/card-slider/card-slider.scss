@@ -1,0 +1,78 @@
+// **************************************************
+// Card Slider
+// **************************************************
+
+@import '../../../scss/import';
+
+.card-slider {
+	overflow: hidden;
+	width: 100%;
+
+	// ##################################################
+
+	.swiper {
+		// Tablet P and up
+		@media #{$breakpoint-sm-up} {
+			overflow: visible;
+		}
+
+		&-slide {
+			// Tablet P and down
+			@media #{$breakpoint-sm-down} {
+				width: auto;
+			}
+		}
+	}
+
+	// ##################################################
+
+	&__btn {
+		flex-shrink: 0;
+
+		.btn__icon {
+			display: none;
+		}
+	}
+
+	// ##################################################
+
+	&__top {
+		&:has(.section-header--default.section-header--only-button .swiper-button-lock) {
+			margin-bottom: 0;
+		}
+	}
+
+	// ##################################################
+
+	.showcase-card,
+	.instructions-card,
+	.case-study-card,
+	.news-card,
+	.help-card,
+	.product-card,
+	.review-card {
+		max-width: 100%;
+
+		// Tablet P and down
+		@media #{$breakpoint-sm-down} {
+			width: 320px;
+		}
+	}
+
+	// ##################################################
+
+	&[data-select-col^='2'] {
+		.showcase-card,
+		.instructions-card,
+		.case-study-card,
+		.news-card,
+		.help-card,
+		.product-card,
+		.review-card {
+			// Tablet P Only
+			@media #{$breakpoint-sm-only} {
+				width: 100%;
+			}
+		}
+	}
+}

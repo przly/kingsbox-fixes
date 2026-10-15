@@ -1,0 +1,13 @@
+{
+	"title": "Section Footer",
+	"status": "acceptance",
+	"notes": "Section Footer",
+	"context": {
+		"section_footer": {
+			"link__button": "#",
+			"button_target": "",
+			"button_rel": "",
+			"button_text": "Request a Quote"
+		}
+	}
+}

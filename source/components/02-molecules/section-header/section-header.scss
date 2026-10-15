@@ -144,7 +144,8 @@
 			justify-content: center;
 			flex-direction: column;
 			align-items: center;
-			max-width: 900px;
+			// Grows with the title above 1440px (scss/base/_general.scss), so it keeps its line breaks
+			max-width: calc(900px * var(--heading-zoom, 1));
 			width: 100%;
 			margin: 0 auto;
 		}

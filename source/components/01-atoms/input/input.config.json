@@ -1,0 +1,49 @@
+{
+	"title": "Input",
+	"notes": "Input",
+	"status": "acceptance",
+	"default": "default",
+	"variants": [
+		{
+			"name": "default",
+			"notes": "Default Input",
+			"context": {
+				"input": {
+					"id": "name",
+					"name": "name",
+					"required": true,
+					"label": "Your name*",
+					"placeholder": "Please enter your name"
+				}
+			}
+		},
+		{
+			"name": "error",
+			"notes": "Error Input Field",
+			"context": {
+				"input": {
+					"validation_failed": true,
+					"id": "email",
+					"name": "email",
+					"input_type": "e-mail",
+					"label": "Your name*",
+					"placeholder": "Please enter your name",
+					"error_message": "The field can not be left blank."
+				}
+			}
+		},
+		{
+			"name": "disabled",
+			"notes": "Disabled Input Field",
+			"context": {
+				"input": {
+					"disabled": true,
+					"id": "name",
+					"name": "name",
+					"label": "E-mail naslov",
+					"error_message": "The field can not be left blank."
+				}
+			}
+		}
+	]
+}

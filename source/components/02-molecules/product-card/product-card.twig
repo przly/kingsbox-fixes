@@ -1,0 +1,136 @@
+<div class="product-card{{ boolean__light ? ' : product-card--light' }}">
+	<div class="product-card__main-img">
+		{% if product_card.top_tag or product_card.text__discount %}
+			<div class="product-card__top-tag">
+				{% if product_card.top_tag %}
+					{% include '@atoms/tag/tag.twig' with {
+						tag: product_card.top_tag
+					} %}
+				{% endif %}
+
+				{% if product_card.text__discount %}
+					{% include '@atoms/tag/tag.twig' with {
+						tag: {
+							text__text: product_card.text__discount,
+							select__color: 'red'
+						}
+					} %}
+				{% endif %}
+			</div>
+		{% endif %}
+
+		{% if product_card.bottom_tag %}
+			<div class="product-card__bottom-tag">
+				{% include '@atoms/tag/tag.twig' with {
+					tag: product_card.bottom_tag
+				} %}
+			</div>
+		{% endif %}
+
+		{% if product_card.variations_tag.text__text %}
+			<div class="product-card__variations">
+				{% include '@atoms/tag/tag.twig' with {
+					tag: {
+						select__color: 'white',
+						text__text: product_card.variations_tag.text__text,
+						image__image: product_card.variations_tag.image__image,
+						image_alt: product_card.variations_tag.image_alt
+					}
+				} %}
+			</div>
+		{% endif %}
+
+		<div class="product-card__slides">
+			{% for item in product_card.repeater__images %}
+				<div class="product-card__slide : p-relative : bg-image {{ loop.first ? 'is-active' }}">
+					<img src="{{ item.image__image }}" alt="{{ item.image_alt }}" />
+				</div>
+			{% endfor %}
+		</div>
+
+		{% if product_card.image__hover_image %}
+			<div class="product-card__hover-image : covered : bg-image">
+				<img
+					src="{{ product_card.image__hover_image }}"
+					alt="{{ product_card.hover_image_alt }}"
+					width="450"
+					height="450"
+				/>
+			</div>
+		{% endif %}
+
+		{% if not remove_wishlist %}
+			<button
+				type="button"
+				class="product-card__wishlist"
+				aria-label="{{ product_card.wishlist_button|default('add to wishlist') }}"
+				data-wishlist-button
+			>
+				{% include '@atoms/icons/icons.twig' with {
+					icon_modifier: 'heart'
+				} %}
+			</button>
+		{% endif %}
+	</div>
+
+	{% if (product_card.repeater__images|length) > 1 %}
+		<div class="product-card__thumbnails">
+			{% for item in product_card.repeater__images %}
+				<button
+					type="button"
+					class="product-card__thumbnail {{ loop.first ? 'is-active' }} {{
+					item.boolean__out_of_stock
+						? 'is-out-of-stock'
+					}}"
+				>
+					<img src="{{ item.image__image }}" alt="{{ item.image_alt }}" />
+				</button>
+			{% endfor %}
+		</div>
+	{% endif %}
+
+	{% if product_card.text__status %}
+		{% include '@atoms/status/status.twig' with {
+			status: {
+				text__text: product_card.text__status,
+				select__color: product_card.select__status_color
+			}
+		} %}
+	{% endif %}
+
+	{% if product_card.text__title %}
+		<div class="product-card__title : title : title--h6"><h2>{{ product_card.text__title }}</h2></div>
+	{% endif %}
+	{% if product_card.text__text %}
+		<div class="product-card__text">{{ product_card.text__text }}</div>
+	{% endif %}
+
+	<div class="product-card__footer">
+		<div class="product-card__footer-top : font-secondary : text--md">
+			{% if product_card.text__price %}
+				<div class="product-card__price : text--16">{{ product_card.text__price }}</div>
+			{% endif %}
+
+			{% if product_card.text__price_slashed %}
+				<div class="product-card__price-slashed : text--10 : text--red-500">
+					<s>{{ product_card.text__price_slashed }}</s>
+				</div>
+			{% endif %}
+		</div>
+		<div class="product-card__footer-bottom : text--10 : text--gray-400">
+			{% if product_card.text__lowest_price %}
+				<div class="product-card__lowest-price">{{ product_card.text__lowest_price }}</div>
+			{% endif %}
+		</div>
+	</div>
+
+	{% if product_card.link__link %}
+		<a
+			href="{{ product_card.link__link }}"
+			{{ product_card.link_target ? 'target=' ~ product_card.link_target }}
+			{{ product_card.link_rel ? 'rel=' ~ product_card.link_rel }}
+			class="stretched-link"
+			aria-label="{{ product_card.text__title|default('read more') }}"
+		></a>
+	{% endif %}
+</div>

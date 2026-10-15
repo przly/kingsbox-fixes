@@ -1,0 +1,200 @@
+// **************************************************
+// Case Study Card
+// **************************************************
+
+@import '../../../scss/import';
+
+.case-study-card {
+	position: relative;
+	width: 100%;
+	max-width: 342px;
+	padding: 16px;
+	overflow: hidden;
+	display: flex;
+	align-items: flex-end;
+	aspect-ratio: 1/1;
+	border-radius: 8px;
+	border: 0.5px solid rgba($cgp_white, 0.08);
+	color: var(--color-white);
+
+	[data-component^='mod-'] & {
+		max-width: 100%;
+		margin: 0;
+	}
+
+	// ##################################################
+
+	&__image {
+		&::before {
+			@extend %content;
+			z-index: 1;
+			background: linear-gradient(
+				0deg,
+				rgba(0, 0, 0, 0.8) 0%,
+				rgba(0, 0, 0, 0.79) 11.79%,
+				rgba(0, 0, 0, 0.77) 21.38%,
+				rgba(0, 0, 0, 0.74) 29.12%,
+				rgba(0, 0, 0, 0.7) 35.34%,
+				rgba(0, 0, 0, 0.65) 40.37%,
+				rgba(0, 0, 0, 0.6) 44.56%,
+				rgba(0, 0, 0, 0.54) 48.24%,
+				rgba(0, 0, 0, 0.47) 51.76%,
+				rgba(0, 0, 0, 0.4) 55.44%,
+				rgba(0, 0, 0, 0.33) 59.63%,
+				rgba(0, 0, 0, 0.26) 64.66%,
+				rgba(0, 0, 0, 0.19) 70.88%,
+				rgba(0, 0, 0, 0.12) 78.62%,
+				rgba(0, 0, 0, 0.06) 88.21%,
+				rgba(0, 0, 0, 0) 100%
+			);
+			top: initial;
+			bottom: 0;
+			height: 62%;
+		}
+
+		&::after {
+			@extend %content;
+			mix-blend-mode: soft-light;
+			background-color: transparent;
+			transition: background-color 500ms var(--easing-slow);
+		}
+
+		// ##################################################
+
+		img {
+			transform: scale(1.02);
+			transition: transform 500ms var(--easing-slow);
+		}
+	}
+
+	// ##################################################
+
+	&__content {
+		width: 100%;
+
+		&-left {
+			display: flex;
+			flex-direction: column;
+			gap: 6px;
+			align-items: flex-start;
+		}
+	}
+
+	// ##################################################
+
+	&__text {
+		opacity: 0.5;
+		line-height: 1.5;
+	}
+
+	// ##################################################
+
+	.info-list {
+		color: var(--color-gray-100);
+		justify-content: flex-start;
+		opacity: 0.5;
+	}
+
+	// ##################################################
+
+	.btn {
+		min-height: 38px;
+		padding: 4px 12px;
+		margin-top: 10px;
+	}
+
+	// ##################################################
+
+	&:has(.stretched-link):hover {
+		.case-study-card__image {
+			img {
+				transform: scale(1);
+			}
+
+			&::after {
+				background-color: rgba($cgp_white, 0.25);
+			}
+		}
+	}
+
+	// ##################################################
+
+	&--medium {
+		aspect-ratio: inherit;
+		height: 324px;
+		max-width: 442px;
+		padding: 24px;
+
+		// Mobile
+		@media #{$breakpoint-xs-only} {
+			padding: 16px;
+		}
+
+		.case-study-card__image::before {
+			height: 90%;
+		}
+	}
+
+	// ##################################################
+
+	&--large {
+		// Multiplied by the page zoom above 1440px (scss/base/_general.scss), so the card keeps its proportions
+		max-width: calc(1284px * var(--page-zoom, 1));
+		aspect-ratio: initial;
+		height: calc(600px * var(--page-zoom, 1));
+
+		// Small desktop and down
+		@media #{$breakpoint-lg-down} {
+			height: 500px;
+		}
+
+		// Tablet L and down
+		@media #{$breakpoint-md-down} {
+			height: 400px;
+		}
+
+		// Mobile
+		@media #{$breakpoint-xs-only} {
+			aspect-ratio: 1/1;
+			height: auto;
+		}
+
+		.case-study-card__image::before {
+			// Tablet L and up
+			@media #{$breakpoint-md-up} {
+				height: 35%;
+			}
+		}
+	}
+
+	// ##################################################
+
+	&--mono {
+		padding: 24px;
+
+		// Mobile
+		@media #{$breakpoint-xs-only} {
+			padding: 16px;
+		}
+
+		.title {
+			font-family: var(--font-primary-condensed);
+			text-transform: uppercase;
+		}
+
+		.case-study-card__content {
+			// Tablet L and up
+			@media #{$breakpoint-md-up} {
+				display: flex;
+				justify-content: space-between;
+				gap: 16px;
+				align-items: flex-end;
+			}
+		}
+
+		.case-study-card__content-left {
+			gap: 4px;
+			max-width: 320px;
+		}
+	}
+}

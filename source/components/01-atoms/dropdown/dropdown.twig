@@ -1,0 +1,124 @@
+{% if dropdown.required %}
+	{% set requiredattr = 'required' %}
+{% endif %}
+
+{% if dropdown.error_message %}
+	{% set errorMessageAttr = 'data-fv-not-empty___message="' ~ dropdown.error_message ~ '"' %}
+{% endif %}
+
+<div
+	data-component="at-dropdown"
+	class="dropdown {{ dropdown.multi_select ? 'dropdown--multiselect' }} {{
+	dropdown.search_input
+		? 'dropdown--search'
+	}} {{ secondary ? 'dropdown--secondary' }} {{ dropdown.disabled ? 'is-disabled' }}{{
+	tertiary
+		? ' : dropdown--tertiary'
+	}}"
+	data-input-group-parent
+	{{ dropdown.disabled ? 'aria-disabled="true"' }}
+	{{ data_attr }}
+>
+	{% if dropdown.label %}
+		<div class="dropdown__label : label">
+			{{ dropdown.label }} {% if dropdown.required %}
+				<span class="text--red-500">*</span>
+			{% endif %}
+		</div>
+	{% endif %}
+
+	<div class="dropdown__inner : p-relative">
+		<div class="dropdown__placeholder">
+			{% if dropdown.icon %}
+				<div class="dropdown__placeholder-icon">
+					{% include '@atoms/icons/icons.twig' with {
+						icon_modifier: dropdown.icon
+					} %}
+				</div>
+			{% endif %}
+
+			{% if dropdown.placeholder_image %}
+				<div class="dropdown__placeholder-image : bg-image">
+					<img
+						src="{{ dropdown.placeholder_image }}"
+						alt="{{ dropdown.placeholder_image_alt }}"
+						width="18"
+						height="12"
+					/>
+				</div>
+			{% endif %}
+			<span class="dropdown__placeholder-text" data-placeholder="{{ dropdown.placeholder }}">
+				{{ dropdown.placeholder }}
+			</span>
+			{% if dropdown.placeholder_badge %}
+				<span
+					class="dropdown__list-badge : dropdown__placeholder-badge : text--14 : text--uppercase : text--md : font-secondary : text--gray-500"
+				>
+					{{ dropdown.placeholder_badge }}
+				</span>
+			{% endif %}
+			{% include '@atoms/icons/icons.twig' with {
+				icon_modifier: 'chevron-down'
+			} %}
+			{% if dropdown.disabled %}
+				{% include '@atoms/icons/icons.twig' with {
+					icon_modifier: 'lock'
+				} %}
+			{% endif %}
+		</div>
+
+		<div class="dropdown__list">
+			{% if dropdown.search_input %}
+				<div class="dropdown__search">
+					<input type="text" id="{{ random() }}" class="dropdown__search-input" />
+				</div>
+			{% endif %}
+
+			<ul class="dropdown__list-inner" data-lenis-prevent>
+				{% for item in dropdown.items %}
+					<li class="dropdown__list-item" data-input-group-item>
+						<input
+							type="{{ dropdown.multi_select ? 'checkbox' : 'radio' }}"
+							name="{{ item.name }}"
+							value="{{ item.value ?? item.text }}"
+							id="{{ item.id }}"
+							{{ item.checked ? 'checked' : '' }}
+							{{ dropdown.disabled ? 'disabled' : '' }}
+							{{ requiredattr }}
+							{{ errorMessageAttr }}
+							data-fv-name="{{ item.name }}"
+							data-input-group-field
+							{{ item.url ? 'data-url="' ~ item.url ~ '"' }}
+							{{ item.toggle_field_target ? 'data-toggle-field="' ~ item.toggle_field_target ~ '"' }}
+						/>
+						<label
+							for="{{ item.id }}"
+							class="dropdown__list-option"
+							{{ item.ehrm_value ? 'data-ehrm="' ~ item.ehrm_value ~ '"' }}
+						>
+							{% if item.image_src %}
+								<div class="dropdown__list-image : d-flex-cc">
+									<img src="{{ item.image_src }}" alt="{{ item.image_alt }}" width="22" height="14" />
+								</div>
+							{% endif %}
+
+							{% if tertiary %}
+								<span class="p-none : dropdown__list-option-text">{{ item.text }}</span>
+							{% else %}
+								{{ item.text }}
+							{% endif %}
+
+							{% if item.badge_text %}
+								<span
+									class="dropdown__list-badge : text--14 : text--uppercase : text--md : font-secondary : text--gray-500"
+								>
+									{{ item.badge_text }}
+								</span>
+							{% endif %}
+						</label>
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+</div>

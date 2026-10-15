@@ -1,0 +1,16 @@
+// **************************************************
+// Mission Module
+// **************************************************
+
+@import '../../../scss/import';
+
+.mission-module {
+	overflow: hidden;
+
+	.swiper {
+		// Tablet P and up
+		@media #{$breakpoint-sm-up} {
+			overflow: visible;
+		}
+	}
+}

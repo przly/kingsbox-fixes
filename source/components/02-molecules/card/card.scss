@@ -10,8 +10,9 @@
 	background-color: var(--color-gray-950);
 	background-image: radial-gradient(circle, var(--color-gray-800) 1px, transparent 1px);
 	background-size: 11px 11px;
-	min-height: 240px;
-	max-width: 342px;
+	// Multiplied by the page zoom above 1440px (scss/base/_general.scss), so the card keeps its proportions
+	min-height: calc(240px * var(--page-zoom, 1));
+	max-width: calc(342px * var(--page-zoom, 1));
 	width: 100%;
 
 	// Tablet P and down

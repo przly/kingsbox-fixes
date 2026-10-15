@@ -1,0 +1,63 @@
+<section
+	data-component="mod-mission-module"
+	class="sc-general : sc-mission-module : bg-black"
+	tabindex="-1"
+	role="contentinfo"
+	{{ mission_module.text__id ? 'id="' ~ mission_module.text__id ~ '"' }}
+>
+	{% include '@atoms/section-margin/section-margin.twig' with {
+		default_100_spacing: true,
+		spacing_size: mission_module.select__top_spacing_size
+	} %}
+
+	<div class="mission-module">
+		<div class="container">
+			{% if
+				mission_module.text__super_title
+					or mission_module.textarea__title
+					or mission_module.link__button
+					or mission_module.link__secondary_button %}
+				{% include '@molecules/section-header/section-header.twig' with {
+					center_aligned: true,
+					button_modifier: mission_module.link__secondary_button ? 'transparent-white' : 'white',
+					secondary_button_modifier: 'white',
+					section_header: {
+						text__super_title: mission_module.text__super_title,
+						textarea__title: mission_module.textarea__title,
+						link__button: mission_module.link__button,
+						button_target: mission_module.button_target,
+						button_rel: mission_module.button_rel,
+						button_text: mission_module.button_text,
+						link__secondary_button: mission_module.link__secondary_button,
+						secondary_button_target: mission_module.secondary_button_target,
+						secondary_button_rel: mission_module.secondary_button_rel,
+						secondary_button_text: mission_module.secondary_button_text
+					}
+				} %}
+
+				{% include '@atoms/margin/margin.twig' with {
+					size: 96
+				} %}
+			{% endif %}
+
+			<div class="mission-module__card-list" data-slider-parent>
+				<div class="swiper" data-slider="mission-slider">
+					<div class="swiper-wrapper">
+						{% for item in mission_module.repeater__steps %}
+							<div class="swiper-slide">
+								{% include '@molecules/step-card/step-card.twig' with {
+									step_card: item
+								} %}
+							</div>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	{% include '@atoms/section-margin/section-margin.twig' with {
+		default_100_spacing: true,
+		spacing_size: mission_module.select__bottom_spacing_size
+	} %}
+</section>

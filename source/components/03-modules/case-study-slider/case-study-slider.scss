@@ -1,0 +1,48 @@
+// **************************************************
+// Case Study Slider
+// **************************************************
+
+@import '../../../scss/import';
+
+.case-study-slider {
+	overflow: hidden;
+
+	// ##################################################
+
+	.section-header {
+		.title--h1 {
+			line-height: 1;
+			letter-spacing: -0.05em;
+			font-family: var(--font-primary-condensed);
+			text-transform: uppercase;
+		}
+
+		// ##################################################
+
+		&__inner {
+			// Tablet L and up
+			@media #{$breakpoint-md-up} {
+				align-items: flex-end;
+			}
+		}
+	}
+
+	// ##################################################
+
+	.swiper {
+		// Tablet P and up
+		@media #{$breakpoint-sm-up} {
+			overflow: visible;
+		}
+	}
+
+	// ##################################################
+
+	.breadcrumbs {
+		margin-bottom: 64px;
+
+		@media #{$breakpoint-sm-down} {
+			margin-bottom: 32px;
+		}
+	}
+}

@@ -32,7 +32,8 @@
 	// ##################################################
 
 	&__content {
-		max-width: 520px;
+		// Grows with the title above 1440px (scss/base/_general.scss), so it keeps its line breaks
+		max-width: calc(520px * var(--heading-zoom, 1));
 		width: 100%;
 		color: var(--color-gray-100);
 

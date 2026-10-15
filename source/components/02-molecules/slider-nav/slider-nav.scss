@@ -1,0 +1,258 @@
+//*******************************************************************************
+// Slider Nav
+//*******************************************************************************
+
+@import '../../../scss/import';
+
+.slider-nav {
+	display: flex;
+	align-items: center;
+	gap: 34px;
+	flex-shrink: 0;
+
+	// Tablet P and down
+	@media #{$breakpoint-sm-down} {
+		gap: 20px;
+	}
+
+	// Mobile
+	@media #{$breakpoint-xs-only} {
+		width: 100%;
+	}
+
+	// ##################################################
+
+	&__button {
+		display: flex;
+		align-items: center;
+		gap: 4px;
+	}
+
+	// ##################################################
+
+	&__arrow {
+		position: relative;
+		width: 40px;
+		height: 40px;
+		border-radius: 6px;
+		flex-shrink: 0;
+		pointer-events: all;
+		margin-top: 0;
+		border: 1px solid rgba(255, 255, 255, 0.08);
+		background-color: var(--color-gray-100);
+
+		.dark-page &,
+		.bg-black & {
+			border: 1px solid var(--color-gray-900);
+			background-color: var(--color-gray-900);
+			color: var(--color-white);
+		}
+
+		// ##################################################
+
+		.icon {
+			height: 16px;
+			width: 16px;
+
+			&::before {
+				background-color: currentColor;
+			}
+		}
+
+		// ##################################################
+
+		&:hover {
+			background-color: var(--color-gray-200);
+
+			.dark-page &,
+			.bg-black & {
+				background-color: rgba($cgp_white, 0.3);
+			}
+		}
+
+		// ##################################################
+
+		svg {
+			display: none;
+		}
+
+		// ##################################################
+
+		&.swiper-button-disabled {
+			opacity: 0.33;
+			pointer-events: none;
+		}
+	}
+
+	&__pagination-text {
+		display: flex;
+		justify-content: space-between;
+		gap: 12px;
+		font-size: 10px;
+		font-weight: 400;
+		line-height: 1.5;
+		letter-spacing: 0.02em;
+		color: $cgp_gray_400;
+	}
+
+	// ##################################################
+
+	.swiper-horizontal > .swiper-scrollbar,
+	.swiper-scrollbar.swiper-scrollbar-horizontal,
+	.swiper-scrollbar {
+		height: 4px;
+		background-color: var(--color-gray-100);
+		position: relative;
+		bottom: 0;
+		left: 0;
+		top: 0;
+		right: 0;
+		margin: 0;
+		width: 215px;
+
+		// Mobile
+		@media #{$breakpoint-xs-only} {
+			width: 100%;
+			flex: auto;
+		}
+	}
+
+	// ##################################################
+
+	.swiper-scrollbar {
+		@extend %enable_scrollbar_sync;
+	}
+
+	// ##################################################
+
+	.swiper-scrollbar-drag {
+		cursor: grab;
+		background-color: var(--color-gray-950);
+
+		// Clickable Area
+		&::before {
+			content: '';
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			transform: scaleY(2);
+		}
+	}
+
+	// ##################################################
+
+	.swiper-scrollbar.swiper-scrollbar-vertical {
+		width: 2px;
+		position: relative;
+		bottom: 0;
+		left: 0;
+		top: 0;
+		right: 0;
+		margin-top: 0;
+		height: 100%;
+		border-radius: 4px;
+		background-color: var(--color-gray-100);
+
+		// ##################################################
+
+		.swiper-scrollbar-drag {
+			border-radius: 4px;
+			background-color: var(--color-gray-900);
+
+			// Clickable Area
+			&::before {
+				transform: scaleX(2);
+			}
+		}
+	}
+
+	// ##################################################
+
+	.swiper-pagination {
+		position: relative;
+
+		// Mobile
+		@media #{$breakpoint-xs-only} {
+			width: 100%;
+			flex: auto;
+		}
+
+		// ##################################################
+
+		&:has(.swiper-pagination-progressbar-fill) {
+			// Mobile
+			@media #{$breakpoint-xs-only} {
+				height: 4px;
+				background: var(--color-gray-100);
+				border-radius: 40px;
+				overflow: hidden;
+
+				.dark-page &,
+				.bg-black & {
+					background-color: var(--color-gray-700);
+				}
+			}
+		}
+	}
+
+	// ##################################################
+
+	.swiper-pagination-progressbar {
+		height: 6px;
+		background: var(--color-gray-100);
+		position: relative;
+		bottom: 0;
+		left: 0;
+		top: 0;
+		right: 0;
+		margin: 0;
+		width: 342px;
+		border-radius: 2px;
+		overflow: hidden;
+
+		// Tablet L and down
+		@media #{$breakpoint-md-down} {
+			width: 180px;
+		}
+
+		// Mobile
+		@media #{$breakpoint-xs-only} {
+			width: 100%;
+			flex: auto;
+		}
+
+		.dark-page &,
+		.bg-black & {
+			background-color: var(--color-gray-700);
+		}
+
+		&-fill {
+			background-color: var(--color-gray-950);
+			border-radius: 2px;
+
+			.dark-page &,
+			.bg-black & {
+				background-color: var(--color-gray-100);
+			}
+
+			// Mobile
+			@media #{$breakpoint-xs-only} {
+				border-radius: 20px;
+				display: block;
+				height: 100%;
+				transition: none !important;
+				transform: scale(1) !important;
+				width: calc((100% - var(--slider-fill-width)) * var(--slider-progress) + var(--slider-fill-width));
+			}
+		}
+	}
+
+	// ##################################################
+
+	&:has(.swiper-pagination-lock),
+	&:has(.swiper-scrollbar-lock) {
+		display: none;
+	}
+}

@@ -1,0 +1,380 @@
+// **************************************************
+// Input
+// **************************************************
+
+@import '../../../scss/import';
+
+.mod-input {
+	width: 100%;
+	position: relative;
+	@include placeholder($cgp_gray_300, 1);
+
+	// ##################################################
+
+	&__label {
+		position: relative;
+		margin: 0 0 6px;
+		display: flex;
+		gap: 6px;
+		z-index: 4;
+		color: var(--color-gray-400);
+		letter-spacing: 0;
+		font-size: 12px;
+		font-weight: 500;
+	}
+
+	// ##################################################
+
+	&__field {
+		position: relative;
+		width: 100%;
+		height: 40px;
+		color: var(--color-gray-900);
+		outline: none;
+		z-index: 1;
+		font-size: 14px;
+		font-family: var(--font-primary);
+		font-weight: 500;
+		padding: 4px 12px;
+		transition: border-color 180ms ease, box-shadow 180ms ease;
+		border-radius: 6px;
+		border: 0.5px solid var(--color-gray-300);
+		background-color: var(--color-white);
+		letter-spacing: 0.02em;
+
+		// Mobile
+		@media #{$breakpoint-xs-only} {
+			font-size: 16px;
+			height: 46px;
+		}
+
+		// ###########################################################
+
+		&:focus {
+			border-color: var(--color-gray-400);
+			box-shadow: 0 0 0 3px rgba($cgp_black, 0.1);
+		}
+
+		// stylelint-disable-next-line
+		.#{$class_validation_failed} &,
+		&.#{$class_validation_failed} {
+			color: var(--color-validation-failed);
+			border-color: var(--color-validation-failed);
+		}
+
+		&:-webkit-autofill {
+			color: var(--color-gray-900) !important;
+			-webkit-text-fill-color: var(--color-gray-900) !important;
+			-webkit-box-shadow: 0 0 0 1000px var(--color-white) inset !important;
+
+			&::selection {
+				background-color: transparent !important;
+				-webkit-text-fill-color: var(--color-gray-900) !important;
+				-webkit-box-shadow: 0 0 0 1000px var(--color-white) inset !important;
+			}
+		}
+	}
+
+	// ##################################################
+
+	&__inner {
+		position: relative;
+	}
+
+	// ##################################################
+
+	&__icon {
+		position: absolute;
+		right: 12px;
+		top: 50%;
+		z-index: 4;
+		color: var(--color-gray-300);
+		transform: translate(0, -50%);
+
+		// ##################################################
+
+		img {
+			width: 100%;
+			height: auto;
+			object-fit: contain;
+		}
+	}
+
+	// ##################################################
+
+	textarea {
+		resize: none;
+		min-height: 155px;
+		padding: 10px 12px;
+	}
+
+	// ##################################################
+
+	// stylelint-disable-next-line
+	&.#{$class_disabled} {
+		opacity: 0.5;
+
+		// stylelint-disable-next-line
+		.mod-input__field {
+			pointer-events: none;
+		}
+	}
+
+	// ###########################################################
+
+	// stylelint-disable-next-line
+	&.#{$class_focus} {
+		// stylelint-disable-next-line
+		.mod-input__password-validation {
+			display: grid;
+		}
+	}
+
+	// ###########################################################
+
+	&__password-validation {
+		display: none;
+		margin: 10px 0 0;
+		line-height: 2.04;
+		grid-gap: 0 20px;
+		max-width: 360px;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+
+		// ###########################################################
+
+		&-item {
+			position: relative;
+			padding-left: 12px;
+
+			// ###########################################################
+			// Bullet
+
+			&::before {
+				content: '';
+				position: absolute;
+				left: 0;
+				top: 10px;
+				width: 4px;
+				height: 4px;
+				border-radius: 100%;
+				background-color: var(--color-black);
+			}
+
+			// ###########################################################
+
+			&-icon {
+				position: absolute;
+				top: 8px;
+				left: 0;
+				width: 8px;
+				height: 8px;
+			}
+
+			// ###########################################################
+
+			&.is-passed,
+			&.is-failed {
+				&::before {
+					display: none;
+				}
+			}
+
+			// ###########################################################
+
+			&.is-failed {
+				color: var(--color-red);
+
+				.mod-input__password-validation-item-icon {
+					background: url('data:image/svg+xml, #{$icon_cross_small}') no-repeat center center / 6px;
+				}
+			}
+
+			// ###########################################################
+
+			&.is-passed {
+				color: var(--color-text);
+
+				.mod-input__password-validation-item-icon {
+					background: url('data:image/svg+xml, #{$icon_check_small}') no-repeat center center / 8px;
+				}
+			}
+		}
+	}
+
+	// ###########################################################
+
+	&__show-password {
+		position: absolute;
+		padding: 8px;
+		right: 8px;
+		top: 50%;
+		transform: translate(0, -50%);
+		z-index: 3;
+		color: var(--color-gray-900);
+		transition: color 80ms ease, transform 80ms ease;
+
+		&:hover {
+			color: var(--color-gray-400);
+		}
+
+		&:active {
+			transform: scale(0.95) translate(0, -50%);
+		}
+	}
+
+	// ###########################################################
+
+	&__info-text {
+		margin-top: 4px;
+		letter-spacing: 0.02em;
+	}
+
+	// ###########################################################
+
+	&--with-icon {
+		.mod-input__field {
+			padding-right: 40px;
+		}
+	}
+
+	// ###########################################################
+
+	&__arrow {
+		position: absolute;
+		right: 16px;
+		top: 50%;
+		z-index: 4;
+		color: var(--color-gray-900);
+		transform: translate(0, -50%);
+
+		.bg-black & {
+			color: var(--color-white);
+		}
+
+		.icon {
+			width: 18px;
+			height: 18px;
+		}
+	}
+
+	// ###########################################################
+
+	&:has(.mod-input__arrow) {
+		.mod-input__icon {
+			right: initial;
+			left: 12px;
+
+			// ###########################################################
+
+			.icon {
+				width: 18px;
+				height: 18px;
+
+				&::before {
+					.bg-black & {
+						background-color: var(--color-gray-500);
+					}
+				}
+			}
+		}
+
+		// ###########################################################
+
+		.mod-input__field {
+			padding: 4px 40px;
+		}
+	}
+
+	.bg-black & {
+		@include placeholder($cgp_gray_500, 1);
+
+		.mod-input {
+			&__label {
+				color: var(--color-gray-500);
+				font-family: var(--font-secondary);
+				text-transform: uppercase;
+			}
+			&__field {
+				border: 0.5px solid var(--color-gray-800);
+				background-color: var(--color-gray-900);
+				color: var(--color-white);
+
+				&:-webkit-autofill {
+					color: var(--color-white) !important;
+					-webkit-text-fill-color: var(--color-white) !important;
+					-webkit-box-shadow: 0 0 0 1000px var(--color-gray-900) inset !important;
+
+					&::selection {
+						-webkit-text-fill-color: var(--color-white) !important;
+						-webkit-box-shadow: 0 0 0 1000px var(--color-gray-900) inset !important;
+					}
+				}
+
+				&:focus {
+					border-color: var(--color-gray-600);
+					box-shadow: 0 0 0 3px rgba($cgp_white, 0.2);
+				}
+			}
+		}
+	}
+}
+
+// ###########################################################
+
+.fv-plugins-message-container,
+.validation-message {
+	color: var(--color-validation-failed);
+	position: relative;
+	font-size: 12px;
+	font-weight: 500;
+
+	div {
+		margin-top: 6px;
+	}
+}
+
+.validation-message {
+	display: none;
+
+	// stylelint-disable-next-line
+	.#{$class_validation_failed} & {
+		display: block;
+	}
+}
+
+// ###########################################################
+
+.form-success-message,
+.form-error-message {
+	margin: 10px 0;
+	padding: 8px 20px;
+	font-size: 16px;
+	line-height: 1.5;
+	border-radius: 4px;
+	color: var(--color-white);
+
+	// Mobile
+	@media #{$breakpoint-xs-only} {
+		font-size: 14px;
+		padding: 5px 10px;
+	}
+
+	// stylelint-disable-next-line
+	&.#{$class_hidden} {
+		display: none;
+	}
+}
+
+// ###########################################################
+
+.form-error-message {
+	background-color: rgba($cgp_validation_failed, 0.5);
+	border: 1px solid var(--color-validation-failed);
+}
+
+// ###########################################################
+
+.form-success-message {
+	background-color: rgba($cgp_success, 0.5);
+	border: 1px solid var(--color-success);
+}

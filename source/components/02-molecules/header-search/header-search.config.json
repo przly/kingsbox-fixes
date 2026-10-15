@@ -1,0 +1,99 @@
+{
+	"title": "header search",
+	"status": "acceptance",
+	"notes": "header search",
+	"context": {
+		"header_search": {
+			"text__placeholder": "Search items, blogs, FAQ...",
+			"text__submit": "Search",
+			"empty": {
+				"text__title": "No results for “Mercedes Benz”",
+				"link__link": "#",
+				"link_text": "See best sellers"
+			},
+			"recommended": {
+				"text__title": "People often search:",
+				"repeater__buttons": [
+					{
+						"text__text": "Racks"
+					},
+					{
+						"text__text": "Bumper plates"
+					},
+					{
+						"text__text": "Outdoor racks"
+					}
+				]
+			},
+			"repeater__product_groups": [
+				{
+					"text__title": "Best sellers",
+					"link__view_all_link": "#",
+					"link_view_all_text": "Show All (2)",
+					"repeater__products": [
+						{
+							"link__link": "#",
+							"image__image": "../../images/search-product-1.webp",
+							"image_alt": "Image",
+							"text__title": "Mighty Power Rack CX-30",
+							"text__price": "2.000,00 €"
+						},
+						{
+							"link__link": "#",
+							"image__image": "../../images/search-product-2.webp",
+							"image_alt": "Image",
+							"text__title": "Mighty Power Rack CX-30",
+							"text__price": "2.000,00 €"
+						},
+						{
+							"link__link": "#",
+							"image__image": "../../images/search-product-3.webp",
+							"image_alt": "Image",
+							"text__title": "Mighty Power Rack CX-30",
+							"text__price": "2.000,00 €"
+						},
+						{
+							"link__link": "#",
+							"image__image": "../../images/search-product-4.webp",
+							"image_alt": "Image",
+							"text__title": "Mighty Power Rack CX-30",
+							"text__price": "2.000,00 €",
+							"text__discount": "-15%"
+						}
+					]
+				},
+				{
+					"text__title": "Instructions",
+					"link__view_all_link": "#",
+					"link_view_all_text": "Show All (2)",
+					"repeater__products": [
+						{
+							"link__link": "#",
+							"image__image": "../../images/search-product-6.webp",
+							"image_alt": "Image",
+							"text__title": "Rack 565-XC",
+							"repeater__info": [
+								{
+									"text__text": "Assembly Instructions"
+								},
+								{
+									"link__link": "#",
+									"link_target": "",
+									"link_rel": "",
+									"text__download_button": "PDF Download"
+								}
+							]
+						},
+						{
+							"link__link": "#",
+							"image__image": "../../images/search-product-5.webp",
+							"image_alt": "Image",
+							"text__title": "Crossfit Lift Like a Viking",
+							"text__category": "Case study"
+						}
+					]
+				}
+			]
+		}
+	}
+}

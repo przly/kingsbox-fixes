@@ -1,0 +1,120 @@
+{
+	"title": "accordion-item",
+	"notes": "accordion-item",
+	"status": "acceptance",
+	"default": "default",
+	"variants": [
+		{
+			"name": "default",
+			"context": {
+				"accordion_item": {
+					"text__title": "Lorem ipsum?",
+					"wysiwyg__text": "<p>Ea consectetur Lorem ipsum. Nulla aute consequat consectetur nostrud ex excepteur consequat aute ea quis laboris commodo ad. Irure voluptate excepteur dolore ipsum proident dolor consequat eu Lorem. Occaecat incididunt anim in minim consectetur consequat minim anim amet do in. In Lorem culpa voluptate enim nostrud id est irure incididunt nostrud pariatur mollit culpa labore fugiat. Culpa id tempor labore eiusmod reprehenderit eiusmod ipsum incididunt mollit id culpa. Sunt cupidatat pariatur laboris ut quis reprehenderit. Id Lorem exercitation eu cillum velit incididunt enim anim ad elit sit et et voluptate sit.</p>"
+				}
+			}
+		},
+		{
+			"name": "with-list",
+			"context": {
+				"accordion_item": {
+					"text__title": "Lorem ipsum?",
+					"repeater__items": [
+						{
+							"text__left": "Option 1",
+							"text__right": "Dunajska cesta 49"
+						},
+						{
+							"text__left": "Option 1",
+							"text__right": "Dunajska cesta 49"
+						},
+						{
+							"text__left": "Option 1",
+							"text__right": "Dunajska cesta 49"
+						},
+						{
+							"text__left": "Option 1",
+							"text__right": "Dunajska cesta 49"
+						},
+						{
+							"text__left": "Option 1",
+							"text__right": "Dunajska cesta 49"
+						}
+					]
+				}
+			}
+		},
+		{
+			"name": "secondary",
+			"context": {
+				"secondary": true,
+				"accordion_item": {
+					"text__title": "Dip Bar",
+					"text__added_item_label": "items added",
+					"repeater__accessory_card": [
+						{
+							"link__link": "#",
+							"link_target": "",
+							"link_rel": "",
+							"image__image": "../../images/product-accessory-card-1.webp",
+							"image_alt": "Image",
+							"text__discount": "-15 %",
+							"text__title": "Mighty Power Rack",
+							"text__price": "90,99 €",
+							"text__old_price": "90,99 €",
+							"quantity_counter": {
+								"text__remove_button_text": "Remove Button",
+								"text__add_button_text": "Add Button",
+								"text__input_name": "counter-input",
+								"text__input_id": "counter-input",
+								"text__min_value": 0,
+								"text__value": 0
+							}
+						},
+						{
+							"link__link": "#",
+							"link_target": "",
+							"link_rel": "",
+							"image__image": "../../images/product-accessory-card-2.webp",
+							"image_alt": "Image",
+							"text__discount": "-15 %",
+							"text__title": "Mighty Power Rack",
+							"text__price": "90,99 €",
+							"text__old_price": "90,99 €",
+							"quantity_counter": {
+								"text__remove_button_text": "Remove Button",
+								"text__add_button_text": "Add Button",
+								"text__input_name": "counter-input",
+								"text__input_id": "counter-input",
+								"text__min_value": 0,
+								"text__value": 0
+							},
+							"select__status": "low-stock",
+							"text__status": "Available from 5. 5. 2026"
+						},
+						{
+							"link__link": "#",
+							"link_target": "",
+							"link_rel": "",
+							"image__image": "../../images/product-accessory-card-3.webp",
+							"image_alt": "Image",
+							"text__discount": "-15 %",
+							"text__title": "Mighty Power Rack",
+							"text__price": "90,99 €",
+							"text__old_price": "90,99 €",
+							"quantity_counter": {
+								"text__remove_button_text": "Remove Button",
+								"text__add_button_text": "Add Button",
+								"text__input_name": "counter-input",
+								"text__input_id": "counter-input",
+								"text__min_value": 0,
+								"text__value": 0
+							},
+							"select__status": "out-of-stock",
+							"text__status": "Out of stock"
+						}
+					]
+				}
+			}
+		}
+	]
+}

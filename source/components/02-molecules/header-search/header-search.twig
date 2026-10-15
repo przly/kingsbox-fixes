@@ -1,0 +1,231 @@
+<div class="header-search">
+	<div class="header-search__overlay : covered-pointer" data-lenis-prevent></div>
+	<div class="header-search__inner">
+		<button type="button" class="header-search__close : btn : btn--gray : btn--only-icon" aria-label="Close Search">
+			<span class="btn__icon : d-flex-cc"><i class="icon : icon-close" aria-hidden="true"></i></span>
+		</button>
+
+		<form class="header-search__form" method="GET" action="{{ header_search.action|default('header-search') }}">
+			{% include '@atoms/icons/icons.twig' with {
+				icon_modifier: 'search'
+			} %}
+
+			<div class="mod-input">
+				<label for="headerSearch" class="sr-only">search</label>
+				<input
+					id="headerSearch"
+					name="term"
+					type="text"
+					class="mod-input__field header-search__input"
+					aria-label="{{ header_search.text__title }}"
+					placeholder="{{ header_search.text__placeholder }}"
+					autocomplete="off"
+				/>
+			</div>
+
+			<div class="header-search__delete : d-flex-cc">
+				{% include '@atoms/icons/icons.twig' with {
+					icon_modifier: 'close'
+				} %}
+			</div>
+
+			<button type="submit" class="header-search__submit : btn btn--default : btn--mono-font">
+				<span class="btn__text">{{ header_search.text__submit }}</span>
+				<span class="btn__icon : d-flex-cc"><i class="icon : icon-chevron-right" aria-hidden="true"></i></span>
+			</button>
+		</form>
+		<div class="header-search__dropdown">
+			<div class="header-search__dropdown-inner" data-lenis-prevent>
+				<div class="header-search__ajax-results hide"></div>
+				<div class="header-search__default-results">
+					{% if header_search.recommended.text__title or header_search.recommended.repeater__buttons %}
+						<div class="header-search__recommended">
+							{% if header_search.recommended.text__title %}
+								<div class="header-search__top">
+									<div class="header-search__title : text--12 : text--gray-400">
+										{{ header_search.recommended.text__title }}
+									</div>
+								</div>
+							{% endif %}
+
+							{% if header_search.recommended.repeater__buttons %}
+								<div class="header-search__recommended-items">
+									{% for item in header_search.recommended.repeater__buttons %}
+										<button
+											type="button"
+											class="header-search__recommended-item : text--12 : text--md : text--gray-900"
+										>
+											{{ item.text__text }}
+										</button>
+									{% endfor %}
+								</div>
+							{% endif %}
+						</div>
+					{% endif %}
+
+					<div class="header-search__products-wrapper">
+						{% for item in header_search.repeater__product_groups %}
+							<div class="header-search__products">
+								{% if item.text__title or item.link__view_all_link %}
+									<div class="header-search__top">
+										{% if item.text__title %}
+											<div class="header-search__title : text--12 : text--gray-400">
+												{{ item.text__title }}
+											</div>
+										{% endif %}
+
+										{% if item.link__view_all_link %}
+											<a
+												href="{{ item.link__view_all_link }}"
+												{{ item.link_view_all_target ? 'target=' ~ item.link_view_all_target }}
+												{{ item.link_view_all_rel ? 'rel=' ~ item.link_view_all_rel }}
+												class="header-search__view-more : font-secondary : text--12 : text--gray-900 : lt-0 : text--uppercase"
+											>
+												{{ item.link_view_all_text }}
+
+												{% include '@atoms/icons/icons.twig' with {
+													icon_modifier: 'chevron-right'
+												} %}
+											</a>
+										{% endif %}
+									</div>
+								{% endif %}
+
+								<div class="header-search__products-inner">
+									{% for item in item.repeater__products %}
+										<div class="header-search__product-wrapper">
+											<div class="header-search__product">
+												<div class="header-search__product-img : d-flex-cc">
+													<img
+														src="{{ item.image__image }}"
+														alt="{{ item.image_alt }}"
+														width="96"
+														height="96"
+													/>
+
+													{% if item.text__discount %}
+														{% include '@atoms/tag/tag.twig' with {
+															tag: {
+																text__text: item.text__discount,
+																select__color: 'red'
+															}
+														} %}
+													{% endif %}
+												</div>
+
+												<div class="header-search__product-content">
+													{% if item.text__category %}
+														<div
+															class="header-search__product-category : text--12 : text--gray-400"
+														>
+															{{ item.text__category }}
+														</div>
+													{% endif %}
+
+													{% if item.text__title %}
+														<div
+															class="header-search__product-title : text--gray-900 : text--bd : lt-0"
+														>
+															{{ item.text__title }}
+														</div>
+													{% endif %}
+
+													{% if item.repeater__info %}
+														<div
+															class="header-search__product-info : text--12 : text--gray-400"
+														>
+															{% for item in item.repeater__info %}
+																{% if item.text__download_button %}
+																	<a
+																		href="{{ item.link__link }}"
+																		{{
+																		item.link_rel
+																			? 'rel="' ~ item.link_rel ~ '"'
+																		}}
+																		{{
+																		item.link_target
+																			? 'target="' ~ item.link_target ~ '"'
+																		}}
+																		{{
+																		item.text__download_button
+																			? 'aria-label="'
+																				~ (item.text__download_button|striptags)
+																				~ '"'
+																		}}
+																		download
+																		class="header-search__product-info-item : header-search__product-info-item--download"
+																	>
+																		{{ item.text__download_button }} {% include '@atoms/icons/icons.twig' with {
+																			icon_modifier: 'download'
+																		} %}
+																	</a>
+																{% else %}
+																	<span class="header-search__product-info-item">
+																		{{ item.text__text }}
+																	</span>
+																{% endif %}
+															{% endfor %}
+														</div>
+													{% endif %}
+
+													{% if item.text__price or item.text__price_slashed %}
+														<div
+															class="header-search__product-price : font-secondary : lt-0"
+														>
+															<span class="text--gray-900">{{ item.text__price }}</span>
+
+															<div
+																class="header-search__product-price__slashed : text--gray-400 : text--12"
+															>
+																<s>{{ item.text__price_slashed }}</s>
+															</div>
+														</div>
+													{% endif %}
+												</div>
+
+												{% if item.link__link %}
+													<a
+														href="{{ item.link__link }}"
+														{{ item.link_rel ? 'rel="' ~ item.link_rel ~ '"' }}
+														{{ item.link_target ? 'target="' ~ item.link_target ~ '"' }}
+														{{
+														item.text__title
+															? 'aria-label="' ~ (item.text__title|striptags) ~ '"'
+														}}
+														class="stretched-link : covered-pointer"
+													></a>
+												{% endif %}
+											</div>
+										</div>
+									{% endfor %}
+								</div>
+							</div>
+						{% endfor %}
+					</div>
+				</div>
+
+				<div class="header-search__not-found hide">
+					{% if header_search.empty.text__title %}
+						<div class="header-search__title : text--14 : text--gray-400">
+							{{ header_search.empty.text__title }}
+						</div>
+					{% endif %}
+
+					{% if header_search.empty.link__link %}
+						{% include '@atoms/button/button.twig' with {
+							modifier: 'gray',
+							icon: 'chevron-right',
+							mono_font: true,
+							href: header_search.empty.link__link,
+							text: header_search.empty.link_text,
+							target: header_search.empty.link_target,
+							rel: header_search.empty.link_rel
+						} %}
+					{% endif %}
+				</div>
+			</div>
+
+			{% include '@atoms/loader/loader.twig' with {} %}
+		</div>
+	</div>
+</div>

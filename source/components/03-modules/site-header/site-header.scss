@@ -1,0 +1,549 @@
+// **************************************************
+// Site Header
+// **************************************************
+
+@import '../../../scss/import';
+
+// Style
+.header-main {
+	width: 100%;
+	z-index: $zindex_header;
+	position: fixed;
+	top: 0;
+	left: 0;
+
+	// stylelint-disable-next-line
+	.#{$class_open_search} &,
+	.#{$class_body_scroll_lock} & {
+		// Not needed where the scrollbar's space is reserved (scss/base/_general.scss)
+		@supports not (scrollbar-gutter: stable) {
+			padding-right: var(--scroll-width, 0px);
+		}
+	}
+
+	// ##################################################
+
+	&__top {
+		background-color: var(--color-black);
+		display: flex;
+		justify-content: space-between;
+		gap: 16px;
+		padding: 4px 20px;
+		min-height: 34px;
+		align-items: center;
+
+		// ##################################################
+
+		&-text {
+			display: flex;
+			align-items: flex-start;
+			gap: 8px;
+
+			&::before {
+				content: '';
+				width: 4px;
+				height: 4px;
+				border-radius: 100%;
+				background-color: #32d583;
+				flex-shrink: 0;
+				margin-top: 7px;
+			}
+		}
+
+		// ##################################################
+
+		&-right,
+		&-left {
+			display: flex;
+			align-items: center;
+			gap: 24px;
+			flex-wrap: wrap;
+
+			// Tablet P and down
+			@media #{$breakpoint-sm-down} {
+				gap: 0 12px;
+			}
+		}
+
+		// ##################################################
+
+		&-link {
+			display: flex;
+			gap: 8px;
+			align-items: center;
+
+			// Tablet P and down
+			@media #{$breakpoint-sm-down} {
+				position: relative;
+			}
+
+			&:hover {
+				color: var(--color-gray-400);
+			}
+		}
+
+		// ##################################################
+
+		&-right {
+			text-transform: uppercase;
+
+			// Tablet P and down
+			@media #{$breakpoint-sm-down} {
+				margin-top: auto;
+				justify-content: space-between;
+			}
+
+			&.header-main__box {
+				// Tablet P and down
+				@media #{$breakpoint-sm-down} {
+					padding: 2px 8px;
+				}
+			}
+
+			// ##################################################
+
+			&-desktop {
+				// Tablet P and down
+				@media #{$breakpoint-sm-down} {
+					display: none;
+				}
+			}
+
+			// ##################################################
+
+			&-mobile {
+				// Tablet L and up
+				@media #{$breakpoint-md-up} {
+					display: none !important;
+				}
+			}
+		}
+
+		// ##################################################
+
+		.btn {
+			// Tablet P and down
+			@media #{$breakpoint-sm-down} {
+				margin-left: 12px;
+			}
+		}
+
+		// ##################################################
+
+		.icon {
+			width: 14px;
+			height: 14px;
+		}
+	}
+
+	// ##################################################
+
+	&__bottom {
+		padding: 6px;
+		display: flex;
+		justify-content: space-between;
+		position: relative;
+
+		&-right,
+		&-left {
+			display: flex;
+			gap: 6px;
+		}
+
+		&-left {
+			// Tablet P and down
+			@media #{$breakpoint-sm-down} {
+				justify-content: space-between;
+				flex: auto;
+			}
+		}
+
+		&-right {
+			.header-main__box {
+				gap: 2px;
+
+				// Tablet P and down
+				@media #{$breakpoint-sm-down} {
+					gap: 0;
+				}
+			}
+		}
+	}
+
+	// ##################################################
+
+	&__box {
+		min-height: 40px;
+		padding: 2px;
+		border: 0.5px solid var(--color-gray-200);
+		border-radius: 8px;
+		box-shadow: var(--shadow-soft);
+		display: flex;
+		position: relative;
+
+		&::before {
+			@extend %content;
+			border-radius: 8px;
+			backdrop-filter: blur(8px);
+			background: rgba(245, 245, 245, 0.8);
+		}
+
+		&-item {
+			position: relative;
+			z-index: 3;
+			display: flex;
+			border-radius: 6px;
+			align-items: center;
+			gap: 10px;
+			justify-content: center;
+			text-transform: uppercase;
+
+			&:hover {
+				// Tablet L and up
+				@media #{$breakpoint-md-up} {
+					background-color: var(--color-white);
+				}
+			}
+		}
+	}
+
+	// ##################################################
+
+	&__logo {
+		display: flex;
+		align-items: center;
+		padding: 0 16px;
+
+		// Tablet P and down
+		@media #{$breakpoint-sm-down} {
+			padding: 0 12px;
+		}
+
+		img {
+			height: 12px;
+			width: auto;
+			object-fit: contain;
+
+			// Tablet P and down
+			@media #{$breakpoint-sm-down} {
+				height: 14px;
+				margin-top: 2px;
+			}
+		}
+	}
+
+	// ##################################################
+
+	&__search-btn {
+		// Desktop and up
+		@media #{$breakpoint-lg-up} {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			min-width: 194px;
+			transform: translate(-50%, -50%);
+		}
+
+		// Tablet L and down
+		@media #{$breakpoint-md-down} {
+			min-width: 45px;
+		}
+
+		.header-main__box-item {
+			width: 100%;
+
+			// Tablet L and down
+			@media #{$breakpoint-md-down} {
+				min-height: 40px;
+			}
+
+			span {
+				// Tablet L and down
+				@media #{$breakpoint-md-down} {
+					display: none;
+				}
+			}
+		}
+	}
+
+	// ##################################################
+
+	&__link {
+		min-width: 40px;
+		height: 40px;
+		position: relative;
+
+		// Tablet P and down
+		@media #{$breakpoint-sm-down} {
+			min-width: 35px;
+			height: 35px;
+		}
+
+		&:hover {
+			// Tablet L and up
+			@media #{$breakpoint-md-up} {
+				background-color: var(--color-white);
+			}
+		}
+
+		// ##################################################
+
+		.icon {
+			width: 14px;
+			height: 14px;
+
+			// Tablet P and down
+			@media #{$breakpoint-sm-down} {
+				width: 16px;
+				height: 16px;
+				margin-top: 1px;
+			}
+		}
+
+		// ##################################################
+
+		&-number {
+			position: absolute;
+			right: 3px;
+			top: 2px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 10px;
+			font-feature-settings: 'ss01' on, 'ss09' on;
+			line-height: 1;
+			min-width: 16px;
+			min-height: 16px;
+			color: var(--color-gray-100);
+			border-radius: 4px;
+			padding: 0 4px;
+			background-color: var(--color-black);
+
+			// Tablet P and down
+			@media #{$breakpoint-sm-down} {
+				min-width: 14px;
+				min-height: 14px;
+				font-size: 8px;
+				line-height: 14px;
+			}
+
+			// The number inside the badge (product-card.js), so it can move on its own
+			&-value {
+				display: block;
+			}
+
+			// Wishlist number motion, classes set by product-card.js
+			@media (prefers-reduced-motion: no-preference) {
+				// Appears: pops in with a slight overshoot
+				&.is-entering {
+					animation: header-main-number-enter 300ms cubic-bezier(0.34, 1.36, 0.64, 1);
+				}
+
+				// New count while already visible: only the number moves, up when it grows, down when it shrinks.
+				// The badge stays still.
+				&.is-changing .header-main__link-number-value {
+					animation: header-main-number-up 250ms cubic-bezier(0.34, 1.36, 0.64, 1);
+				}
+
+				&.is-changing.is-down .header-main__link-number-value {
+					animation-name: header-main-number-down;
+				}
+
+				// Back to zero: shrinks away, quicker and quieter than it appeared
+				&.is-leaving {
+					animation: header-main-number-leave 150ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+				}
+			}
+		}
+
+		// Navbar heart pops when a product is added to the wishlist (product-card.js)
+		@media (prefers-reduced-motion: no-preference) {
+			&.is-wishlist-added .icon:before {
+				animation: header-main-heart-pop 250ms cubic-bezier(0.34, 1.36, 0.64, 1);
+			}
+		}
+
+		// ##################################################
+
+		&-search {
+			// Tablet P and down
+			@media #{$breakpoint-sm-down} {
+				padding-left: 6px;
+			}
+		}
+	}
+
+	// ##################################################
+
+	&__projects {
+		// Tablet P and down
+		@media #{$breakpoint-sm-down} {
+			align-self: flex-end;
+			background-color: var(--color-white);
+			z-index: 1;
+		}
+
+		// Mobile
+		@media #{$breakpoint-xs-only} {
+			width: 100%;
+		}
+
+		// ##################################################
+
+		&-desktop {
+			// Tablet P and down
+			@media #{$breakpoint-sm-down} {
+				display: none;
+			}
+		}
+
+		// ##################################################
+
+		&-mobile {
+			// Tablet L and up
+			@media #{$breakpoint-md-up} {
+				display: none;
+			}
+		}
+
+		.btn {
+			// Mobile
+			@media #{$breakpoint-xs-only} {
+				flex: auto;
+			}
+		}
+	}
+
+	// ##################################################
+
+	&__menu {
+		// Tablet P and down
+		@media #{$breakpoint-sm-down} {
+			position: fixed;
+			top: var(--header-height, 96px);
+			flex-direction: column;
+			left: 6px;
+			width: calc(100% - 12px);
+			height: calc(100% - var(--header-height, 96px) - 6px);
+			padding: 0;
+			opacity: 0;
+			visibility: hidden;
+			pointer-events: none;
+			transition: opacity 0.3s ease, visibility 0.3s ease;
+
+			// stylelint-disable-next-line
+			.#{$class_open_menu} & {
+				opacity: 1;
+				visibility: visible;
+				pointer-events: all;
+			}
+		}
+	}
+
+	// ##################################################
+
+	&__actions {
+		// Tablet P and down
+		@media #{$breakpoint-sm-down} {
+			padding-right: 40px;
+		}
+	}
+}
+
+//*******************************************************************************
+// MENU HAMBURGER
+//*******************************************************************************
+
+$hamburger_bar_height: 3px;
+
+.mobile-hamburger {
+	@extend %reset_button;
+	cursor: pointer;
+	z-index: 9;
+	position: relative;
+
+	@media #{$breakpoint-sm-down} {
+		position: absolute;
+		bottom: 8px;
+		right: 10px;
+		height: 35px;
+		width: 35px;
+		flex-direction: column;
+	}
+
+	// ##################################################
+
+	// Menu Bar
+	.bars {
+		background-color: var(--color-black);
+		height: $hamburger_bar_height;
+		display: block;
+		border-radius: 4px;
+		margin-bottom: 4px;
+		width: 20px;
+		transition: transform 0.3s ease;
+
+		// ##################################################
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		// ##################################################
+
+		// stylelint-disable-next-line
+		.#{$class_open_menu} & {
+			// stylelint-disable-next-line
+			&:first-child {
+				transform: translateY(8px) rotate(225deg);
+			}
+
+			// stylelint-disable-next-line
+			&:nth-child(2) {
+				transform: scale(0);
+			}
+
+			// stylelint-disable-next-line
+			&:last-child {
+				transform: translateY(-6px) rotate(315deg);
+			}
+		}
+	}
+}
+
+// ##################################################
+// Wishlist number and heart motion (see &__link-number)
+
+@keyframes header-main-number-enter {
+	from {
+		opacity: 0;
+		transform: scale(0.5);
+	}
+}
+
+@keyframes header-main-number-up {
+	from {
+		opacity: 0;
+		transform: translateY(4px);
+	}
+}
+
+@keyframes header-main-number-down {
+	from {
+		opacity: 0;
+		transform: translateY(-4px);
+	}
+}
+
+@keyframes header-main-number-leave {
+	to {
+		opacity: 0;
+		transform: scale(0.8);
+	}
+}
+
+@keyframes header-main-heart-pop {
+	from {
+		transform: scale(0.8);
+	}
+}

@@ -1,0 +1,52 @@
+{
+	"title": "Language Form",
+	"notes": "Language Form",
+	"status": "acceptance",
+	"context": {
+		"language_form": {
+			"region_dropdown": {
+				"text__label": "Market",
+				"text__placeholder": "Select your market",
+				"repeater__items": [
+					{
+						"image__image": "../../images/flag-slovenia.svg",
+						"image_alt": "Slovenia",
+						"text__text": "Slovenia",
+						"text__market": "SI",
+						"text__currency": "[ € ]",
+						"text__name": "select_region",
+						"text__id": "select_region_si",
+						"checked": true
+					}
+				]
+			},
+			"language_dropdown": {
+				"boolean__disabled": true,
+				"text__label": "Language",
+				"text__placeholder": "Select your language",
+				"repeater__items": [
+					{
+						"image__image": "../../images/flag-usa.svg",
+						"image_alt": "English",
+						"text__text": "English",
+						"text__locale": "en-si",
+						"text__url": "/en-si/",
+						"text__name": "select_language",
+						"text__id": "select_language_en",
+						"checked": true
+					},
+					{
+						"image__image": "../../images/flag-slovenia.svg",
+						"image_alt": "Slovenian",
+						"text__text": "Slovenian",
+						"text__locale": "sl-si",
+						"text__url": "/sl-si/",
+						"text__name": "select_language",
+						"text__id": "select_language_sl"
+					}
+				]
+			},
+			"text__submit_button": "Continue"
+		}
+	}
+}

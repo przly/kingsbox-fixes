@@ -1,0 +1,14 @@
+{
+	"title": "Step Card",
+	"notes": "Step Card",
+	"status": "acceptance",
+	"context": {
+		"step_card": {
+			"text__step_label": "STEP",
+			"text__step": "Consultation",
+			"image__image": "../../images/step-card-1.webp",
+			"image_alt": "Image",
+			"text__title": "We understand your space, target audience, and budget."
+		}
+	}
+}

@@ -1,0 +1,7 @@
+<div data-component="mol-accordion-list" class="accordion-list" data-accordion="multiple">
+	{% for item in accordion_list.repeater__items %}
+		{% include '@molecules/accordion-item/accordion-item.twig' with {
+			accordion_item: item
+		} %}
+	{% endfor %}
+</div>

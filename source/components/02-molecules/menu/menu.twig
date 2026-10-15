@@ -1,0 +1,96 @@
+<div data-component="mol-menu" class="menu">
+	<nav aria-label="Primary navigation">
+		<ul class="menu__list">
+			{% for item in repeater__menu_items %}
+				<li class="menu__item : level-1 {{ item.megamenu ? 'has-megamenu' : '' }}">
+					{% if not item.megamenu %}
+						<a
+							href="{{ item.link__link }}"
+							{{ item.link_rel ? 'rel="' ~ item.link_rel ~ '"' }}
+							{{ item.link_target ? 'target="' ~ item.link_target ~ '"' }}
+							class="menu__link : menu__link--href : level-1"
+						>
+							{{ item.link_text }}
+						</a>
+					{% else %}
+						<button type="button" class="menu__link : menu__link--nohref : level-1">
+							{{ item.link_text }}
+
+							{% include '@atoms/icons/icons.twig' with {
+								icon_modifier: 'chevron-right : d-md-none'
+							} %}
+						</button>
+					{% endif %}
+
+					{% if item.megamenu %}
+						{% include '@molecules/megamenu/megamenu.twig' with {
+							submenu_index: loop.index,
+							megamenu: item.megamenu
+						} %}
+					{% endif %}
+				</li>
+			{% endfor %}
+		</ul>
+	</nav>
+
+	{% if start_project_button.link__button or project_button %}
+		<div class="header-main__box : header-main__projects : header-main__projects-mobile">
+			{% if start_project_button.link__button %}
+				{% include '@atoms/button/button.twig' with {
+					href: start_project_button.link__button,
+					text: start_project_button.button_text,
+					target: start_project_button.button_target,
+					rel: start_project_button.button_rel,
+					icon: 'dumbbells',
+					modifier: 'dark',
+					mono_font: true
+				} %}
+			{% endif %}
+			{% if project_button %}
+				<button
+					class="header-main__link : header-main__box-item : quote-popup-trigger"
+					aria-label="{{ project_button.link_text|default('open quote side cart') }}"
+				>
+					{% include '@atoms/icons/icons.twig' with {
+						icon_modifier: 'document-dollar'
+					} %}
+
+					<span
+						class="header-main__icon-items : header-main__link-number : d-flex-cc"
+						data-projects-number
+						{{ project_button.number__amount ? ' ' : 'style="display:none;"' }}
+					>
+						{{ project_button.number__amount }}
+					</span>
+				</button>
+			{% endif %}
+		</div>
+	{% endif %}
+
+	{% if top_bar_links or text__language_button %}
+		<div class="header-main__top-right : header-main__box : header-main__top-right-mobile">
+			{% for item in top_bar_links %}
+				<a
+					href="{{ item.link__link }}"
+					{{ item.link_target ? 'target=' ~ item.link_target }}
+					{{ item.link_rel ? 'rel=' ~ item.link_rel }}
+					class="header-main__top-link"
+				>
+					{% if item.select__icon %}
+						{% include '@atoms/icons/icons.twig' with {
+							icon_modifier: item.select__icon
+						} %}
+					{% endif %}
+
+					{{ item.link_text }}
+				</a>
+			{% endfor %}
+
+			{% if text__language_button %}
+				<button type="button" class="header-main__top-link" data-language-trigger>
+					{{ text__language_button }}
+				</button>
+			{% endif %}
+		</div>
+	{% endif %}
+</div>

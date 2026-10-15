@@ -17,3 +17,33 @@
 	background-color: #fff;
 	color: #000;
 }
+
+/* Centres a single component in the viewport (/wishlist-button/) */
+.sandbox-center {
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* main leaves room for the fixed site header; pages without the header don't need it */
+main.sandbox-no-header {
+	padding-top: 0;
+}
+
+/* A centred row of product cards (/wishlist-button/), one column on phones */
+.sandbox-cards {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 342px));
+	gap: 20px;
+	width: 100%;
+	justify-content: center;
+}
+
+@media (max-width: 767px) {
+	.sandbox-cards {
+		grid-template-columns: minmax(0, 342px);
+		/* Stacked, the cards are taller than the screen, so the top clears the fixed header */
+		padding: calc(var(--header-height, 86px) + 24px) 0 40px;
+	}
+}

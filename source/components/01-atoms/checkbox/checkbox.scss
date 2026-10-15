@@ -1,0 +1,190 @@
+// **************************************************
+// Checkbox
+// **************************************************
+
+@import '../../../scss/import';
+
+.checkbox {
+	user-select: none;
+	transition: opacity 0.3s ease;
+	font-size: 14px;
+
+	// stylelint-disable-next-line
+	&.#{$class_disabled} {
+		opacity: 0.5;
+		pointer-events: none;
+
+		// stylelint-disable-next-line
+		input {
+			pointer-events: none;
+		}
+	}
+
+	// ##################################################
+
+	&__label {
+		position: relative;
+		padding-left: 28px;
+		cursor: pointer;
+		margin: 0;
+		min-height: 20px;
+		display: block;
+
+		// ##################################################
+
+		&::after,
+		&:before {
+			content: '';
+			left: 0;
+			top: 0;
+			position: absolute;
+			pointer-events: none;
+			width: 20px;
+			height: 20px;
+			border-radius: 4px;
+		}
+
+		// ##################################################
+		// Unchecked
+
+		&:before {
+			background-color: var(--bg-color, $cgp_white);
+			border: 0.5px solid var(--color-gray-200);
+			transition: background-color 80ms ease, border 80ms ease;
+		}
+
+		// ##################################################
+		// Checked
+
+		&::after {
+			transform: scale(0);
+			transition: transform 80ms ease, opacity 80ms ease;
+			background: url('data:image/svg+xml, #{$icon_check_white}') no-repeat center / 14px auto;
+		}
+
+		&.check-mark--dark {
+			&::after {
+				filter: brightness(0) saturate(100%);
+			}
+		}
+
+		// ##################################################
+
+		&-text {
+			padding-right: 4px;
+		}
+	}
+
+	// ##################################################
+
+	&:hover {
+		.checkbox__label {
+			&::before {
+				border-color: var(--color-gray-200);
+			}
+
+			&:not(.has-bg-color)::before {
+				background-color: var(--color-gray-200);
+			}
+		}
+	}
+
+	// ##################################################
+
+	input {
+		@extend %sr_only;
+
+		// ##################################################
+
+		&:checked ~ label {
+			&::before {
+				border-color: var(--bg-color, $cgp_gray_900);
+				background-color: var(--bg-color, $cgp_gray_900);
+			}
+
+			&::after {
+				transform: scale(1);
+			}
+		}
+	}
+
+	// ##################################################
+
+	a {
+		text-decoration: underline;
+	}
+
+	// ##################################################
+
+	// stylelint-disable-next-line
+	&.#{$class_validation_failed},
+	.#{$class_validation_failed} & {
+		// stylelint-disable-next-line
+		.checkbox__label {
+			// stylelint-disable-next-line
+			&::before {
+				border-color: var(--color-validation-failed);
+			}
+		}
+	}
+
+	// ##################################################
+
+	.fv-plugins-message-container {
+		text-align: left;
+		padding-left: 28px;
+	}
+
+	// ##################################################
+
+	&.button {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+
+		.checkbox__label {
+			font-size: 14px;
+			font-weight: 500;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			gap: 10px;
+			min-height: 40px;
+			padding: 4px 12px;
+			border-radius: 6px;
+			border: 0.5px solid var(--color-gray-200);
+			transition: color 80ms ease, background-color 80ms ease;
+			margin: 0 !important;
+			width: 100%;
+			background-color: var(--color-white);
+			letter-spacing: 0.02em;
+
+			&:before,
+			&:after {
+				display: none;
+			}
+
+			.failed & {
+				border-color: var(--color-validation-failed);
+			}
+		}
+
+		&:hover .checkbox__label {
+			background-color: var(--color-gray-100);
+		}
+
+		input:checked ~ .checkbox__label {
+			background-color: var(--color-gray-900) !important;
+			color: var(--color-white);
+		}
+
+		.fv-plugins-message-container {
+			width: 100%;
+			padding-left: 0;
+
+			@media #{$breakpoint-sm-down} {
+				padding-left: 0;
+			}
+		}
+	}
+}

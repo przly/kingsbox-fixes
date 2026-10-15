@@ -1,0 +1,9 @@
+{
+	"title": "Noscript",
+	"status": "acceptance",
+	"notes": "Noscript Module",
+	"context": {
+		"title": "",
+		"text": "<h5>Oh no! We've noticed that JavaScript is disabled in your browser!</h5><p>But don't worry! Here is how <a target='_blank' rel='noopener noreferrer' href='https://www.enable-javascript.com/'>you can enable it</a> and restore the normal functionality of the web page.<br></p>"
+	}
+}

@@ -25,6 +25,29 @@ if (sectionHeaders.length > 0) {
   // Set to false to hide the numbers and show only the dots
   const showNumber = true;
 
+  // Top and bottom of the header's text lines that the dot's path crosses, or null when it crosses none.
+  // Text nodes are measured and not elements, because element boxes span the full width.
+  const getTextOverlap = (header, left, right) => {
+    const walker = document.createTreeWalker(header, NodeFilter.SHOW_TEXT);
+    const range = document.createRange();
+    let top = Infinity;
+    let bottom = -Infinity;
+
+    while (walker.nextNode()) {
+      if (walker.currentNode.textContent.trim()) {
+        range.selectNodeContents(walker.currentNode);
+        [...range.getClientRects()].forEach((rect) => {
+          if (rect.right > left && rect.left < right) {
+            top = Math.min(top, rect.top);
+            bottom = Math.max(bottom, rect.bottom);
+          }
+        });
+      }
+    }
+
+    return top < bottom ? { top, bottom } : null;
+  };
+
   const playMark = (icon, header) => {
     const dot = icon.querySelector('.number-icon__dot');
     const number = icon.querySelector('.number-icon__number');
@@ -54,7 +77,22 @@ if (sectionHeaders.length > 0) {
       transformOrigin: `${shapeCenterX - svgRect.left}px ${shapeCenterY - svgRect.top}px`,
     });
 
-    const markTimeline = gsap.timeline();
+    // When the title is in the dot's path (e.g. a left-aligned header), the dot is clipped to the space
+    // between the text and its corner, so it slides out from behind the text instead of crossing it.
+    // Positions and timing stay the same. The clip is on the icon, which does not move.
+    const overlap = getTextOverlap(header, shapeRect.left, shapeRect.right);
+
+    if (overlap) {
+      const iconRect = icon.getBoundingClientRect();
+      icon.style.clipPath =
+        offset > 0
+          ? `inset(-9999px -9999px ${iconRect.bottom - overlap.top}px -9999px)`
+          : `inset(${overlap.bottom - iconRect.top}px -9999px -9999px -9999px)`;
+    }
+
+    const markTimeline = gsap.timeline({
+      onComplete: () => icon.style.removeProperty('clip-path'),
+    });
 
     // The dot scales up to its normal size in the middle, and is already setting off
     markTimeline.to(dot, { scale: 1, duration: dotScaleDuration, ease: 'expo.out' }, 0);

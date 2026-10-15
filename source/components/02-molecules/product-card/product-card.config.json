@@ -1,0 +1,81 @@
+{
+	"title": "product card",
+	"notes": "product card",
+	"status": "acceptance",
+	"default": "default",
+	"variants": [
+		{
+			"name": "default",
+			"context": {
+				"product_card": {
+					"link__link": "#",
+					"repeater__images": [
+						{
+							"image__image": "../../images/product-card.webp",
+							"image_alt": "product image"
+						}
+					],
+					"image__hover_image": "../../images/product-card-hover.webp",
+					"hover_image_alt": "product image",
+					"top_tag": {
+						"text__text": "PREORDER",
+						"select__color": "blue"
+					},
+					"bottom_tag": {
+						"text__text": "Koda:BLACKFRIDAY",
+						"select__color": "dark-transparent"
+					},
+					"variations_tag": {
+						"text__text": "More variations",
+						"image__image": "../../images/variations.webp",
+						"image_alt": "colors"
+					},
+					"select__status_color": "blue",
+					"text__status": "Preorder",
+					"text__title": "Mighty Power Rack CX-30",
+					"text__price_slashed": "1.482,94 €",
+					"text__price": "1.482,94 €",
+					"text__discount": "-15 %",
+					"text__lowest_price": "Najnižja cena zadnjih 30 dni: 1.482,94 €"
+				}
+			}
+		},
+		{
+			"name": "light",
+			"context": {
+				"boolean__light": true,
+				"product_card": {
+					"link__link": "#",
+					"repeater__images": [
+						{
+							"image__image": "../../images/product-card.webp",
+							"image_alt": "product image"
+						}
+					],
+					"image__hover_image": "../../images/product-card-hover.webp",
+					"hover_image_alt": "product image",
+					"top_tag": {
+						"text__text": "PREORDER",
+						"select__color": "blue"
+					},
+					"bottom_tag": {
+						"text__text": "Koda:BLACKFRIDAY",
+						"select__color": "dark-transparent"
+					},
+					"variations_tag": {
+						"text__text": "More variations",
+						"image__image": "../../images/variations.webp",
+						"image_alt": "colors"
+					},
+					"select__status_color": "blue",
+					"text__status": "Preorder",
+					"text__title": "Mighty Power Rack CX-30",
+					"text__price_slashed": "1.482,94 €",
+					"text__price": "1.482,94 €",
+					"text__discount": "-15 %",
+					"text__lowest_price": "Najnižja cena zadnjih 30 dni: 1.482,94 €"
+				}
+			}
+		}
+	]
+}

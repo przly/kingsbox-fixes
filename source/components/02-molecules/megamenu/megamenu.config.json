@@ -1,0 +1,231 @@
+{
+	"title": "Megamenu",
+	"notes": "Megamenu",
+	"status": "acceptance",
+	"context": {
+		"megamenu": {
+			"text__title": "Shop",
+			"text__discount_title": "Black Friday",
+			"text__discount_tag": "Code: BLACKFRIDAY",
+			"repeater__navs": [
+				{
+					"repeater__links": [
+						{
+							"link_text": "New In",
+							"sub_menu": {
+								"link__more_button": "#",
+								"more_button_text": "See all",
+								"repeater__products": [
+									{
+										"link__link": "#",
+										"textarea__title": "Barbells",
+										"image__image": "../../images/megamenu.webp",
+										"image_alt": "image"
+									},
+									{
+										"link__link": "#",
+										"textarea__title": "Plates",
+										"image__image": "../../images/megamenu.webp",
+										"image_alt": "image"
+									},
+									{
+										"link__link": "#",
+										"textarea__title": "Dumbbells<br/>& Kettlebells",
+										"image__image": "../../images/megamenu.webp",
+										"image_alt": "image"
+									}
+								]
+							}
+						},
+						{
+							"link_text": "Strength",
+							"sub_menu": {
+								"link__more_button": "#",
+								"more_button_text": "See all",
+								"repeater__products": [
+									{
+										"link__link": "#",
+										"textarea__title": "Barbells",
+										"image__image": "../../images/megamenu.webp",
+										"image_alt": "image"
+									}
+								]
+							}
+						},
+						{
+							"link_text": "Rigs & Racks",
+							"link__link": "#"
+						},
+						{
+							"link_text": "Strength Machines",
+							"link__link": "#"
+						},
+						{
+							"link_text": "Conditioning",
+							"link__link": "#",
+							"sub_menu": {
+								"link__more_button": "#",
+								"more_button_text": "See all",
+								"repeater__products": [
+									{
+										"link__link": "#",
+										"textarea__title": "Barbells",
+										"image__image": "../../images/megamenu.webp",
+										"image_alt": "image"
+									},
+									{
+										"link__link": "#",
+										"textarea__title": "Plates",
+										"image__image": "../../images/megamenu.webp",
+										"image_alt": "image"
+									},
+									{
+										"link__link": "#",
+										"textarea__title": "Dumbbells<br/>& Kettlebells",
+										"image__image": "../../images/megamenu.webp",
+										"image_alt": "image"
+									},
+									{
+										"link__link": "#",
+										"textarea__title": "Barbells",
+										"image__image": "../../images/megamenu.webp",
+										"image_alt": "image"
+									},
+									{
+										"link__link": "#",
+										"textarea__title": "Plates",
+										"image__image": "../../images/megamenu.webp",
+										"image_alt": "image"
+									},
+									{
+										"link__link": "#",
+										"textarea__title": "Dumbbells<br/>& Kettlebells",
+										"image__image": "../../images/megamenu.webp",
+										"image_alt": "image"
+									}
+								]
+							}
+						},
+						{
+							"link_text": "Body Weights",
+							"link__link": "#"
+						},
+						{
+							"link_text": "Gym Essentials",
+							"link__link": "#"
+						},
+						{
+							"link_text": "Apparel & Accesories",
+							"sub_menu": {
+								"link__more_button": "#",
+								"more_button_text": "See all",
+								"repeater__products": [
+									{
+										"link__link": "#",
+										"textarea__title": "Barbells",
+										"image__image": "../../images/megamenu.webp",
+										"image_alt": "image"
+									},
+									{
+										"link__link": "#",
+										"textarea__title": "Plates",
+										"image__image": "../../images/megamenu.webp",
+										"image_alt": "image"
+									},
+									{
+										"link__link": "#",
+										"textarea__title": "Dumbbells<br/>& Kettlebells",
+										"image__image": "../../images/megamenu.webp",
+										"image_alt": "image"
+									},
+									{
+										"link__link": "#",
+										"textarea__title": "Sandbags<br/>& Stones",
+										"image__image": "../../images/megamenu.webp",
+										"image_alt": "image"
+									},
+									{
+										"link__link": "#",
+										"textarea__title": "Yokes<br/>& Carry Gear",
+										"image__image": "../../images/megamenu.webp",
+										"image_alt": "image"
+									},
+									{
+										"link__link": "#",
+										"textarea__title": "Dumbbells<br/>& Kettlebells",
+										"image__image": "../../images/megamenu.webp",
+										"image_alt": "image"
+									},
+									{
+										"link__link": "#",
+										"textarea__title": "Barbells",
+										"image__image": "../../images/megamenu.webp",
+										"image_alt": "image"
+									},
+									{
+										"link__link": "#",
+										"textarea__title": "Barbells",
+										"image__image": "../../images/megamenu.webp",
+										"image_alt": "image"
+									},
+									{
+										"link__link": "#",
+										"textarea__title": "Barbells",
+										"image__image": "../../images/megamenu.webp",
+										"image_alt": "image"
+									},
+									{
+										"link__link": "#",
+										"textarea__title": "Barbells",
+										"image__image": "../../images/megamenu.webp",
+										"image_alt": "image"
+									},
+									{
+										"link__link": "#",
+										"textarea__title": "Barbells",
+										"image__image": "../../images/megamenu.webp",
+										"image_alt": "image"
+									}
+								]
+							}
+						},
+						{
+							"link_text": "Sets",
+							"link__link": "#"
+						},
+						{
+							"link_text": "Training Accessories",
+							"link__link": "#"
+						}
+					]
+				},
+				{
+					"repeater__links": [
+						{
+							"link_text": "Sale",
+							"link__link": "#"
+						},
+						{
+							"link_text": "Outlet",
+							"link__link": "#"
+						},
+						{
+							"link_text": "Used",
+							"link__link": "#"
+						}
+					]
+				}
+			],
+			"repeater__buttons": [
+				{
+					"link__button": "#",
+					"button_text": "All products"
+				},
+				{
+					"link__button": "#",
+					"button_text": "All Categories"
+				}
+			]
+		}
+	}
+}

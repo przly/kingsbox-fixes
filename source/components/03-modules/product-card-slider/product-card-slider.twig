@@ -1,0 +1,28 @@
+<section
+	data-component="mod-product-card-slider"
+	class="sc-general : sc-product-card-slider {{ product_card_slider.boolean__dark_bg ? ' : bg-black' }}"
+	tabindex="-1"
+	role="contentinfo"
+	{{ product_card_slider.text__id ? 'id="' ~ product_card_slider.text__id ~ '"' }}
+>
+	{% include '@atoms/section-margin/section-margin.twig' with {
+		default_zero_spacing: true,
+		spacing_size: product_card_slider.select__top_spacing_size
+	} %}
+
+	<div class="product-card-slider">
+		<div class="container">
+			{% include '@molecules/card-slider/card-slider.twig' with {
+				card_slider: product_card_slider|merge({
+					select__card: 'product-card',
+					select__cols: '4'
+				})
+			} %}
+		</div>
+	</div>
+
+	{% include '@atoms/section-margin/section-margin.twig' with {
+		default_60_spacing: true,
+		spacing_size: product_card_slider.select__bottom_spacing_size
+	} %}
+</section>

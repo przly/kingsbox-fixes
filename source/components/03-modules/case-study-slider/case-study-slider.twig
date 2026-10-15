@@ -1,0 +1,97 @@
+<section
+	data-component="mod-case-study-slider"
+	class="sc-general : sc-case-study-slider : bg-black : overflow-h"
+	tabindex="-1"
+	role="contentinfo"
+	{{ case_study_slider.text__id ? 'id="' ~ case_study_slider.text__id ~ '"' }}
+>
+	{% include '@atoms/section-margin/section-margin.twig' with {
+		default_80_spacing: true,
+		spacing_size: case_study_slider.select__top_spacing_size
+	} %}
+
+	<div
+		class="case-study-slider {{ case_study_slider.boolean__small_cards ? 'case-study-slider--small' }}"
+		data-slider-parent
+	>
+		<div class="container">
+			{% if case_study_slider.repeater__breadcrumbs %}
+				{% include '@molecules/breadcrumbs/breadcrumbs.twig' with {
+					breadcrumbs: {
+						items: case_study_slider.repeater__breadcrumbs
+					}
+				} %}
+			{% endif %}
+
+			<div class="case-study-slider__inner">
+				{% if
+					case_study_slider.text__super_title
+						or case_study_slider.textarea__title
+						or case_study_slider.link__button %}
+					{% include '@molecules/section-header/section-header.twig' with {
+						button_modifier: 'transparent-white',
+						title_modifier: case_study_slider.select__title_modifier|default('h3'),
+						slider_nav: true,
+						button_remove_icon: case_study_slider.boolean__small_cards,
+						section_header: {
+							text__super_title: case_study_slider.text__super_title,
+							textarea__title: case_study_slider.textarea__title,
+							select__title_tag: case_study_slider.select__title_tag,
+							link__button: case_study_slider.link__button,
+							button_target: case_study_slider.button_target,
+							button_rel: case_study_slider.button_rel,
+							button_text: case_study_slider.button_text
+						}
+					} %}
+
+					{% include '@atoms/margin/margin.twig' with {
+						size: 30
+					} %}
+				{% endif %}
+
+				{% if case_study_slider.repeater__slides %}
+					<div class="row">
+						<div
+							class="{{ case_study_slider.boolean__small_cards ? 'col-sm-12' : 'col-md-11' }} : col-xs-12"
+						>
+							<div class="swiper" data-slider="case-study-slider">
+								<div class="swiper-wrapper">
+									{% for item in case_study_slider.repeater__slides %}
+										<div class="swiper-slide">
+											{% set variant = case_study_slider.boolean__small_cards
+												? 'default'
+												: 'large'
+											%}
+											{% include '@molecules/case-study-card/case-study-card.twig' with {
+												select__variation: variant,
+												case_study_card: item
+											} %}
+										</div>
+									{% endfor %}
+								</div>
+							</div>
+						</div>
+					</div>
+				{% endif %}
+
+				{% if case_study_slider.link__button or case_study_slider.button_text %}
+					{% include '@molecules/section-footer/section-footer.twig' with {
+						button_modifier: 'transparent-white',
+						button_remove_icon: case_study_slider.boolean__small_cards,
+						section_footer: {
+							link__button: case_study_slider.link__button,
+							button_target: case_study_slider.button_target,
+							button_rel: case_study_slider.button_rel,
+							button_text: case_study_slider.button_text
+						}
+					} %}
+				{% endif %}
+			</div>
+		</div>
+	</div>
+
+	{% include '@atoms/section-margin/section-margin.twig' with {
+		default_128_spacing: true,
+		spacing_size: case_study_slider.select__bottom_spacing_size
+	} %}
+</section>

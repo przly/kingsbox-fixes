@@ -1,0 +1,116 @@
+// **************************************************
+// Step Card
+// **************************************************
+
+@import '../../../scss/import';
+
+.step-card {
+	max-width: 460px;
+	width: 100%;
+	display: grid;
+	grid-gap: 12px;
+
+	[data-component^='mod-'] & {
+		max-width: 100%;
+	}
+
+	// ##################################################
+
+	&__image {
+		position: relative;
+		height: 0;
+		padding-bottom: 56.24%;
+		border: 0.5px solid rgba($cgp_white, 0.08);
+
+		// ##################################################
+
+		&::after {
+			@extend %content;
+			background: repeating-conic-gradient(#000 0 0.0001%, #0000 0 0.0002%);
+			opacity: 0.3;
+			mix-blend-mode: overlay;
+			z-index: 2;
+		}
+
+		// ##################################################
+
+		img {
+			filter: saturate(0%);
+			-webkit-filter: saturate(0%);
+		}
+	}
+
+	// ##################################################
+
+	&__divider {
+		position: relative;
+		display: flex;
+		align-items: center;
+		height: 12px;
+
+		// ##################################################
+		// Ball
+
+		&::before {
+			content: '';
+			position: relative;
+			width: 6px;
+			height: 6px;
+			border-radius: 100%;
+			display: block;
+			background-color: currentColor;
+		}
+
+		// ##################################################
+		// Dashed Border
+
+		&::after {
+			content: '';
+			position: absolute;
+			top: 50%;
+			left: 16px;
+			transform: translateY(-50%);
+			width: calc(100% - 40px);
+			height: 0.5px;
+			background: repeating-linear-gradient(
+				to right,
+				var(--color-gray-700) 0,
+				var(--color-gray-700) 2px,
+				transparent 2px,
+				transparent 4px
+			);
+
+			.bg-white & {
+				background: repeating-linear-gradient(
+					to right,
+					var(--color-gray-200) 0,
+					var(--color-gray-200) 2px,
+					transparent 2px,
+					transparent 4px
+				);
+			}
+		}
+
+		// ##################################################
+
+		.icon {
+			width: 8px;
+			height: 8px;
+			margin-left: auto;
+			flex-shrink: 0;
+		}
+	}
+
+	// ##################################################
+
+	&__step {
+		letter-spacing: normal;
+	}
+
+	// ##################################################
+
+	&__title {
+		letter-spacing: -0.54px;
+		line-height: 1.25;
+	}
+}

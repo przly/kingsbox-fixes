@@ -1,0 +1,289 @@
+{% if input.required %}
+	{% set attrRequired = 'required' %}
+{% endif %}
+
+{% if input.id %}
+	{% set idAttr = 'id="' ~ input.id ~ '"' %}
+{% endif %}
+
+{% if input.max_length %}
+	{% set maxAttr = 'maxlength="' ~ input.max_length ~ '"' %}
+{% endif %}
+
+{% if input.value %}
+	{% set valueAttr = 'value="' ~ input.value ~ '"' %}
+{% endif %}
+
+{% if input.readonly %}
+	{% set readonlyAttr = 'readonly' %}
+{% endif %}
+
+{% if input.name %}
+	{% set nameAttr = 'name="' ~ input.name ~ '" data-fv-name="' ~ input.name ~ '"' %}
+{% endif %}
+
+{% if input.invisible %}
+	{% set invisibleAttr = 'exclude-validation' %}
+{% endif %}
+
+{% if input.disabled %}
+	{% set disabledAttr = 'disabled' %}
+{% endif %}
+
+{% if input.placeholder %}
+	{% set placeholderAttr = 'placeholder="' ~ input.placeholder ~ '"' %}
+{% endif %}
+
+{% if input.numbers_only %}
+	{% set numbersOnlyAttr = 'data-num' %}
+{% endif %}
+
+{% if input.error_message %}
+	{% set errorMessageAttr = 'data-fv-not-empty___message="' ~ input.error_message ~ '"' %}
+{% endif %}
+
+{% if input.invalid_email_message %}
+	{% set invalidEmailMessageAttr = 'data-fv-email-address___message="' ~ input.invalid_email_message ~ '"' %}
+{% endif %}
+
+{% if input.invalid_number_message %}
+	{% set invalidNumberMessageAttr = 'data-fv-numeric="true" data-fv-numeric___message="'
+		~ input.invalid_number_message
+		~ '"'
+	%}
+{% endif %}
+
+{% if input.identical_password_error %}
+	{% set identicalField = 'data-fv-identical="true"' %}
+	{% set identicalPasswordAttr = 'data-fv-identical-field="password"' %}
+	{% set identicalPasswordErrorAttr = 'data-fv-identical___message="' ~ input.identical_password_error ~ '"' %}
+{% endif %}
+
+{% if input.regexp_password_error %}
+	{% set regexpField = 'data-fv-regexp="true"' %}
+	{% set regexpPasswordAttr = 'data-fv-regexp-field="password"' %}
+	{% set regexpPasswordErrorAttr = 'data-fv-regexp___message="' ~ input.regexp_password_error ~ '"' %}
+{% endif %}
+<div
+	data-component="at-input"
+	class="mod-input : {{ input.icon ? 'mod-input--with-icon' }} {{
+	input.validation_failed
+		? 'is-validation-failed'
+	}} {{ input.disabled ? 'is-disabled' }} {{ input.input_type == 'textarea' ? 'mod-input--textarea' }} {{
+	input_extra_class
+	}} {{ input.max_char ? 'textarea-with-counter' }}"
+>
+	{% if input.label %}
+		<label class="mod-input__label : label" for="{{ input.id }}">
+			{{ input.label }}
+			{% if input.required %}
+				<span class="text--red-500">*</span>
+			{% endif %}
+		</label>
+	{% endif %}
+
+	<div class="mod-input__inner">
+		{% if input.icon_src or input.icon %}
+			<div class="mod-input__icon : d-flex-cc">
+				{% if input.icon %}
+					{% include '@atoms/icons/icons.twig' with {
+						icon_modifier: input.icon
+					} %}
+				{% else %}
+					<img
+						class="lazyload"
+						src="{{ input.placeholder_image }}"
+						data-src="{{ input.icon_src }}"
+						alt="{{ input.icon_alt }}"
+						width="14"
+						height="14"
+					/>
+				{% endif %}
+			</div>
+		{% endif %}
+
+		{% if input.input_type == 'textarea' %}
+			<!-- prettier-ignore-start -->
+			<textarea
+				data-lenis-prevent
+				class="mod-input__field {{ invisibleAttr }}"
+				{{ placeholderAttr }}
+				{{ attrRequired }}
+				{{ idAttr }}
+				{{ nameAttr }}
+				{{ errorMessageAttr }}
+				{{ disabledAttr }}
+				{{ readonlyAttr }}
+				{{ data_attr }}
+				{{ input.max_char ? 'maxlength="' ~ input.max_char ~ '"' }}
+				{{ lettersOnlyAttr }}
+				{{ numbersOnlyAttr }}
+				autocomplete="off"
+			>{{ value }}</textarea>
+			<!-- prettier-ignore-end -->
+		{% elseif input.input_type == 'email' %}
+			<input
+				type="email"
+				class="mod-input__field {{ invisibleAttr }}"
+				{{ placeholderAttr }}
+				{{ attrRequired }}
+				{{ idAttr }}
+				{{ nameAttr }}
+				{{ errorMessageAttr }}
+				{{ disabledAttr }}
+				{{ invalidEmailMessageAttr }}
+				{{ readonlyAttr }}
+				{{ data_attr }}
+				{{ valueAttr }}
+				{{ numbersOnlyAttr }}
+				autocomplete="off"
+				data-fv-email-address___require-global-domain="true"
+			/>
+		{% elseif input.input_type == 'number' %}
+			<input
+				type="number"
+				class="mod-input__field {{ invisibleAttr }}"
+				{{ placeholderAttr }}
+				{{ attrRequired }}
+				{{ idAttr }}
+				{{ nameAttr }}
+				{{ errorMessageAttr }}
+				{{ disabledAttr }}
+				{{ readonlyAttr }}
+				{{ data_attr }}
+				{{ valueAttr }}
+				{{ numbersOnlyAttr }}
+				{{ invalidNumberMessageAttr }}
+				{{ maxAttr }}
+				autocomplete="off"
+			/>
+		{% elseif input.input_type == 'password' %}
+			<input
+				type="password"
+				class="mod-input__field {{ invisibleAttr }}"
+				{{ placeholderAttr }}
+				{{ attrRequired }}
+				{{ idAttr }}
+				{{ nameAttr }}
+				{{ errorMessageAttr }}
+				{{ disabledAttr }}
+				{{ identicalField }}
+				{{ identicalPasswordAttr }}
+				{{ identicalPasswordErrorAttr }}
+				{{ regexpField }}
+				{{ regexpPasswordAttr }}
+				{{ regexpPasswordErrorAttr }}
+				{{ valueAttr }}
+				{{ readonlyAttr }}
+				{{ data_attr }}
+				{{ numbersOnlyAttr }}
+				{{ maxAttr }}
+				autocomplete="off"
+			/>
+		{% elseif input.input_type == 'tel' %}
+			<input
+				type="tel"
+				class="mod-input__field {{ invisibleAttr }}"
+				{{ placeholderAttr }}
+				{{ attrRequired }}
+				{{ idAttr }}
+				{{ nameAttr }}
+				{{ errorMessageAttr }}
+				{{ disabledAttr }}
+				{{ readonlyAttr }}
+				{{ data_attr }}
+				{{ valueAttr }}
+				{{ maxAttr }}
+				{{ numbersOnlyAttr }}
+				autocomplete="off"
+			/>
+		{% else %}
+			<input
+				type="text"
+				class="mod-input__field {{ invisibleAttr }}"
+				{{ placeholderAttr }}
+				{{ attrRequired }}
+				{{ idAttr }}
+				{{ nameAttr }}
+				{{ errorMessageAttr }}
+				{{ disabledAttr }}
+				{{ readonlyAttr }}
+				{{ data_attr }}
+				{{ maxAttr }}
+				{{ valueAttr }}
+				{{ numbersOnlyAttr }}
+				{{ invalidNumberMessageAttr }}
+				autocomplete="off"
+			/>
+		{% endif %}
+
+		{% if input.input_type == 'password' %}
+			<button
+				type="button"
+				aria-label="{{ input.show_password_button|default('show password') }}"
+				class="mod-input__show-password"
+				data-show-password
+			>
+				{% include '@atoms/icons/icons.twig' with {
+					icon_modifier: 'eye : p-none'
+				} %}
+			</button>
+		{% endif %}
+
+		{% if dropdown_arrow and input.input_type != 'password' %}
+			<div class="mod-input__arrow : d-flex-cc">
+				{% include '@atoms/icons/icons.twig' with {
+					icon_modifier: 'chevron-down'
+				} %}
+			</div>
+		{% endif %}
+	</div>
+
+	{% if input.max_char %}
+		<div class="mod-input__max-character : text--12 : text--gray-400">
+			<span class="mod-input__curr-character">0</span>
+			<span>{{ input.max_char_middle_text }}</span>
+			<span class="mod-input__total-character">{{ input.max_char }}</span>
+			<span>{{ input.max_char_text }}</span>
+		</div>
+	{% endif %}
+
+	{% if input.password_validator_messages %}
+		<div class="mod-input__password-validation : text--12 : text--md">
+			{% if input.password_validator_messages.text__capital_letter %}
+				<div class="mod-input__password-validation-item" data-password-capital-letters>
+					<div class="mod-input__password-validation-item-icon"></div>
+					<span>{{ input.password_validator_messages.text__capital_letter }}</span>
+				</div>
+			{% endif %}
+			{% if input.password_validator_messages.text__lowercase %}
+				<div class="mod-input__password-validation-item" data-password-lowercase>
+					<div class="mod-input__password-validation-item-icon"></div>
+					<span>{{ input.password_validator_messages.text__lowercase }}</span>
+				</div>
+			{% endif %}
+			{% if input.password_validator_messages.text__digit %}
+				<div class="mod-input__password-validation-item" data-password-digit>
+					<div class="mod-input__password-validation-item-icon"></div>
+					<span>{{ input.password_validator_messages.text__digit }}</span>
+				</div>
+			{% endif %}
+			{% if input.password_validator_messages.text__min_characters %}
+				<div class="mod-input__password-validation-item" data-password-min-characters>
+					<div class="mod-input__password-validation-item-icon"></div>
+					<span>{{ input.password_validator_messages.text__min_characters }}</span>
+				</div>
+			{% endif %}
+			{% if input.password_validator_messages.text__special_character %}
+				<div class="mod-input__password-validation-item" data-password-special-character>
+					<div class="mod-input__password-validation-item-icon"></div>
+					<span>{{ input.password_validator_messages.text__special_character }}</span>
+				</div>
+			{% endif %}
+		</div>
+	{% endif %}
+
+	{% if input.text__info_text %}
+		<div class="mod-input__info-text : text--12 : text--gray-400">{{ input.text__info_text }}</div>
+	{% endif %}
+</div>

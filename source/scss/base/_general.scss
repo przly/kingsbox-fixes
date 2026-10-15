@@ -9,6 +9,19 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 }
 
+// The scrollbar's space is always reserved, so the page does not jump sideways when it becomes tall enough
+// to scroll (e.g. when an accordion opens) or when scrolling is locked. The scroll locks below
+// (body, site-header.scss, Fancybox) then no longer need to pad for the scrollbar themselves.
+@supports (scrollbar-gutter: stable) {
+	html {
+		scrollbar-gutter: stable;
+	}
+
+	html.with-fancybox body.hide-scrollbar {
+		margin-right: var(--f-body-margin, 0px);
+	}
+}
+
 // Text selection styling
 ::selection {
 	background-color: var(--color-black);
@@ -19,6 +32,33 @@ body {
 .bg-black,
 .bg-gray-950 {
 	@include dark-surface-selection;
+}
+
+// Above the widest container (1440px and up) the content no longer stops at 1410px: the container follows
+// the viewport. --page-zoom is how much wider the viewport is than 1440px. The cards multiply their size by
+// it (card.scss, case-study-card.scss), so they keep their proportions. Their content keeps its size.
+// tan(atan2()) divides the two lengths into a plain number, which calc() cannot do in every browser yet.
+// Both stop growing at a 2560px viewport: wider screens get the 2560px layout with wider side margins.
+@media #{$breakpoint-xl-up} {
+	html {
+		--page-zoom: tan(atan2(min(100vw, 2560px), 1440px));
+		// Page headings grow by the same amount (h1, h2, h3 and 7xl in _extensions.scss)
+		--heading-zoom: var(--page-zoom);
+	}
+
+	// The navbar, its menus and the modals keep their heading sizes
+	[data-component='mod-site-header'],
+	[data-component='mol-menu'],
+	[data-component='mol-modal'],
+	.megamenu {
+		--heading-zoom: 1;
+	}
+
+	// Same 20px side margin as at 1440px: 15px from the centring and 5px of container padding.
+	// 2530px is the container at a 2560px viewport.
+	.container {
+		max-width: min(calc(100% - 30px), 2530px);
+	}
 }
 
 // Modal window - prevent scrolling
@@ -43,7 +83,11 @@ body {
 	&.#{$class_open_mega_menu},
 	&.noscroll {
 		overflow: hidden;
-		padding-right: var(--scroll-width, 0px);
+
+		// Not needed where the scrollbar's space is reserved (top of this file)
+		@supports not (scrollbar-gutter: stable) {
+			padding-right: var(--scroll-width, 0px);
+		}
 	}
 }
 

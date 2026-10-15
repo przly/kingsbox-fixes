@@ -1,0 +1,139 @@
+<section
+	data-component="mod-categories-module"
+	class="sc-general : sc-categories-module"
+	tabindex="-1"
+	role="contentinfo"
+	{{ categories_module.text__id ? 'id="' ~ categories_module.text__id ~ '"' }}
+>
+	{% include '@atoms/section-margin/section-margin.twig' with {
+		default_zero_spacing: true,
+		spacing_size: categories_module.select__top_spacing_size
+	} %}
+
+	<div class="categories-module">
+		<div class="container">
+			{% if categories_module.text__title %}
+				<div
+					class="categories-module__main-title : text--12 : text--md : font-secondary : lt-0 : text--uppercase : d-md-none"
+				>
+					{% include '@atoms/number-icon/number-icon.twig' with {
+						number_icon: '20'
+					} %}
+
+					<h2>{{ categories_module.text__title }}</h2>
+
+					{% include '@atoms/number-icon/number-icon.twig' with {
+						number_icon: '05-reverse'
+					} %}
+				</div>
+			{% endif %}
+
+			<div class="row">
+				<div class="col-md-6 : col-xs-12">
+					<div class="categories-module__left" data-slider-parent>
+						<div class="categories-module__left-inner">
+							<div class="swiper" data-slider="categories-slider">
+								<div class="swiper-wrapper">
+									{% for item in categories_module.repeater__items %}
+										<div class="swiper-slide" data-animated-pattern>
+											<div class="categories-module__item">
+												<div
+													class="categories-module__image : bg-image : covered-pointer : overflow-h {{
+													loop.first
+														? 'is-active'
+													}}"
+													data-image="{{ loop.index0 }}"
+												>
+													<img
+														src="{{ item.image__image }}"
+														alt="{{ item.image_alt }}"
+														width="686"
+														height="704"
+													/>
+
+													{% if item.text__title %}
+														<div
+															class="categories-module__title : title : title--h1 {{
+															loop.first
+																? 'is-active'
+															}}"
+															data-item="{{ loop.index0 }}"
+														>
+															{{ item.text__title }}
+														</div>
+													{% endif %}
+
+													{% if item.link__link %}
+														<a
+															href="{{ item.link__link }}"
+															{{ item.link_rel ? 'rel="' ~ item.link_rel ~ '"' }}
+															{{ item.link_target ? 'target="' ~ item.link_target ~ '"' }}
+															{{
+															item.text__title
+																? 'aria-label="' ~ (item.text__title|striptags) ~ '"'
+															}}
+															class="stretched-link : covered-pointer"
+														></a>
+													{% endif %}
+												</div>
+											</div>
+										</div>
+									{% endfor %}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-6 : col-xs-12">
+					<div class="categories-module__right">
+						{% if categories_module.text__title %}
+							<div
+								class="categories-module__main-title : text--12 : text--md : font-secondary : lt-0 : text--uppercase : d-none : d-md-block"
+							>
+								<h2>{{ categories_module.text__title }}</h2>
+							</div>
+						{% endif %}
+
+						<div class="categories-module__right-inner">
+							{% for item in categories_module.repeater__items %}
+								<div
+									class="categories-module__title : title : title--h1 : {{
+									loop.first
+										? 'is-active'
+									}}"
+									data-item="{{ loop.index0 }}"
+								>
+									{% if item.link__link %}
+										<a
+											href="{{ item.link__link }}"
+											{{ item.link_rel ? 'rel="' ~ item.link_rel ~ '"' }}
+											{{ item.link_target ? 'target="' ~ item.link_target ~ '"' }}
+											{{ item.text__title ? 'aria-label="' ~ (item.text__title|striptags) ~ '"' }}
+										>
+											{{ item.text__title }}
+										</a>
+									{% else %}
+										{{ item.text__title }}
+									{% endif %}
+								</div>
+							{% endfor %}
+						</div>
+
+						{% include '@atoms/number-icon/number-icon.twig' with {
+							number_icon: '20'
+						} %}
+						{% include '@atoms/number-icon/number-icon.twig' with {
+							number_icon: '05-reverse'
+						} %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	{% include '@atoms/section-margin/section-margin.twig' with {
+		default_96_spacing: true,
+		spacing_size: categories_module.select__bottom_spacing_size
+	} %}
+</section>

@@ -1,0 +1,157 @@
+// **************************************************
+// Case Study Video
+// **************************************************
+
+@import '../../../scss/import';
+
+.case-study-video {
+	&__inner {
+		display: grid;
+		grid-gap: 96px;
+
+		// Tablet
+		@media #{$breakpoint-md-down} {
+			grid-gap: 80px;
+		}
+
+		// Tablet P
+		@media #{$breakpoint-sm-down} {
+			grid-gap: 60px;
+		}
+
+		// ##################################################
+
+		&:has(.case-study-video__card-list) {
+			// Tablet L and up
+			@media #{$breakpoint-md-up} {
+				grid-gap: 80px;
+			}
+		}
+	}
+
+	// ##################################################
+
+	&__card-list {
+		display: grid;
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+		grid-gap: 10px;
+		position: relative;
+		z-index: 3;
+
+		// Tablet P and down
+		@media #{$breakpoint-sm-down} {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+
+		// Mobile
+		@media #{$breakpoint-xs-only} {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	// ##################################################
+
+	&__content,
+	.section-header {
+		position: relative;
+		z-index: 3;
+	}
+
+	// ##################################################
+
+	&__content {
+		.title {
+			text-transform: none;
+			font-family: var(--font-primary);
+			letter-spacing: -0.04em;
+		}
+
+		// ##################################################
+		// Start state of the word reveal (animated in case-study-video.js)
+
+		@media (prefers-reduced-motion: no-preference) {
+			// Hidden until the script has split the title into words
+			.title > :not(.splitting) {
+				visibility: hidden;
+			}
+
+			// Mask: reaches past the word so ascenders, descenders and the tight tracking are not cut off
+			.word {
+				clip-path: inset(-0.4em -0.15em -0.4em 0);
+			}
+
+			.word__inner {
+				display: inline-block;
+				transform: translate(0, 220%);
+				will-change: transform;
+			}
+		}
+	}
+
+	// ##################################################
+
+	&__video {
+		position: relative;
+		max-width: 534px;
+		width: 100%;
+		aspect-ratio: 1/1;
+		margin: 0 auto;
+
+		// Tablet P and down
+		@media #{$breakpoint-sm-down} {
+			max-width: 400px;
+		}
+
+		// Mobile
+		@media #{$breakpoint-xs-only} {
+			max-width: 100%;
+		}
+
+		// ##################################################
+
+		video {
+			transform: scale(1.9);
+
+			// Mobile
+			@media #{$breakpoint-xs-only} {
+				transform: scale(1.5);
+			}
+		}
+	}
+
+	&__extras {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-gap: 10px;
+
+		@media #{$breakpoint-md-down} {
+			grid-template-columns: 1fr 2fr;
+		}
+
+		@media #{$breakpoint-sm-down} {
+			display: block;
+		}
+
+		&-right {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			grid-gap: 10px;
+
+			@media #{$breakpoint-xs-only} {
+				grid-template-columns: 1fr;
+				grid-gap: 20px;
+			}
+		}
+	}
+
+	&__extra {
+		font-size: 18px;
+		font-weight: 700;
+		line-height: 1.25;
+		letter-spacing: -0.03em;
+
+		@media #{$breakpoint-xs-only} {
+			font-size: 16px;
+		}
+	}
+}

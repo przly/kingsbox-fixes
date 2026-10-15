@@ -1,0 +1,56 @@
+{
+	"title": "Logo Slider",
+	"notes": "Logo Slider",
+	"status": "acceptance",
+	"acf_function": "getLogoSliderFields",
+	"context": {
+		"logo_slider": {
+			"text__super_title": "Custom gym solutions",
+			"select__section_title_tag": "h1",
+			"textarea__section_title": "Royal family",
+			"link__button": "#",
+			"button_target": "",
+			"button_rel": "",
+			"button_text": "Learn more",
+			"text__title": "We’ve worked with:",
+			"repeater__logo": [
+				{
+					"link__link": "#",
+					"target": "_blank",
+					"image__image": "../../images/logo-slider-1.svg",
+					"image_alt": "Logo"
+				},
+				{
+					"link__link": "#",
+					"target": "_blank",
+					"image__image": "../../images/logo-slider-2.svg",
+					"image_alt": "Logo"
+				},
+				{
+					"link__link": "#",
+					"target": "_blank",
+					"image__image": "../../images/logo-slider-3.svg",
+					"image_alt": "Logo"
+				},
+				{
+					"link__link": "#",
+					"target": "_blank",
+					"image__image": "../../images/logo-slider-4.svg",
+					"image_alt": "Logo"
+				},
+				{
+					"link__link": "#",
+					"target": "_blank",
+					"image__image": "../../images/logo-slider-5.svg",
+					"image_alt": "Logo"
+				},
+				{
+					"link__link": "#",
+					"target": "_blank",
+					"image__image": "../../images/logo-slider-6.svg",
+					"image_alt": "Logo"
+				}
+			]
+		}
+	}
+}

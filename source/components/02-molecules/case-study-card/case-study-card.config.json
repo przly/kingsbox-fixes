@@ -1,0 +1,79 @@
+{
+	"title": "Case Study Card",
+	"notes": "Case Study Card",
+	"status": "acceptance",
+	"default": "default",
+	"variants": [
+		{
+			"name": "default",
+			"context": {
+				"select__variation": "default",
+				"case_study_card": {
+					"image__image": "../../images/case-study-card-small.webp",
+					"image_alt": "images",
+					"textarea__title": "Crossfit Lift Like a Viking",
+					"repeater__info": [
+						{
+							"text__text": "Wernberg, Austria"
+						},
+						{
+							"text__text": "Commercial Gym"
+						}
+					],
+					"link__link": "#",
+					"link_text": "read more"
+				}
+			}
+		},
+		{
+			"name": "medium",
+			"context": {
+				"select__variation": "medium",
+				"case_study_card": {
+					"image__image": "../../images/case-study-card-medium.webp",
+					"image_alt": "images",
+					"textarea__title": "Start your custom gym project",
+					"textarea__text": "Malesuada proin ullamcorper senectus lobortis eros quam dui elit.",
+					"link__button": "#",
+					"button_text": "Request a quote"
+				}
+			}
+		},
+		{
+			"name": "large",
+			"context": {
+				"select__variation": "large",
+				"case_study_card": {
+					"image__image": "../../images/case-study-card-large.webp",
+					"image_alt": "images",
+					"textarea__title": "Crossfit Lift Like a Viking",
+					"repeater__info": [
+						{
+							"text__text": "Wernberg, Austria"
+						},
+						{
+							"text__text": "Commercial Gym"
+						}
+					],
+					"link__link": "#",
+					"link_text": "read more"
+				}
+			}
+		},
+		{
+			"name": "mono-font",
+			"context": {
+				"select__variation": "large",
+				"boolean__mono_font": true,
+				"case_study_card": {
+					"image__image": "../../images/case-study-card-large.webp",
+					"image_alt": "images",
+					"textarea__title": "Aliqua nisi magna incididunt eiusmod",
+					"textarea__text": "Malesuada proin ullamcorper senectus lobortis eros quam dui elit.",
+					"link__button": "#",
+					"button_text": "SHOP FREESTANDING RIGS"
+				}
+			}
+		}
+	]
+}

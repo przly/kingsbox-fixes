@@ -1,0 +1,57 @@
+// **************************************************
+// Language Form
+// **************************************************
+
+@import '../../../scss/import';
+
+.language-form {
+	position: relative;
+	width: 100%;
+	max-width: 590px;
+	margin: 0 auto;
+	display: grid;
+	grid-gap: 20px;
+
+	[data-component^='mod-'] & {
+		max-width: 100%;
+	}
+
+	// ##################################################
+
+	&__button {
+		margin-top: 30px;
+		position: relative;
+		z-index: 1;
+
+		// Mobile
+		@media #{$breakpoint-xs-only} {
+			margin-top: 10px;
+		}
+
+		// ##################################################
+
+		.btn {
+			width: 100%;
+		}
+	}
+
+	// ##################################################
+
+	.dropdown {
+		max-width: 100%;
+		min-width: 1px;
+
+		// ##################################################
+
+		&__label {
+			margin-bottom: 8px;
+		}
+
+		// ##################################################
+
+		&.is-open {
+			position: relative;
+			z-index: 9;
+		}
+	}
+}

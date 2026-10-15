@@ -1,0 +1,31 @@
+<div data-component="mol-free-shipping-indicator" class="free-shipping-indicator : gray-dotted-box : text--md">
+	{% if free_shipping_indicator.wysiwyg__text %}
+		<div class="free-shipping-indicator__text : text--20 : text--bd : z-top">
+			{{ free_shipping_indicator.wysiwyg__text }}
+		</div>
+	{% endif %}
+
+	{% if free_shipping_indicator.wysiwyg__free_text %}
+		<div class="free-shipping-indicator__text : free-shipping-indicator__free : text--20 : text--bd : z-top">
+			{{ free_shipping_indicator.wysiwyg__free_text }}
+		</div>
+	{% endif %}
+
+	<div class="free-shipping-indicator__inner : z-top">
+		<div class="free-shipping-indicator__texts : text--10 : text--gray-400 : font-secondary : slashed-zero">
+			<div class="free-shipping-indicator__amount : free-shipping-indicator__amount--end">
+				{{ free_shipping_indicator.text__text }}
+			</div>
+		</div>
+
+		<div
+			class="free-shipping-indicator__progress-bar"
+			data-start="{{ free_shipping_indicator.text__progress_width }}"
+			data-end="{{ free_shipping_indicator.text__progress_width_end }}"
+		>
+			{% set style_attr = 'style="width:' ~ free_shipping_indicator.text__progress_width ~ '%;"' %}
+			<div class="free-shipping-indicator__progress-bar-inner" {{ style_attr }}></div>
+			<div class="free-shipping-indicator__progress-bar-extra"></div>
+		</div>
+	</div>
+</div>

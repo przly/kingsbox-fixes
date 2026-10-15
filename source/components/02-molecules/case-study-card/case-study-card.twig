@@ -1,0 +1,66 @@
+<div
+	data-component="mol-case-study-card"
+	class="case-study-card : case-study-card--{{ select__variation }}{{
+	boolean__mono_font
+		? ' : case-study-card--mono'
+	}}"
+>
+	<div class="case-study-card__image : bg-image : covered">
+		{% if case_study_card.image__image %}
+			<img
+				src="{{ case_study_card.image__image }}"
+				alt="{{ case_study_card.image_alt }}"
+				width="342"
+				height="342"
+			/>
+		{% endif %}
+	</div>
+
+	<div class="case-study-card__content : z-top">
+		<div class="case-study-card__content-left">
+			{% if case_study_card.repeater__info %}
+				<div class="case-study-card__info : info-list">
+					{% for item in case_study_card.repeater__info %}
+						<div class="info-list__item">{{ item.text__text }}</div>
+					{% endfor %}
+				</div>
+			{% endif %}
+
+			{% if case_study_card.textarea__title %}
+				{% include '@atoms/title/title.twig' with {
+					modifier: case_study_card.select__variation or select__variation == 'large' ? 'h3' : 'h5',
+					tag: 'h3',
+					title: case_study_card.textarea__title
+				} %}
+			{% endif %}
+
+			{% if case_study_card.textarea__text %}
+				<div class="case-study-card__text : lt-0 : text--12 : font-secondary : text--gray-100">
+					{{ case_study_card.textarea__text }}
+				</div>
+			{% endif %}
+		</div>
+
+		{% if case_study_card.link__button %}
+			{% include '@atoms/button/button.twig' with {
+				href: case_study_card.link__button,
+				text: case_study_card.button_text,
+				target: case_study_card.button_target,
+				rel: case_study_card.button_rel,
+				modifier: 'white',
+				mono_font: true,
+				size: 'small'
+			} %}
+		{% endif %}
+	</div>
+
+	{% if case_study_card.link__link %}
+		<a
+			href="{{ case_study_card.link__link }}"
+			{{ case_study_card.link_rel ? 'rel="' ~ case_study_card.link_rel ~ '"' }}
+			{{ case_study_card.link_target ? 'target="' ~ case_study_card.link_target ~ '"' }}
+			class="stretched-link : inset-0"
+			aria-label="{{ case_study_card.link_text|default(case_study_card.textarea__title) }}"
+		></a>
+	{% endif %}
+</div>

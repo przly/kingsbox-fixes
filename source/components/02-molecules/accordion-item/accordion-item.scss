@@ -1,0 +1,220 @@
+//*******************************************************************************
+// Accordion Item
+//*******************************************************************************
+
+@import '../../../scss/import';
+
+.accordion-item {
+	max-width: 728px;
+	margin: 0 auto;
+	width: 100%;
+	background-color: var(--color-gray-25);
+	overflow: hidden;
+	transition: background-color 80ms ease;
+
+	[data-component^='mod-'] & {
+		max-width: 100%;
+		margin: 0;
+	}
+
+	// ##################################################
+
+	&__title {
+		color: var(--color-gray-900);
+		font-size: 18px;
+		font-weight: 700;
+		line-height: 1.25;
+		letter-spacing: -0.03em;
+		position: relative;
+		cursor: pointer;
+		gap: 20px;
+		justify-content: space-between;
+		min-height: 88px;
+		width: 100%;
+		padding: 16px 32px;
+		text-align: left;
+
+		@media #{$breakpoint-xs-only} {
+			min-height: 64px;
+			padding: 12px 20px;
+			font-size: 16px;
+		}
+
+		// ##################################################
+
+		.icon {
+			flex-shrink: 0;
+			height: 20px;
+			width: 20px;
+
+			// The flip is on ::before, so the transition goes there too. Same duration and easing as the slide
+			&::before {
+				transition: transform 250ms cubic-bezier(0.22, 1, 0.36, 1), background-color 0.3s ease;
+			}
+		}
+	}
+
+	// ##################################################
+
+	&__icon {
+		flex-shrink: 0;
+		height: 16px;
+		width: 16px;
+		display: block;
+		position: relative;
+		margin-left: auto;
+
+		// ##################################################
+
+		&::after,
+		&::before {
+			content: '';
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			width: 8px;
+			height: 1px;
+			background-color: var(--color-black);
+			transition: transform 250ms cubic-bezier(0.22, 1, 0.36, 1);
+		}
+
+		// ##################################################
+
+		&::after {
+			transform: translate(-50%, -50%) rotate(90deg);
+		}
+	}
+
+	// ##################################################
+
+	&__content {
+		display: none;
+		padding: 0 32px 32px 32px;
+		will-change: height, padding;
+		// slideDown/slideUp (scripts/01_default.js) set only the property and duration inline
+		transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+
+		@media #{$breakpoint-xs-only} {
+			padding: 0 20px 20px 20px;
+		}
+	}
+
+	// ##################################################
+
+	&__list {
+		&-item {
+			border-top: 0.5px solid var(--color-gray-200);
+			display: grid;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			grid-gap: 20px;
+			text-align: left;
+			padding: 10px 0;
+
+			&:first-of-type {
+				padding-top: 0;
+				border-top: none;
+			}
+
+			&:last-of-type {
+				padding-bottom: 0;
+			}
+		}
+
+		&-right {
+			color: var(--color-gray-400);
+			text-align: right;
+		}
+	}
+
+	// ##################################################
+
+	&:hover {
+		background: var(--color-gray-100);
+	}
+
+	// ##################################################
+
+	// stylelint-disable-next-line
+	&.#{$class_open} {
+		// stylelint-disable-next-line
+		.accordion-item__title {
+			// stylelint-disable-next-line
+			.icon:before {
+				transform: scaleY(-1);
+			}
+		}
+
+		// stylelint-disable-next-line
+		.accordion-item__icon::after {
+			transform: translate(-50%, -50%);
+		}
+	}
+
+	// ##################################################
+
+	&__cards {
+		display: grid;
+		grid-gap: 8px;
+	}
+
+	// ##################################################
+
+	&__added-items {
+		box-shadow: 0 2px 4px 0 #00000005, 0 1px 2px 0 #0000000a;
+		border-radius: 4px;
+		padding: 0 5px;
+		font-size: 10px;
+		line-height: 16px;
+	}
+
+	// ##################################################
+
+	&--secondary {
+		max-width: 450px;
+		box-shadow: 0 2px 4px 0 #00000005, 0 1px 2px 0 #0000000a;
+
+		// ##################################################
+
+		.accordion-item__title {
+			min-height: 50px;
+			font-size: 14px;
+			padding: 16px;
+			font-weight: 500;
+			letter-spacing: 0.02em;
+			justify-content: flex-start;
+			gap: 8px;
+		}
+
+		// ##################################################
+
+		.accordion-item__content {
+			padding: 0 16px 16px 16px;
+			color: var(--color-gray-900);
+		}
+	}
+
+	// ##################################################
+
+	.bg-black &,
+	.dark & {
+		border-color: var(--color-gray-800);
+		background-color: var(--color-gray-950);
+
+		&:hover {
+			border-color: var(--color-gray-700);
+			background-color: var(--color-gray-900);
+		}
+
+		&__title {
+			color: var(--color-gray-100);
+		}
+
+		&__list {
+			&-item {
+				border-color: var(--color-gray-800);
+				color: var(--color-gray-100);
+			}
+		}
+	}
+}

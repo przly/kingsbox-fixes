@@ -1,0 +1,130 @@
+<footer data-component="mod-footer" class="footer">
+	<div class="container">
+		{% if footer.card_list %}
+			{% include '@modules/card-list/card-list.twig' with {
+				inner_section: true,
+				card_list: footer.card_list
+			} %}
+			{% include '@atoms/margin/margin.twig' with {
+				size: 128
+			} %}
+		{% endif %}
+
+		<div class="footer__content">
+			<div class="footer__columns">
+				{% for item in footer.repeater__cols %}
+					<div class="footer__column">
+						{% if item.text__title %}
+							<div class="footer__title : title : title--h6">{{ item.text__title }}</div>
+						{% endif %}
+
+						<ul class="footer__column-list">
+							{% for item in item.repeater__links %}
+								<li>
+									<a
+										href="{{ item.link__link }}"
+										{{ item.link_target ? 'target=' ~ item.link_target }}
+										{{ item.link_rel ? 'rel=' ~ item.link_rel }}
+									>
+										{{ item.link_text }}
+									</a>
+								</li>
+							{% endfor %}
+						</ul>
+					</div>
+				{% endfor %}
+			</div>
+
+			<div class="footer__newsletter">
+				<div class="footer__title : title : title--h6">{{ footer.text__newsletter_title }}</div>
+
+				{% include '@molecules/form-component/form-component.twig' with {
+					form_component: footer.form_component
+				} %}
+			</div>
+		</div>
+	</div>
+
+	<div class="footer__extra">
+		<div class="container">
+			<div class="footer__extra-inner">
+				<div class="footer__extra-left">
+					{% for item in footer.repeater__extra_links %}
+						{% if loop.first and footer.language_switch_modal %}
+							<button type="button" class="footer__extra-link" data-language-trigger>
+								{{ item.link_text }}
+							</button>
+						{% else %}
+							<a
+								href="{{ item.link__link }}"
+								{{ item.link_target ? 'target=' ~ item.link_target }}
+								{{ item.link_rel ? 'rel=' ~ item.link_rel }}
+								class="footer__extra-link"
+							>
+								{{ item.link_text }}
+							</a>
+						{% endif %}
+					{% endfor %}
+				</div>
+
+				<div class="footer__extra-center">
+					{% for item in footer.repeater__socials %}
+						<a
+							href="{{ item.link__link }}"
+							{{ item.link_target ? 'target=' ~ item.link_target }}
+							{{ item.link_rel ? 'rel=' ~ item.link_rel }}
+							{{ item.select__icon ? 'aria-label="' ~ (item.select__icon|striptags) ~ '"' }}
+							class="footer__social"
+						>
+							{% include '@atoms/icons/icons.twig' with {
+								icon_modifier: item.select__icon
+							} %}
+						</a>
+					{% endfor %}
+				</div>
+
+				<div class="footer__extra-right">
+					{% for item in footer.repeater__cards %}
+						<img src="{{ item.image__card }}" alt="{{ item.card_alt }}" />
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="footer__bottom">
+		<div class="container">
+			<div class="footer__bottom-inner">
+				<img class="footer__logo" src="{{ footer.image__logo }}" alt="{{ footer.logo_alt }}" />
+
+				<div class="footer__bottom-copyright">{{ footer.text__copyright }}</div>
+				<a
+					href="{{ footer.link__signature_link }}"
+					{{ footer.signature_link_target ? 'target=' ~ footer.signature_link_target }}
+					{{ footer.signature_link_rel ? 'rel=' ~ footer.signature_link_rel }}
+					class="footer__bottom-signature"
+				>
+					{{ footer.signature_link_text }}
+				</a>
+			</div>
+		</div>
+	</div>
+</footer>
+
+<div id="custom-scroll-offset"></div>
+{% if footer.cart_popup %}
+	{% include '@molecules/cart-popup/cart-popup.twig' with {
+		cart_popup: footer.cart_popup
+	} %}
+{% endif %}
+{% if footer.quote_popup %}
+	{% include '@molecules/quote-popup/quote-popup.twig' with {
+		quote_popup: footer.quote_popup
+	} %}
+{% endif %}
+
+{% if footer.language_switch_modal %}
+	{% include '@molecules/modal/language-switch-modal/language-switch-modal.twig' with {
+		language_switch_modal: footer.language_switch_modal
+	} %}
+{% endif %}

@@ -1,0 +1,42 @@
+{% macro moduleContent(card_list) %}
+	<div class="card-list" data-modal-parent>
+		<div class="card-list__items">
+			{% for item in card_list.repeater__cards %}
+				{% include '@molecules/card/card.twig' with {
+					card: item
+				} %}
+			{% endfor %}
+		</div>
+
+		{% if card_list.download_modal %}
+			{% include '@molecules/modal/download-modal/download-modal.twig' with {
+				download_modal: card_list.download_modal
+			} %}
+		{% endif %}
+	</div>
+{% endmacro %}
+{% import _self as macros %}
+
+{% if card_list.boolean__inner_section or inner_section %}
+	{{ macros.moduleContent(card_list) }}
+{% else %}
+	<section
+		data-component="mod-card-list"
+		class="sc-general : sc-card-list"
+		tabindex="-1"
+		role="region"
+		{{ card_list.text__id ? 'id="' ~ card_list.text__id ~ '"' }}
+	>
+		{% include '@atoms/section-margin/section-margin.twig' with {
+			default_128_spacing: true,
+			spacing_size: card_list.select__top_spacing_size
+		} %}
+
+		<div class="container">{{ macros.moduleContent(card_list) }}</div>
+
+		{% include '@atoms/section-margin/section-margin.twig' with {
+			default_128_spacing: true,
+			spacing_size: card_list.select__bottom_spacing_size
+		} %}
+	</section>
+{% endif %}

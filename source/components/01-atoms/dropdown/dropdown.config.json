@@ -1,0 +1,316 @@
+{
+	"title": "Dropdown",
+	"status": "acceptance",
+	"notes": "Dropdown With Single Select Option",
+	"default": "default",
+	"variants": [
+		{
+			"name": "default",
+			"notes": "Default Dropdown",
+			"context": {
+				"dropdown": {
+					"label": "Input label *",
+					"required": true,
+					"placeholder": "Placeholder text",
+					"items": [
+						{
+							"text": "Item 1",
+							"name": "item",
+							"id": "item_1"
+						},
+						{
+							"text": "Item 2",
+							"name": "item",
+							"id": "item_2"
+						},
+						{
+							"text": "Item 3",
+							"name": "item",
+							"id": "item_3"
+						},
+						{
+							"text": "Item 4",
+							"name": "item",
+							"id": "item_4"
+						},
+						{
+							"text": "Item 5",
+							"name": "item",
+							"id": "item_5"
+						},
+						{
+							"text": "Item 6",
+							"name": "item",
+							"id": "item_6"
+						},
+						{
+							"text": "Item 7",
+							"name": "item",
+							"id": "item_7"
+						},
+						{
+							"text": "Item 8",
+							"name": "item",
+							"id": "item_8"
+						},
+						{
+							"text": "Item",
+							"name": "item",
+							"id": "item_9"
+						},
+						{
+							"text": "Item 9",
+							"name": "item",
+							"id": "item_10"
+						}
+					]
+				}
+			}
+		},
+		{
+			"name": "with-search",
+			"notes": "With Search Dropdown",
+			"context": {
+				"dropdown": {
+					"label": "I am interested in (please choose)*",
+					"required": true,
+					"search_input": true,
+					"placeholder": "Placeholder text",
+					"items": [
+						{
+							"text": "Item 1",
+							"name": "item",
+							"id": "item_1"
+						},
+						{
+							"text": "Item 2",
+							"name": "item",
+							"id": "item_2"
+						},
+						{
+							"text": "Item 3",
+							"name": "item",
+							"id": "item_3"
+						},
+						{
+							"text": "Item 4",
+							"name": "item",
+							"id": "item_4"
+						},
+						{
+							"text": "Item 5",
+							"name": "item",
+							"id": "item_5"
+						},
+						{
+							"text": "Item 6",
+							"name": "item",
+							"id": "item_6"
+						},
+						{
+							"text": "Item 7",
+							"name": "item",
+							"id": "item_7"
+						},
+						{
+							"text": "Item 8",
+							"name": "item",
+							"id": "item_8"
+						},
+						{
+							"text": "Item",
+							"name": "item",
+							"id": "item_9"
+						},
+						{
+							"text": "Item 9",
+							"name": "item",
+							"id": "item_10"
+						}
+					]
+				}
+			}
+		},
+		{
+			"name": "multi-select",
+			"notes": "Multi Select Dropdown",
+			"context": {
+				"dropdown": {
+					"label": "Input label *",
+					"required": true,
+					"multi_select": true,
+					"placeholder": "Placeholder text",
+					"items": [
+						{
+							"text": "Item 1",
+							"name": "item_1",
+							"id": "item_1"
+						},
+						{
+							"text": "Item 2",
+							"name": "item_2",
+							"id": "item_2"
+						},
+						{
+							"text": "Item 3",
+							"name": "item_3",
+							"id": "item_3"
+						},
+						{
+							"text": "Item 4",
+							"name": "item_4",
+							"id": "item_4"
+						},
+						{
+							"text": "Item 5",
+							"name": "item_5",
+							"id": "item_5"
+						},
+						{
+							"text": "Item 6",
+							"name": "item_6",
+							"id": "item_6"
+						},
+						{
+							"text": "Item 7",
+							"name": "item_7",
+							"id": "item_7"
+						},
+						{
+							"text": "Item 8",
+							"name": "item_8",
+							"id": "item_8"
+						},
+						{
+							"text": "Item",
+							"name": "item_9",
+							"id": "item_9"
+						},
+						{
+							"text": "Item 9",
+							"name": "item_10",
+							"id": "item_10"
+						}
+					]
+				}
+			}
+		},
+		{
+			"name": "secondary",
+			"notes": "Secondary Dropdown",
+			"context": {
+				"secondary": true,
+				"dropdown": {
+					"label": "Colour:",
+					"required": true,
+					"placeholder": "Select Color",
+					"items": [
+						{
+							"image_src": "../../images/color-red-black.webp",
+							"image_alt": "Red/White",
+							"text": "Red/White",
+							"name": "store_select_color",
+							"id": "color_red_white"
+						},
+						{
+							"image_src": "../../images/color-pink-gray.webp",
+							"image_alt": "Pink/Gray",
+							"text": "Pink/Gray",
+							"name": "store_select_color",
+							"id": "color_pink_gray"
+						},
+						{
+							"image_src": "../../images/color-blue-light-blue.webp",
+							"image_alt": "Blue/Light Blue",
+							"text": "Blue/Light Blue",
+							"name": "store_select_color",
+							"id": "color_blue_light_blue"
+						},
+						{
+							"image_src": "../../images/color-beige.webp",
+							"image_alt": "Beige",
+							"text": "Beige",
+							"name": "store_select_color",
+							"id": "color_beige"
+						},
+						{
+							"image_src": "../../images/color-black.webp",
+							"image_alt": "Black",
+							"text": "Black",
+							"name": "store_select_color",
+							"id": "color_black"
+						}
+					]
+				}
+			}
+		},
+		{
+			"name": "tertiary",
+			"notes": "Tertiary Dropdown",
+			"context": {
+				"tertiary": true,
+				"dropdown": {
+					"placeholder": "Select region",
+					"items": [
+						{
+							"image_src": "../../images/slovenia-flag.svg",
+							"image_alt": "Slovenia",
+							"text": "Slovenia",
+							"name": "select_region",
+							"id": "select_region_1"
+						},
+						{
+							"image_src": "../../images/slovenia-flag.svg",
+							"image_alt": "Slovenia",
+							"text": "Slovenia",
+							"name": "select_region",
+							"id": "select_region_2"
+						},
+						{
+							"image_src": "../../images/slovenia-flag.svg",
+							"image_alt": "Slovenia",
+							"text": "Slovenia",
+							"name": "select_region",
+							"id": "select_region_3"
+						},
+						{
+							"image_src": "../../images/slovenia-flag.svg",
+							"image_alt": "Slovenia",
+							"text": "Slovenia",
+							"name": "select_region",
+							"id": "select_region_4"
+						},
+						{
+							"image_src": "../../images/slovenia-flag.svg",
+							"image_alt": "Slovenia",
+							"text": "Slovenia",
+							"name": "select_region",
+							"id": "select_region_5"
+						},
+						{
+							"image_src": "../../images/slovenia-flag.svg",
+							"image_alt": "Slovenia",
+							"text": "Slovenia",
+							"name": "select_region",
+							"id": "select_region_6"
+						},
+						{
+							"image_src": "../../images/slovenia-flag.svg",
+							"image_alt": "Slovenia",
+							"text": "Slovenia",
+							"name": "select_region",
+							"id": "select_region_7"
+						},
+						{
+							"image_src": "../../images/slovenia-flag.svg",
+							"image_alt": "Slovenia",
+							"text": "Slovenia",
+							"name": "select_region",
+							"id": "select_region_8"
+						}
+					]
+				}
+			}
+		}
+	]
+}

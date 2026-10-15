@@ -1,0 +1,89 @@
+<section
+	data-component="mod-logo-slider"
+	class="sc-general : sc-logo-slider : bg-black : overflow-h"
+	tabindex="-1"
+	role="contentinfo"
+	{{ logo_slider.text__id ? 'id="' ~ logo_slider.text__id ~ '"' }}
+>
+	{% include '@atoms/section-margin/section-margin.twig' with {
+		default_60_spacing: true,
+		spacing_size: logo_slider.select__top_spacing_size
+	} %}
+
+	<div class="logo-slider">
+		<div class="container">
+			{% if logo_slider.text__super_title or logo_slider.textarea__section_title or logo_slider.link__button %}
+				{% include '@molecules/section-header/section-header.twig' with {
+					center_aligned: true,
+					button_modifier: 'white',
+					title_tag: logo_slider.select__section_title_tag,
+					section_header: {
+						text__super_title: logo_slider.text__super_title,
+						textarea__title: logo_slider.textarea__section_title,
+						link__button: logo_slider.link__button,
+						button_target: logo_slider.button_target,
+						button_rel: logo_slider.button_rel,
+						button_text: logo_slider.button_text
+					}
+				} %}
+
+				{% include '@atoms/margin/margin.twig' with {
+					size: logo_slider.select__section_title_tag ? 80 : 120
+				} %}
+			{% endif %}
+
+			{% if logo_slider.text__title %}
+				<div
+					class="logo-slider__title : text--12 : lt-0 : text-center : font-secondary : text--uppercase : mb-50"
+				>
+					<h2>{{ logo_slider.text__title }}</h2>
+				</div>
+			{% endif %}
+		</div>
+
+		{% if logo_slider.repeater__logo %}
+			<div class="logo-slider__inner">
+				<div class="logo-slider__track">
+					{% set slides = logo_slider.repeater__logo %}
+					{% set repeat_count = (slides|length) <= 5 ? 10 : 4 %}
+
+					{% for i in 1..repeat_count %}
+						{% for item in slides %}
+							{% if item.link__link %}
+								<a
+									href="{{ item.link__link }}"
+									{{ item.rel ? 'rel="' ~ item.rel ~ '"' }}
+									{{ item.target ? 'target="' ~ item.target ~ '"' }}
+									class="logo-slider__slide : d-flex-cc"
+								>
+									<img
+										src="{{ item.image__image }}"
+										alt="{{ item.image_alt }}"
+										width="100"
+										height="36"
+										class="no-lazzy"
+									/>
+								</a>
+							{% else %}
+								<div class="logo-slider__slide : d-flex-cc">
+									<img
+										src="{{ item.image__image }}"
+										alt="{{ item.image_alt }}"
+										width="100"
+										height="36"
+										class="no-lazzy"
+									/>
+								</div>
+							{% endif %}
+						{% endfor %}
+					{% endfor %}
+				</div>
+			</div>
+		{% endif %}
+	</div>
+
+	{% include '@atoms/section-margin/section-margin.twig' with {
+		default_60_spacing: true,
+		spacing_size: logo_slider.select__bottom_spacing_size
+	} %}
+</section>

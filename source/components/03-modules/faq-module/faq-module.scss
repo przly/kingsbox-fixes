@@ -1,0 +1,79 @@
+@import '../../../scss/import';
+
+.faq-module {
+	&__left {
+		display: flex;
+		flex-direction: column;
+		gap: 40px;
+		min-height: 100%;
+
+		// Tablet P and down
+		@media #{$breakpoint-sm-down} {
+			margin-bottom: 40px;
+			min-height: 1px;
+		}
+
+		// ##################################################
+
+		&-footer {
+			margin-top: auto;
+			display: grid;
+			grid-gap: 12px;
+			justify-items: flex-start;
+		}
+	}
+
+	// ##################################################
+
+	&__body {
+		display: grid;
+		grid-gap: 80px;
+
+		// Tablet P and down
+		@media #{$breakpoint-sm-down} {
+			grid-gap: 60px;
+		}
+	}
+
+	// ##################################################
+
+	&__item {
+		&-title {
+			// Tablet L and up
+			@media #{$breakpoint-md-up} {
+				position: sticky;
+				position: -webkit-sticky;
+				top: calc(var(--header-height, 0px) + 24px);
+				transition: top 150ms var(--easing-slow);
+			}
+
+			// Tablet P and down
+			@media #{$breakpoint-sm-down} {
+				margin-bottom: 24px;
+			}
+		}
+	}
+
+	// ##################################################
+
+	&--default {
+		// ##################################################
+
+		.section-header {
+			text-align: left;
+
+			// ##################################################
+
+			.title {
+				@extend %title_h1;
+
+				// ##################################################
+
+				&--h2 {
+					@extend %title_h2;
+					letter-spacing: -0.05em;
+				}
+			}
+		}
+	}
+}

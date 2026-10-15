@@ -1,0 +1,30 @@
+<div data-component="mol-slider-nav" class="slider-nav">
+	{% if not remove_progress_bar %}
+		<div class="f-auto">
+			<div class="slider-nav__pagination-text">
+				<div>{{ text__from }}</div>
+				<div>{{ text__to }}</div>
+			</div>
+			<div class="swiper-pagination"></div>
+		</div>
+	{% endif %}
+
+	{% if scrollbar %}
+		<div class="swiper-scrollbar"><div class="swiper-scrollbar-thumb"></div></div>
+	{% endif %}
+
+	{% if not remove_arrow %}
+		<div class="slider-nav__button">
+			<button class="slider-nav__arrow : swiper-button-prev : arrow-left : d-flex-cc" aria-label="Previous Slide">
+				{% include '@atoms/icons/icons.twig' with {
+					icon_modifier: 'chevron-left'
+				} %}
+			</button>
+			<button class="slider-nav__arrow : swiper-button-next : arrow-right : d-flex-cc" aria-label="Next Slide">
+				{% include '@atoms/icons/icons.twig' with {
+					icon_modifier: 'chevron-right'
+				} %}
+			</button>
+		</div>
+	{% endif %}
+</div>

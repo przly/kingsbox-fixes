@@ -1,0 +1,54 @@
+<div
+	data-component="mol-modal"
+	class="modal : download-modal : modal-overlay  {{ download_modal_extra_class }}"
+	data-modal
+>
+	<div class="modal__overlay : covered" data-close-modal></div>
+
+	<div class="modal__inner">
+		{% include '@atoms/button/button.twig' with {
+			aria_label: download_modal.text__close_button|default('Close Modal'),
+			size: 'small',
+			type: 'button',
+			icon: 'close',
+			class_name: 'modal__close',
+			data_attr: 'data-close-modal'
+		} %}
+
+		{% if download_modal.text__title or download_modal.textarea__text %}
+			<div class="modal__header">
+				{% if download_modal.text__title %}
+					{% include '@atoms/title/title.twig' with {
+						secondary: true,
+						modifier: 'h4',
+						tag: 'h2',
+						title: download_modal.text__title
+					} %}
+				{% endif %}
+
+				{% if download_modal.textarea__text %}
+					<div class="modal__text : text--14 : text--gray-500">{{ download_modal.textarea__text }}</div>
+				{% endif %}
+			</div>
+		{% endif %}
+
+		{% include '@molecules/form-component/form-component.twig' with {
+			success_button_size: 'small',
+			request_quote_form: true,
+			form_component: download_modal.form_component
+		} %}
+
+		{% include '@atoms/number-icon/number-icon.twig' with {
+			number_icon: '05'
+		} %}
+		{% include '@atoms/number-icon/number-icon.twig' with {
+			number_icon: '05-reverse'
+		} %}
+		{% include '@atoms/number-icon/number-icon.twig' with {
+			number_icon: '20'
+		} %}
+		{% include '@atoms/number-icon/number-icon.twig' with {
+			number_icon: '20-reverse'
+		} %}
+	</div>
+</div>

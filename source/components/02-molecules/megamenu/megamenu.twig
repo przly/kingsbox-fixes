@@ -1,0 +1,144 @@
+{% set subMenuId = submenu_index %}
+
+<div class="megamenu : text--20 : font-primary">
+	<div class="megamenu__col : megamenu__left" data-lenis-prevent>
+		{% if megamenu.text__title %}
+			<div class="megamenu__main-title">
+				{% include '@atoms/icons/icons.twig' with {
+					icon_modifier: 'chevron-left : d-md-none'
+				} %}
+
+				{% include '@atoms/title/title.twig' with {
+					modifier: 'h2',
+					secondary: true,
+					title: megamenu.text__title
+				} %}
+			</div>
+		{% endif %}
+
+		{% if megamenu.text__discount_title %}
+			<div class="megamenu__discount">
+				<div class="megamenu__discount-title">{{ megamenu.text__discount_title }}</div>
+
+				{% include '@atoms/tag/tag.twig' with {
+					tag: {
+						select__color: 'dark',
+						text__text: megamenu.text__discount_tag
+					}
+				} %}
+			</div>
+		{% endif %}
+
+		{% for item in megamenu.repeater__navs %}
+			{% set nav_index = loop.index %}
+			<nav class="megamenu__nav">
+				<ul class="megamenu__nav-list">
+					{% for link in item.repeater__links %}
+						{% set submenu_target =
+							link.submenu_key|default('submenu-' ~ subMenuId ~ '-' ~ nav_index ~ '-' ~ loop.index)
+						%}
+						<li class="megamenu__nav-item {{ link.sub_menu ? 'has-submenu' }}">
+							{% if link.sub_menu %}
+								<button
+									type="button"
+									class="megamenu__nav-link"
+									data-menu-target="{{ submenu_target }}"
+								>
+									{{ link.link_text }}
+
+									{% include '@atoms/icons/icons.twig' with {
+										icon_modifier: 'chevron-right : d-md-none'
+									} %}
+								</button>
+							{% else %}
+								<a
+									href="{{ link.link__link }}"
+									{{ link.link_rel ? 'rel="' ~ link.link_rel ~ '"' }}
+									{{ link.link_target ? 'target="' ~ link.link_target ~ '"' }}
+									class="megamenu__nav-link"
+									data-menu-target="{{ submenu_target }}"
+								>
+									{{ link.link_text }}
+								</a>
+							{% endif %}
+						</li>
+					{% endfor %}
+				</ul>
+			</nav>
+		{% endfor %}
+
+		<div class="megamenu__footer">
+			{% if megamenu.repeater__buttons %}
+				<div class="megamenu__buttons">
+					{% for item in megamenu.repeater__buttons %}
+						{% include '@atoms/button/button.twig' with {
+							href: item.link__button,
+							text: item.button_text,
+							target: item.button_target,
+							rel: item.button_rel,
+							modifier: 'dark',
+							mono_font: true
+						} %}
+					{% endfor %}
+				</div>
+			{% endif %}
+
+			{% if megamenu.quote_card %}
+				{% include '@molecules/case-study-card/case-study-card.twig' with {
+					select__variation: 'medium',
+					case_study_card: megamenu.quote_card
+				} %}
+			{% endif %}
+		</div>
+	</div>
+	{% for item in megamenu.repeater__navs %}
+		{% set nav_index = loop.index %}
+		{% for link in item.repeater__links %}
+			{% if link.sub_menu %}
+				{% set submenu_target =
+					link.submenu_key|default('submenu-' ~ subMenuId ~ '-' ~ nav_index ~ '-' ~ loop.index)
+				%}
+				<div class="megamenu__col : megamenu__right" data-submenu="{{ submenu_target }}" data-lenis-prevent>
+					<div class="megamenu__submenu">
+						<div class="megamenu__submenu-header">
+							{% if link.link_text %}
+								<div class="megamenu__submenu-main-title">
+									{% include '@atoms/icons/icons.twig' with {
+										icon_modifier: 'chevron-left : d-md-none'
+									} %}
+									{% include '@atoms/title/title.twig' with {
+										modifier: 'h2',
+										tag: 'h3',
+										secondary: true,
+										title: link.link_text
+									} %}
+								</div>
+							{% endif %}
+
+							{% if link.sub_menu.link__more_button %}
+								{% include '@atoms/button/button.twig' with {
+									href: link.sub_menu.link__more_button,
+									text: link.sub_menu.more_button_text,
+									target: link.sub_menu.more_button_target,
+									rel: link.sub_menu.more_button_rel,
+									modifier: 'gray'
+								} %}
+							{% endif %}
+						</div>
+
+						<div class="megamenu__products">
+							{% for item in link.sub_menu.repeater__products %}
+								{% include '@molecules/case-study-card/case-study-card.twig' with {
+									select__variation: 'default',
+									case_study_card: item
+								} %}
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+			{% endif %}
+		{% endfor %}
+	{% endfor %}
+
+	<div class="megamenu__overlay" data-close-megamenu></div>
+</div>

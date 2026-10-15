@@ -1,0 +1,582 @@
+{
+	"title": "Homepage",
+	"notes": "Homepage",
+	"status": "acceptance",
+	"context": {
+		"hero_module": {
+			"select__top_spacing_size": "default",
+			"select__bottom_spacing_size": "default",
+			"text__super_title": "WELCOME TO KINGSBOX",
+			"textarea__title": "from vision <br> to opening day",
+			"link__primary_button": "#",
+			"primary_button_target": "",
+			"primary_button_rel": "",
+			"primary_button_text": "Start your project",
+			"link__secondary_button": "#",
+			"secondary_button_target": "",
+			"secondary_button_rel": "",
+			"secondary_button_text": "view case studies",
+			"image__video_poster": "../../images/hero-bg.webp",
+			"file__video_mp4": "../../videos/hero-video.mp4"
+		},
+		"about_module": {
+			"select__top_spacing_size": "default",
+			"select__bottom_spacing_size": "default",
+			"textarea__title": "We are Kingsbox. One of the largest providers of sports equipment in Europe.",
+			"repeater__cards": [
+				{
+					"image__icon": "../../images/weight-icon.svg",
+					"image_icon_alt": "Weight",
+					"mod_counter": {
+						"number__number": "500",
+						"text__label": "+"
+					},
+					"textarea__title": "Gyms Build"
+				},
+				{
+					"image__icon": "../../images/globe-icon.svg",
+					"image_icon_alt": "Globe",
+					"mod_counter": {
+						"number__number": "25",
+						"text__label": "+"
+					},
+					"textarea__title": "Countries"
+				},
+				{
+					"image__icon": "../../images/upcoming-event-icon.svg",
+					"image_icon_alt": "Upcoming Event",
+					"mod_counter": {
+						"number__number": "10",
+						"text__label": "+"
+					},
+					"textarea__title": "Years of Experiance"
+				},
+				{
+					"image__icon": "../../images/europe-star-icon.svg",
+					"image_icon_alt": "Europe Star",
+					"mod_counter": {
+						"number__number": "100",
+						"text__label": "%"
+					},
+					"textarea__title": "Made in Europe"
+				}
+			],
+			"wysiwyg__left_col_text": "<p>We are a Slovenian manufacturer of strength and conditioning equipment for gyms, studios, home gyms, and outdoor spaces. We create durable, modular solutions built for real training.</p>",
+			"wysiwyg__right_col_text": "<p>We are more than an equipment supplier. We help build practical training spaces that perform better and make the most of every square meter.</p>"
+		},
+		"mission_module": {
+			"select__top_spacing_size": "default",
+			"select__bottom_spacing_size": "default",
+			"text__super_title": "KINGSBOX’S MISSION",
+			"textarea__title": "from vision <br> to opening day",
+			"link__button": "#",
+			"button_target": "",
+			"button_rel": "",
+			"button_text": "Request a Quote",
+			"repeater__steps": [
+				{
+					"text__step_label": "STEP",
+					"text__step": "Consultation",
+					"image__image": "../../images/step-card-1.webp",
+					"image_alt": "Image",
+					"text__title": "We understand your space, target audience, and budget."
+				},
+				{
+					"text__step_label": "STEP",
+					"text__step": "Design & Planning",
+					"image__image": "../../images/step-card-2.webp",
+					"image_alt": "Image",
+					"text__title": "Our team creates a tailored layout and equipment proposal."
+				},
+				{
+					"text__step_label": "STEP",
+					"text__step": "Manufacturing",
+					"image__image": "../../images/step-card-3.webp",
+					"image_alt": "Image",
+					"text__title": "All equipment is produced in the EU under strict quality control."
+				},
+				{
+					"text__step_label": "STEP",
+					"text__step": "Installation & Support",
+					"image__image": "../../images/step-card-4.webp",
+					"image_alt": "Image",
+					"text__title": "We deliver, install and support your gym long-term."
+				}
+			]
+		},
+		"case_study_video": {
+			"select__top_spacing_size": "default",
+			"select__bottom_spacing_size": "default",
+			"section_header": {
+				"text__super_title": "CASE STUDIES",
+				"textarea__title": "custom gym <br> solutions"
+			},
+			"image__video_poster": "../../images/globe-video-poster.webp",
+			"file__video_mp4": "../../videos/globe-video.mp4",
+			"textarea__bottom_title": "We design custom training spaces that fit the way your members train and the way your business operates. The result is a gym that looks better and makes smarter use of every square meter."
+		},
+		"logo_slider": {
+			"select__top_spacing_size": "default",
+			"select__bottom_spacing_size": "default",
+			"text__title": "We’ve worked with:",
+			"repeater__logo": [
+				{
+					"link__link": "#",
+					"target": "_blank",
+					"image__image": "../../images/logo-slider-1.svg",
+					"image_alt": "Logo"
+				},
+				{
+					"link__link": "#",
+					"target": "_blank",
+					"image__image": "../../images/logo-slider-2.svg",
+					"image_alt": "Logo"
+				},
+				{
+					"link__link": "#",
+					"target": "_blank",
+					"image__image": "../../images/logo-slider-3.svg",
+					"image_alt": "Logo"
+				},
+				{
+					"link__link": "#",
+					"target": "_blank",
+					"image__image": "../../images/logo-slider-4.svg",
+					"image_alt": "Logo"
+				},
+				{
+					"link__link": "#",
+					"target": "_blank",
+					"image__image": "../../images/logo-slider-5.svg",
+					"image_alt": "Logo"
+				},
+				{
+					"link__link": "#",
+					"target": "_blank",
+					"image__image": "../../images/logo-slider-6.svg",
+					"image_alt": "Logo"
+				}
+			]
+		},
+		"case_study_slider": {
+			"select__top_spacing_size": "default",
+			"select__bottom_spacing_size": "default",
+			"link__button": "#",
+			"button_target": "",
+			"button_rel": "",
+			"button_text": "See all Case Studies",
+			"repeater__slides": [
+				{
+					"image__image": "../../images/case-study-card-large.webp",
+					"image_alt": "images",
+					"textarea__title": "Crossfit Lift Like a Viking",
+					"repeater__info": [
+						{
+							"text__text": "Wernberg, Austria"
+						},
+						{
+							"text__text": "Commercial Gym"
+						}
+					],
+					"link__link": "#",
+					"link_text": "read more"
+				},
+				{
+					"image__image": "../../images/case-study-card-large.webp",
+					"image_alt": "images",
+					"textarea__title": "Crossfit Lift Like a Viking",
+					"repeater__info": [
+						{
+							"text__text": "Wernberg, Austria"
+						},
+						{
+							"text__text": "Commercial Gym"
+						}
+					],
+					"link__link": "#",
+					"link_text": "read more"
+				}
+			]
+		},
+		"main_products": {
+			"select__top_spacing_size": "medium",
+			"select__bottom_spacing_size": "default",
+			"text__super_title": "Kingsbox’s mission",
+			"textarea__main_title": "Build your own <br> home gym",
+			"link__view_all_button": "#",
+			"view_all_button_target": "",
+			"view_all_button_rel": "",
+			"view_all_button_text": "Shop all products",
+			"text__title": "Best sellers",
+			"link__link": "#",
+			"link_text": "See all",
+			"repeater__cards": [
+				{
+					"link__link": "#",
+					"repeater__images": [
+						{
+							"image__image": "../../images/product-card.webp",
+							"image_alt": "product image"
+						}
+					],
+					"image__hover_image": "../../images/product-card-hover.webp",
+					"hover_image_alt": "product image",
+					"top_tag": {
+						"text__text": "PREORDER",
+						"select__color": "blue"
+					},
+					"variations_tag": {
+						"text__text": "More variations",
+						"image__image": "../../images/variations.webp",
+						"image_alt": "colors"
+					},
+					"text__title": "Mighty Power Rack CX-30",
+					"text__price": "1.482,94 €"
+				},
+				{
+					"link__link": "#",
+					"repeater__images": [
+						{
+							"image__image": "../../images/product-card.webp",
+							"image_alt": "product image"
+						}
+					],
+					"image__hover_image": "../../images/product-card-hover.webp",
+					"hover_image_alt": "product image",
+					"text__title": "Mighty Power Rack CX-30",
+					"text__price": "1.482,94 €"
+				},
+				{
+					"link__link": "#",
+					"repeater__images": [
+						{
+							"image__image": "../../images/product-card.webp",
+							"image_alt": "product image"
+						}
+					],
+					"image__hover_image": "../../images/product-card-hover.webp",
+					"hover_image_alt": "product image",
+					"bottom_tag": {
+						"text__text": "Koda:BLACKFRIDAY",
+						"select__color": "dark-transparent"
+					},
+					"variations_tag": {
+						"text__text": "More variations",
+						"image__image": "../../images/variations.webp",
+						"image_alt": "colors"
+					},
+					"text__title": "Mighty Power Rack CX-30",
+					"text__price_slashed": "1.482,94 €",
+					"text__price": "1.482,94 €",
+					"text__discount": "-15 %",
+					"text__lowest_price": "Najnižja cena zadnjih 30 dni: 1.482,94 €"
+				}
+			]
+		},
+		"categories_module": {
+			"select__top_spacing_size": "default",
+			"select__bottom_spacing_size": "default",
+			"text__title": "Categories",
+			"repeater__items": [
+				{
+					"link__link": "#",
+					"link_target": "",
+					"link_rel": "",
+					"text__title": "Strength",
+					"image__image": "../../images/categories-module-1.webp",
+					"image_alt": "Image"
+				},
+				{
+					"link__link": "#",
+					"link_target": "",
+					"link_rel": "",
+					"text__title": "rigs & racks",
+					"image__image": "../../images/categories-module-1.webp",
+					"image_alt": "Image"
+				},
+				{
+					"link__link": "#",
+					"link_target": "",
+					"link_rel": "",
+					"text__title": "Stength Machines",
+					"image__image": "../../images/categories-module-1.webp",
+					"image_alt": "Image"
+				},
+				{
+					"link__link": "#",
+					"link_target": "",
+					"link_rel": "",
+					"text__title": "Conditioning",
+					"image__image": "../../images/categories-module-1.webp",
+					"image_alt": "Image"
+				},
+				{
+					"link__link": "#",
+					"link_target": "",
+					"link_rel": "",
+					"text__title": "Body Weight",
+					"image__image": "../../images/categories-module-1.webp",
+					"image_alt": "Image"
+				},
+				{
+					"link__link": "#",
+					"link_target": "",
+					"link_rel": "",
+					"text__title": "Gym Essentials",
+					"image__image": "../../images/categories-module-1.webp",
+					"image_alt": "Image"
+				},
+				{
+					"link__link": "#",
+					"link_target": "",
+					"link_rel": "",
+					"text__title": "Apparel & Accesories",
+					"image__image": "../../images/categories-module-1.webp",
+					"image_alt": "Image"
+				},
+				{
+					"link__link": "#",
+					"link_target": "",
+					"link_rel": "",
+					"text__title": "Sets",
+					"image__image": "../../images/categories-module-1.webp",
+					"image_alt": "Image"
+				},
+				{
+					"link__link": "#",
+					"link_target": "",
+					"link_rel": "",
+					"text__title": "Training Accessories",
+					"image__image": "../../images/categories-module-1.webp",
+					"image_alt": "Image"
+				}
+			]
+		},
+		"product_card_slider": {
+			"select__top_spacing_size": "default",
+			"select__bottom_spacing_size": "default",
+			"text__title": "Get in shape for the summer",
+			"link__link": "#",
+			"link_text": "See all",
+			"repeater__items": [
+				{
+					"link__link": "#",
+					"repeater__images": [
+						{
+							"image__image": "../../images/product-card.webp",
+							"image_alt": "product image"
+						}
+					],
+					"image__hover_image": "../../images/product-card-hover.webp",
+					"hover_image_alt": "product image",
+					"top_tag": {
+						"text__text": "PREORDER",
+						"select__color": "blue"
+					},
+					"variations_tag": {
+						"text__text": "More variations",
+						"image__image": "../../images/variations.webp",
+						"image_alt": "colors"
+					},
+					"text__title": "Mighty Power Rack CX-30",
+					"text__price": "1.482,94 €"
+				},
+				{
+					"link__link": "#",
+					"repeater__images": [
+						{
+							"image__image": "../../images/product-card.webp",
+							"image_alt": "product image"
+						}
+					],
+					"image__hover_image": "../../images/product-card-hover.webp",
+					"hover_image_alt": "product image",
+					"text__title": "Mighty Power Rack CX-30",
+					"text__price": "1.482,94 €"
+				},
+				{
+					"link__link": "#",
+					"repeater__images": [
+						{
+							"image__image": "../../images/product-card.webp",
+							"image_alt": "product image"
+						}
+					],
+					"image__hover_image": "../../images/product-card-hover.webp",
+					"hover_image_alt": "product image",
+					"bottom_tag": {
+						"text__text": "Koda:BLACKFRIDAY",
+						"select__color": "dark-transparent"
+					},
+					"variations_tag": {
+						"text__text": "More variations",
+						"image__image": "../../images/variations.webp",
+						"image_alt": "colors"
+					},
+					"text__title": "Mighty Power Rack CX-30",
+					"text__price": "1.482,94 €"
+				},
+				{
+					"link__link": "#",
+					"repeater__images": [
+						{
+							"image__image": "../../images/product-card.webp",
+							"image_alt": "product image"
+						}
+					],
+					"image__hover_image": "../../images/product-card-hover.webp",
+					"hover_image_alt": "product image",
+					"bottom_tag": {
+						"text__text": "Koda:BLACKFRIDAY",
+						"select__color": "dark-transparent"
+					},
+					"variations_tag": {
+						"text__text": "More variations",
+						"image__image": "../../images/variations.webp",
+						"image_alt": "colors"
+					},
+					"text__title": "Mighty Power Rack CX-30",
+					"text__price_slashed": "1.482,94 €",
+					"text__price": "1.482,94 €",
+					"text__discount": "-15 %",
+					"text__lowest_price": "Najnižja cena zadnjih 30 dni: 1.482,94 €"
+				},
+				{
+					"link__link": "#",
+					"repeater__images": [
+						{
+							"image__image": "../../images/product-card.webp",
+							"image_alt": "product image"
+						}
+					],
+					"image__hover_image": "../../images/product-card-hover.webp",
+					"hover_image_alt": "product image",
+					"top_tag": {
+						"text__text": "PREORDER",
+						"select__color": "blue"
+					},
+					"bottom_tag": {
+						"text__text": "Koda:BLACKFRIDAY",
+						"select__color": "dark-transparent"
+					},
+					"variations_tag": {
+						"text__text": "More variations",
+						"image__image": "../../images/variations.webp",
+						"image_alt": "colors"
+					},
+					"text__title": "Mighty Power Rack CX-30",
+					"text__price_slashed": "1.482,94 €",
+					"text__price": "1.482,94 €",
+					"text__discount": "-15 %",
+					"text__lowest_price": "Najnižja cena zadnjih 30 dni: 1.482,94 €"
+				},
+				{
+					"link__link": "#",
+					"repeater__images": [
+						{
+							"image__image": "../../images/product-card.webp",
+							"image_alt": "product image"
+						}
+					],
+					"image__hover_image": "../../images/product-card-hover.webp",
+					"hover_image_alt": "product image",
+					"top_tag": {
+						"text__text": "PREORDER",
+						"select__color": "blue"
+					},
+					"variations_tag": {
+						"text__text": "More variations",
+						"image__image": "../../images/variations.webp",
+						"image_alt": "colors"
+					},
+					"text__title": "Mighty Power Rack CX-30",
+					"text__price": "1.482,94 €"
+				},
+				{
+					"link__link": "#",
+					"repeater__images": [
+						{
+							"image__image": "../../images/product-card.webp",
+							"image_alt": "product image"
+						}
+					],
+					"image__hover_image": "../../images/product-card-hover.webp",
+					"hover_image_alt": "product image",
+					"text__title": "Mighty Power Rack CX-30",
+					"text__price": "1.482,94 €"
+				},
+				{
+					"link__link": "#",
+					"repeater__images": [
+						{
+							"image__image": "../../images/product-card.webp",
+							"image_alt": "product image"
+						}
+					],
+					"image__hover_image": "../../images/product-card-hover.webp",
+					"hover_image_alt": "product image",
+					"bottom_tag": {
+						"text__text": "Koda:BLACKFRIDAY",
+						"select__color": "dark-transparent"
+					},
+					"text__title": "Mighty Power Rack CX-30",
+					"text__price": "1.482,94 €"
+				},
+				{
+					"link__link": "#",
+					"repeater__images": [
+						{
+							"image__image": "../../images/product-card.webp",
+							"image_alt": "product image"
+						}
+					],
+					"image__hover_image": "../../images/product-card-hover.webp",
+					"hover_image_alt": "product image",
+					"bottom_tag": {
+						"text__text": "Koda:BLACKFRIDAY",
+						"select__color": "dark-transparent"
+					},
+					"variations_tag": {
+						"text__text": "More variations",
+						"image__image": "../../images/variations.webp",
+						"image_alt": "colors"
+					},
+					"text__title": "Mighty Power Rack CX-30",
+					"text__price_slashed": "1.482,94 €",
+					"text__price": "1.482,94 €",
+					"text__discount": "-15 %",
+					"text__lowest_price": "Najnižja cena zadnjih 30 dni: 1.482,94 €"
+				},
+				{
+					"link__link": "#",
+					"repeater__images": [
+						{
+							"image__image": "../../images/product-card.webp",
+							"image_alt": "product image"
+						}
+					],
+					"image__hover_image": "../../images/product-card-hover.webp",
+					"hover_image_alt": "product image",
+					"top_tag": {
+						"text__text": "PREORDER",
+						"select__color": "blue"
+					},
+					"bottom_tag": {
+						"text__text": "Koda:BLACKFRIDAY",
+						"select__color": "dark-transparent"
+					},
+					"variations_tag": {
+						"text__text": "More variations",
+						"image__image": "../../images/variations.webp",
+						"image_alt": "colors"
+					},
+					"text__title": "Mighty Power Rack CX-30",
+					"text__price_slashed": "1.482,94 €",
+					"text__price": "1.482,94 €",
+					"text__discount": "-15 %",
+					"text__lowest_price": "Najnižja cena zadnjih 30 dni: 1.482,94 €"
+				}
+			]
+		}
+	}
+}

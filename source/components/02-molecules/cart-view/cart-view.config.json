@@ -1,0 +1,121 @@
+{
+	"title": "Cart View",
+	"notes": "Cart View",
+	"status": "acceptance",
+	"context": {
+		"cart_view": {
+			"repeater__items": [
+				{
+					"link__link": "#",
+					"image__image": "../../images/cart-view-1.webp",
+					"image__alt": "Image",
+					"text__title": "Mighty Power Rack CX-30",
+					"repeater__info": [
+						{
+							"text__text": "1260 x 1260"
+						},
+						{
+							"text__text": "Black"
+						},
+						{
+							"text__text": "Aluminium"
+						}
+					],
+					"quantity_counter": {
+						"text__title": "Količina",
+						"text__remove_button_text": "Remove Button",
+						"text__add_button_text": "Add Button",
+						"text__input_name": "counter-input",
+						"text__input_id": "counter-input-1",
+						"text__value": 1
+					},
+					"text__price": "2.990,99 €",
+					"text__old_price": "3.990,99 €",
+					"text__tag": "Code: BLACKFRIDAY",
+					"text__discount": "-15 %"
+				},
+				{
+					"link__link": "#",
+					"image__image": "../../images/cart-view-2.webp",
+					"image__alt": "Image",
+					"text__title": "Mighty Power Rack CX-30",
+					"repeater__info": [
+						{
+							"text__text": "1260 x 1260"
+						},
+						{
+							"text__text": "Black"
+						},
+						{
+							"text__text": "Aluminium"
+						}
+					],
+					"quantity_counter": {
+						"text__title": "Količina",
+						"text__remove_button_text": "Remove Button",
+						"text__add_button_text": "Add Button",
+						"text__input_name": "counter-input",
+						"text__input_id": "counter-input-1",
+						"text__value": 1
+					},
+					"text__price": "2.990,99 €",
+					"text__old_price": "3.990,99 €",
+					"text__tag": "Code: BLACKFRIDAY",
+					"text__discount": "-15 %"
+				},
+				{
+					"link__link": "#",
+					"image__image": "../../images/cart-view-3.webp",
+					"image__alt": "Image",
+					"text__title": "Mighty Power Rack CX-30",
+					"repeater__info": [
+						{
+							"text__text": "1260 x 1260"
+						},
+						{
+							"text__text": "Black"
+						},
+						{
+							"text__text": "Aluminium"
+						}
+					],
+					"quantity_counter": {
+						"text__title": "Količina",
+						"text__remove_button_text": "Remove Button",
+						"text__add_button_text": "Add Button",
+						"text__input_name": "counter-input",
+						"text__input_id": "counter-input-1",
+						"text__value": 1
+					},
+					"text__price": "2.990,99 €"
+				},
+				{
+					"link__link": "#",
+					"image__image": "../../images/cart-view-4.webp",
+					"image__alt": "Image",
+					"text__title": "Mighty Power Rack CX-30",
+					"repeater__info": [
+						{
+							"text__text": "1260 x 1260"
+						},
+						{
+							"text__text": "Black"
+						},
+						{
+							"text__text": "Aluminium"
+						}
+					],
+					"quantity_counter": {
+						"text__title": "Količina",
+						"text__remove_button_text": "Remove Button",
+						"text__add_button_text": "Add Button",
+						"text__input_name": "counter-input",
+						"text__input_id": "counter-input-1",
+						"text__value": 1
+					},
+					"text__price": "2.990,99 €"
+				}
+			]
+		}
+	}
+}

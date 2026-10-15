@@ -1,0 +1,139 @@
+// **************************************************
+// Menu
+// **************************************************
+
+@import '../../../scss/import';
+
+.menu {
+	// Tablet P and down
+	@media #{$breakpoint-sm-down} {
+		width: 100%;
+		flex: auto;
+		overflow: auto;
+		padding: 6px;
+		display: flex;
+		gap: 6px;
+		flex-direction: column;
+	}
+
+	// ##################################################
+
+	&__item {
+		position: relative;
+
+		// stylelint-disable-next-line
+		&.#{$class_active} {
+			// stylelint-disable-next-line
+			.megamenu {
+				opacity: 1;
+				visibility: visible;
+				pointer-events: all;
+
+				// Tablet P and down
+				@media #{$breakpoint-sm-down} {
+					transform: translate(0, 0);
+				}
+			}
+
+			// stylelint-disable-next-line
+			.menu__link {
+				// Tablet L and up
+				@media #{$breakpoint-md-up} {
+					background-color: var(--color-gray-900);
+					color: var(--color-white);
+				}
+			}
+		}
+	}
+
+	// ##################################################
+
+	&__list {
+		display: flex;
+		gap: 2px;
+
+		// Tablet P and down
+		@media #{$breakpoint-sm-down} {
+			flex-direction: column;
+			gap: 6px;
+		}
+	}
+
+	// ##################################################
+
+	&__link {
+		display: flex;
+		align-items: center;
+		min-height: 40px;
+		padding: 4px 12px;
+		text-transform: uppercase;
+		font-size: 14px;
+		letter-spacing: 0;
+		border-radius: 6px;
+
+		// Tablet P and down
+		@media #{$breakpoint-sm-down} {
+			width: 100%;
+			font-size: 18px;
+			border-radius: 8px;
+			background-color: var(--color-white);
+		}
+
+		&:hover {
+			// Tablet L and up
+			@media #{$breakpoint-md-up} {
+				background-color: var(--color-white);
+			}
+		}
+
+		&:focus,
+		&:active {
+			// Tablet L and up
+			@media #{$breakpoint-md-up} {
+				background-color: transparent;
+			}
+		}
+
+		.icon {
+			// Tablet P and down
+			@media #{$breakpoint-sm-down} {
+				width: 16px;
+				height: 16px;
+				margin-left: auto;
+			}
+		}
+	}
+
+	// ##################################################
+
+	&-overlay {
+		position: fixed;
+		z-index: 99;
+		background-color: rgba($cgp_black, 0.25);
+		opacity: 0;
+		visibility: hidden;
+		transition: opacity 0.3s ease, visibility 0.3s ease;
+
+		// Tablet P and down
+		@media #{$breakpoint-sm-down} {
+			background-color: rgba($cgp_black, 0.8);
+		}
+
+		:has(body .has-megamenu.is-active) & {
+			// Tablet L and up
+			@media #{$breakpoint-md-up} {
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+
+		// stylelint-disable-next-line
+		.#{$class_open_menu} & {
+			// Tablet P and down
+			@media #{$breakpoint-sm-down} {
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+	}
+}

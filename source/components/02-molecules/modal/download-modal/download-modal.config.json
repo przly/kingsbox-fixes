@@ -1,0 +1,128 @@
+{
+	"title": "Download Modal",
+	"notes": "Download Modal",
+	"status": "acceptance",
+	"context": {
+		"download_modal_extra_class": "is-open-modal",
+		"download_modal": {
+			"text__close_button": "Close Download Modal",
+			"text__title": "download catalog",
+			"textarea__text": "Preprosto izpolnite svoje podatke spodaj in takoj boste imeli dostop do KingsBox kataloga 2026!",
+			"form_component": {
+				"action": "saveDownloadFormData",
+				"form_id": "download_form",
+				"reCAPTCHA_site_key": "6LcdqjwoAAAAAIQaRS8LL9_5XiKc1JTTcwmEFK-9",
+				"form_title": "Basic Information",
+				"input_fields": [
+					{
+						"select__width": "half",
+						"input_field": {
+							"text__id": "download_catelog_name",
+							"text__name": "download_catelog_name",
+							"text__label": "Name",
+							"boolean__required": false,
+							"text__placeholder": "Name",
+							"text__error_message": "This field is required"
+						}
+					},
+					{
+						"select__width": "half",
+						"input_field": {
+							"text__id": "download_catelog_surname",
+							"text__name": "download_catelog_surname",
+							"text__label": "Surname",
+							"boolean__required": false,
+							"text__placeholder": "Surname",
+							"text__error_message": "This field is required"
+						}
+					},
+					{
+						"select__width": "half",
+						"input_field": {
+							"text__id": "download_catelog_email",
+							"text__name": "download_catelog_email",
+							"select__input_type": "email",
+							"text__label": "E-mail",
+							"boolean__required": false,
+							"text__placeholder": "E-mail",
+							"text__error_message": "This field is required",
+							"text__invalid_email_message": "Please enter valid email"
+						}
+					},
+					{
+						"select__width": "half",
+						"input_field": {
+							"text__id": "download_catelog_phone",
+							"text__name": "download_catelog_phone",
+							"text__label": "Phone number",
+							"boolean__required": false,
+							"boolean__numbers_only": true,
+							"text__placeholder": "Phone number",
+							"text__error_message": "This field is required"
+						}
+					},
+					{
+						"select__width": "full",
+						"dropdown": {
+							"text__label": "Country",
+							"boolean__required": false,
+							"text__placeholder": "Country",
+							"repeater__items": [
+								{
+									"text": "Item 1",
+									"name": "download_catelog_countrycode",
+									"id": "download_catelog_countrycode-1"
+								},
+								{
+									"text": "Item 2",
+									"name": "download_catelog_countrycode",
+									"id": "download_catelog_countrycode_2"
+								},
+								{
+									"text": "Item 3",
+									"name": "download_catelog_countrycode",
+									"id": "download_catelog_countrycode_3"
+								},
+								{
+									"text": "Item 4",
+									"name": "download_catelog_countrycode",
+									"id": "download_catelog_countrycode_4"
+								},
+								{
+									"text": "Item 5",
+									"name": "download_catelog_countrycode",
+									"id": "download_catelog_countrycode_5"
+								},
+								{
+									"text": "Item 6",
+									"name": "download_catelog_countrycode",
+									"id": "download_catelog_countrycode_6"
+								}
+							]
+						}
+					}
+				],
+				"checkbox": {
+					"text__id": "download-catelog-check-policy",
+					"text__name": "download-catelog-check-policy",
+					"text__text": "I agree to general terms & conditions",
+					"boolean__required": false,
+					"text__error_message": "This field is required"
+				},
+				"form_error_message": "Lorem ipsum dolor sit amet consectetur.",
+				"form_success_message": "Lorem ipsum dolor sit amet consectetur.",
+				"submit_button_text": "Download",
+				"success": {
+					"super_title": "catalog ready!",
+					"title": "Thank you <br> for your interest",
+					"text": "Your download is complete. <br> Enjoy exploring the KingsBox 2026 Catalog.",
+					"button_href": "#,",
+					"button_text": "Back home",
+					"button_target": "",
+					"button_rel": "",
+					"button_icon": "home"
+				}
+			}
+		}
+	}
+}

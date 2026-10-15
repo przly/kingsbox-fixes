@@ -1,0 +1,14 @@
+{
+	"title": "Quantity Counter",
+	"notes": "Quantity Counter",
+	"status": "acceptance",
+	"context": {
+		"quantity_counter": {
+			"text__remove_button_text": "Remove Button",
+			"text__add_button_text": "Add Button",
+			"text__input_name": "counter-input",
+			"text__input_id": "counter-input",
+			"text__value": 1
+		}
+	}
+}

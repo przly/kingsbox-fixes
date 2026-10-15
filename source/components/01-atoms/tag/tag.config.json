@@ -1,0 +1,89 @@
+{
+	"title": "Tag",
+	"status": "acceptance",
+	"default": "blue",
+	"notes": "Tag",
+	"variants": [
+		{
+			"name": "blue",
+			"context": {
+				"tag": {
+					"text__text": "VEČ VARIACIJ",
+					"select__color": "blue"
+				}
+			}
+		},
+		{
+			"name": "red",
+			"context": {
+				"tag": {
+					"text__text": "VEČ VARIACIJ",
+					"select__color": "red"
+				}
+			}
+		},
+		{
+			"name": "white",
+			"context": {
+				"tag": {
+					"text__text": "VEČ VARIACIJ",
+					"select__color": "white"
+				}
+			}
+		},
+		{
+			"name": "white-transparent",
+			"context": {
+				"tag": {
+					"text__text": "VEČ VARIACIJ",
+					"select__color": "white-transparent"
+				}
+			}
+		},
+		{
+			"name": "light-gray",
+			"context": {
+				"tag": {
+					"text__text": "VEČ VARIACIJ",
+					"select__color": "light-gray"
+				}
+			}
+		},
+		{
+			"name": "dark",
+			"context": {
+				"tag": {
+					"text__text": "VEČ VARIACIJ",
+					"select__color": "dark"
+				}
+			}
+		},
+		{
+			"name": "dark-transparent",
+			"context": {
+				"tag": {
+					"text__text": "VEČ VARIACIJ",
+					"select__color": "dark-transparent"
+				}
+			}
+		},
+		{
+			"name": "cancelled",
+			"context": {
+				"tag": {
+					"text__text": "VEČ VARIACIJ",
+					"select__color": "cancelled"
+				}
+			}
+		},
+		{
+			"name": "green",
+			"context": {
+				"tag": {
+					"text__text": "DELIVERED",
+					"select__color": "green"
+				}
+			}
+		}
+	]
+}

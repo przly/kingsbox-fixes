@@ -1,0 +1,26 @@
+<div data-component="mol-step-card" class="step-card">
+	{% if step_card.text__step_label or step_card.text__step %}
+		<div class="step-card__step : text--12 : font-secondary">
+			{% if step_card.text__step_label %}
+				<span class="text--uppercase">{{ step_card.text__step_label }} {{ '%02d'|format(loop.index) }}:</span>
+			{% endif %}
+			{{ step_card.text__step }}
+		</div>
+
+		<div class="step-card__divider">
+			{% include '@atoms/icons/icons.twig' with {
+				icon_modifier: 'arrow-right'
+			} %}
+		</div>
+	{% endif %}
+
+	{% if step_card.image__image %}
+		<div class="step-card__image : bg-image : rounded-4 : overflow-backface">
+			<img src="{{ step_card.image__image }}" alt="{{ step_card.image_alt }}" width="460" height="260" />
+		</div>
+	{% endif %}
+
+	{% if step_card.text__title %}
+		<div class="step-card__title : text--18 : text--bd"><h3>{{ step_card.text__title }}</h3></div>
+	{% endif %}
+</div>

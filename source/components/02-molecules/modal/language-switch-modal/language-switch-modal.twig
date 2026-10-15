@@ -1,0 +1,36 @@
+<div
+	data-component="mol-modal"
+	class="modal : language-switch-modal : modal-overlay {{ language_switch_modal_extra_class }}"
+	data-modal
+	data-modal-parent
+>
+	<div class="modal__overlay : covered" data-close-modal></div>
+
+	<div class="modal__inner">
+		{% include '@atoms/button/button.twig' with {
+			aria_label: language_switch_modal.text__close_button|default('Close Modal'),
+			size: 'small',
+			type: 'button',
+			icon: 'close',
+			class_name: 'modal__close',
+			data_attr: 'data-close-modal'
+		} %}
+
+		{% if language_switch_modal.text__title %}
+			<div class="modal__header">
+				{% if language_switch_modal.text__title %}
+					{% include '@atoms/title/title.twig' with {
+						secondary: true,
+						modifier: 'h4',
+						tag: 'h2',
+						title: language_switch_modal.text__title
+					} %}
+				{% endif %}
+			</div>
+		{% endif %}
+
+		{% include '@molecules/language-form/language-form.twig' with {
+			language_form: language_switch_modal.language_form
+		} %}
+	</div>
+</div>

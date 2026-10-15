@@ -1,0 +1,13 @@
+{
+	"title": "Free Shipping Indicator",
+	"notes": "Free Shipping Indicator",
+	"status": "acceptance",
+	"context": {
+		"free_shipping_indicator": {
+			"wysiwyg__text": "Add <strong>1.900 €</strong> more to earn free shipping!",
+			"wysiwyg__free_text": "Your order ships for <strong>FRee!</strong>",
+			"text__text": "Earn free shipping above 2.999 €",
+			"text__progress_width": "15"
+		}
+	}
+}

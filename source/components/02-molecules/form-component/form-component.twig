@@ -1,0 +1,412 @@
+{% macro form_header(title, text) %}
+	<div class="form-component__header : mb-32">
+		{% include '@atoms/title/title.twig' with {
+			modifier: 'h5',
+			tag: 'h2',
+			secondary: true,
+			title: title
+		} %}
+
+		{% if text %}
+			<div class="form-component__header-text : text--gray-500 : text--14">{{ text }}</div>
+		{% endif %}
+	</div>
+{% endmacro %}
+{% macro input_field(input) %}
+	{% include '@atoms/input/input.twig' with {
+		input: {
+			input_type: input.select__input_type,
+			label: input.text__label,
+			placeholder: input.text__placeholder,
+			id: input.text__id,
+			name: input.text__name,
+			value: input.text__value,
+			required: input.boolean__required,
+			max_char_middle_text: input.text__max_char_middle_text,
+			max_char: input.text__max_char,
+			max_char_text: input.text__max_char_text,
+			error_message: input.text__error_message,
+			invalid_email_message: input.text__invalid_email_message,
+			numbers_only: input.boolean__numbers_only,
+			text__info_text: input.text__info_text,
+			password_validator_messages: input.password_validator_messages,
+			identical_password_error: input.text__identical_password_error,
+			icon: input.select__icon
+		}
+	} %}
+{% endmacro %}
+{% macro fields(item) %}
+	{% set item_classes =
+		[
+			'form-component__item',
+			item.boolean__divider
+				or item.text__title
+				or item.text__sub_title
+				or item.info_text
+				or item.date_picker
+				or item.checkbox
+				or item.radio_button_group
+				or item.range_inputs
+				or item.upload_box
+				? 'full'
+				: '',
+			item.select__width,
+			item.text__title ? 'has-title' : '',
+			item.toggle_field ? 'hide' : '',
+			item.checkbox ? 'has-checkbox' : ''
+		]|join(' ')
+	%}
+
+	<div class="{{ item_classes }}" {{ item.toggle_field ? 'data-field="' ~ item.toggle_field ~ '"' }}>
+		{% if item.dropdown %}
+			{% include '@atoms/dropdown/dropdown.twig' with {
+				dropdown: {
+					label: item.dropdown.text__label,
+					required: item.dropdown.boolean__required,
+					placeholder: item.dropdown.text__placeholder,
+					items: item.dropdown.repeater__items,
+					error_message: item.dropdown.text__error_message
+				}
+			} %}
+		{% elseif item.text__title or item.text__sub_title %}
+			<div class="form-component__item-title : text--16 : text--sb"><strong>{{ item.text__title }}</strong></div>
+
+			{% if item.textarea__text %}
+				<div class="form-component__item-text : text--14 : text--md : text--gray-400">
+					{{ item.textarea__text }}
+				</div>
+			{% endif %}
+		{% elseif item.boolean__divider %}
+			<div class="form-component__divider"></div>
+		{% elseif item.checkbox %}
+			<div class="form-component__checkbox">
+				{% include '@atoms/checkbox/checkbox.twig' with {
+					checkbox: item.checkbox
+				} %}
+			</div>
+		{% elseif item.radio_button_group %}
+			{% include '@molecules/radio-button-group/radio-button-group.twig' with {
+				radio_button_group: item.radio_button_group
+			} %}
+		{% elseif item.checkbox_group %}
+			{% include '@molecules/checkbox-group/checkbox-group.twig' with {
+				checkbox_group: item.checkbox_group
+			} %}
+		{% elseif item.date_picker %}
+			{% include '@molecules/date-picker-single/date-picker-single.twig' with {
+				date_picker_single: item.date_picker
+			} %}
+		{% elseif item.hidden_upload_box or item.upload_box %}
+			{% include '@molecules/upload-box/upload-box.twig' with {
+				upload_box: item.hidden_upload_box ?? item.upload_box
+			} %}
+		{% elseif item.range_inputs %}
+			<div class="form-component__range">
+				<div class="label">{{ item.range_inputs.text__label }}</div>
+				<div class="form-component__range-row">
+					<div class="form-component__range-left">{{ _self.input_field(item.range_inputs.from_input) }}</div>
+					<div class="form-component__range-right">{{ _self.input_field(item.range_inputs.to_input) }}</div>
+				</div>
+			</div>
+		{% elseif item.input_field %}
+			{{ _self.input_field(item.input_field) }}
+
+			{% if item.link__link %}
+				<div class="form-component__info-text : text--12 : text--md : text--gray-400 : text-right">
+					<a
+						href="{{ item.link__link }}"
+						{{ item.link_rel ? 'rel="' ~ item.link_rel ~ '"' }}
+						{{ item.link_target ? 'target="' ~ item.link_target ~ '"' }}
+						class="form-component__info-link"
+					>
+						<span>{{ item.link_text }}</span>
+						{% include '@atoms/icons/icons.twig' with {
+							icon_modifier: 'chevron-right'
+						} %}
+					</a>
+				</div>
+			{% endif %}
+
+			{% if item.text__info_text %}
+				<div class="form-component__info-text : text--12 : text--md : text--gray-400">
+					{{ item.text__info_text }}
+				</div>
+			{% endif %}
+		{% endif %}
+	</div>
+{% endmacro %}
+{% macro form_footer(form_component, white_button, newsletter_form) %}
+	{% if form_component.reCAPTCHA_site_key %}
+		<div class="g-captcha">
+			<script
+				src="https://www.google.com/recaptcha/api.js?render={{ form_component.reCAPTCHA_site_key }}"
+			></script>
+			<div class="g-recaptcha" data-sitekey="{{ form_component.reCAPTCHA_site_key }}"></div>
+		</div>
+	{% endif %}
+
+	{% if form_component.checkbox %}
+		{% include '@atoms/checkbox/checkbox.twig' with {
+			checkbox: form_component.checkbox
+		} %}
+	{% endif %}
+
+	{# Submit button #}
+	{% if form_component.submit_button_text %}
+		<div class="form-component__submit : full : text-center">
+			<button
+				type="submit"
+				class="btn : btn--mono-font : btn--large {{ white_button ? 'btn--white' : 'btn--default' }}"
+				{{ form_component.reCAPTCHA_site_key ? 'data-sitekey="' ~ form_component.reCAPTCHA_site_key ~ '"' }}
+				{{ form_component.button_id ? 'id="' ~ form_component.button_id ~ '"' }}
+				{{ form_component.disable_submit_button ? 'disabled' }}
+			>
+				<span class="btn__text">{{ form_component.submit_button_text }}</span>
+				<span class="btn__icon : btn__icon--default : d-flex-cc">
+					{% if form_component.submit_button_icon %}
+						{% include '@atoms/icons/icons.twig' with {
+							icon_modifier: form_component.submit_button_icon
+						} %}
+					{% else %}
+						{% include '@atoms/icons/icons.twig' with {
+							icon_modifier: newsletter_form ? 'check' : 'chevron-right'
+						} %}
+					{% endif %}
+				</span>
+				<span class="btn__loader : covered"></span>
+			</button>
+		</div>
+	{% endif %}
+{% endmacro %}
+{% import _self as macros %}
+
+{% set wrapper_classes =
+	[
+		'form-component',
+		form_component.success.display ? 'show-thankyou' : '',
+		form_component.boolean__toaster_success ? 'has-toaster' : '',
+		show_thankyou ? 'show-thankyou' : '',
+		form_extra_class,
+		newsletter_form ? 'form-component--newsletter-form' : '',
+		job_form ? 'form-component--job-form' : ''
+	]|join(' ')
+%}
+
+<div data-component="mol-form-component" class="{{ wrapper_classes }}" data-parent>
+	{# =========================================================
+	   FORM
+	========================================================= #}
+
+	<form
+		id="{{ form_component.form_id }}"
+		method="POST"
+		class="form-component__form"
+		translate="no"
+		autocomplete="off"
+		novalidate
+	>
+		{% if form_component.reset_hash %}
+			<input type="hidden" name="reset-hash" id="reset-hash" value="{{ form_component.reset_hash }}" />
+		{% endif %}
+		{# Hidden meta fields #}
+		<input
+			type="hidden"
+			name="{{ form_component.action }}"
+			id="{{ form_component.action }}"
+			value="{{ form_component.action }}"
+			data-action="{{ form_component.action }}"
+		/>
+
+		<input
+			type="hidden"
+			name="form-type-{{ form_component.form_id }}"
+			id="form-type-{{ form_component.form_id }}"
+			value="form-type-{{ form_component.form_id }}"
+			data-form-type="form-type-{{ form_component.form_id }}"
+		/>
+
+		{% if form_component.form_page_id %}
+			<input
+				type="hidden"
+				name="form-page-id-{{ form_component.form_page_id }}"
+				id="form-page-id-{{ form_component.form_page_id }}"
+				value="{{ form_component.form_page_id }}"
+				data-page-id
+			/>
+		{% endif %}
+
+		{% if form_component.form_module_index is defined %}
+			<input
+				type="hidden"
+				name="form-module-index"
+				id="form-module-index"
+				value="{{ form_component.form_module_index }}"
+				data-module-index
+			/>
+		{% endif %}
+
+		{% if job_form %}
+			{# =========================================================
+		   JOB FORM
+		========================================================= #}
+			<div class="form-component__left">
+				{% if form_component.form_title %}
+					{{ macros.form_header(form_component.form_title) }}
+				{% endif %}
+				<div class="form-component__body : p-relative">
+					{% for item in form_component.input_fields %}
+						{{ macros.fields(item) }}
+					{% endfor %}
+				</div>
+			</div>
+			<div class="form-component__right">
+				{% if form_component.right_title or form_component.right_text %}
+					{{ macros.form_header(form_component.right_title, form_component.right_text) }}
+				{% endif %}
+
+				{% if form_component.showroom_inputs %}
+					{% include '@molecules/showroom-inputs/showroom-inputs.twig' with {
+						showroom_inputs: form_component.showroom_inputs
+					} %}
+				{% endif %}
+
+				{% if form_component.upload_box %}
+					{% include '@molecules/upload-box/upload-box.twig' with {
+						upload_box: form_component.upload_box
+					} %}
+				{% endif %}
+			</div>
+
+			<div class="form-component__footer">{{ macros.form_footer(form_component, true, false) }}</div>
+		{% elseif request_quote_form %}
+			{# =========================================================
+		   QUOTE FORM
+		========================================================= #}
+			<div class="cart-gray-box">
+				{% if form_component.form_title %}
+					{{ macros.form_header(form_component.form_title) }}
+				{% endif %}
+
+				<div class="form-component__body : p-relative">
+					{% for item in form_component.input_fields %}
+						{{ macros.fields(item) }}
+					{% endfor %}
+				</div>
+			</div>
+
+			{% if form_component.additional_info_box.text__button_text %}
+				<div class="form-component__box : full : gray-dotted-box : text-center">
+					{% if form_component.additional_info_box.text__title %}
+						{% include '@atoms/title/title.twig' with {
+							modifier: 'h5 : z-top',
+							tag: 'h3',
+							secondary: true,
+							title: form_component.additional_info_box.text__title
+						} %}
+					{% endif %}
+
+					{% if form_component.additional_info_box.textarea__text %}
+						<div class="form-component__box-text : text--14 : text--gray-500 : z-top : mx-auto">
+							{{ form_component.additional_info_box.textarea__text }}
+						</div>
+					{% endif %}
+
+					{% include '@atoms/button/button.twig' with {
+						type: 'button',
+						modifier: 'dark',
+						class_name: 'btn-additional-fields : z-top',
+						icon: 'plus',
+						text: form_component.additional_info_box.text__button_text
+					} %}
+
+					{% if form_component.additional_info_box.text__info_text %}
+						<div class="text--10 : text--md : text--gray-400">
+							{{ form_component.additional_info_box.text__info_text }}
+						</div>
+					{% endif %}
+				</div>
+			{% endif %}
+
+			{% if form_component.additional_fields %}
+				<div class="cart-gray-box : form-component__additional-fields hide">
+					{% if form_component.text__additional_fields_title %}
+						{{ macros.form_header(form_component.text__additional_fields_title) }}
+					{% endif %}
+
+					<div class="form-component__body : p-relative">
+						{% for item in form_component.additional_fields %}
+							{{ macros.fields(item) }}
+						{% endfor %}
+					</div>
+				</div>
+			{% endif %}
+
+			<div class="form-component__footer">{{ macros.form_footer(form_component, false, false) }}</div>
+		{% else %}
+			{# =========================================================
+		   STANDARD FORM
+		========================================================= #}
+
+			{% if form_component.form_title %}
+				{{ macros.form_header(form_component.form_title) }}
+			{% endif %}
+
+			<div class="form-component__body : p-relative">
+				{% for item in form_component.input_fields %}
+					{{ macros.fields(item) }}
+				{% endfor %}
+
+				{{ macros.form_footer(form_component, false, newsletter_form) }}
+			</div>
+		{% endif %}
+
+		{# Alerts #}
+		<div class="form-component__alert : hide : form-component__alert-error">
+			{{ form_component.form_error_message }}
+		</div>
+
+		<div class="form-component__alert : hide : form-component__alert-success">
+			{{ form_component.form_success_message }}
+		</div>
+	</form>
+
+	{# =========================================================
+	   SUCCESS STATE
+	========================================================= #}
+
+	{% if form_component.success %}
+		<div class="form-component__success">
+			{% if form_component.success.super_title %}
+				<div
+					class="form-component__success-super-title : text--12 : text--uppercase : font-secondary : text--gray-900"
+				>
+					{{ form_component.success.super_title }}
+				</div>
+			{% endif %}
+
+			{% if form_component.success.title %}
+				<div class="form-component__success-title : title : title--h5">{{ form_component.success.title }}</div>
+			{% endif %}
+
+			{% if form_component.success.text %}
+				<div class="form-component__success-text : editor-text">{{ form_component.success.text }}</div>
+			{% endif %}
+
+			{% if form_component.success.button_href %}
+				<div class="form-component__success-button : text-right">
+					{% include '@atoms/button/button.twig' with {
+						modifier: 'primary',
+						size: success_button_size,
+						href: form_component.success.button_href,
+						text: form_component.success.button_text,
+						target: form_component.success.button_target,
+						rel: form_component.success.button_rel,
+						icon: form_component.success.button_icon
+					} %}
+				</div>
+			{% endif %}
+		</div>
+	{% endif %}
+
+	{% include '@atoms/loader/loader.twig' %}
+</div>

@@ -1,0 +1,503 @@
+{
+	"title": "Site Header",
+	"notes": "Site Header",
+	"status": "acceptance",
+	"default": "default",
+	"variants": [
+		{
+			"name": "default",
+			"context": {
+				"no_script": {
+					"text": "<h5>Oh no! We've noticed that JavaScript is disabled in your browser!</h5><p>But don't worry! Here is how <a target='_blank' rel='noopener noreferrer' href='https://www.enable-javascript.com/'>you can enable it</a> and restore the normal functionality of the web page.<br></p>"
+				},
+				"top_bar": {
+					"text__top_bar": "Lorem ipsum dolor sit amet dolor sit amet",
+					"link__top_bar_link": "#",
+					"top_bar_link_text": "Learn more",
+					"repeater__links": [
+						{
+							"link__link": "#",
+							"link_text": "Help",
+							"select__icon": "question"
+						},
+						{
+							"link__link": "#",
+							"link_text": "B2B Login"
+						}
+					]
+				},
+				"text__language_button": "SLO/SL [€]",
+				"link__logo_link": "#",
+				"image__logo": "../../images/kingsbox-logo-dark.svg",
+				"image_logo_alt": "KingsBox",
+				"cart_button": {
+					"number__amount": "4",
+					"link_text": "view cart"
+				},
+				"user_button": {
+					"link__link": "#",
+					"link_text": "login"
+				},
+				"wishlist_button": {
+					"link__link": "#",
+					"number__amount": "4",
+					"link_text": "wishlist"
+				},
+				"project_button": {
+					"number__amount": "4",
+					"link_text": "show projects"
+				},
+				"start_project_button": {
+					"link__button": "#",
+					"button_text": "Start your project"
+				},
+				"text__search_button": "search",
+				"header_search": {
+					"text__placeholder": "Search items, blogs, FAQ...",
+					"text__submit": "Search",
+					"empty": {
+						"text__title": "No results for “Mercedes Benz”",
+						"link__link": "#",
+						"link_text": "See best sellers"
+					},
+					"recommended": {
+						"text__title": "People often search:",
+						"repeater__buttons": [
+							{
+								"text__text": "Racks"
+							},
+							{
+								"text__text": "Bumper plates"
+							},
+							{
+								"text__text": "Outdoor racks"
+							}
+						]
+					},
+					"repeater__product_groups": [
+						{
+							"text__title": "Best sellers",
+							"link__view_all_link": "#",
+							"link_view_all_text": "Show All (2)",
+							"repeater__products": [
+								{
+									"link__link": "#",
+									"image__image": "../../images/search-product-1.webp",
+									"image_alt": "Image",
+									"text__title": "Mighty Power Rack CX-30",
+									"text__price": "2.000,00 €"
+								},
+								{
+									"link__link": "#",
+									"image__image": "../../images/search-product-2.webp",
+									"image_alt": "Image",
+									"text__title": "Mighty Power Rack CX-30",
+									"text__price": "2.000,00 €"
+								},
+								{
+									"link__link": "#",
+									"image__image": "../../images/search-product-3.webp",
+									"image_alt": "Image",
+									"text__title": "Mighty Power Rack CX-30",
+									"text__price": "2.000,00 €"
+								},
+								{
+									"link__link": "#",
+									"image__image": "../../images/search-product-4.webp",
+									"image_alt": "Image",
+									"text__title": "Mighty Power Rack CX-30",
+									"text__price": "2.000,00 €",
+									"text__discount": "-15%"
+								}
+							]
+						},
+						{
+							"text__title": "Instructions",
+							"link__view_all_link": "#",
+							"link_view_all_text": "Show All (2)",
+							"repeater__products": [
+								{
+									"link__link": "#",
+									"image__image": "../../images/search-product-6.webp",
+									"image_alt": "Image",
+									"text__title": "Rack 565-XC",
+									"repeater__info": [
+										{
+											"text__text": "Assembly Instructions"
+										},
+										{
+											"link__link": "#",
+											"link_target": "",
+											"link_rel": "",
+											"text__download_button": "PDF Download"
+										}
+									]
+								},
+								{
+									"link__link": "#",
+									"image__image": "../../images/search-product-5.webp",
+									"image_alt": "Image",
+									"text__title": "Crossfit Lift Like a Viking",
+									"text__category": "Case study"
+								}
+							]
+						}
+					]
+				},
+				"repeater__menu_items": [
+					{
+						"link_text": "Shop",
+						"link__link": "#",
+						"megamenu": {
+							"text__title": "Shop",
+							"text__discount_title": "Black Friday",
+							"text__discount_tag": "Code: BLACKFRIDAY",
+							"repeater__navs": [
+								{
+									"repeater__links": [
+										{
+											"link_text": "New In",
+											"sub_menu": {
+												"link__more_button": "#",
+												"more_button_text": "See all",
+												"repeater__products": [
+													{
+														"link__link": "#",
+														"textarea__title": "Barbells",
+														"image__image": "../../images/megamenu.webp",
+														"image_alt": "image"
+													},
+													{
+														"link__link": "#",
+														"textarea__title": "Plates",
+														"image__image": "../../images/megamenu.webp",
+														"image_alt": "image"
+													},
+													{
+														"link__link": "#",
+														"textarea__title": "Dumbbells<br/>& Kettlebells",
+														"image__image": "../../images/megamenu.webp",
+														"image_alt": "image"
+													}
+												]
+											}
+										},
+										{
+											"link_text": "Strength",
+											"sub_menu": {
+												"link__more_button": "#",
+												"more_button_text": "See all",
+												"repeater__products": [
+													{
+														"link__link": "#",
+														"textarea__title": "Barbells",
+														"image__image": "../../images/megamenu.webp",
+														"image_alt": "image"
+													}
+												]
+											}
+										},
+										{
+											"link_text": "Rigs & Racks",
+											"link__link": "#"
+										},
+										{
+											"link_text": "Strength Machines",
+											"link__link": "#"
+										},
+										{
+											"link_text": "Conditioning",
+											"link__link": "#",
+											"sub_menu": {
+												"link__more_button": "#",
+												"more_button_text": "See all",
+												"repeater__products": [
+													{
+														"link__link": "#",
+														"textarea__title": "Barbells",
+														"image__image": "../../images/megamenu.webp",
+														"image_alt": "image"
+													},
+													{
+														"link__link": "#",
+														"textarea__title": "Plates",
+														"image__image": "../../images/megamenu.webp",
+														"image_alt": "image"
+													},
+													{
+														"link__link": "#",
+														"textarea__title": "Dumbbells<br/>& Kettlebells",
+														"image__image": "../../images/megamenu.webp",
+														"image_alt": "image"
+													},
+													{
+														"link__link": "#",
+														"textarea__title": "Barbells",
+														"image__image": "../../images/megamenu.webp",
+														"image_alt": "image"
+													},
+													{
+														"link__link": "#",
+														"textarea__title": "Plates",
+														"image__image": "../../images/megamenu.webp",
+														"image_alt": "image"
+													},
+													{
+														"link__link": "#",
+														"textarea__title": "Dumbbells<br/>& Kettlebells",
+														"image__image": "../../images/megamenu.webp",
+														"image_alt": "image"
+													}
+												]
+											}
+										},
+										{
+											"link_text": "Body Weights",
+											"link__link": "#"
+										},
+										{
+											"link_text": "Gym Essentials",
+											"link__link": "#"
+										},
+										{
+											"link_text": "Apparel & Accesories",
+											"sub_menu": {
+												"link__more_button": "#",
+												"more_button_text": "See all",
+												"repeater__products": [
+													{
+														"link__link": "#",
+														"textarea__title": "Barbells",
+														"image__image": "../../images/megamenu.webp",
+														"image_alt": "image"
+													},
+													{
+														"link__link": "#",
+														"textarea__title": "Plates",
+														"image__image": "../../images/megamenu.webp",
+														"image_alt": "image"
+													},
+													{
+														"link__link": "#",
+														"textarea__title": "Dumbbells<br/>& Kettlebells",
+														"image__image": "../../images/megamenu.webp",
+														"image_alt": "image"
+													},
+													{
+														"link__link": "#",
+														"textarea__title": "Sandbags<br/>& Stones",
+														"image__image": "../../images/megamenu.webp",
+														"image_alt": "image"
+													},
+													{
+														"link__link": "#",
+														"textarea__title": "Yokes<br/>& Carry Gear",
+														"image__image": "../../images/megamenu.webp",
+														"image_alt": "image"
+													},
+													{
+														"link__link": "#",
+														"textarea__title": "Dumbbells<br/>& Kettlebells",
+														"image__image": "../../images/megamenu.webp",
+														"image_alt": "image"
+													},
+													{
+														"link__link": "#",
+														"textarea__title": "Barbells",
+														"image__image": "../../images/megamenu.webp",
+														"image_alt": "image"
+													},
+													{
+														"link__link": "#",
+														"textarea__title": "Barbells",
+														"image__image": "../../images/megamenu.webp",
+														"image_alt": "image"
+													},
+													{
+														"link__link": "#",
+														"textarea__title": "Barbells",
+														"image__image": "../../images/megamenu.webp",
+														"image_alt": "image"
+													},
+													{
+														"link__link": "#",
+														"textarea__title": "Barbells",
+														"image__image": "../../images/megamenu.webp",
+														"image_alt": "image"
+													},
+													{
+														"link__link": "#",
+														"textarea__title": "Barbells",
+														"image__image": "../../images/megamenu.webp",
+														"image_alt": "image"
+													}
+												]
+											}
+										},
+										{
+											"link_text": "Sets",
+											"link__link": "#"
+										},
+										{
+											"link_text": "Training Accessories",
+											"link__link": "#"
+										}
+									]
+								},
+								{
+									"repeater__links": [
+										{
+											"link_text": "Sale",
+											"link__link": "#"
+										},
+										{
+											"link_text": "Outlet",
+											"link__link": "#"
+										},
+										{
+											"link_text": "Used",
+											"link__link": "#"
+										}
+									]
+								}
+							],
+							"repeater__buttons": [
+								{
+									"link__button": "#",
+									"button_text": "All products"
+								},
+								{
+									"link__button": "#",
+									"button_text": "All Categories"
+								}
+							]
+						}
+					},
+					{
+						"link_text": "custom gyms",
+						"link__link": "#",
+						"megamenu": {
+							"text__title": "custom gyms",
+							"repeater__navs": [
+								{
+									"repeater__links": [
+										{
+											"link_text": "Custom Gym Solutions",
+											"link__link": "#"
+										},
+										{
+											"link_text": "Royal Family",
+											"link__link": "#"
+										},
+										{
+											"link_text": "Case Studies",
+											"link__link": "#"
+										},
+										{
+											"link_text": "Showrooms",
+											"link__link": "#"
+										},
+										{
+											"link_text": "Gym Builder",
+											"link__link": "#"
+										}
+									]
+								}
+							],
+							"quote_card": {
+								"image__image": "../../images/case-study-card-medium.webp",
+								"image_alt": "images",
+								"textarea__title": "Start your custom gym project",
+								"textarea__text": "Malesuada proin ullamcorper senectus lobortis eros quam dui elit.",
+								"link__button": "#",
+								"button_text": "Request a quote"
+							}
+						}
+					},
+					{
+						"link_text": "home gyms",
+						"link__link": "#",
+						"megamenu": {
+							"text__title": "Home Gyms",
+							"repeater__navs": [
+								{
+									"repeater__links": [
+										{
+											"link_text": "Royal",
+											"link__link": "#"
+										},
+										{
+											"link_text": "Mighty",
+											"link__link": "#"
+										},
+										{
+											"link_text": "Premium",
+											"link__link": "#"
+										},
+										{
+											"link_text": "Home Gym Products",
+											"link__link": "#"
+										},
+										{
+											"link_text": "Home Gym Sets",
+											"link__link": "#"
+										}
+									]
+								}
+							],
+							"quote_card": {
+								"image__image": "../../images/case-study-card-medium.webp",
+								"image_alt": "images",
+								"textarea__title": "Start your custom gym project",
+								"textarea__text": "Malesuada proin ullamcorper senectus lobortis eros quam dui elit.",
+								"link__button": "#",
+								"button_text": "Request a quote"
+							}
+						}
+					},
+					{
+						"link_text": "explore",
+						"link__link": "#",
+						"megamenu": {
+							"text__title": "Explore",
+							"repeater__navs": [
+								{
+									"repeater__links": [
+										{
+											"link_text": "About Kingsbox",
+											"link__link": "#"
+										},
+										{
+											"link_text": "Blogs",
+											"link__link": "#"
+										},
+										{
+											"link_text": "Become a partner",
+											"link__link": "#"
+										},
+										{
+											"link_text": "Carrers",
+											"link__link": "#"
+										},
+										{
+											"link_text": "FAQ",
+											"link__link": "#"
+										}
+									]
+								}
+							],
+							"quote_card": {
+								"image__image": "../../images/case-study-card-medium.webp",
+								"image_alt": "images",
+								"textarea__title": "Start your custom gym project",
+								"textarea__text": "Malesuada proin ullamcorper senectus lobortis eros quam dui elit.",
+								"link__button": "#",
+								"button_text": "Request a quote"
+							}
+						}
+					}
+				]
+			}
+		}
+	]
+}

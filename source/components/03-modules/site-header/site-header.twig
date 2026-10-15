@@ -1,0 +1,214 @@
+{% include '@modules/noscript/noscript.twig' with {
+	title: no_script.title,
+	text: no_script.text
+} %}
+<header data-component="mod-site-header" class="header-main : font-secondary : text--md" id="header-main">
+	{% if top_bar %}
+		<div class="header-main__top : text--12 : text--gray-100 : lt-0">
+			<div class="header-main__top-left">
+				{% if top_bar.text__top_bar %}
+					<div class="header-main__top-text">{{ top_bar.text__top_bar }}</div>
+				{% endif %}
+				{% if top_bar.link__top_bar_link %}
+					{% include '@atoms/button/button.twig' with {
+						href: top_bar.link__top_bar_link,
+						text: top_bar.top_bar_link_text,
+						target: top_bar.top_bar_link_target,
+						rel: top_bar.top_bar_link_rel,
+						is_plain: true,
+						modifier: 'dark',
+						mono_font: true,
+						size: 'small'
+					} %}
+				{% endif %}
+			</div>
+			<div class="header-main__top-right : header-main__top-right-desktop">
+				{% for item in top_bar.repeater__links %}
+					<a
+						href="{{ item.link__link }}"
+						{{ item.link_target ? 'target=' ~ item.link_target }}
+						{{ item.link_rel ? 'rel=' ~ item.link_rel }}
+						class="header-main__top-link"
+					>
+						{% if item.select__icon %}
+							{% include '@atoms/icons/icons.twig' with {
+								icon_modifier: item.select__icon
+							} %}
+						{% endif %}
+
+						{{ item.link_text }}
+					</a>
+				{% endfor %}
+
+				{% if text__language_button %}
+					<button type="button" class="header-main__top-link" data-language-trigger>
+						{{ text__language_button }}
+					</button>
+				{% endif %}
+			</div>
+		</div>
+	{% endif %}
+
+	<div class="header-main__bottom : text--14">
+		<div class="header-main__bottom-left">
+			<div class="header-main__box">
+				<a
+					href="{{ link__logo_link }}"
+					{{ link_logo_rel ? 'rel="' ~ link_logo_rel ~ '"' }}
+					{{ link_logo_target ? 'target="' ~ link_logo_target ~ '"' }}
+					aria-label="{{ image_logo_alt|default('home') }}"
+					class="header-main__logo : header-main__box-item"
+				>
+					<img class="no-lazzy" src="{{ image__logo }}" alt="{{ image_logo_alt }}" width="72" height="12" />
+				</a>
+			</div>
+
+			<div class="header-main__box : header-main__menu">
+				{% include '@molecules/menu/menu.twig' with {
+					start_project_button: start_project_button,
+					project_button: project_button,
+					repeater__menu_items: repeater__menu_items,
+					top_bar_links: top_bar.repeater__links,
+					text__language_button: text__language_button
+				} %}
+			</div>
+
+			{% if text__search_button %}
+				<div class="header-main__box : header-main__search-btn : d-xs-none : d-md-flex">
+					<button type="button" class="header-main__box-item" data-search-toggle>
+						{% include '@atoms/icons/icons.twig' with {
+							icon_modifier: 'search'
+						} %}
+						<span class="p-none">{{ text__search_button }}</span>
+					</button>
+				</div>
+			{% endif %}
+		</div>
+		<div class="header-main__bottom-right">
+			<div class="header-main__box : header-main__actions">
+				{% if text__search_button %}
+					<button
+						type="button"
+						class="header-main__box-item : header-main__link : header-main__link-search : d-md-none"
+						data-search-toggle
+						aria-label="{{ text__search_button }}"
+					>
+						{% include '@atoms/icons/icons.twig' with {
+							icon_modifier: 'search'
+						} %}
+					</button>
+				{% endif %}
+
+				{% if wishlist_button %}
+					<a
+						class="header-main__link : header-main__box-item"
+						href="{{ wishlist_button.link__link }}"
+						{{ wishlist_button.link_rel ? 'rel="' ~ wishlist_button.link_rel ~ '"' }}
+						{{ wishlist_button.link_target ? 'target="' ~ wishlist_button.link_target ~ '"' }}
+						aria-label="{{ wishlist_button.link_text|default('show wishlist') }}"
+					>
+						{% include '@atoms/icons/icons.twig' with {
+							icon_modifier: 'heart'
+						} %}
+
+						<div
+							class="header-main__icon-items : header-main__link-number : d-flex-cc"
+							data-wishlist-number
+							{{ wishlist_button.number__amount ? ' ' : 'style="display:none;"' }}
+						>
+							{{ wishlist_button.number__amount }}
+						</div>
+					</a>
+				{% endif %}
+
+				{% if cart_button %}
+					<button
+						class="header-main__link : header-main__box-item : header-main__cart : cart-popup-trigger"
+						aria-label="{{ cart_button.link_text|default('show cart') }}"
+					>
+						{% include '@atoms/icons/icons.twig' with {
+							icon_modifier: 'cart'
+						} %}
+
+						<span
+							class="header-main__icon-items : header-main__link-number : d-flex-cc"
+							data-cart-number
+							{{ cart_button.number__amount ? ' ' : 'style="display:none;"' }}
+						>
+							{{ cart_button.number__amount }}
+						</span>
+					</button>
+				{% endif %}
+
+				{% if user_button %}
+					<a
+						class="header-main__link : header-main__box-item"
+						href="{{ user_button.link__link }}"
+						{{ user_button.link_rel ? 'rel="' ~ user_button.link_rel ~ '"' }}
+						{{ user_button.link_target ? 'target="' ~ user_button.link_target ~ '"' }}
+						aria-label="{{ user_button.link_text|default('login/profile') }}"
+					>
+						{% if user_button.text__logged_in %}
+							<div class="header-main__link-overlay : text--16">{{ user_button.text__logged_in }}</div>
+						{% else %}
+							{% include '@atoms/icons/icons.twig' with {
+								icon_modifier: 'user'
+							} %}
+						{% endif %}
+					</a>
+				{% endif %}
+			</div>
+
+			{% if start_project_button.link__button or project_button %}
+				<div class="header-main__box : header-main__projects : header-main__projects-desktop">
+					{% if start_project_button.link__button %}
+						{% include '@atoms/button/button.twig' with {
+							href: start_project_button.link__button,
+							text: start_project_button.button_text,
+							target: start_project_button.button_target,
+							rel: start_project_button.button_rel,
+							icon: 'dumbbells',
+							modifier: 'dark',
+							mono_font: true
+						} %}
+					{% endif %}
+
+					{% if project_button %}
+						<button
+							class="header-main__link : header-main__box-item : quote-popup-trigger"
+							aria-label="{{ project_button.link_text|default('open quote side cart') }}"
+						>
+							{% include '@atoms/icons/icons.twig' with {
+								icon_modifier: 'document-dollar'
+							} %}
+
+							<span
+								class="header-main__icon-items : header-main__link-number : d-flex-cc"
+								data-projects-number
+								{{ project_button.number__amount ? ' ' : 'style="display:none;"' }}
+							>
+								{{ project_button.number__amount }}
+							</span>
+						</button>
+					{% endif %}
+				</div>
+			{% endif %}
+		</div>
+	</div>
+
+	<button
+		aria-expanded="false"
+		class="mobile-hamburger : d-flex-cc : d-md-none"
+		aria-label="{{ hamburger_text|default('open menu') }}"
+	>
+		<span class="bars" aria-hidden="true"></span>
+		<span class="bars" aria-hidden="true"></span>
+		<span class="bars" aria-hidden="true"></span>
+	</button>
+</header>
+
+{% include '@molecules/header-search/header-search.twig' with {
+	header_search: header_search
+} %}
+
+<div class="menu-overlay : covered"></div>

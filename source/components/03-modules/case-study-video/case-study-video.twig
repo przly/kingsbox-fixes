@@ -1,0 +1,99 @@
+<section
+	data-component="mod-case-study-video"
+	class="sc-general : sc-case-study-video : bg-black : overflow-h"
+	tabindex="-1"
+	role="contentinfo"
+	{{ case_study_video.text__id ? 'id="' ~ case_study_video.text__id ~ '"' }}
+>
+	{% include '@atoms/section-margin/section-margin.twig' with {
+		default_100_spacing: true,
+		spacing_size: case_study_video.select__top_spacing_size
+	} %}
+
+	<div class="case-study-video">
+		<div class="container">
+			<div class="case-study-video__inner">
+				{% if case_study_video.section_header %}
+					{% include '@molecules/section-header/section-header.twig' with {
+						center_aligned: true,
+						section_header: case_study_video.section_header,
+						button_modifier: 'transparent-white',
+						secondary_button_modifier: 'white'
+					} %}
+				{% endif %}
+
+				{% if case_study_video.repeater__cards %}
+					<div class="case-study-video__card-list">
+						{% for item in case_study_video.repeater__cards %}
+							{% include '@molecules/card/card.twig' with {
+								card: item
+							} %}
+						{% endfor %}
+					</div>
+				{% endif %}
+
+				{% if
+					case_study_video.file__video_webm
+						or case_study_video.file__video_mov
+						or case_study_video.file__video_mp4 %}
+					<div class="case-study-video__video">
+						<div class="case-study-video__video-inner : bg-video : covered">
+							<video
+								class="covered"
+								width="665"
+								height="665"
+								muted
+								playsinline
+								preload="auto"
+								autoplay
+								loop
+								{{
+								case_study_video.image__video_poster
+									? 'poster="' ~ case_study_video.image__video_poster ~ '"'
+								}}
+							>
+								{% if case_study_video.file__video_webm %}
+									<source src="{{ case_study_video.file__video_webm }}" type="video/webm" />
+								{% endif %}
+
+								{% if case_study_video.file__video_mov %}
+									<source src="{{ case_study_video.file__video_mov }}" type="video/quicktime" />
+								{% endif %}
+
+								{% if case_study_video.file__video_mp4 %}
+									<source src="{{ case_study_video.file__video_mp4 }}" type="video/mp4" />
+								{% endif %}
+							</video>
+						</div>
+					</div>
+				{% endif %}
+
+				{% if case_study_video.textarea__bottom_title %}
+					<div class="case-study-video__content">
+						{% include '@atoms/title/title.twig' with {
+							tag: 'h2',
+							modifier: 'h1',
+							title: case_study_video.textarea__bottom_title
+						} %}
+					</div>
+				{% endif %}
+
+				{% if case_study_video.repeater__extra_texts %}
+					<div class="case-study-video__extras">
+						<div class="blank"></div>
+						<div class="case-study-video__extras-right">
+							{% for item in case_study_video.repeater__extra_texts %}
+								<div class="case-study-video__extra">{{ item.textarea__text }}</div>
+							{% endfor %}
+						</div>
+					</div>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+
+	{% include '@atoms/section-margin/section-margin.twig' with {
+		default_100_spacing: true,
+		spacing_size: case_study_video.select__bottom_spacing_size
+	} %}
+</section>

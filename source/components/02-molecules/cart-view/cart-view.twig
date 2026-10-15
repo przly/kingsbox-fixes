@@ -1,0 +1,125 @@
+<div data-component="mol-cart-view" class="cart-view">
+	{% if cart_view.repeater__items %}
+		<div class="cart-view__inner">
+			{% for item in cart_view.repeater__items %}
+				<div class="cart-view__item{{ item.is_new_added ? ' is-new-added' }}">
+					{% if item.cart_item_key %}
+						<input class="cart-item-key" type="hidden" value="{{ item.cart_item_key }}" />
+					{% endif %}
+					{% if item.product_id %}
+						<input class="product-id" type="hidden" value="{{ item.product_id }}" />
+					{% endif %}
+
+					<div class="cart-view__item-inner : text--12 : p-relative">
+						<div class="cart-view__image : overflow-h : rounded-8 : bg-gray-100 : bg-image">
+							{% if item.image__image %}
+								<img
+									src="{{ item.image__image }}"
+									alt="{{ item.image_alt }}"
+									width="109"
+									height="154"
+								/>
+							{% endif %}
+
+							{% if item.text__discount %}
+								{% include '@atoms/tag/tag.twig' with {
+									tag: {
+										text__text: item.text__discount,
+										select__color: 'red'
+									}
+								} %}
+							{% endif %}
+						</div>
+
+						<div class="cart-view__content">
+							<div class="cart-view__content-left">
+								{% if item.text__tag %}
+									{% include '@atoms/tag/tag.twig' with {
+										tag: {
+											select__color: 'dark',
+											text__text: item.text__tag
+										}
+									} %}
+								{% endif %}
+
+								{% if item.text__title %}
+									<div class="cart-view__heading : title : text--bd">{{ item.text__title }}</div>
+								{% endif %}
+
+								<div class="cart-view__info : text--md : text--12 : text--gray-400 : font-secondary">
+									{% if item.text__category %}
+										<div class="cart-view__info-item">{{ item.text__category }}</div>
+									{% endif %}
+									{% for info in item.repeater__info %}
+										<div class="cart-view__info-item">{{ info.text__text }}</div>
+									{% endfor %}
+								</div>
+
+								{% if item.text__note %}
+									<div class="cart-view__notes">{{ item.text__note }}</div>
+								{% endif %}
+							</div>
+
+							{% if item.text__price or item.text__quantity or item.text__old_price %}
+								<div class="cart-view__footer">
+									{% if item.text__price or item.text__old_price %}
+										<div class="cart-view__amount : slashed-zero : text--md : font-secondary">
+											<div class="cart-view__amount-left">
+												{% if item.text__old_price %}
+													<span class="cart-view__old-price : text--12 : text--red-500">
+														<del>{{ item.text__old_price }}</del>
+													</span>
+												{% endif %}
+												<span class="cart-view__price : text--16">{{ item.text__price }}</span>
+											</div>
+										</div>
+									{% endif %}
+
+									{% if item.quantity_counter %}
+										<div class="cart-view__counter">
+											{% include '@molecules/quantity-counter/quantity-counter.twig' with {
+												quantity_counter: item.quantity_counter
+											} %}
+
+											{% if not item.boolean__remove_delete_button %}
+												<button class="cart-view__delete : d-flex-cc" aria-label="Delete Item">
+													{% include '@atoms/icons/icons.twig' with {
+														icon_modifier: 'trash-secondary'
+													} %}
+												</button>
+											{% endif %}
+										</div>
+									{% endif %}
+								</div>
+							{% endif %}
+						</div>
+
+						{% if item.text__quantity %}
+							<div class="cart-view__quantity : d-flex-cc : text--md : text--10">
+								{{ item.text__quantity }}{{ item.text__quantity_label }}
+							</div>
+						{% endif %}
+
+						{% if item.quantity_error %}
+							<div class="btn : btn--gray : btn--with-icon : product-list__reset-btn : btn--left-icon">
+								<span class="btn__text">{{ item.quantity_error }}</span>
+							</div>
+						{% endif %}
+					</div>
+
+					{% if item.link__link %}
+						<a
+							href="{{ item.link__link }}"
+							{{ item.link_rel ? 'rel="' ~ item.link_rel ~ '"' }}
+							{{ item.link_target ? 'target="' ~ item.link_target ~ '"' }}
+							{{ item.text__title ? 'aria-label="' ~ (item.text__title|striptags) ~ '"' }}
+							class="cart-view__link : stretched-link"
+						>
+							{{ text }}
+						</a>
+					{% endif %}
+				</div>
+			{% endfor %}
+		</div>
+	{% endif %}
+</div>

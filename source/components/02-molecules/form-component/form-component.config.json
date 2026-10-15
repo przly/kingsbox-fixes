@@ -1,0 +1,526 @@
+{
+	"title": "Form Component",
+	"notes": "Form Component",
+	"status": "acceptance",
+	"default": "default",
+	"variants": [
+		{
+			"name": "default",
+			"context": {
+				"newsletter_form": true,
+				"form_component": {
+					"action": "saveNewsletterFormData",
+					"form_id": "newsletter_form",
+					"reCAPTCHA_site_key": "6LcdqjwoAAAAAIQaRS8LL9_5XiKc1JTTcwmEFK-9",
+					"input_fields": [
+						{
+							"select__width": "full",
+							"radio_button_group": {
+								"boolean__buttons": true,
+								"boolean__required": true,
+								"text__error_message": "This field is required",
+								"text__label": "I want to recieve newsletter by:",
+								"repeater__items": [
+									{
+										"text__name": "preferred-media",
+										"text__id": "newsletter-sms",
+										"text__text": "SMS",
+										"select__icon": "speech-bubble"
+									},
+									{
+										"text__name": "preferred-media",
+										"text__id": "newsletter-mail",
+										"text__text": "Mail",
+										"select__icon": "mail"
+									}
+								]
+							}
+						},
+						{
+							"select__width": "full",
+							"boolean__divider": true
+						},
+						{
+							"select__width": "half",
+							"input_field": {
+								"text__id": "name",
+								"text__name": "name",
+								"text__label": "Name",
+								"boolean__required": true,
+								"text__placeholder": "Name",
+								"text__error_message": "This field is required"
+							}
+						},
+						{
+							"select__width": "half",
+							"input_field": {
+								"text__id": "surname",
+								"text__name": "surname",
+								"text__label": "Surname",
+								"boolean__required": true,
+								"text__placeholder": "Surname",
+								"text__error_message": "This field is required"
+							}
+						},
+						{
+							"select__width": "full",
+							"input_field": {
+								"text__id": "email",
+								"text__name": "email",
+								"select__input_type": "email",
+								"text__label": "Email",
+								"boolean__required": true,
+								"text__placeholder": "Email",
+								"text__error_message": "This field is required",
+								"text__invalid_email_message": "Please enter valid email"
+							}
+						},
+						{
+							"select__width": "one-third",
+							"dropdown": {
+								"text__label": "Country Code",
+								"boolean__required": true,
+								"text__placeholder": "Country Code",
+								"repeater__items": [
+									{
+										"text": "Item 1",
+										"name": "countrycode",
+										"id": "countrycode-1"
+									},
+									{
+										"text": "Item 2",
+										"name": "countrycode",
+										"id": "countrycode-2"
+									},
+									{
+										"text": "Item 3",
+										"name": "countrycode",
+										"id": "countrycode-3"
+									},
+									{
+										"text": "Item 4",
+										"name": "countrycode",
+										"id": "countrycode-4"
+									},
+									{
+										"text": "Item 5",
+										"name": "countrycode",
+										"id": "countrycode-5"
+									},
+									{
+										"text": "Item 6",
+										"name": "countrycode",
+										"id": "countrycode-6"
+									}
+								]
+							}
+						},
+						{
+							"select__width": "two-third",
+							"input_field": {
+								"text__id": "phone",
+								"text__name": "phone",
+								"text__label": "Phone number",
+								"boolean__required": true,
+								"boolean__numbers_only": true,
+								"text__placeholder": "Phone number",
+								"text__error_message": "This field is required"
+							}
+						},
+						{
+							"select__width": "full",
+							"boolean__divider": true
+						},
+						{
+							"select__width": "full",
+							"radio_button_group": {
+								"boolean__buttons": true,
+								"boolean__required": true,
+								"text__error_message": "This field is required",
+								"text__label": "Select you gender",
+								"repeater__items": [
+									{
+										"boolean__required": true,
+										"text__name": "gender",
+										"text__id": "gender-1",
+										"text__text": "Female",
+										"select__icon": "female",
+										"text__error_message": "Pick one"
+									},
+									{
+										"boolean__required": true,
+										"text__name": "gender",
+										"text__id": "gender-2",
+										"text__text": "Male",
+										"select__icon": "male",
+										"text__error_message": "Pick one"
+									},
+									{
+										"boolean__required": true,
+										"text__name": "gender",
+										"text__id": "gender-3",
+										"text__text": "Other",
+										"select__icon": "triangle-shapes",
+										"text__error_message": "Pick one"
+									}
+								]
+							}
+						},
+						{
+							"select__width": "half",
+							"dropdown": {
+								"text__label": "Country",
+								"boolean__required": true,
+								"text__placeholder": "Country",
+								"text__error_message": "This field is required",
+								"repeater__items": [
+									{
+										"text": "Country 1",
+										"name": "country",
+										"id": "country-1"
+									},
+									{
+										"text": "Slovenia",
+										"name": "country",
+										"id": "country-slovenia",
+										"toggle_field_target": "country"
+									},
+									{
+										"text": "Country 3",
+										"name": "country",
+										"id": "country-3"
+									},
+									{
+										"text": "Country 4",
+										"name": "country",
+										"id": "country-4"
+									},
+									{
+										"text": "Country 5",
+										"name": "country",
+										"id": "country-5"
+									},
+									{
+										"text": "Country 6",
+										"name": "country",
+										"id": "country-6"
+									},
+									{
+										"text": "Country 7",
+										"name": "country",
+										"id": "country-7"
+									},
+									{
+										"text": "Country 8",
+										"name": "country",
+										"id": "country-8"
+									}
+								]
+							}
+						},
+						{
+							"toggle_field": "country",
+							"select__width": "half",
+							"dropdown": {
+								"text__label": "Region",
+								"boolean__required": true,
+								"text__placeholder": "Region",
+								"text__error_message": "This field is required",
+								"repeater__items": [
+									{
+										"text": "Region 1",
+										"name": "countryregion",
+										"id": "countryregion-1"
+									},
+									{
+										"text": "Region 2",
+										"name": "countryregion",
+										"id": "countryregion-2"
+									},
+									{
+										"text": "Region 3",
+										"name": "countryregion",
+										"id": "countryregion-3"
+									},
+									{
+										"text": "Region 4",
+										"name": "countryregion",
+										"id": "countryregion-4"
+									}
+								]
+							}
+						},
+						{
+							"checkbox": {
+								"text__id": "check-policy",
+								"text__name": "check-policy",
+								"text__text": "I agree to <a href='#'>Terms & Conditions</a>",
+								"boolean__required": true,
+								"text__error_message": "This field is required"
+							}
+						}
+					],
+					"form_error_message": "Lorem ipsum dolor sit amet consectetur.",
+					"form_success_message": "Lorem ipsum dolor sit amet consectetur.",
+					"submit_button_text": "Subscribe to newsletter",
+					"success": {
+						"title": "Thank you",
+						"text": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi possimus excepturi quidem veniam perspiciatis nesciunt deleniti odio voluptatum quam ad fugiat hic obcaecati ipsa quas autem, recusandae."
+					}
+				}
+			}
+		},
+		{
+			"name": "contact-form",
+			"context": {
+				"form_component": {
+					"action": "saveContactFormData",
+					"form_id": "contact_form",
+					"reCAPTCHA_site_key": "6LcdqjwoAAAAAIQaRS8LL9_5XiKc1JTTcwmEFK-9",
+					"form_title": "Send us a direct message",
+					"input_fields": [
+						{
+							"select__width": "half",
+							"input_field": {
+								"text__id": "name",
+								"text__name": "name",
+								"text__label": "Name",
+								"boolean__required": true,
+								"text__placeholder": "Name",
+								"text__error_message": "This field is required"
+							}
+						},
+						{
+							"select__width": "half",
+							"input_field": {
+								"text__id": "surname",
+								"text__name": "surname",
+								"text__label": "Surname",
+								"boolean__required": true,
+								"text__placeholder": "Surname",
+								"text__error_message": "This field is required"
+							}
+						},
+						{
+							"select__width": "half",
+							"input_field": {
+								"text__id": "email",
+								"text__name": "email",
+								"select__input_type": "email",
+								"text__label": "Email",
+								"boolean__required": true,
+								"text__placeholder": "Email",
+								"text__error_message": "This field is required",
+								"text__invalid_email_message": "Please enter valid email"
+							}
+						},
+						{
+							"select__width": "half",
+							"input_field": {
+								"text__id": "phone",
+								"text__name": "phone",
+								"text__label": "Phone number",
+								"boolean__required": true,
+								"boolean__numbers_only": true,
+								"text__placeholder": "Phone number",
+								"text__error_message": "This field is required"
+							}
+						},
+						{
+							"select__width": "full",
+							"boolean__divider": true
+						},
+						{
+							"select__width": "full",
+							"radio_button_group": {
+								"boolean__buttons": true,
+								"text__label": "Topic",
+								"repeater__items": [
+									{
+										"text__name": "topic",
+										"text__id": "topic-1",
+										"text__text": "Naročila"
+									},
+									{
+										"text__name": "topic",
+										"text__id": "topic-2",
+										"text__text": "Dostava"
+									},
+									{
+										"text__name": "topic",
+										"text__id": "topic-3",
+										"text__text": "Vračila in reklamacije"
+									},
+									{
+										"text__name": "topic",
+										"text__id": "topic-4",
+										"text__text": "Plačila"
+									},
+									{
+										"text__name": "topic",
+										"text__id": "topic-5",
+										"text__text": "Tehnična podpora"
+									},
+									{
+										"text__name": "topic",
+										"text__id": "topic-6",
+										"text__text": "Uporabniški račun"
+									},
+									{
+										"text__name": "topic",
+										"text__id": "topic-7",
+										"text__text": "Garancija in servis"
+									},
+									{
+										"text__name": "topic",
+										"text__id": "topic-8",
+										"text__text": "Pritožbe"
+									}
+								]
+							}
+						},
+						{
+							"select__width": "full",
+							"input_field": {
+								"text__id": "contact_message",
+								"text__name": "contact_message",
+								"text__label": "Message",
+								"text__placeholder": "Your message...",
+								"select__input_type": "textarea"
+							}
+						},
+						{
+							"checkbox": {
+								"text__id": "check-policy",
+								"text__name": "check-policy",
+								"text__text": "I agree to <a href='#'>Terms & Conditions</a>",
+								"boolean__required": true,
+								"text__error_message": "This field is required"
+							}
+						}
+					],
+					"form_error_message": "Lorem ipsum dolor sit amet consectetur.",
+					"form_success_message": "Lorem ipsum dolor sit amet consectetur.",
+					"submit_button_text": "Send",
+					"success": {
+						"title": "Thank you",
+						"text": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi possimus excepturi quidem veniam perspiciatis nesciunt deleniti odio voluptatum quam ad fugiat hic obcaecati ipsa quas autem, recusandae."
+					}
+				}
+			}
+		},
+		{
+			"name": "job-form-molecule",
+			"context": {
+				"job_form": true,
+				"form_component": {
+					"action": "saveJobFormData",
+					"form_id": "job_form",
+					"reCAPTCHA_site_key": "6LcdqjwoAAAAAIQaRS8LL9_5XiKc1JTTcwmEFK-9",
+					"form_title": "Your information",
+					"input_fields": [
+						{
+							"select__width": "half",
+							"input_field": {
+								"text__id": "name",
+								"text__name": "name",
+								"text__label": "Name",
+								"boolean__required": true,
+								"text__placeholder": "Name",
+								"text__error_message": "This field is required"
+							}
+						},
+						{
+							"select__width": "half",
+							"input_field": {
+								"text__id": "surname",
+								"text__name": "surname",
+								"text__label": "Surname",
+								"boolean__required": true,
+								"text__placeholder": "Surname",
+								"text__error_message": "This field is required"
+							}
+						},
+						{
+							"select__width": "half",
+							"input_field": {
+								"text__id": "email",
+								"text__name": "email",
+								"select__input_type": "email",
+								"text__label": "E-mail",
+								"boolean__required": true,
+								"text__placeholder": "E-mail",
+								"text__error_message": "This field is required",
+								"text__invalid_email_message": "Please enter valid email"
+							}
+						},
+						{
+							"select__width": "half",
+							"input_field": {
+								"text__id": "phone",
+								"text__name": "phone",
+								"text__label": "Phone number",
+								"boolean__required": true,
+								"boolean__numbers_only": true,
+								"text__placeholder": "Phone number",
+								"text__error_message": "This field is required"
+							}
+						},
+						{
+							"select__width": "full",
+							"input_field": {
+								"text__id": "where",
+								"text__name": "where",
+								"text__label": "Where did you hear about us?",
+								"text__placeholder": "Ex. Newspaper, Facebook, Linkedin, etc."
+							}
+						},
+						{
+							"select__width": "full",
+							"input_field": {
+								"text__id": "contact_message",
+								"text__name": "contact_message",
+								"text__label": "Want to tell us more?",
+								"text__placeholder": "Your message",
+								"select__input_type": "textarea",
+								"text__max_char_middle_text": "/",
+								"text__max_char": "1024",
+								"text__max_char_text": "characters"
+							}
+						}
+					],
+					"upload_box": {
+						"multiple": true,
+						"required": true,
+						"label": "CV & cover letter",
+						"intro_text": "Lorem ipsum dolor sit amet consectetur. Id risus turpis libero neque in facilisi ut. Nisi augue sapien sed sed varius eget leo nunc ante. Tincidunt elit sed eu nibh. Lorem quis viverra mattis amet sed sociis metus tincidunt. Turpis sit adipiscing arcu tincidunt fermentum commodo pretium nulla ut.",
+						"text": "<strong>Drag and drop your files here</strong><br>or <br> <strong>Click to select files for upload</strong>",
+						"info_text": "Max file size: 50 MB, Max. files: 5",
+						"name": "upload",
+						"id": "upload",
+						"total_max_size": "50",
+						"max_files": "5",
+						"not_empty_error_message": "This field is required",
+						"error_message": "Max. file size: 50 MB, Max. files: 5",
+						"allowed_files": ".jpeg,.png,.pdf",
+						"uploaded_text": "uploaded"
+					},
+					"checkbox": {
+						"text__id": "check-policy",
+						"text__name": "check-policy",
+						"text__text": "I agree to general terms & conditions",
+						"boolean__required": true,
+						"text__error_message": "This field is required"
+					},
+					"form_error_message": "Lorem ipsum dolor sit amet consectetur.",
+					"form_success_message": "Lorem ipsum dolor sit amet consectetur.",
+					"submit_button_text": "Submit application",
+					"success": {
+						"title": "Thank you",
+						"text": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi possimus excepturi quidem veniam perspiciatis nesciunt deleniti odio voluptatum quam ad fugiat hic obcaecati ipsa quas autem, recusandae."
+					}
+				}
+			}
+		}
+	]
+}

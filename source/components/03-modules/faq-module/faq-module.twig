@@ -1,0 +1,109 @@
+{% macro faq_section_header(faq_module) %}
+	{% if faq_module.text__title or faq_module.text__super_title %}
+		{% include '@molecules/section-header/section-header.twig' with {
+			center_aligned: true,
+			title_modifier: faq_module.boolean__dark ? 'h2' : 'h1',
+			section_header: {
+				text__super_title: faq_module.text__super_title,
+				textarea__title: faq_module.text__title
+			}
+		} %}
+	{% endif %}
+{% endmacro %}
+{% macro faq_accordions(items) %}
+	{% include '@molecules/accordion-list/accordion-list.twig' with {
+		accordion_list: {
+			repeater__items: items
+		}
+	} %}
+{% endmacro %}
+{% import _self as macros %}
+
+<section
+	data-component="mod-faq-module"
+	class="sc-general : sc-faq-module : {{ faq_module.boolean__dark ? 'bg-black' }}"
+	tabindex="-1"
+	role="region"
+	{{ faq_module.text__id ? 'id="' ~ faq_module.text__id ~ '"' }}
+>
+	{% include '@atoms/section-margin/section-margin.twig' with {
+		default_zero_spacing: true,
+		spacing_size: faq_module.select__top_spacing_size
+	} %}
+
+	<div class="faq-module : faq-module--{{ faq_module.select__variation|default('default') }}">
+		<div class="container">
+			{% if faq_module.select__variation == 'multiple-list' %}
+				{{ macros.faq_section_header(faq_module) }}
+
+				<div class="faq-module__body : mt-96">
+					{% for item in faq_module.repeater__rows %}
+						<div class="faq-module__item : row" {{ item.text__id ? 'id="' ~ item.text__id ~ '"' }}>
+							<div class="col-lg-3 : col-md-4 : col-xs-12">
+								{% if item.text__title %}
+									<div class="faq-module__item-title">
+										{% include '@atoms/title/title.twig' with {
+											tag: 'h3',
+											modifier: 'h4',
+											secondary: true,
+											title: item.text__title
+										} %}
+									</div>
+								{% endif %}
+							</div>
+							<div class="col-lg-9 : col-md-8 : col-xs-12">
+								{{ macros.faq_accordions(item.repeater__accordions) }}
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+			{% else %}
+				<div class="row">
+					<div class="col-lg-4 : col-md-5 : col-xs-12">
+						<div class="faq-module__left">
+							{{ macros.faq_section_header(faq_module) }}
+
+							{% if faq_module.text__text or faq_module.link__button %}
+								<div class="faq-module__left-footer">
+									{% if faq_module.text__text %}
+										<div class="faq-module__text : text--gray-400">{{ faq_module.text__text }}</div>
+									{% endif %}
+
+									{% if faq_module.link__button %}
+										{% include '@atoms/button/button.twig' with {
+											href: faq_module.link__button,
+											text: faq_module.button_text,
+											target: faq_module.button_target,
+											rel: faq_module.button_rel,
+											left_side_icon: 'question'
+										} %}
+									{% endif %}
+								</div>
+							{% endif %}
+						</div>
+					</div>
+
+					<div class="col-md-7 : col-xs-12 : col-lg-offset-1">
+						<div class="faq-module__right">
+							{% for item in faq_module.repeater__rows %}
+								{{ macros.faq_accordions(item.repeater__accordions) }}
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+			{% endif %}
+		</div>
+	</div>
+
+	{% if faq_module.boolean__dark %}
+		{% include '@atoms/section-margin/section-margin.twig' with {
+			default_spacing: true,
+			spacing_size: faq_module.select__bottom_spacing_size
+		} %}
+	{% else %}
+		{% include '@atoms/section-margin/section-margin.twig' with {
+			default_160_spacing: true,
+			spacing_size: faq_module.select__bottom_spacing_size
+		} %}
+	{% endif %}
+</section>

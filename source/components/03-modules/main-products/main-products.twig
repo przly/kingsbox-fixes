@@ -1,0 +1,85 @@
+{% set centeredTitle = main_products.boolean__centered_title %}
+{% macro moduleContent(main_products) %}
+	{% if
+		main_products.text__super_title or main_products.textarea__main_title or main_products.link__view_all_button %}
+		{% include '@molecules/section-header/section-header.twig' with {
+			center_aligned: true,
+			section_header: {
+				text__super_title: main_products.text__super_title,
+				textarea__title: main_products.textarea__main_title,
+				link__button: main_products.link__view_all_button,
+				button_target: main_products.view_all_button_target,
+				button_rel: main_products.view_all_button_rel,
+				button_text: main_products.view_all_button_text
+			}
+		} %}
+
+		{% include '@atoms/margin/margin.twig' with {
+			size: main_products.text__title or main_products.link__link ? 96 : 60
+		} %}
+	{% endif %}
+
+	{% if main_products.text__title or main_products.link__link %}
+		<div class="main-products__top : mb-24">
+			{% include '@molecules/section-header/section-header.twig' with {
+				button_remove_icon: true,
+				button_modifier: 'gray',
+				section_header: {
+					textarea__title: main_products.text__title,
+					link__button: main_products.link__link,
+					button_target: main_products.link_target,
+					button_rel: main_products.link_rel,
+					button_text: main_products.link_text
+				}
+			} %}
+		</div>
+	{% endif %}
+
+	<div class="main-products__items">
+		{% for item in main_products.repeater__cards %}
+			{% include '@molecules/product-card/product-card.twig' with {
+				product_card: item
+			} %}
+		{% endfor %}
+	</div>
+
+	{% if main_products.link__link or main_products.link_text %}
+		{% include '@molecules/section-footer/section-footer.twig' with {
+			button_remove_icon: true,
+			button_modifier: 'gray',
+			section_footer: {
+				link__button: main_products.link__link,
+				button_target: main_products.link_target,
+				button_rel: main_products.link_rel,
+				button_text: main_products.link_text
+			}
+		} %}
+	{% endif %}
+{% endmacro %}
+{% import _self as macros %}
+
+{% if main_products.boolean__inner_section or inner_section %}
+	<div class="main-products : main-products--inner">{{ macros.moduleContent(main_products) }}</div>
+{% else %}
+	<section
+		data-component="mod-main-products"
+		class="sc-general : sc-main-products"
+		tabindex="-1"
+		role="contentinfo"
+		{{ main_products.text__id ? 'id="' ~ main_products.text__id ~ '"' }}
+	>
+		{% include '@atoms/section-margin/section-margin.twig' with {
+			default_zero_spacing: true,
+			spacing_size: main_products.select__top_spacing_size
+		} %}
+
+		<div class="main-products {{ centeredTitle ? 'main-products--center-title' }}">
+			<div class="container">{{ macros.moduleContent(main_products) }}</div>
+		</div>
+
+		{% include '@atoms/section-margin/section-margin.twig' with {
+			default_96_spacing: true,
+			spacing_size: main_products.select__bottom_spacing_size
+		} %}
+	</section>
+{% endif %}

@@ -1,0 +1,98 @@
+{% set region_items = [] %}
+{% set language_items = [] %}
+{% set region_placeholder = language_form.region_dropdown.text__placeholder %}
+{% set region_placeholder_image = null %}
+{% set region_placeholder_image_alt = null %}
+{% set region_placeholder_badge = null %}
+{% set language_placeholder = language_form.language_dropdown.text__placeholder %}
+{% set language_placeholder_image = null %}
+{% set language_placeholder_image_alt = null %}
+
+{% for item in language_form.region_dropdown.repeater__items %}
+	{% if item.checked %}
+		{% set region_placeholder = item.text__text %}
+		{% set region_placeholder_image = item.image__image %}
+		{% set region_placeholder_image_alt = item.image_alt %}
+		{% set region_placeholder_badge = item.text__currency %}
+	{% endif %}
+	{% set region_items =
+		region_items|merge(
+			[
+				{
+					image_src: item.image__image,
+					image_alt: item.image_alt,
+					text: item.text__text,
+					value: item.text__market,
+					name: item.text__name,
+					id: item.text__id,
+					checked: item.checked,
+					badge_text: item.text__currency
+				}
+			]
+		)
+	%}
+{% endfor %}
+
+{% for item in language_form.language_dropdown.repeater__items %}
+	{% if item.checked %}
+		{% set language_placeholder = item.text__text %}
+		{% set language_placeholder_image = item.image__image %}
+		{% set language_placeholder_image_alt = item.image_alt %}
+	{% endif %}
+	{% set language_items =
+		language_items|merge(
+			[
+				{
+					image_src: item.image__image,
+					image_alt: item.image_alt,
+					text: item.text__text,
+					value: item.text__locale,
+					url: item.text__url,
+					name: item.text__name,
+					id: item.text__id,
+					checked: item.checked
+				}
+			]
+		)
+	%}
+{% endfor %}
+
+<div data-component="mol-language-form" class="language-form">
+	{% include '@atoms/dropdown/dropdown.twig' with {
+		tertiary: true,
+		data_attr: 'data-region-dropdown',
+		dropdown: {
+			label: language_form.region_dropdown.text__label,
+			placeholder: region_placeholder,
+			placeholder_image: region_placeholder_image,
+			placeholder_image_alt: region_placeholder_image_alt,
+			placeholder_badge: region_placeholder_badge,
+			items: region_items
+		}
+	} %}
+
+	{% include '@atoms/dropdown/dropdown.twig' with {
+		tertiary: true,
+		data_attr: 'data-language-dropdown',
+		dropdown: {
+			label: language_form.language_dropdown.text__label,
+			placeholder: language_placeholder,
+			placeholder_image: language_placeholder_image,
+			placeholder_image_alt: language_placeholder_image_alt,
+			disabled: language_form.language_dropdown.boolean__disabled,
+			items: language_items
+		}
+	} %}
+
+	<div class="language-form__button : text-center">
+		{% include '@atoms/button/button.twig' with {
+			size: 'large',
+			type: 'button',
+			text: language_form.text__submit_button,
+			icon: 'chevron-right',
+			disabled: true,
+			mono_font: true,
+			data_attr: 'data-language-submit'
+		} %}
+	</div>
+</div>

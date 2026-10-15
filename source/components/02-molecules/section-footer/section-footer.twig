@@ -1,0 +1,39 @@
+<div data-component="mol-section-footer" class="section-footer : d-md-none">
+	{% include '@atoms/margin/margin.twig' with {
+		size: 30
+	} %}
+
+	<div class="section-footer__inner">
+		{% if section_footer.link__button or section_footer.button_text %}
+			{% include '@atoms/button/button.twig' with {
+				mono_font: center_aligned,
+				modifier: button_modifier,
+				type: button_type,
+				href: section_footer.link__button,
+				text: section_footer.button_text,
+				target: section_footer.button_target,
+				rel: section_footer.button_rel,
+				icon: button_icon,
+				remove_icon: button_remove_icon,
+				data_attr: button_data_attr,
+				left_side_icon: left_button_icon
+			} %}
+		{% endif %}
+
+		{% if section_footer.link__secondary_button or section_footer.secondary_button_text %}
+			{% include '@atoms/button/button.twig' with {
+				mono_font: center_aligned,
+				type: secondary_button_type,
+				modifier: secondary_button_modifier,
+				href: section_footer.link__secondary_button,
+				text: section_footer.secondary_button_text,
+				target: section_footer.secondary_button_target,
+				rel: section_footer.secondary_button_rel,
+				icon: secondary_button_icon,
+				remove_icon: secondary_button_remove_icon,
+				data_attr: secondary_button_data_attr,
+				left_side_icon: left_secondary_button_icon
+			} %}
+		{% endif %}
+	</div>
+</div>

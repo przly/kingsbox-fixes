@@ -1,0 +1,702 @@
+{
+	"title": "Card Slider",
+	"status": "acceptance",
+	"notes": "Card Slider",
+	"acf_function": "getCardSliderFields",
+	"default": "product-cards",
+	"variants": [
+		{
+			"name": "product-cards",
+			"context": {
+				"card_slider": {
+					"select__card": "product-card",
+					"select__cols": "4",
+					"text__title": "Get in shape for the summer",
+					"link__link": "#",
+					"link_text": "See all",
+					"repeater__items": [
+						{
+							"link__link": "#",
+							"repeater__images": [
+								{
+									"image__image": "../../images/product-card.webp",
+									"image_alt": "product image"
+								}
+							],
+							"image__hover_image": "../../images/product-card-hover.webp",
+							"hover_image_alt": "product image",
+							"top_tag": {
+								"text__text": "PREORDER",
+								"select__color": "blue"
+							},
+							"variations_tag": {
+								"text__text": "More variations",
+								"image__image": "../../images/variations.webp",
+								"image_alt": "colors"
+							},
+							"text__title": "Mighty Power Rack CX-30",
+							"text__price": "1.482,94 €"
+						},
+						{
+							"link__link": "#",
+							"repeater__images": [
+								{
+									"image__image": "../../images/product-card.webp",
+									"image_alt": "product image"
+								}
+							],
+							"image__hover_image": "../../images/product-card-hover.webp",
+							"hover_image_alt": "product image",
+							"text__title": "Mighty Power Rack CX-30",
+							"text__price": "1.482,94 €"
+						},
+						{
+							"link__link": "#",
+							"repeater__images": [
+								{
+									"image__image": "../../images/product-card.webp",
+									"image_alt": "product image"
+								}
+							],
+							"image__hover_image": "../../images/product-card-hover.webp",
+							"hover_image_alt": "product image",
+							"bottom_tag": {
+								"text__text": "Koda:BLACKFRIDAY",
+								"select__color": "dark-transparent"
+							},
+							"text__title": "Mighty Power Rack CX-30",
+							"text__price": "1.482,94 €"
+						},
+						{
+							"link__link": "#",
+							"repeater__images": [
+								{
+									"image__image": "../../images/product-card.webp",
+									"image_alt": "product image"
+								}
+							],
+							"image__hover_image": "../../images/product-card-hover.webp",
+							"hover_image_alt": "product image",
+							"bottom_tag": {
+								"text__text": "Koda:BLACKFRIDAY",
+								"select__color": "dark-transparent"
+							},
+							"variations_tag": {
+								"text__text": "More variations",
+								"image__image": "../../images/variations.webp",
+								"image_alt": "colors"
+							},
+							"text__title": "Mighty Power Rack CX-30",
+							"text__price_slashed": "1.482,94 €",
+							"text__price": "1.482,94 €",
+							"text__discount": "-15 %",
+							"text__lowest_price": "Najnižja cena zadnjih 30 dni: 1.482,94 €"
+						},
+						{
+							"link__link": "#",
+							"repeater__images": [
+								{
+									"image__image": "../../images/product-card.webp",
+									"image_alt": "product image"
+								}
+							],
+							"image__hover_image": "../../images/product-card-hover.webp",
+							"hover_image_alt": "product image",
+							"top_tag": {
+								"text__text": "PREORDER",
+								"select__color": "blue"
+							},
+							"bottom_tag": {
+								"text__text": "Koda:BLACKFRIDAY",
+								"select__color": "dark-transparent"
+							},
+							"variations_tag": {
+								"text__text": "More variations",
+								"image__image": "../../images/variations.webp",
+								"image_alt": "colors"
+							},
+							"text__title": "Mighty Power Rack CX-30",
+							"text__price_slashed": "1.482,94 €",
+							"text__price": "1.482,94 €",
+							"text__discount": "-15 %",
+							"text__lowest_price": "Najnižja cena zadnjih 30 dni: 1.482,94 €"
+						},
+						{
+							"link__link": "#",
+							"repeater__images": [
+								{
+									"image__image": "../../images/product-card.webp",
+									"image_alt": "product image"
+								}
+							],
+							"image__hover_image": "../../images/product-card-hover.webp",
+							"hover_image_alt": "product image",
+							"top_tag": {
+								"text__text": "PREORDER",
+								"select__color": "blue"
+							},
+							"variations_tag": {
+								"text__text": "More variations",
+								"image__image": "../../images/variations.webp",
+								"image_alt": "colors"
+							},
+							"text__title": "Mighty Power Rack CX-30",
+							"text__price": "1.482,94 €"
+						},
+						{
+							"link__link": "#",
+							"repeater__images": [
+								{
+									"image__image": "../../images/product-card.webp",
+									"image_alt": "product image"
+								}
+							],
+							"image__hover_image": "../../images/product-card-hover.webp",
+							"hover_image_alt": "product image",
+							"text__title": "Mighty Power Rack CX-30",
+							"text__price": "1.482,94 €"
+						},
+						{
+							"link__link": "#",
+							"repeater__images": [
+								{
+									"image__image": "../../images/product-card.webp",
+									"image_alt": "product image"
+								}
+							],
+							"image__hover_image": "../../images/product-card-hover.webp",
+							"hover_image_alt": "product image",
+							"bottom_tag": {
+								"text__text": "Koda:BLACKFRIDAY",
+								"select__color": "dark-transparent"
+							},
+							"text__title": "Mighty Power Rack CX-30",
+							"text__price": "1.482,94 €"
+						},
+						{
+							"link__link": "#",
+							"repeater__images": [
+								{
+									"image__image": "../../images/product-card.webp",
+									"image_alt": "product image"
+								}
+							],
+							"image__hover_image": "../../images/product-card-hover.webp",
+							"hover_image_alt": "product image",
+							"bottom_tag": {
+								"text__text": "Koda:BLACKFRIDAY",
+								"select__color": "dark-transparent"
+							},
+							"variations_tag": {
+								"text__text": "More variations",
+								"image__image": "../../images/variations.webp",
+								"image_alt": "colors"
+							},
+							"text__title": "Mighty Power Rack CX-30",
+							"text__price_slashed": "1.482,94 €",
+							"text__price": "1.482,94 €",
+							"text__discount": "-15 %",
+							"text__lowest_price": "Najnižja cena zadnjih 30 dni: 1.482,94 €"
+						},
+						{
+							"link__link": "#",
+							"repeater__images": [
+								{
+									"image__image": "../../images/product-card.webp",
+									"image_alt": "product image"
+								}
+							],
+							"image__hover_image": "../../images/product-card-hover.webp",
+							"hover_image_alt": "product image",
+							"top_tag": {
+								"text__text": "PREORDER",
+								"select__color": "blue"
+							},
+							"bottom_tag": {
+								"text__text": "Koda:BLACKFRIDAY",
+								"select__color": "dark-transparent"
+							},
+							"variations_tag": {
+								"text__text": "More variations",
+								"image__image": "../../images/variations.webp",
+								"image_alt": "colors"
+							},
+							"text__title": "Mighty Power Rack CX-30",
+							"text__price_slashed": "1.482,94 €",
+							"text__price": "1.482,94 €",
+							"text__discount": "-15 %",
+							"text__lowest_price": "Najnižja cena zadnjih 30 dni: 1.482,94 €"
+						}
+					]
+				}
+			}
+		},
+		{
+			"name": "instructions-cards",
+			"context": {
+				"card_slider": {
+					"select__card": "instructions-card",
+					"select__cols": "4",
+					"text__title": "Instructions",
+					"link__link": "#",
+					"link_text": "See all",
+					"repeater__items": [
+						{
+							"image__image": "../../images/instructions-card-1.webp",
+							"image_alt": "Rack CX-30",
+							"text__title": "Mighty Power Rack CX-30",
+							"repeater__info": [
+								{
+									"text__text": "Assembly Instructions"
+								},
+								{
+									"link__download_link": "#",
+									"download_link_text": "PDF Download"
+								}
+							],
+							"link__link": "#"
+						},
+						{
+							"image__image": "../../images/instructions-card-2.webp",
+							"image_alt": "Rack CX-30",
+							"text__title": "Mighty Power Rack CX-30",
+							"repeater__info": [
+								{
+									"text__text": "Assembly Instructions"
+								},
+								{
+									"link__download_link": "#",
+									"download_link_text": "PDF Download"
+								}
+							],
+							"link__link": "#"
+						},
+						{
+							"image__image": "../../images/instructions-card-3.webp",
+							"image_alt": "Rack CX-30",
+							"text__title": "Mighty Power Rack CX-30",
+							"repeater__info": [
+								{
+									"text__text": "Assembly Instructions"
+								},
+								{
+									"link__download_link": "#",
+									"download_link_text": "PDF Download"
+								}
+							],
+							"link__link": "#"
+						},
+						{
+							"image__image": "../../images/instructions-card-3.webp",
+							"image_alt": "Rack CX-30",
+							"text__title": "Mighty Power Rack CX-30",
+							"repeater__info": [
+								{
+									"text__text": "Assembly Instructions"
+								},
+								{
+									"link__download_link": "#",
+									"download_link_text": "PDF Download"
+								}
+							],
+							"link__link": "#"
+						},
+						{
+							"image__image": "../../images/instructions-card-1.webp",
+							"image_alt": "Rack CX-30",
+							"text__title": "Mighty Power Rack CX-30",
+							"repeater__info": [
+								{
+									"text__text": "Assembly Instructions"
+								},
+								{
+									"link__download_link": "#",
+									"download_link_text": "PDF Download"
+								}
+							],
+							"link__link": "#"
+						}
+					]
+				}
+			}
+		},
+		{
+			"name": "case-study-cards",
+			"context": {
+				"card_slider": {
+					"select__card": "case-study-card",
+					"select__cols": "4",
+					"text__title": "Case Studies",
+					"link__link": "#",
+					"link_text": "See all",
+					"repeater__items": [
+						{
+							"image__image": "../../images/case-study-card-small.webp",
+							"image_alt": "images",
+							"textarea__title": "Crossfit Lift Like a Viking",
+							"repeater__info": [
+								{
+									"text__text": "Wernberg, Austria"
+								},
+								{
+									"text__text": "Commercial Gym"
+								}
+							],
+							"link__link": "#",
+							"link_text": "read more"
+						},
+						{
+							"image__image": "../../images/case-study-card-small.webp",
+							"image_alt": "images",
+							"textarea__title": "Crossfit Lift Like a Viking",
+							"repeater__info": [
+								{
+									"text__text": "Wernberg, Austria"
+								},
+								{
+									"text__text": "Commercial Gym"
+								}
+							],
+							"link__link": "#",
+							"link_text": "read more"
+						},
+						{
+							"image__image": "../../images/case-study-card-small.webp",
+							"image_alt": "images",
+							"textarea__title": "Crossfit Lift Like a Viking",
+							"repeater__info": [
+								{
+									"text__text": "Wernberg, Austria"
+								},
+								{
+									"text__text": "Commercial Gym"
+								}
+							],
+							"link__link": "#",
+							"link_text": "read more"
+						},
+						{
+							"image__image": "../../images/case-study-card-small.webp",
+							"image_alt": "images",
+							"textarea__title": "Crossfit Lift Like a Viking",
+							"repeater__info": [
+								{
+									"text__text": "Wernberg, Austria"
+								},
+								{
+									"text__text": "Commercial Gym"
+								}
+							],
+							"link__link": "#",
+							"link_text": "read more"
+						},
+						{
+							"image__image": "../../images/case-study-card-small.webp",
+							"image_alt": "images",
+							"textarea__title": "Crossfit Lift Like a Viking",
+							"repeater__info": [
+								{
+									"text__text": "Wernberg, Austria"
+								},
+								{
+									"text__text": "Commercial Gym"
+								}
+							],
+							"link__link": "#",
+							"link_text": "read more"
+						},
+						{
+							"image__image": "../../images/case-study-card-small.webp",
+							"image_alt": "images",
+							"textarea__title": "Crossfit Lift Like a Viking",
+							"repeater__info": [
+								{
+									"text__text": "Wernberg, Austria"
+								},
+								{
+									"text__text": "Commercial Gym"
+								}
+							],
+							"link__link": "#",
+							"link_text": "read more"
+						}
+					]
+				}
+			}
+		},
+		{
+			"name": "article-cards",
+			"context": {
+				"card_slider": {
+					"select__card": "article-card",
+					"select__cols": "4",
+					"text__title": "Articles",
+					"link__link": "#",
+					"link_text": "See all",
+					"repeater__items": [
+						{
+							"image__image": "../../images/news-card-img.webp",
+							"image_alt": "#",
+							"text__tag": "Category",
+							"date__date": "11. 8. 2026",
+							"text__title": "Incididunt esse et Lorem aliquaIncididunt esse et Lorem aliquaIncididunt esse et Lorem aliqua",
+							"text__text": "Praesent venenatis metus ante, eu semper libero auctor eu. Morbi sed augue fermentum, iaculis massa in, fringilla augue. Sed lacus nisl, maximus vel ligula sed...",
+							"link__link": "#"
+						},
+						{
+							"image__image": "../../images/news-card-img.webp",
+							"image_alt": "#",
+							"text__tag": "Category",
+							"date__date": "11. 8. 2026",
+							"text__title": "Incididunt esse et Lorem aliquaIncididunt esse et Lorem aliquaIncididunt esse et Lorem aliqua",
+							"text__text": "Praesent venenatis metus ante, eu semper libero auctor eu. Morbi sed augue fermentum, iaculis massa in, fringilla augue. Sed lacus nisl, maximus vel ligula sed...",
+							"link__link": "#"
+						},
+						{
+							"image__image": "../../images/news-card-img.webp",
+							"image_alt": "#",
+							"text__tag": "Category",
+							"date__date": "11. 8. 2026",
+							"text__title": "Incididunt esse et Lorem aliquaIncididunt esse et Lorem aliquaIncididunt esse et Lorem aliqua",
+							"text__text": "Praesent venenatis metus ante, eu semper libero auctor eu. Morbi sed augue fermentum, iaculis massa in, fringilla augue. Sed lacus nisl, maximus vel ligula sed...",
+							"link__link": "#"
+						},
+						{
+							"image__image": "../../images/news-card-img.webp",
+							"image_alt": "#",
+							"text__tag": "Category",
+							"date__date": "11. 8. 2026",
+							"text__title": "Incididunt esse et Lorem aliquaIncididunt esse et Lorem aliquaIncididunt esse et Lorem aliqua",
+							"text__text": "Praesent venenatis metus ante, eu semper libero auctor eu. Morbi sed augue fermentum, iaculis massa in, fringilla augue. Sed lacus nisl, maximus vel ligula sed...",
+							"link__link": "#"
+						},
+						{
+							"image__image": "../../images/news-card-img.webp",
+							"image_alt": "#",
+							"text__tag": "Category",
+							"date__date": "11. 8. 2026",
+							"text__title": "Incididunt esse et Lorem aliquaIncididunt esse et Lorem aliquaIncididunt esse et Lorem aliqua",
+							"text__text": "Praesent venenatis metus ante, eu semper libero auctor eu. Morbi sed augue fermentum, iaculis massa in, fringilla augue. Sed lacus nisl, maximus vel ligula sed...",
+							"link__link": "#"
+						},
+						{
+							"image__image": "../../images/news-card-img.webp",
+							"image_alt": "#",
+							"text__tag": "Category",
+							"date__date": "11. 8. 2026",
+							"text__title": "Incididunt esse et Lorem aliquaIncididunt esse et Lorem aliquaIncididunt esse et Lorem aliqua",
+							"text__text": "Praesent venenatis metus ante, eu semper libero auctor eu. Morbi sed augue fermentum, iaculis massa in, fringilla augue. Sed lacus nisl, maximus vel ligula sed...",
+							"link__link": "#"
+						}
+					]
+				}
+			}
+		},
+		{
+			"name": "faq",
+			"context": {
+				"card_slider": {
+					"select__card": "faq",
+					"select__cols": "4",
+					"text__title": "FAQ",
+					"link__link": "#",
+					"link_text": "See all",
+					"repeater__items": [
+						{
+							"text__title": "Lorem ipsum?",
+							"wysiwyg__text": "<p>Ea consectetur Lorem ipsum. Nulla aute consequat consectetur nostrud ex excepteur consequat aute ea quis laboris commodo ad. Irure voluptate excepteur dolore ipsum proident dolor consequat eu Lorem. Occaecat incididunt anim in minim consectetur consequat minim anim amet do in. In Lorem culpa voluptate enim nostrud id est irure incididunt nostrud pariatur mollit culpa labore fugiat. Culpa id tempor labore eiusmod reprehenderit eiusmod ipsum incididunt mollit id culpa. Sunt cupidatat pariatur laboris ut quis reprehenderit. Id Lorem exercitation eu cillum velit incididunt enim anim ad elit sit et et voluptate sit.</p>"
+						},
+						{
+							"text__title": "Quis nostrud exercitation ullamco?",
+							"wysiwyg__text": "<p>Ea consectetur Lorem ipsum. Nulla aute consequat consectetur nostrud ex excepteur consequat aute ea quis laboris commodo ad. Irure voluptate excepteur dolore ipsum proident dolor consequat eu Lorem. Occaecat incididunt anim in minim consectetur consequat minim anim amet do in. In Lorem culpa voluptate enim nostrud id est irure incididunt nostrud pariatur mollit culpa labore fugiat. Culpa id tempor labore eiusmod reprehenderit eiusmod ipsum incididunt mollit id culpa. Sunt cupidatat pariatur laboris ut quis reprehenderit. Id Lorem exercitation eu cillum velit incididunt enim anim ad elit sit et et voluptate sit.</p>"
+						}
+					]
+				}
+			}
+		},
+		{
+			"name": "help-card",
+			"context": {
+				"card_slider": {
+					"select__card": "help-card",
+					"select__cols": "4",
+					"text__title": "Help center",
+					"link__link": "#",
+					"link_text": "See all",
+					"repeater__items": [
+						{
+							"image__icon": "../../images/speedy-truck-icon.svg",
+							"image_icon_alt": "Delivery & Returns",
+							"text__title": "Delivery & Returns",
+							"text__text": "Track your order, check shipping times to your country, or start a return."
+						},
+						{
+							"image__icon": "../../images/assembly-icon.svg",
+							"image_icon_alt": "Assembly & Setup",
+							"text__title": "Assembly & Setup",
+							"text__text": "Step-by-step instructions, video guides, and tips for putting your rig together."
+						},
+						{
+							"image__icon": "../../images/shield-icon.svg",
+							"image_icon_alt": "Warranty & Repairs",
+							"text__title": "Warranty & Repairs",
+							"text__text": "See what's covered, how long, and what to do if something isn't right."
+						},
+						{
+							"image__icon": "../../images/orders-icon.svg",
+							"image_icon_alt": "Orders & Payment",
+							"text__title": "Orders & Payment",
+							"text__text": "Payment methods, invoices, order changes, and quote requests — all here."
+						}
+					]
+				}
+			}
+		},
+		{
+			"name": "three-col",
+			"context": {
+				"card_slider": {
+					"select__card": "article-card",
+					"select__cols": "3",
+					"text__title": "Articles",
+					"link__link": "#",
+					"link_text": "See all",
+					"repeater__items": [
+						{
+							"image__image": "../../images/news-card-img.webp",
+							"image_alt": "#",
+							"text__tag": "Category",
+							"date__date": "11. 8. 2026",
+							"text__title": "Incididunt esse et Lorem aliquaIncididunt esse et Lorem aliquaIncididunt esse et Lorem aliqua",
+							"text__text": "Praesent venenatis metus ante, eu semper libero auctor eu. Morbi sed augue fermentum, iaculis massa in, fringilla augue. Sed lacus nisl, maximus vel ligula sed...",
+							"link__link": "#"
+						},
+						{
+							"image__image": "../../images/news-card-img.webp",
+							"image_alt": "#",
+							"text__tag": "Category",
+							"date__date": "11. 8. 2026",
+							"text__title": "Incididunt esse et Lorem aliquaIncididunt esse et Lorem aliquaIncididunt esse et Lorem aliqua",
+							"text__text": "Praesent venenatis metus ante, eu semper libero auctor eu. Morbi sed augue fermentum, iaculis massa in, fringilla augue. Sed lacus nisl, maximus vel ligula sed...",
+							"link__link": "#"
+						},
+						{
+							"image__image": "../../images/news-card-img.webp",
+							"image_alt": "#",
+							"text__tag": "Category",
+							"date__date": "11. 8. 2026",
+							"text__title": "Incididunt esse et Lorem aliquaIncididunt esse et Lorem aliquaIncididunt esse et Lorem aliqua",
+							"text__text": "Praesent venenatis metus ante, eu semper libero auctor eu. Morbi sed augue fermentum, iaculis massa in, fringilla augue. Sed lacus nisl, maximus vel ligula sed...",
+							"link__link": "#"
+						},
+						{
+							"image__image": "../../images/news-card-img.webp",
+							"image_alt": "#",
+							"text__tag": "Category",
+							"date__date": "11. 8. 2026",
+							"text__title": "Incididunt esse et Lorem aliquaIncididunt esse et Lorem aliquaIncididunt esse et Lorem aliqua",
+							"text__text": "Praesent venenatis metus ante, eu semper libero auctor eu. Morbi sed augue fermentum, iaculis massa in, fringilla augue. Sed lacus nisl, maximus vel ligula sed...",
+							"link__link": "#"
+						},
+						{
+							"image__image": "../../images/news-card-img.webp",
+							"image_alt": "#",
+							"text__tag": "Category",
+							"date__date": "11. 8. 2026",
+							"text__title": "Incididunt esse et Lorem aliquaIncididunt esse et Lorem aliquaIncididunt esse et Lorem aliqua",
+							"text__text": "Praesent venenatis metus ante, eu semper libero auctor eu. Morbi sed augue fermentum, iaculis massa in, fringilla augue. Sed lacus nisl, maximus vel ligula sed...",
+							"link__link": "#"
+						},
+						{
+							"image__image": "../../images/news-card-img.webp",
+							"image_alt": "#",
+							"text__tag": "Category",
+							"date__date": "11. 8. 2026",
+							"text__title": "Incididunt esse et Lorem aliquaIncididunt esse et Lorem aliquaIncididunt esse et Lorem aliqua",
+							"text__text": "Praesent venenatis metus ante, eu semper libero auctor eu. Morbi sed augue fermentum, iaculis massa in, fringilla augue. Sed lacus nisl, maximus vel ligula sed...",
+							"link__link": "#"
+						}
+					]
+				}
+			}
+		},
+		{
+			"name": "showcase-card",
+			"context": {
+				"card_slider": {
+					"select__card": "showcase-card",
+					"select__cols": "2",
+					"repeater__items": [
+						{
+							"link__link": "#",
+							"link_target": "",
+							"link_rel": "",
+							"image__image": "../../images/showcase-card-1.webp",
+							"image_alt": "Image",
+							"textarea__text": "<strong>Reinforced J-cups with UHMW lining</strong> take the impact of heavy re-racks without chewing up your barbell knurling or the rack itself."
+						},
+						{
+							"link__link": "#",
+							"link_target": "",
+							"link_rel": "",
+							"image__image": "../../images/showcase-card-2.webp",
+							"image_alt": "Image",
+							"textarea__text": "<strong>Reinforced J-cups with UHMW lining</strong> take the impact of heavy re-racks without chewing up your barbell knurling or the rack itself."
+						}
+					]
+				}
+			}
+		},
+		{
+			"name": "review-card",
+			"context": {
+				"card_slider": {
+					"select__card": "review-card",
+					"select__cols": "2",
+					"repeater__items": [
+						{
+							"text__name": "Name Surname",
+							"text__days": "1 days ago",
+							"text__title": "Title lorem ipsum dolor sin",
+							"textarea__text": "Magna officia ea eu mollit consequat aute amet sunt laborum. Excepteur sint cupidatat aute dolor velit ex eu ullamco velit. Enim nostrud enim duis culpa tempor pariatur commodo. Nostrud non minim irure tempor. Tempor pariatur est ipsum laborum.",
+							"image__image": "../../images/customer-image-1.webp",
+							"image_alt": "Image",
+							"text__rating_label": "Rating:",
+							"text__rating": "5"
+						},
+						{
+							"text__name": "Name Surname",
+							"text__days": "1 days ago",
+							"text__title": "Title lorem ipsum dolor sin",
+							"textarea__text": "Magna officia ea eu mollit consequat aute amet sunt laborum. Excepteur sint cupidatat aute dolor velit ex eu ullamco velit. Enim nostrud enim duis culpa tempor pariatur commodo. Nostrud non minim irure tempor. Tempor pariatur est ipsum laborum.",
+							"image__image": "../../images/customer-image-4.webp",
+							"image_alt": "Image",
+							"text__rating_label": "Rating:",
+							"text__rating": "2"
+						},
+						{
+							"text__name": "Name Surname",
+							"text__days": "1 days ago",
+							"text__title": "Title lorem ipsum dolor sin",
+							"textarea__text": "Magna officia ea eu mollit consequat aute amet sunt laborum. Excepteur sint cupidatat aute dolor velit ex eu ullamco velit. Enim nostrud enim duis culpa tempor pariatur commodo. Nostrud non minim irure tempor. Tempor pariatur est ipsum laborum.",
+							"image__image": "../../images/customer-image-4.webp",
+							"image_alt": "Image",
+							"text__rating_label": "Rating:",
+							"text__rating": "1"
+						},
+						{
+							"text__name": "Name Surname",
+							"text__days": "1 days ago",
+							"text__title": "Title lorem ipsum dolor sin",
+							"textarea__text": "Magna officia ea eu mollit consequat aute amet sunt laborum. Excepteur sint cupidatat aute dolor velit ex eu ullamco velit. Enim nostrud enim duis culpa tempor pariatur commodo. Nostrud non minim irure tempor. Tempor pariatur est ipsum laborum.",
+							"image__image": "../../images/customer-image-4.webp",
+							"image_alt": "Image",
+							"text__rating_label": "Rating:",
+							"text__rating": "6"
+						}
+					]
+				}
+			}
+		}
+	]
+}

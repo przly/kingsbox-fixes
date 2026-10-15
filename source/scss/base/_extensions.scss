@@ -143,9 +143,11 @@
 
 // ##################################################
 
+// The desktop sizes of h1, h2, h3 and 7xl grow above 1440px with --heading-zoom (scss/base/_general.scss)
+
 %title_h1 {
 	@extend %title;
-	font-size: 60px;
+	font-size: calc(60px * var(--heading-zoom, 1));
 	line-height: 1;
 	letter-spacing: -0.05em;
 
@@ -174,7 +176,7 @@
 
 %title_h2 {
 	@extend %title;
-	font-size: 48px;
+	font-size: calc(48px * var(--heading-zoom, 1));
 	letter-spacing: -0.04em;
 
 	// Tablet L and down
@@ -197,7 +199,7 @@
 
 %title_h3 {
 	@extend %title;
-	font-size: 36px;
+	font-size: calc(36px * var(--heading-zoom, 1));
 
 	// Tablet P and down
 	@media #{$breakpoint-sm-down} {
@@ -253,7 +255,7 @@
 
 %title_7xl {
 	@extend %title;
-	font-size: 72px;
+	font-size: calc(72px * var(--heading-zoom, 1));
 	text-transform: uppercase;
 	line-height: 1;
 	letter-spacing: -0.05em;

@@ -1,0 +1,41 @@
+// **************************************************
+// card list
+// **************************************************
+
+@import '../../../scss/import';
+
+.card-list {
+	color: $cgp_gray_400;
+
+	&__title {
+		padding-top: 24px;
+		margin-bottom: 80px;
+
+		// tablet
+		@media #{$breakpoint-sm-down} {
+			padding-top: 16px;
+		}
+	}
+
+	&__items {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 10px;
+
+		@media #{$breakpoint-xs-only} {
+			grid-template-columns: 1fr;
+		}
+	}
+}
+
+.sc-card-list {
+	background-color: $cgp_black;
+
+	&:last-child {
+		.section-margin:last-child {
+			.margin {
+				height: 0;
+			}
+		}
+	}
+}

@@ -1,0 +1,232 @@
+// **************************************************
+// Cart View
+// **************************************************
+
+@import '../../../scss/import';
+
+.cart-view {
+	width: 100%;
+	max-width: 670px;
+	margin: 0 auto;
+
+	[data-component^='mod-'] & {
+		max-width: 100%;
+	}
+
+	// ##################################################
+
+	&__item {
+		position: relative;
+		padding: 10px 0;
+		border-top: 0.5px solid var(--color-gray-200);
+
+		// Mobile
+		@media #{$breakpoint-xs-only} {
+			padding: 16px 0;
+		}
+
+		// ##################################################
+
+		&.is-start-animation {
+			animation: newCartItem 300ms cubic-bezier(0.12, 0.4, 1, 0.99) 1;
+			animation-direction: alternate;
+		}
+
+		// ##################################################
+
+		&-inner {
+			display: grid;
+			grid-template-columns: 128px 1fr;
+			grid-gap: 20px;
+			align-items: center;
+
+			// Mobile
+			@media #{$breakpoint-xs-only} {
+				grid-template-columns: 80px 1fr;
+				grid-gap: 12px;
+				align-items: flex-start;
+			}
+
+			@media (max-width: 380px) {
+				grid-template-columns: 1fr;
+			}
+		}
+
+		// ##################################################
+
+		&:hover {
+			.cart-view__image {
+				background-color: var(--color-gray-200);
+			}
+		}
+	}
+
+	// ##################################################
+
+	&__image {
+		position: relative;
+		aspect-ratio: 1/1;
+		overflow: hidden;
+		transition: background-color 0.3s ease;
+
+		@media (max-width: 380px) {
+			max-width: 128px;
+		}
+
+		.tag {
+			position: absolute;
+			left: 4px;
+			top: 4px;
+			z-index: 3;
+		}
+	}
+
+	// ##################################################
+
+	&__content {
+		position: relative;
+		display: flex;
+		gap: 12px;
+		padding: 6px 0;
+		justify-content: space-between;
+
+		// Mobile
+		@media #{$breakpoint-xs-only} {
+			padding: 0;
+		}
+
+		&-left {
+			display: flex;
+			align-items: flex-start;
+			flex-direction: column;
+			gap: 4px;
+		}
+	}
+
+	// ##################################################
+
+	&__counter {
+		position: relative;
+		z-index: 5;
+		display: flex;
+		flex-direction: row-reverse;
+		gap: 6px;
+	}
+
+	// ##################################################
+
+	&__heading {
+		margin-bottom: 2px;
+		letter-spacing: 0;
+		font-size: 16px;
+	}
+
+	// ##################################################
+
+	&__detail {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+	}
+
+	// ##################################################
+
+	&__notes {
+		margin-bottom: 8px;
+	}
+
+	// ##################################################
+
+	&__footer {
+		margin: auto 0;
+		display: flex;
+		gap: 12px;
+		flex-shrink: 0;
+		flex-direction: column;
+		align-items: flex-end;
+	}
+
+	// ##################################################
+
+	.tag {
+		min-height: 24px;
+		padding: 2px 6px;
+
+		// Mobile
+		@media #{$breakpoint-xs-only} {
+			order: 9;
+		}
+	}
+
+	// ##################################################
+
+	&__quantity {
+		position: absolute;
+		left: -5px;
+		top: -5px;
+		background-color: var(--color-blue-500);
+		color: var(--color-white);
+		width: 26px;
+		height: 26px;
+		border-radius: 100%;
+		z-index: 3;
+	}
+
+	// ##################################################
+
+	&__amount {
+		display: flex;
+		gap: 12px;
+		align-items: center;
+		justify-content: flex-end;
+		margin-top: auto;
+
+		&-left {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-end;
+		}
+	}
+
+	// ##################################################
+
+	&__delete {
+		flex-shrink: 0;
+		z-index: 5;
+		width: 30px;
+		height: 30px;
+		border-radius: 100%;
+		transition: background-color 80ms var(--easing-slow), transform 80ms var(--easing-slow);
+
+		// ##################################################
+
+		&:hover {
+			background-color: var(--color-gray-200);
+		}
+
+		// ##################################################
+
+		&:active {
+			// Tablet P and up
+			@media #{$breakpoint-sm-up} {
+				transform: scale(0.95);
+			}
+		}
+
+		@media (hover: none) {
+			&:active {
+				// Mobile
+				@media #{$breakpoint-xs-only} {
+					transform: scale(0.95);
+				}
+			}
+		}
+	}
+
+	// ##################################################
+
+	&__info {
+		display: grid;
+		gap: 2px;
+	}
+}

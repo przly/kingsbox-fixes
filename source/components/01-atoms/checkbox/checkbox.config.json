@@ -1,0 +1,31 @@
+{
+	"title": "Checkbox",
+	"status": "acceptance",
+	"notes": "Default Checkbox",
+
+	"default": "default",
+	"variants": [
+		{
+			"name": "default",
+			"context": {
+				"select__type": "checkbox",
+				"checkbox": {
+					"text__name": "checkbox",
+					"text__id": "checkbox",
+					"text__text": "Lorem ipsum dolor sit amet <a href='#'>read more</a>."
+				}
+			}
+		},
+		{
+			"name": "button",
+			"context": {
+				"select__type": "button",
+				"checkbox": {
+					"text__name": "checkbox",
+					"text__id": "checkbox",
+					"text__text": "Button"
+				}
+			}
+		}
+	]
+}

@@ -1,0 +1,25 @@
+//**********************************************************
+// 404
+//**********************************************************
+
+@import '../../../scss/import';
+
+.noscript {
+	display: block;
+	width: 100%;
+	position: relative;
+	z-index: $zindex_noscript;
+
+	&__content {
+		background-color: #ffc107;
+		border: 4px solid black;
+		color: black;
+		display: flex;
+		flex-flow: column;
+		justify-content: center;
+		align-items: center;
+		padding: 40px;
+		text-align: center;
+		width: 100%;
+	}
+}

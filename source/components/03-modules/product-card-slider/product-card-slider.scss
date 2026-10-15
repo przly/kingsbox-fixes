@@ -1,0 +1,13 @@
+// **************************************************
+// Product Card Slider
+// **************************************************
+
+@import '../../../scss/import';
+
+.product-card-slider {
+	overflow: hidden;
+
+	.card-slider {
+		overflow: visible;
+	}
+}

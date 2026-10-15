@@ -1,0 +1,87 @@
+<div
+	data-component="mol-card-slider"
+	class="card-slider"
+	{{ not section_parent ? 'data-slider-parent' }}
+	data-select-col="{{ card_slider.select__cols }}"
+	data-gap="{{ slide_gap|default('10') }}"
+>
+	<div class="card-slider__top : mb-24">
+		{% include '@molecules/section-header/section-header.twig' with {
+			slider_nav: card_slider.select__card == 'faq' ? false : true,
+			button_remove_icon: true,
+			button_modifier: card_slider.boolean__dark_bg ? 'transparent-white' : 'gray',
+			section_header: {
+				textarea__title: card_slider.text__title,
+				link__button: card_slider.link__link,
+				button_target: card_slider.link_target,
+				button_rel: card_slider.link_rel,
+				button_text: card_slider.link_text
+			}
+		} %}
+	</div>
+
+	<div class="card-slider__inner">
+		{% if card_slider.select__card == 'faq' %}
+			{% include '@molecules/accordion-list/accordion-list.twig' with {
+				accordion_list: {
+					repeater__items: card_slider.repeater__items
+				}
+			} %}
+		{% else %}
+			<div class="swiper" data-slider="card-slider">
+				<div class="swiper-wrapper">
+					{% for item in card_slider.repeater__items %}
+						<div class="swiper-slide">
+							{% if card_slider.select__card == 'product-card' %}
+								{% include '@molecules/product-card/product-card.twig' with {
+									product_card: item
+								} %}
+							{% elseif card_slider.select__card == 'instructions-card' %}
+								{% include '@molecules/instructions-card/instructions-card.twig' with {
+									instructions_card: item
+								} %}
+							{% elseif card_slider.select__card == 'case-study-card' %}
+								{% include '@molecules/case-study-card/case-study-card.twig' with {
+									select__variation: 'default',
+									case_study_card: item
+								} %}
+							{% elseif card_slider.select__card == 'article-card' %}
+								{% include '@molecules/news-card/news-card.twig' with {
+									select__type: 'default',
+									news_card: item
+								} %}
+							{% elseif card_slider.select__card == 'help-card' %}
+								{% include '@molecules/help-card/help-card.twig' with {
+									help_card: item
+								} %}
+							{% elseif card_slider.select__card == 'showcase-card' %}
+								{% include '@molecules/showcase-card/showcase-card.twig' with {
+									showcase_card: item
+								} %}
+							{% elseif card_slider.select__card == 'review-card' %}
+								{% include '@molecules/review-card/review-card.twig' with {
+									review_card: item
+								} %}
+							{% else %}
+
+							{% endif %}
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+		{% endif %}
+	</div>
+
+	{% if card_slider.link__link or card_slider.link_text %}
+		{% include '@molecules/section-footer/section-footer.twig' with {
+			button_remove_icon: true,
+			button_modifier: card_slider.boolean__dark_bg ? 'transparent-white' : 'gray',
+			section_footer: {
+				link__button: card_slider.link__link,
+				button_target: card_slider.link_target,
+				button_rel: card_slider.link_rel,
+				button_text: card_slider.link_text
+			}
+		} %}
+	{% endif %}
+</div>

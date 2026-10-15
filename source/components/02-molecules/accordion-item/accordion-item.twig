@@ -1,0 +1,57 @@
+<div
+	data-component="mol-accordion-item"
+	class="accordion-item : rounded-8 : border-gray-200 : {{ accordion_item.boolean__expanded ? 'is-open' }} {{
+	secondary
+		? 'accordion-item--secondary'
+	}}"
+>
+	<button type="button" class="accordion-item__title : d-flex-cc">
+		<span>{{ accordion_item.text__title }}</span>
+		{% if accordion_item.text__added_item_label %}
+			<span class="accordion-item__added-items : bg-black : font-secondary : lt-0 : hide">
+				<span data-added-items></span> {{ accordion_item.text__added_item_label }}
+			</span>
+		{% endif %}
+
+		{% if secondary %}
+			<span class="accordion-item__icon"></span>
+		{% else %}
+			{% include '@atoms/icons/icons.twig' with {
+				icon_modifier: 'chevron-down'
+			} %}
+		{% endif %}
+	</button>
+
+	<div
+		class="accordion-item__content : text--14 : text--gray-400"
+		{{ accordion_item.boolean__expanded ? 'style="display: block; box-sizing: border-box;"' }}
+	>
+		{% if accordion_item.wysiwyg__text %}
+			{% include '@modules/editor-text/editor-text.twig' with {
+				editor_container: false,
+				editor_content: accordion_item.wysiwyg__text
+			} %}
+		{% endif %}
+
+		{% if accordion_item.repeater__items %}
+			<div class="accordion-item__list : text--12 : text--md : text--gray-900">
+				{% for item in accordion_item.repeater__items %}
+					<div class="accordion-item__list-item">
+						<div class="accordion-item__list-left">{{ item.text__left }}</div>
+						<div class="accordion-item__list-right">{{ item.text__right }}</div>
+					</div>
+				{% endfor %}
+			</div>
+		{% endif %}
+
+		{% if accordion_item.repeater__accessory_card %}
+			<div class="accordion-item__cards">
+				{% for item in accordion_item.repeater__accessory_card %}
+					{% include '@molecules/product-accessory-card/product-accessory-card.twig' with {
+						product_accessory_card: item
+					} %}
+				{% endfor %}
+			</div>
+		{% endif %}
+	</div>
+</div>
