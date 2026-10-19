@@ -83,6 +83,8 @@ export default defineConfig({
         'section-header': resolve(root, 'section-header/index.html'),
         'faq-module': resolve(root, 'faq-module/index.html'),
         'wishlist-button': resolve(root, 'wishlist-button/index.html'),
+        'copy-cart-link': resolve(root, 'copy-cart-link/index.html'),
+        'free-shipping': resolve(root, 'free-shipping/index.html'),
         home: resolve(root, 'home/index.html'),
       },
     },

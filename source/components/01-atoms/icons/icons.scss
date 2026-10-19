@@ -91,6 +91,15 @@
 
 	// ##################################################
 
+	&-checkmark {
+		&:before {
+			-webkit-mask-image: url('data:image/svg+xml,#{$icon_checkmark}');
+			mask-image: url('data:image/svg+xml,#{$icon_checkmark}');
+		}
+	}
+
+	// ##################################################
+
 	&-close {
 		width: 20px;
 		height: 20px;

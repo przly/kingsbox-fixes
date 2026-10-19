@@ -1085,26 +1085,100 @@ const validateEmail = (value) => {
 // Copied To Clipboard
 // *******************************************************************************
 
+const copyFeedbackDuration = 2000;
+const copyResetTimers = new WeakMap();
+
+const getCopiedText = (button) => button.dataset.copiedText || 'Link copied';
+
+// Adds the "copied" label, the check icon and a screen reader status next to the button's own label and icon,
+// so the twig stays unchanged. The styles for both states are in button.scss.
+const setupCopyButton = (button) => {
+  if (button.dataset.copyReady !== undefined) return;
+  button.dataset.copyReady = '';
+
+  const text = button.querySelector('.btn__text');
+  const icon = button.querySelector('.btn__icon');
+
+  if (text) {
+    text.innerHTML = `<span class="btn__text-default">${text.innerHTML}</span><span class="btn__text-copied" aria-hidden="true">${getCopiedText(button)}</span>`;
+  }
+  if (icon) icon.insertAdjacentHTML('beforeend', '<i class="icon : icon-checkmark : btn__icon-copied" aria-hidden="true"></i>');
+  button.insertAdjacentHTML('beforeend', '<span class="sr-only" role="status"></span>');
+
+  // Back to auto once the width animation is done, so the button keeps hugging its label (font load, resize)
+  text?.addEventListener('transitionend', (event) => {
+    if (event.target === text && event.propertyName === 'width') text.style.width = '';
+  });
+
+  button.addEventListener('transitionend', (event) => {
+    if (event.target === button && event.propertyName === 'background-color') button.classList.remove('is-copy-swapping');
+  });
+
+  // Commits the start styles, so the first copy animates even when the button is set up on that click
+  button.offsetWidth;
+};
+
+// The button hugs its visible label. Width can't transition to auto, so the label's width is measured before and
+// after the change, and animated between the two in px (transition in button.scss)
+const swapCopyState = (button, change) => {
+  const text = button.querySelector('.btn__text');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Turns on the background colour fade for this swap only (button.scss)
+  button.classList.add('is-copy-swapping');
+
+  if (!text || reduceMotion) {
+    change();
+    return;
+  }
+
+  // Computed width, so the press scale (button.scss :active) is not measured. Read before clearing, so an
+  // animation that is still running continues from where it is
+  const getWidth = () => parseFloat(getComputedStyle(text).width) || 0;
+  const from = getWidth();
+  text.style.width = '';
+  change();
+  const to = getWidth();
+
+  // Nothing to animate, e.g. below 480px, where the label is hidden
+  if (from === to) return;
+
+  text.style.width = `${from}px`;
+  text.offsetWidth;
+  text.style.width = `${to}px`;
+};
+
+document.querySelectorAll('[data-copy-button]').forEach(setupCopyButton);
+
 document.addEventListener('click', async (event) => {
   const button = event.target.closest('[data-copy-button]');
-  if (!button || button.disabled) return;
+  if (!button) return;
 
   const copyValue = button.dataset.copyText || window.location.href;
   if (!copyValue) return;
 
   try {
     await navigator.clipboard.writeText(copyValue);
-
-    button.classList.add('is-disabled');
-    button.disabled = true;
-
-    setTimeout(() => {
-      button.classList.remove('is-disabled');
-      button.disabled = false;
-    }, 1000);
   } catch (error) {
     console.error('Copy failed:', error);
+    return;
   }
+
+  setupCopyButton(button);
+
+  const status = button.querySelector('[role="status"]');
+  if (!button.classList.contains('is-copied')) swapCopyState(button, () => button.classList.add('is-copied'));
+  status.textContent = getCopiedText(button);
+
+  // Copying again while "copied" shows restarts the timer
+  clearTimeout(copyResetTimers.get(button));
+  copyResetTimers.set(
+    button,
+    setTimeout(() => {
+      swapCopyState(button, () => button.classList.remove('is-copied'));
+      status.textContent = '';
+    }, copyFeedbackDuration),
+  );
 });
 
 // *******************************************************************************

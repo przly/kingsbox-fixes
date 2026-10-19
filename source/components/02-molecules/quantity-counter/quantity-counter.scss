@@ -88,5 +88,69 @@
 		&:disabled {
 			opacity: 1;
 		}
+
+		// The number shows in .quantity-counter__values instead, so it can animate
+		.has-value-swap & {
+			color: transparent;
+		}
+	}
+
+	// ##################################################
+	// Value change (quantity-counter.js): the copy button's label swap, laid over the input, which keeps the value.
+	// Going up, the old number moves up and blurs away while the new one comes up from below; going down, the other way
+
+	&__value-wrap {
+		position: relative;
+		display: block;
+	}
+
+	&__values {
+		position: absolute;
+		inset: 0;
+		display: grid;
+		place-items: center;
+		pointer-events: none;
+		font-weight: 500;
+		font-family: var(--font-secondary);
+		font-size: 12px;
+		color: var(--color-gray-900);
+
+		.bg-black & {
+			color: var(--color-white);
+		}
+	}
+
+	&__value {
+		grid-area: 1 / 1;
+
+		&.is-entering {
+			animation: text-swap-in 150ms ease-in-out;
+		}
+
+		&.is-leaving {
+			animation: text-swap-out 150ms ease-in-out forwards;
+		}
+
+		// The number moves with its change: up when it grows, down when it shrinks
+		&.is-down.is-entering {
+			animation-name: text-swap-in-down;
+		}
+
+		&.is-down.is-leaving {
+			animation-name: text-swap-out-down;
+		}
+
+		@media (prefers-reduced-motion: reduce) {
+			&.is-entering,
+			&.is-leaving,
+			&.is-down.is-entering,
+			&.is-down.is-leaving {
+				animation-name: text-swap-fade-in;
+			}
+
+			&.is-leaving {
+				animation-direction: reverse;
+			}
+		}
 	}
 }

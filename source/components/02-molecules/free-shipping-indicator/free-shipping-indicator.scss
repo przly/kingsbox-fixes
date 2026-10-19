@@ -11,7 +11,13 @@
 	padding: 20px;
 	max-width: 550px;
 	position: relative;
-	display: block;
+	// A grid, so the two texts ("add … more" and "ships for free") share one cell and can swap in place.
+	// The dotted background (::before) is absolute, so it takes no cell
+	display: grid;
+	grid-template-columns: minmax(0, 1fr);
+	// .gray-dotted-box sets a 20px gap, which did nothing while the card was display: block. The texts' own 16px
+	// margin is the spacing
+	gap: 0;
 
 	// Mobile
 	@media #{$breakpoint-xs-only} {
@@ -68,6 +74,61 @@
 
 	// ##################################################
 
+	// Amount change (sandbox/free-shipping.js): the same swap as the copy button's label (button.scss), and the pill
+	// resizes to the new amount. Like the quantity counter, it moves up when the amount grows and down when it shrinks
+	&__text:not(.free-shipping-indicator__free) strong {
+		white-space: nowrap;
+		// The amounts are clipped at the sides while the width catches up, not top and bottom, so the 4px slide shows
+		overflow-x: clip;
+		transition: width 250ms cubic-bezier(0.22, 1, 0.36, 1);
+	}
+
+	// Holds the amounts, so the leaving one can sit on top of the new one inside the pill's padding
+	&__amount-values {
+		position: relative;
+		display: inline-block;
+	}
+
+	&__amount-value {
+		display: inline-block;
+
+		&.is-entering {
+			animation: text-swap-in 150ms ease-in-out;
+		}
+
+		&.is-leaving {
+			position: absolute;
+			top: 0;
+			left: 0;
+			animation: text-swap-out 150ms ease-in-out forwards;
+		}
+
+		// The amount moves with its change, like the quantity counter: up when it grows, down when it shrinks
+		&.is-down.is-entering {
+			animation-name: text-swap-in-down;
+		}
+
+		&.is-down.is-leaving {
+			animation-name: text-swap-out-down;
+		}
+
+		// Only fades, like the copy button
+		@media (prefers-reduced-motion: reduce) {
+			&.is-entering,
+			&.is-leaving,
+			&.is-down.is-entering,
+			&.is-down.is-leaving {
+				animation-name: text-swap-fade-in;
+			}
+
+			&.is-leaving {
+				animation-direction: reverse;
+			}
+		}
+	}
+
+	// ##################################################
+
 	&__free {
 		display: none;
 
@@ -79,6 +140,63 @@
 
 		.is-free & {
 			display: block;
+		}
+	}
+
+	// ##################################################
+	// State switch (free-shipping-indicator.js): the texts swap like the copy button's label. To free shipping, the
+	// old text moves up and blurs away while "ships for free" comes up from below; back, the other way (is-down)
+
+	&__text {
+		grid-area: 1 / 1;
+	}
+
+	&__inner {
+		grid-area: 2 / 1;
+	}
+
+	& &__text.is-leaving {
+		// Stays visible on top of the new text until it has gone
+		display: block;
+		animation: text-swap-out 150ms ease-in-out forwards;
+	}
+
+	& &__text.is-entering {
+		animation: text-swap-in 150ms ease-in-out;
+	}
+
+	& &__text.is-down.is-leaving {
+		animation-name: text-swap-out-down;
+	}
+
+	& &__text.is-down.is-entering {
+		animation-name: text-swap-in-down;
+	}
+
+	// Reaching free shipping is a moment, so it gets more than the swap back (is-celebrating, set by the script):
+	// "ships for free" rises further and slower, then the green "free" pill pops in with an overshoot, rising and
+	// sharpening like a success check.
+	// Going back stays the quick swap above
+	&.is-celebrating &__free.is-entering {
+		animation: free-shipping-reveal 500ms cubic-bezier(0.22, 1, 0.36, 1);
+	}
+
+	&.is-celebrating &__free strong {
+		animation: free-shipping-pop 500ms cubic-bezier(0.34, 1.56, 0.64, 1) 80ms both;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		& &__text.is-entering,
+		& &__text.is-leaving,
+		& &__text.is-down.is-entering,
+		& &__text.is-down.is-leaving,
+		&.is-celebrating &__free.is-entering,
+		&.is-celebrating &__free strong {
+			animation-name: text-swap-fade-in;
+		}
+
+		& &__text.is-leaving {
+			animation-direction: reverse;
 		}
 	}
 
@@ -117,14 +235,25 @@
 
 		&-inner {
 			position: relative;
-			transition: width 300ms var(--easing-slow);
-			flex-shrink: 0;
+			// Same as the amount pill's resize, so the bar and the amount settle together
+			transition: width 250ms cubic-bezier(0.22, 1, 0.36, 1);
+			// The width goes past 100% once shipping is free. Capped and allowed to shrink, the bar always fits in
+			// the track next to the striped part, so its rounded right end is never clipped
+			max-width: 100%;
+			flex-shrink: 1;
 			border-radius: 4px;
 			background-color: var(--color-gray-900);
 		}
 
 		&-extra {
 			flex: auto;
+
+			// Full: the bar takes the whole track. Free shipping starts at the dashed line, before the end, so this is
+			// is-full (set at 100%), not is-free
+			.is-full & {
+				display: none;
+			}
+
 			border-radius: 4px;
 			// background-color: var(--color-gray-300);
 			border: 2px solid var(--color-gray-300);
@@ -136,5 +265,21 @@
 				$cgp_gray_200 4px
 			);
 		}
+	}
+}
+
+@keyframes free-shipping-reveal {
+	from {
+		opacity: 0;
+		transform: translateY(12px);
+		filter: blur(3px);
+	}
+}
+
+@keyframes free-shipping-pop {
+	from {
+		opacity: 0;
+		transform: translateY(8px) scale(0.5);
+		filter: blur(8px);
 	}
 }

@@ -53,3 +53,51 @@
 		transform: scale(1);
 	}
 }
+
+//*******************************************************************************
+// TEXT SWAP
+// The copy button's label swap (button.scss), as keyframes for text that is replaced by a script: the old text
+// moves up and blurs away while the new one comes up from below. Used by the free shipping amount and the
+// quantity counter
+//*******************************************************************************
+
+@keyframes text-swap-in {
+	from {
+		opacity: 0;
+		transform: translateY(4px);
+		filter: blur(2px);
+	}
+}
+
+@keyframes text-swap-out {
+	to {
+		opacity: 0;
+		transform: translateY(-4px);
+		filter: blur(2px);
+	}
+}
+
+// The same swap the other way: the old text moves down while the new one comes from above. For numbers that go
+// down (quantity counter)
+@keyframes text-swap-in-down {
+	from {
+		opacity: 0;
+		transform: translateY(-4px);
+		filter: blur(2px);
+	}
+}
+
+@keyframes text-swap-out-down {
+	to {
+		opacity: 0;
+		transform: translateY(4px);
+		filter: blur(2px);
+	}
+}
+
+// Reduced motion: fade only
+@keyframes text-swap-fade-in {
+	from {
+		opacity: 0;
+	}
+}
