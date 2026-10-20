@@ -1,0 +1,154 @@
+<section
+	data-component="mod-product-list"
+	class="sc-general : sc-product-list"
+	{{ product_list.text__id ? 'id="' ~ product_list.text__id ~ '"' }}
+	data-post-id="{{ product_list.post_id|default('')|e('html_attr') }}"
+	data-module-index="{{ product_list.module_index|default('')|e('html_attr') }}"
+	data-categories="{{ product_list.product_category_ids|default([])|join(',')|e('html_attr') }}"
+	data-per-page="{{ product_list.per_page|default(12)|e('html_attr') }}"
+	data-current-page="{{ product_list.current_page|default(1)|e('html_attr') }}"
+>
+	{% include '@atoms/section-margin/section-margin.twig' with {
+		default_24_spacing: true,
+		spacing_size: product_list.select__top_spacing_size
+	} %}
+
+	<div class="product-list" data-filter-parent>
+		<div class="container">
+			{% if product_list.repeater__breadcrumbs %}
+				{% include '@molecules/breadcrumbs/breadcrumbs.twig' with {
+					breadcrumbs: {
+						items: product_list.repeater__breadcrumbs
+					}
+				} %}
+			{% endif %}
+
+			<div class="product-list__header : mt-60">
+				{% if product_list.text__title %}
+					{% include '@atoms/title/title.twig' with {
+						modifier: 'h1',
+						tag: 'h1',
+						secondary: true,
+						title: product_list.text__title
+					} %}
+				{% endif %}
+			</div>
+
+			{% if product_list.repeater__buttons|length %}
+				<div class="product-list__buttons : mb-32">
+					{% include '@molecules/buttons-filter/buttons-filter.twig' with {
+						buttons_filter: {
+							repeater__buttons: product_list.repeater__buttons
+						}
+					} %}
+				</div>
+			{% endif %}
+
+			<div class="product-list__inner">
+				{% if product_list.product_filter %}
+					<div class="product-list__status : text--12 : text--md">
+						<button
+							class="product-filter__toggle-button : product-filter__btn"
+							type="button"
+							data-filter-modal-trigger
+						>
+							<span class="product-filter__btn-icon : p-none">
+								{% include '@atoms/icons/icons.twig' with {
+									icon_modifier: 'filter'
+								} %}
+
+								{% include '@atoms/icons/icons.twig' with {
+									icon_modifier: 'filter-close'
+								} %}
+							</span>
+
+							<span class="product-filter__toggle-button-show : p-none">
+								{{ product_list.text__show_filter_button }}
+							</span>
+							<span class="product-filter__toggle-button-hide : p-none : hide">
+								{{ product_list.text__hide_filter_button }}
+							</span>
+						</button>
+
+						<div class="product-filter__row--selected-items">
+							<div class="product-filter__selected-list">
+								{% if product_list.text__reset_button %}
+									<div class="product-filter__reset-btn-wrapper">
+										<button
+											type="button"
+											class="product-filter__reset-btn : product-filter__btn"
+											data-reset-filter
+										>
+											{% include '@atoms/icons/icons.twig' with {
+												icon_modifier: 'trash'
+											} %}
+											<span class="p-none">{{ product_list.text__reset_button }}</span>
+										</button>
+									</div>
+								{% endif %}
+							</div>
+						</div>
+
+						<div class="product-list__status-right">
+							<div class="product-list__results-text">{{ product_list.text__total_results }}</div>
+							<span class="product-list__separator"></span>
+							{% include '@atoms/sort-dropdown/sort-dropdown.twig' with {
+								sort_dropdown: product_list.sort_dropdown
+							} %}
+						</div>
+					</div>
+				{% endif %}
+
+				<div class="product-list__row">
+					{% include '@molecules/product-filter/product-filter.twig' with {
+						product_filter: product_list.product_filter
+					} %}
+
+					<div class="product-list__list" data-product-list-items>
+						{% for item in product_list.repeater__items %}
+							{% if item.case_study_card %}
+								{% set is_large = item.case_study_card.select__variation == 'large' %}
+								<div class="product-list__list-item {{ is_large ? 'span-2' }}">
+									{% include '@molecules/case-study-card/case-study-card.twig' with {
+										select__variation: is_large ? 'large' : 'default',
+										boolean__mono_font: is_large ? true : false,
+										case_study_card: item.case_study_card
+									} %}
+								</div>
+							{% else %}
+								<div class="product-list__list-item">
+									{% include '@molecules/product-card/product-card.twig' with {
+										product_card: item
+									} %}
+								</div>
+							{% endif %}
+						{% endfor %}
+					</div>
+				</div>
+
+				{% if product_list.text__load_more_button and product_list.boolean__has_more %}
+					<div class="product-list__footer : text-center" data-product-list-load-more>
+						<div class="product-list__load-more">
+							{% include '@atoms/button/button.twig' with {
+								type: 'button',
+								class_name: 'load-more-products',
+								remove_icon: true,
+								mono_font: true,
+								text: product_list.text__load_more_button
+							} %}
+
+							<span class="product-list__load-more-spinner" aria-hidden="true">
+								<span class="mod-loader__spinner"></span>
+							</span>
+						</div>
+					</div>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+
+	{% include '@atoms/section-margin/section-margin.twig' with {
+		default_160_spacing: true,
+		spacing_size: product_list.select__bottom_spacing_size
+	} %}
+</section>

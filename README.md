@@ -278,6 +278,22 @@ Clicking a product card heart updates the wishlist number on the navbar heart.
 - With `prefers-reduced-motion: reduce` the numbers only fade.
 - The swap keyframes (`text-swap-in`, `text-swap-out`, their `-down` versions and `text-swap-fade-in`) are shared in `_animations.scss`, and the free shipping amount uses them too.
 
+## Load more button
+
+`components/03-modules/product-list/`
+
+**Loading spinner** (`product-list.twig`, `product-list.scss`). While the next page loads, the "Load more" label swaps out for the spinner from the header search's dropdown (`mod-loader__spinner` from `@atoms/loader/`, 20px with a 2px border as in `header-search.scss`). The original showed nothing while loading.
+
+- `product-list.js` is unchanged: it already puts `is-loading` on the footer (`[data-product-list-load-more]`) while it fetches, and the styles hang off that class.
+- The label moves up 4px and fades out over 150ms `ease-in-out` (text swap). The spinner fades in and scales up from 0.25 over 250ms `ease-in-out` (icon swap). Both blur from `blur(2px)`, like the copy button's label and icon swap and the free shipping amount. They go back the same way when the page has loaded.
+- `@atoms/button/button.twig` takes no extra content, so the button and the spinner are wrapped in `.product-list__load-more`, and the spinner sits on top of the button.
+- The button shrinks to a square around the spinner (40px, 36px on Tablet P and down) and grows back when the page has loaded, over 250ms `cubic-bezier(0.22, 1, 0.36, 1)`, like the copy button's width. It's CSS only, so `product-list.js` needs no change: the label (`.btn__text`) is a grid with one column, which goes from `minmax(0, 1fr)` to `minmax(0, 0fr)` and clips the label, and the button's side padding grows to half its height. The wrapper hugs the button, so the spinner stays centred on it.
+- The spinner is the label's `--color-gray-100` instead of the search's `--color-gray-400`, which doesn't show on the black button.
+- The spinner turns once every 700ms, faster than the loader's 2s.
+- The button ignores clicks while loading (`pointer-events: none`), which would also drop its hover. Hovering `.product-list__load-more`, which is the button's size, gives it the hover background (`--color-gray-700`) instead, and pressing it scales the wrapper to 0.98 like the button's press, with the spinner inside. Hover and press work as in the default state.
+- With `prefers-reduced-motion: reduce` the label and the spinner only fade, without the move, scale or blur, and the width changes at once.
+- On `/load-more/` there is no backend, so `sandbox/load-more.js` sets `is-loading` for 1.5s on click.
+
 ## Page scrollbar
 
 `scss/base/_general.scss`, `components/03-modules/site-header/site-header.scss`
@@ -327,7 +343,8 @@ Run `pnpm dev` (port 3020). Each page is an `index.html` registered in `vite.con
 | `/wishlist-button/` | site header and three product cards with the wishlist button |
 | `/copy-cart-link/` | the side cart's "Copy Cart link" button and the product page's grey copy code button, on the side cart's white background |
 | `/free-shipping/` | the side cart's free shipping card with a quantity counter under it. + and − change the amount left and the progress bar (`sandbox/free-shipping.js`: quantity × 699 € against the 2.999 € threshold, which lands on the dashed line; at 5 the bar is past the line and the card shows "ships for free", from 6 the bar is full) |
+| `/load-more/` | the product listing's "Load more" button (`03-modules/product-list/product-list.twig`). Clicking it shows the loading spinner for 1.5s (`sandbox/load-more.js`), as `product-list.js` would while it loads the next page |
 
 - `/home/` is `04-templates/homepage/homepage.twig` rendered by Fractal with the context from `homepage.config.json`. Asset paths point at `/source/`, and the two Google reCAPTCHA script tags are removed. `/faq-module/` is rendered the same way.
 - The components and images these pages need are copied from the Kingsbox repo unchanged, except where a section above lists a change.
-- `/home/`, `/faq-module/`, `/wishlist-button/`, `/copy-cart-link/` and `/free-shipping/` load `sandbox/home.js`. Like `bundle:user:js` in the Kingsbox repo, it concatenates `source/scripts` and every component script into one scope (the `virtual:kingsbox-bundle` plugin in `vite.config.js`), with the vendor libraries as globals (`sandbox/home-globals.js`). Lenis smooth scrolling is turned off.
+- `/home/`, `/faq-module/`, `/wishlist-button/`, `/copy-cart-link/`, `/free-shipping/` and `/load-more/` load `sandbox/home.js`. Like `bundle:user:js` in the Kingsbox repo, it concatenates `source/scripts` and every component script into one scope (the `virtual:kingsbox-bundle` plugin in `vite.config.js`), with the vendor libraries as globals (`sandbox/home-globals.js`). Lenis smooth scrolling is turned off.

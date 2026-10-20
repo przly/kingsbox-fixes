@@ -1,0 +1,314 @@
+// **************************************************
+// Product List
+// **************************************************
+
+@import '../../../scss/import';
+
+.product-list {
+	// ##################################################
+
+	.breadcrumbs {
+		margin-bottom: 16px;
+	}
+
+	// ##################################################
+
+	&__header {
+		margin-bottom: 18px;
+	}
+
+	// ##################################################
+
+	&__separator {
+		width: 0.5px;
+		height: 20px;
+		background-color: var(--color-gray-200);
+
+		// Tablet P and down
+		@media #{$breakpoint-sm-down} {
+			display: none;
+		}
+	}
+
+	// ##################################################
+
+	&__inner {
+		border-top: 0.5px solid var(--color-gray-200);
+	}
+
+	// ##################################################
+
+	&__list {
+		width: 100%;
+		display: grid;
+		grid-gap: 56px 10px;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+
+		// Tablet P and down
+		@media #{$breakpoint-sm-down} {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+
+		// Mobile
+		@media #{$breakpoint-xs-only} {
+			grid-template-columns: 1fr;
+			grid-gap: 40px;
+		}
+
+		// ##################################################
+
+		// stylelint-disable-next-line
+		.#{$class_open_filter} & {
+			// Tablet L and down
+			@media #{$breakpoint-md-down} {
+				grid-template-columns: repeat(2, minmax(0, 1fr));
+			}
+
+			// Mobile
+			@media #{$breakpoint-xs-only} {
+				grid-template-columns: 1fr;
+			}
+		}
+	}
+
+	// ##################################################
+
+	&__footer {
+		margin-top: 56px;
+
+		// Tablet P and down
+		@media #{$breakpoint-sm-down} {
+			margin-top: 40px;
+		}
+
+		// Load more loading state: product-list.js puts is-loading on the footer while the next page loads. The label
+		// swaps out for the header search's spinner (mod-loader__spinner, sized like in header-search.scss), blurred
+		// like the copy button's swaps. The spinner sits on top of the button in __load-more, because
+		// @atoms/button/button.twig takes no extra content.
+		// The button shrinks to a square around the spinner: the label's single grid column goes from 1fr to 0fr
+		// (so the width animates without JS or a fixed width) and the side padding grows to half the button's height
+		.load-more-products {
+			transition: padding 250ms cubic-bezier(0.22, 1, 0.36, 1);
+		}
+
+		.btn__text {
+			display: grid;
+			grid-template-columns: minmax(0, 1fr);
+			overflow: hidden;
+			white-space: nowrap;
+			transition:
+				grid-template-columns 250ms cubic-bezier(0.22, 1, 0.36, 1),
+				opacity 150ms ease-in-out,
+				transform 150ms ease-in-out,
+				filter 150ms ease-in-out;
+		}
+
+		&.#{$class_loading} {
+			// Ignores clicks, which also drops its :hover and :active. The pointer falls through to __load-more,
+			// which is the button's size, so that gets the button's hover background and press scale (button.scss).
+			// The press scales __load-more, so the spinner shrinks with the button
+			.load-more-products {
+				pointer-events: none;
+				padding-inline: 20px;
+
+				// Tablet P and down: the button is 36px high there
+				@media #{$breakpoint-sm-down} {
+					padding-inline: 18px;
+				}
+			}
+
+			.product-list__load-more:hover .load-more-products {
+				background-color: var(--color-gray-700);
+			}
+
+			.product-list__load-more:active {
+				transform: scale(0.98);
+			}
+
+			.btn__text {
+				grid-template-columns: minmax(0, 0fr);
+				opacity: 0;
+				transform: translateY(-4px);
+				filter: blur(2px);
+			}
+
+			.product-list__load-more-spinner {
+				opacity: 1;
+				transform: scale(1);
+				filter: none;
+			}
+		}
+
+		@media (prefers-reduced-motion: reduce) {
+			.btn__text,
+			.product-list__load-more-spinner,
+			&.#{$class_loading} .btn__text,
+			&.#{$class_loading} .product-list__load-more-spinner {
+				transform: none;
+				filter: none;
+			}
+
+			// The width changes at once, like the copy button
+			.load-more-products,
+			.btn__text {
+				transition-property: opacity;
+			}
+		}
+	}
+
+	&__load-more {
+		position: relative;
+		display: inline-flex;
+	}
+
+	&__load-more-spinner {
+		position: absolute;
+		inset: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		pointer-events: none;
+		opacity: 0;
+		transform: scale(0.25);
+		filter: blur(2px);
+		transition:
+			opacity 250ms ease-in-out,
+			transform 250ms ease-in-out,
+			filter 250ms ease-in-out;
+
+		.mod-loader__spinner {
+			width: 20px;
+			height: 20px;
+			border-width: 2px;
+			// The search's gray-400 doesn't show on the black button, so it takes the label's color
+			border-color: transparent var(--color-gray-100) var(--color-gray-100) var(--color-gray-100);
+			// One turn every 700ms instead of the loader's 2s
+			animation-duration: 700ms;
+		}
+	}
+
+	// ##################################################
+
+	&__row {
+		display: flex;
+	}
+
+	// ##################################################
+
+	&__status {
+		display: flex;
+		gap: 24px;
+		padding: 20px 0;
+		align-items: flex-start;
+
+		// Tablet P and down
+		@media #{$breakpoint-sm-down} {
+			flex-wrap: wrap;
+			gap: 8px;
+		}
+
+		&-right {
+			display: flex;
+			align-items: center;
+			gap: 12px;
+			margin-left: auto;
+		}
+	}
+
+	// ##################################################
+
+	.span-2 {
+		grid-column: span 2;
+
+		// Tablet P and down
+		@media #{$breakpoint-sm-down} {
+			grid-column: span 1;
+		}
+	}
+
+	// ##################################################
+
+	.case-study-card {
+		max-width: 100%;
+		height: 460px;
+
+		// Small desktop and down
+		@media #{$breakpoint-lg-down} {
+			height: 404px;
+		}
+
+		// Tablet L and down
+		@media #{$breakpoint-md-down} {
+			height: 322px;
+		}
+
+		// Tablet P and down
+		@media #{$breakpoint-sm-down} {
+			height: auto;
+			aspect-ratio: 1/1;
+		}
+
+		// ##################################################
+
+		&__image::before {
+			height: 65%;
+		}
+
+		// ##################################################
+
+		&--default {
+			padding: 24px;
+
+			.title {
+				font-size: 24px;
+			}
+
+			.btn {
+				min-height: 38px;
+				padding: 4px 12px;
+				margin-top: 16px;
+			}
+		}
+	}
+
+	// ##################################################
+
+	// stylelint-disable-next-line
+	&.#{$class_open_filter} {
+		// stylelint-disable-next-line
+		.case-study-card {
+			height: 345px;
+
+			// Small desktop and down
+			@media #{$breakpoint-lg-down} {
+				height: 286px;
+			}
+
+			// Tablet L and down
+			@media #{$breakpoint-md-down} {
+				height: auto;
+				aspect-ratio: 1/1;
+			}
+
+			// stylelint-disable-next-line
+			&__content {
+				// Tablet L and down
+				@media #{$breakpoint-md-down} {
+					flex-direction: column;
+					gap: 8px;
+					align-items: flex-start;
+				}
+			}
+		}
+
+		// ##################################################
+
+		// stylelint-disable-next-line
+		.span-2 {
+			// Tablet L and down
+			@media #{$breakpoint-md-down} {
+				grid-column: span 1;
+			}
+		}
+	}
+}

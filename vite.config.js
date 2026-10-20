@@ -85,6 +85,7 @@ export default defineConfig({
         'wishlist-button': resolve(root, 'wishlist-button/index.html'),
         'copy-cart-link': resolve(root, 'copy-cart-link/index.html'),
         'free-shipping': resolve(root, 'free-shipping/index.html'),
+        'load-more': resolve(root, 'load-more/index.html'),
         home: resolve(root, 'home/index.html'),
       },
     },

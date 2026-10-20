@@ -9,6 +9,7 @@ const routes = [
   ['/wishlist-button/', 'Wishlist button'],
   ['/copy-cart-link/', 'Copy cart link'],
   ['/free-shipping/', 'Free shipping'],
+  ['/load-more/', 'Load more'],
 ];
 
 // "/home", "/home/" and "/home/index.html" are the same page
