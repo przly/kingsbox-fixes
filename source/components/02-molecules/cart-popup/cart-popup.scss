@@ -32,15 +32,22 @@
 
 	// ##################################################
 
+	// The panel is a column: __scroll, which scrolls, then __footer (subtotal and buttons), which stays at the bottom.
+	// The padding is on the two parts, so they share it through these custom properties
 	&__inner {
+		--cart-popup-padding-top: 28px;
+		--cart-popup-padding-x: 24px;
+		--cart-popup-padding-bottom: 28px;
+
 		max-width: 716px;
 		width: 100%;
 		position: fixed;
 		right: 0;
 		top: 0;
 		background-color: var(--color-white);
-		padding: 28px 24px;
-		overflow: auto;
+		overflow: hidden;
+		display: flex;
+		flex-direction: column;
 		height: 100%;
 		// Closing takes 0.35s, opening 0.4s (.is-cart-open)
 		transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), visibility 0.35s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1),
@@ -48,14 +55,16 @@
 
 		// Tablet L and up
 		@media #{$breakpoint-md-up} {
-			@include scrollbar(4px, rgba($cgp_gray_400, 0.5), transparent, 8px);
 			transform: translateX(100%);
 		}
 
 		// Tablet P and down
 		@media #{$breakpoint-sm-down} {
+			--cart-popup-padding-top: 64px;
+			--cart-popup-padding-x: 30px;
+			--cart-popup-padding-bottom: 40px;
+
 			max-width: 100%;
-			padding: 64px 30px 40px;
 			top: initial;
 			bottom: 0;
 			height: calc(100% + 32px);
@@ -67,7 +76,7 @@
 
 		// Mobile
 		@media #{$breakpoint-xs-only} {
-			padding: 64px 16px 40px;
+			--cart-popup-padding-x: 16px;
 		}
 	}
 
@@ -160,6 +169,42 @@
 	.cart-view__item {
 		border-top: 0;
 		border-bottom: 0.5px solid var(--color-gray-100);
+	}
+
+	// ##################################################
+
+	// Everything but the footer: the header, the cart, the empty state and "Complete your products with…". It takes
+	// the space the footer leaves, and its scrollbar ends above the footer
+	&__scroll {
+		flex: 1;
+		min-height: 0;
+		overflow: auto;
+		padding: var(--cart-popup-padding-top) var(--cart-popup-padding-x) var(--cart-popup-padding-bottom);
+
+		// Tablet L and up
+		@media #{$breakpoint-md-up} {
+			@include scrollbar(4px, rgba($cgp_gray_400, 0.5), transparent, 8px);
+			// 12px between the content and the scrollbar
+			padding-right: 12px;
+		}
+	}
+
+	// Subtotal and buttons, under __scroll. The server sends them inside __content (cart-popup-content-axios.twig),
+	// and cart-popup.js moves them here. Until it has, they sit in the cart as before
+	&__inner > &__footer {
+		flex-shrink: 0;
+		padding: 0 var(--cart-popup-padding-x) var(--cart-popup-padding-bottom);
+
+		// The right padding is measured from the screen's edge. With scrollbars that take up space, the page keeps its
+		// scrollbar's strip free while the cart is open (scrollbar-gutter in _general.scss), and the panel ends there.
+		// The strip is as wide as --scroll-width (01_default.js), so it counts as part of the padding
+		@supports (scrollbar-gutter: stable) {
+			padding-right: max(0px, var(--cart-popup-padding-x) - var(--scroll-width, 0px));
+		}
+
+		.cart-popup__total {
+			margin-top: 0;
+		}
 	}
 
 	// ##################################################
@@ -286,6 +331,11 @@
 	&--empty {
 		.cart-popup__copy-btn,
 		.cart-popup__content {
+			display: none;
+		}
+
+		// It's outside __content, so it's hidden on its own
+		.cart-popup__footer {
 			display: none;
 		}
 

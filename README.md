@@ -295,6 +295,23 @@ Clicking a product card heart updates the wishlist number on the navbar heart.
 - With `prefers-reduced-motion: reduce` the label and the spinner only fade, without the move, scale or blur, and the width changes at once.
 - On `/load-more/` there is no backend, so `sandbox/load-more.js` sets `is-loading` for 1.5s on click.
 
+## Side cart
+
+`components/02-molecules/cart-popup/`, `components/02-molecules/cart-popup-content-axios/`
+
+**Pinned subtotal and buttons** (`cart-popup.twig`, `cart-popup-content-axios.twig`, `cart-popup.scss`, `cart-popup.js`). The subtotal, "Go to cart", "Proceed to checkout" and "Request a quote" stay at the bottom of the side cart, and everything above them scrolls: the header, the free shipping card, the items and "Complete your products with…". The scrollbar ends above them. In the original they scrolled with the rest, so on a full cart you had to scroll to reach checkout.
+
+- `.cart-popup__inner` is a column of two parts: `.cart-popup__scroll`, a new wrapper in `cart-popup.twig` around everything that scrolls, and `.cart-popup__footer` under it, which doesn't scroll. `.cart-popup__scroll` takes the space the footer leaves, and has the panel's padding and its thin scrollbar (moved from `.cart-popup__inner`).
+- The subtotal and buttons are wrapped in a new `.cart-popup__footer` in `cart-popup-content-axios.twig`. That template is what the server sends back after an add, remove or quantity change (`Cart.php`, `getCartContentHtml`), so every response has the footer, inside `.cart-popup__content`.
+- `cart-popup.js` moves the footer out of `.cart-popup__content`, after `.cart-popup__scroll`. It does this when the page loads and, through a `MutationObserver`, each time `.cart-popup__content`'s HTML is replaced (in `cart-popup.js` and in `product-module.js` after adding to cart). The new footer takes the old one's place, and if a response has no footer, the old one goes. The axios requests and `updateCartOnChange` are unchanged. The observer runs before the browser paints, so the footer doesn't flash in the cart first.
+- The scripts that read the footer find it wherever it is: `cart-view.js` reads `.cart-popup__total-row input` from the whole page.
+- Until the script has run, the footer sits in the cart as before.
+- On Tablet L and up the content ends 12px before the scrollbar (`padding-right: 12px` on `.cart-popup__scroll`, 24px before). The footer is 24px from the left of the panel and 24px from the right edge of the screen (30px and 16px on Tablet P and Mobile, where the panel is full width). With scrollbars that take up space (a mouse on Windows, or a Mac set to always show scrollbars), the page keeps its scrollbar's strip free while the cart is open (`scrollbar-gutter`, Page scrollbar section), and the panel ends at that strip. It's as wide as `--scroll-width` (measured in `01_default.js`), so the footer's right padding is 24px minus that (`max(0px, …)`). With overlay scrollbars it's 0 and the padding stays 24px.
+- The footer has the panel's side and bottom padding (28px, 40px on Tablet P and down). The padding values are custom properties on `.cart-popup__inner` (`--cart-popup-padding-top`, `--cart-popup-padding-x`, `--cart-popup-padding-bottom`), shared by the two parts.
+- The subtotal's top border is the footer's top edge, and its 8px top margin is gone there.
+- The footer is outside `.cart-popup__content`, so the empty cart hides it on its own (`.cart-popup--empty .cart-popup__footer`).
+- Applies on `/home/` too.
+
 ## Page scrollbar
 
 `scss/base/_general.scss`, `components/03-modules/site-header/site-header.scss`
@@ -345,7 +362,8 @@ Run `pnpm dev` (port 3020). Each page is an `index.html` registered in `vite.con
 | `/copy-cart-link/` | the side cart's "Copy Cart link" button and the product page's grey copy code button, on the side cart's white background |
 | `/free-shipping/` | the side cart's free shipping card with a light and a dark quantity counter under it. + and − on the light one change the amount left and the progress bar (`sandbox/free-shipping.js`: quantity × 699 € against the 2.999 € threshold, which lands on the dashed line; at 5 the bar is past the line and the card shows "ships for free", from 6 the bar is full) |
 | `/load-more/` | the product listing's "Load more" button (`03-modules/product-list/product-list.twig`). Clicking it shows the loading spinner for 1.5s (`sandbox/load-more.js`), as `product-list.js` would while it loads the next page |
+| `/side-cart/` | the side cart from `/home/` (`02-molecules/cart-popup/cart-popup.twig`, with the footer from the Side cart section), with an "Open cart" button that opens it (`.cart-popup-trigger`, like the header's cart icon) and a placeholder below it, so the page scrolls |
 
 - `/home/` is `04-templates/homepage/homepage.twig` rendered by Fractal with the context from `homepage.config.json`. Asset paths point at `/source/`, and the two Google reCAPTCHA script tags are removed. `/faq-module/` is rendered the same way.
 - The components and images these pages need are copied from the Kingsbox repo unchanged, except where a section above lists a change.
-- `/home/`, `/faq-module/`, `/wishlist-button/`, `/copy-cart-link/`, `/free-shipping/` and `/load-more/` load `sandbox/home.js`. Like `bundle:user:js` in the Kingsbox repo, it concatenates `source/scripts` and every component script into one scope (the `virtual:kingsbox-bundle` plugin in `vite.config.js`), with the vendor libraries as globals (`sandbox/home-globals.js`). Lenis smooth scrolling is turned off.
+- `/home/`, `/faq-module/`, `/wishlist-button/`, `/copy-cart-link/`, `/free-shipping/`, `/load-more/` and `/side-cart/` load `sandbox/home.js`. Like `bundle:user:js` in the Kingsbox repo, it concatenates `source/scripts` and every component script into one scope (the `virtual:kingsbox-bundle` plugin in `vite.config.js`), with the vendor libraries as globals (`sandbox/home-globals.js`). Lenis smooth scrolling is turned off.

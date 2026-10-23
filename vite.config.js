@@ -86,6 +86,7 @@ export default defineConfig({
         'copy-cart-link': resolve(root, 'copy-cart-link/index.html'),
         'free-shipping': resolve(root, 'free-shipping/index.html'),
         'load-more': resolve(root, 'load-more/index.html'),
+        'side-cart': resolve(root, 'side-cart/index.html'),
         home: resolve(root, 'home/index.html'),
       },
     },

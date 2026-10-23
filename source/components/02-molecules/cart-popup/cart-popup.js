@@ -43,6 +43,34 @@ const setIconAnimation = (item) => {
 
 if (cartPopupElem) {
   // **********************************************************
+  // Pin Subtotal And Buttons Under The Scrolling Part
+  // **********************************************************
+  // The server sends the subtotal and buttons (__footer) inside __content, which scrolls. They're moved out, after
+  // __scroll, so they stay at the bottom. This runs again each time __content's HTML is replaced (here and in
+  // product-module.js), and the new footer takes the old one's place
+  const cartPopupInner = cartPopupElem.querySelector('.cart-popup__inner');
+  const cartPopupContent = cartPopupElem.querySelector('.cart-popup__content');
+
+  const placeCartPopupFooter = () => {
+    const footer = cartPopupContent.querySelector(':scope > .cart-popup__footer');
+    cartPopupInner.querySelector(':scope > .cart-popup__footer')?.remove();
+    if (footer) {
+      cartPopupInner.append(footer);
+    }
+  };
+
+  if (cartPopupInner && cartPopupContent) {
+    placeCartPopupFooter();
+
+    // Only when new HTML arrives: moving the footer out also changes __content, which must not remove it again
+    new MutationObserver((records) => {
+      if (records.some((record) => record.addedNodes.length)) {
+        placeCartPopupFooter();
+      }
+    }).observe(cartPopupContent, { childList: true });
+  }
+
+  // **********************************************************
   // Open Cart Popup
   // **********************************************************
 

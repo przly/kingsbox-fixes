@@ -7089,6 +7089,8 @@
 >
 	<div class="cart-popup__overlay : covered"></div>
 	<div class="cart-popup__inner" data-lenis-prevent>
+		<!-- Everything but the footer scrolls. cart-popup.js moves __footer out of __content, after this -->
+		<div class="cart-popup__scroll">
 					<div class="cart-popup__header">
 				<div class="cart-popup__title">
 						
@@ -7567,6 +7569,7 @@
 					</div>
 	</div>
 
+	<div class="cart-popup__footer">
 	<div class="cart-popup__total : text--bd : text--20 : lt-0">
 		<div class="cart-popup__total-row" data-animated-price-parent>
 			<input
@@ -7675,6 +7678,7 @@
 									<span class="btn__text">Request a quote with those products</span>
 									<span class="btn__icon : d-flex-cc"><i class="icon : icon-history" aria-hidden="true"></i></span>
 			</a>
+	</div>
 	</div>
 
 		</div>
@@ -8112,6 +8116,7 @@
 	</div>
 											</div>
 							</div>
+		</div>
 			</div>
 </div>
 	<div

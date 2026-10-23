@@ -10,6 +10,7 @@ const routes = [
   ['/copy-cart-link/', 'Copy cart link'],
   ['/free-shipping/', 'Free shipping'],
   ['/load-more/', 'Load more'],
+  ['/side-cart/', 'Side cart'],
 ];
 
 // "/home", "/home/" and "/home/index.html" are the same page
