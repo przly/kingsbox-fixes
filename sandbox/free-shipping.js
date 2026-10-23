@@ -103,8 +103,11 @@ if (demo) {
     progress.style.width = `${getProgressPercent(total)}%`;
   };
 
-  // Sent by quantity-counter.js when + or - changes the value
-  demo.addEventListener('quantity-counter-change', update);
+  // Sent by quantity-counter.js when + or - changes the value. Only the light counter drives the card, the dark one
+  // is there to show its own instance
+  demo.addEventListener('quantity-counter-change', (event) => {
+    if (event.target.contains(input)) update();
+  });
 
   // The line's position depends on the track's width
   window.addEventListener('resize', update);

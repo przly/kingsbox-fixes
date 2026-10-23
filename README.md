@@ -275,6 +275,7 @@ Clicking a product card heart updates the wishlist number on the navbar heart.
 - The counter is a fixed 25px wide, so there is no width change.
 - On quick clicks, a number that is still leaving is removed at once.
 - Applies to every quantity counter: side cart, cart page, quote popup, accessories, accordions. In the side cart the server re-renders the cart after a change, which can replace the counter before the swap has finished.
+- The dark counter (inside `.bg-black`, as on accessory cards) swaps the same way, with white numbers. `/free-shipping/` shows both, light and dark; only the light one drives the free shipping card.
 - With `prefers-reduced-motion: reduce` the numbers only fade.
 - The swap keyframes (`text-swap-in`, `text-swap-out`, their `-down` versions and `text-swap-fade-in`) are shared in `_animations.scss`, and the free shipping amount uses them too.
 
@@ -342,7 +343,7 @@ Run `pnpm dev` (port 3020). Each page is an `index.html` registered in `vite.con
 | `/faq-module/` | FAQ module with 4 accordions, and 4 accordions in the secondary variant |
 | `/wishlist-button/` | site header and three product cards with the wishlist button |
 | `/copy-cart-link/` | the side cart's "Copy Cart link" button and the product page's grey copy code button, on the side cart's white background |
-| `/free-shipping/` | the side cart's free shipping card with a quantity counter under it. + and − change the amount left and the progress bar (`sandbox/free-shipping.js`: quantity × 699 € against the 2.999 € threshold, which lands on the dashed line; at 5 the bar is past the line and the card shows "ships for free", from 6 the bar is full) |
+| `/free-shipping/` | the side cart's free shipping card with a light and a dark quantity counter under it. + and − on the light one change the amount left and the progress bar (`sandbox/free-shipping.js`: quantity × 699 € against the 2.999 € threshold, which lands on the dashed line; at 5 the bar is past the line and the card shows "ships for free", from 6 the bar is full) |
 | `/load-more/` | the product listing's "Load more" button (`03-modules/product-list/product-list.twig`). Clicking it shows the loading spinner for 1.5s (`sandbox/load-more.js`), as `product-list.js` would while it loads the next page |
 
 - `/home/` is `04-templates/homepage/homepage.twig` rendered by Fractal with the context from `homepage.config.json`. Asset paths point at `/source/`, and the two Google reCAPTCHA script tags are removed. `/faq-module/` is rendered the same way.

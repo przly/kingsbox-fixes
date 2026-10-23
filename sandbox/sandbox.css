@@ -74,10 +74,20 @@ main.sandbox-no-header {
 	pointer-events: auto;
 }
 
-/* The quantity counter under the free shipping card (/free-shipping/) */
+/* The quantity counters under the free shipping card, light and dark side by side (/free-shipping/) */
 .sandbox-quantity {
 	display: flex;
+	align-items: center;
 	justify-content: center;
+	gap: 12px;
+}
+
+/* Black background for the dark counter (/free-shipping/) */
+.sandbox-dark-tile {
+	display: flex;
+	padding: 12px;
+	border-radius: 12px;
+	background-color: #000;
 }
 
 /* Page switcher in the bottom left corner of every page (sandbox/route-switcher.js). Above everything, the side cart

@@ -53,7 +53,7 @@
 						<!-- END: free-shipping-indicator -->
 
 						<!-- START: 02-molecules/quantity-counter/quantity-counter.twig, copied from a side cart item in /home/,
-						     starting at 3. It sits outside .cart-view__item, so cart-popup.js does not send it to the server -->
+						     starting at 3, light and dark. It sits outside .cart-view__item, so cart-popup.js does not send it to the server -->
 						<div class="sandbox-quantity">
 							<div data-component="mol-quantity-counter" class="quantity-counter" data-min-value="1">
 								<button
@@ -79,6 +79,36 @@
 								>
 									<i data-component="at-icon" class="icon : icon-plus "></i>
 								</button>
+							</div>
+
+							<!-- The same counter on a black background (.bg-black), the dark instance used on product accessory
+							     cards. sandbox/free-shipping.js ignores it, so only the light counter drives the card -->
+							<div class="bg-black : sandbox-dark-tile">
+								<div data-component="mol-quantity-counter" class="quantity-counter" data-min-value="1">
+									<button
+										type="button"
+										class="quantity-counter__button : d-flex-cc : quantity-counter__button--remove"
+										aria-label="Remove Button"
+									>
+										<i data-component="at-icon" class="icon : icon-minus "></i>
+									</button>
+									<input
+										class="quantity-counter__input"
+										type="text"
+										value="3"
+										id="counter-input-172"
+										name="counter-input"
+										aria-label="counter-input"
+										readonly
+									/>
+									<button
+										type="button"
+										class="quantity-counter__button : d-flex-cc : quantity-counter__button--add"
+										aria-label="Add Button"
+									>
+										<i data-component="at-icon" class="icon : icon-plus "></i>
+									</button>
+								</div>
 							</div>
 						</div>
 						<!-- END: quantity-counter -->
